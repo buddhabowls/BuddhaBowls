@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { text-align: center; }
+        ul { list-style-type: none; padding: 0; }
+        li { margin: 10px 0; }
+        a { text-decoration: none; color: #007BFF; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <ul>
+        <!-- Links to blog posts will be added here -->
+        <li><a href="4-tropical-fruit-nice-cream-recipes.html">4 Tropical Fruit Nice Cream Recipes</a></li>
+        <li><a href="5-common-mistakes-when-brushing-your-teeth.html">5 Common Mistakes When Brushing Your Teeth</a></li>
+        <!-- Add more posts here dynamically -->
+    </ul>
+</body>
+</html>
