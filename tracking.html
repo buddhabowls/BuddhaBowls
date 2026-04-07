@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - Buddha Bowls</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #ffcc00;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff5722;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #e64a19;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff5722;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e64a19;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffcc00;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Order Tracking</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop Products</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="tracking.html">Order Tracking</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Check Your Order Status</h2>
+    <p>Enter your order number or email address to track your purchase.</p>
+    <input type="text" id="orderInput" placeholder="Order Number or Email">
+    <button onclick="trackOrder()">Track Order</button>
+    <div id="trackingResult" style="margin-top: 20px;"></div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Buddha Bowls. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function trackOrder() {
+        const orderInput = document.getElementById('orderInput').value;
+        const trackingResult = document.getElementById('trackingResult');
+
+        // Simulate tracking logic (replace with actual tracking logic)
+        if (orderInput) {
+            trackingResult.innerHTML = `<p>Tracking information for order: <strong>${orderInput}</strong></p>
+                                         <p>Status: Your order is being processed.</p>`;
+        } else {
+            trackingResult.innerHTML = `<p style="color: red;">Please enter a valid order number or email.</p>`;
+        }
+    }
+</script>
+
+</body>
+</html>

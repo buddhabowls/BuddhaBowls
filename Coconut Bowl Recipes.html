@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coconut Bowl Recipes | Navigation</title>
+  <style>
+      :root {
+          --primary-color: #4CAF50;
+          --secondary-color: #FFA000;
+          --background-color: #F5F5F5;
+          --text-color: #333;
+          --card-background: #FFFFFF;
+      }
+
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          color: var(--text-color);
+          background-color: var(--background-color);
+          margin: 0;
+          padding: 0;
+      }
+
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 20px;
+      }
+
+      header {
+          background-color: var(--primary-color);
+          color: white;
+          text-align: center;
+          padding: 2rem 0;
+      }
+
+      h1 {
+          margin: 0;
+          font-size: 2.5em;
+      }
+
+      .subheading {
+          font-size: 1.2em;
+          margin-top: 10px;
+      }
+
+      .category-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+          margin-top: 2rem;
+      }
+
+      .category-card {
+          background-color: var(--card-background);
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+          overflow: hidden;
+          transition: transform 0.3s ease;
+      }
+
+      .category-card:hover {
+          transform: translateY(-5px);
+      }
+
+      .category-image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+      }
+
+      .category-content {
+          padding: 1.5rem;
+      }
+
+      .category-title {
+          color: var(--primary-color);
+          margin-top: 0;
+          font-size: 1.5em;
+      }
+
+      .category-description {
+          margin-bottom: 1rem;
+      }
+
+      .category-link {
+          display: inline-block;
+          background-color: var(--secondary-color);
+          color: white;
+          text-decoration: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          transition: background-color 0.3s ease;
+      }
+
+      .category-link:hover {
+          background-color: #FF8F00;
+      }
+
+      footer {
+          text-align: center;
+          margin-top: 2rem;
+          padding: 1rem 0;
+          background-color: var(--primary-color);
+          color: white;
+      }
+
+      @media (max-width: 768px) {
+          .category-grid {
+              grid-template-columns: 1fr;
+          }
+      }
+  </style>
+</head>
+<body>
+  <header>
+      <div class="container">
+          <h1>Coconut Bowl Recipes</h1>
+          <p class="subheading">Discover Delicious and Healthy Recipes for Your Coconut Bowls</p>
+      </div>
+  </header>
+
+  <main class="container">
+      <div class="category-grid">
+          <div class="category-card">
+              <img src="https://images.unsplash.com/photo-1505252585461-04db1eb84625" alt="Smoothie Bowls" class="category-image">
+              <div class="category-content">
+                  <h2 class="category-title">Smoothie Bowls</h2>
+                  <p class="category-description">Refreshing and nutritious smoothie bowls perfect for serving in coconut bowls.</p>
+                  <a href="#" class="category-link">Explore Smoothie Bowls</a>
+              </div>
+          </div>
+
+          <div class="category-card">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" alt="Buddha Bowls" class="category-image">
+              <div class="category-content">
+                  <h2 class="category-title">Buddha Bowls</h2>
+                  <p class="category-description">Wholesome and balanced Buddha bowls that look stunning in coconut bowls.</p>
+                  <a href="#" class="category-link">Discover Buddha Bowls</a>
+              </div>
+          </div>
+
+          <div class="category-card">
+              <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2" alt="Breakfast Bowls" class="category-image">
+              <div class="category-content">
+                  <h2 class="category-title">Breakfast Bowls</h2>
+                  <p class="category-description">Start your day right with these delicious breakfast bowls served in coconut shells.</p>
+                  <a href="#" class="category-link">View Breakfast Bowls</a>
+              </div>
+          </div>
+
+          <div class="category-card">
+              <img src="https://images.unsplash.com/photo-1503764654157-72d979d9af2f" alt="Dessert Bowls" class="category-image">
+              <div class="category-content">
+                  <h2 class="category-title">Dessert Bowls</h2>
+                  <p class="category-description">Indulge in sweet treats perfectly portioned in coconut bowl desserts.</p>
+                  <a href="#" class="category-link">Explore Dessert Bowls</a>
+              </div>
+          </div>
+
+          <div class="category-card">
+              <img src="https://images.unsplash.com/photo-1547592180-85f173990888" alt="Savory Bowls" class="category-image">
+              <div class="category-content">
+                  <h2 class="category-title">Savory Bowls</h2>
+                  <p class="category-description">Hearty and flavorful savory dishes designed for coconut bowl presentation.</p>
+                  <a href="#" class="category-link">Discover Savory Bowls</a>
+              </div>
+          </div>
+
+          <div class="category-card">
+              <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe" alt="Vegan Bowls" class="category-image">
+              <div class="category-content">
+                  <h2 class="category-title">Vegan Bowls</h2>
+                  <p class="category-description">Plant-based delights that pair perfectly with eco-friendly coconut bowls.</p>
+                  <a href="#" class="category-link">Explore Vegan Bowls</a>
+              </div>
+          </div>
+      </div>
+  </main>
+
+ 
