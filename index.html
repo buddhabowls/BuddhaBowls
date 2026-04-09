@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover delicious recipes and premium coconut bowls. Explore our collection of healthy recipes and shop for quality products.">
-  <meta name="keywords" content="recipes, coconut bowls, healthy eating, cooking">
-  <title>Buddha Bowls - Coconut Bowls & Delicious Recipes</title>
+  <title>Buddha Bowls - Coconut Bowls</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
@@ -15,300 +13,342 @@
     }
 
     :root {
-      --primary-color: #FF6B9D;
-      --secondary-color: #FFA07A;
-      --accent-color: #FFD700;
-      --text-dark: #333;
-      --text-light: #666;
-      --bg-light: #FFF8F3;
+      --primary: #8B7355;
+      --secondary: #A0826D;
+      --accent: #6B8E23;
+      --light: #F5F3F0;
       --white: #FFFFFF;
-      --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      --transition: all 0.3s ease;
+      --text: #3E3E3E;
+      --text-light: #6B6B6B;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      --header-bg: #FFFFFF;
+      --hero-bg: #E8DFD5;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text-dark);
-      background-color: var(--bg-light);
+      background: linear-gradient(135deg, #F5F3F0 0%, #E8E4E0 100%);
+      color: var(--text);
       line-height: 1.6;
     }
 
-    /* HEADER & NAVIGATION */
+    /* HEADER */
     header {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      padding: 1rem 0;
+      background: var(--header-bg);
+      color: var(--text);
+      padding: 1.5rem 0;
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
+      border-bottom: 1px solid #E0D5C8;
     }
 
     .header-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .logo {
+    .logo-section {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: var(--white);
-      text-decoration: none;
-      transition: var(--transition);
+      gap: 1rem;
     }
 
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .logo-icon {
-      width: 40px;
-      height: 40px;
+    .logo-circle {
+      width: 50px;
+      height: 50px;
       background: var(--white);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--primary-color);
-      font-size: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: 2px solid #E0D5C8;
     }
 
-    /* NAVIGATION */
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
     nav {
       display: flex;
       gap: 2rem;
-      align-items: center;
     }
 
-    .nav-item {
-      position: relative;
-      color: var(--white);
-      cursor: pointer;
-      font-weight: 500;
-      transition: var(--transition);
-    }
-
-    .nav-item:hover {
-      transform: translateY(-2px);
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: var(--white);
-      min-width: 200px;
-      box-shadow: var(--shadow);
-      z-index: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      top: 100%;
-      left: 0;
-      margin-top: 0.5rem;
-    }
-
-    .dropdown-content a {
-      color: var(--text-dark);
-      padding: 1rem 1.5rem;
+    nav a {
+      color: var(--text);
       text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: var(--transition);
-      border-left: 4px solid transparent;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
     }
 
-    .dropdown-content a:hover {
-      background-color: var(--bg-light);
-      border-left-color: var(--primary-color);
-      padding-left: 2rem;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-toggle::after {
-      content: '\f078';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      font-size: 0.75rem;
-      margin-left: 0.5rem;
-      transition: var(--transition);
-    }
-
-    .dropdown:hover .dropdown-toggle::after {
-      transform: rotate(180deg);
-    }
-
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
+    nav a:hover {
+      background: var(--accent);
       color: var(--white);
-      font-size: 1.5rem;
-      cursor: pointer;
     }
 
-    /* MAIN CONTENT */
+    /* HERO SECTION */
     .hero {
-      background: linear-gradient(135deg, rgba(255, 107, 157, 0.9) 0%, rgba(255, 160, 122, 0.9) 100%),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><circle cx="100" cy="100" r="80" fill="rgba(255,255,255,0.1)"/><circle cx="1100" cy="500" r="120" fill="rgba(255,255,255,0.1)"/></svg>');
-      background-size: cover;
-      background-position: center;
-      color: var(--white);
-      padding: 4rem 1rem;
+      background: linear-gradient(135deg, #E8DFD5 0%, #F0E8E0 100%);
+      color: var(--text);
+      padding: 4rem 2rem;
       text-align: center;
-      min-height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    }
+
+    .hero-container {
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       margin-bottom: 1rem;
-      animation: slideDown 0.6s ease;
+      font-weight: 700;
+      color: var(--primary);
     }
 
     .hero p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 2rem;
-      max-width: 600px;
-      animation: slideUp 0.6s ease;
+      color: var(--text-light);
     }
 
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .cta-button {
-      background: var(--accent-color);
-      color: var(--text-dark);
-      padding: 1rem 2.5rem;
+    .btn {
+      padding: 1rem 2rem;
       border: none;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: bold;
+      border-radius: 8px;
+      font-weight: 600;
       cursor: pointer;
-      transition: var(--transition);
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+      transition: all 0.3s ease;
+      font-size: 1rem;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      text-decoration: none;
     }
 
-    .cta-button:hover {
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 6px 20px rgba(107, 142, 35, 0.3);
+      opacity: 0.9;
     }
 
-    .cta-button:active {
-      transform: translateY(-1px);
+    .btn-secondary {
+      background: var(--white);
+      color: var(--primary);
+      border: 2px solid var(--primary);
     }
 
-    /* CONTENT SECTIONS */
+    .btn-secondary:hover {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* MAIN CONTAINER */
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 3rem 1rem;
+      padding: 0 2rem;
     }
 
-    .section-title {
-      text-align: center;
+    /* SECTIONS */
+    section {
+      padding: 4rem 0;
+    }
+
+    section h2 {
       font-size: 2.5rem;
-      color: var(--primary-color);
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 1.1rem;
       margin-bottom: 3rem;
-      position: relative;
-      padding-bottom: 1rem;
     }
 
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-      border-radius: 2px;
-    }
-
-    .recipe-grid {
+    /* PRODUCTS SECTION */
+    .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #E8DFD5 0%, #F0E8E0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.95rem;
+      border-bottom: 3px solid var(--secondary);
+      position: relative;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-image-placeholder {
+      text-align: center;
+    }
+
+    .product-image-placeholder i {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-info h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .product-info p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .product-price {
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .product-btn {
+      width: 100%;
+      padding: 0.8rem;
+      background: var(--secondary);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .product-btn:hover {
+      background: var(--accent);
+      transform: scale(1.02);
+    }
+
+    /* RECIPES SECTION */
+    .recipes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
     }
 
     .recipe-card {
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 12px;
       overflow: hidden;
       box-shadow: var(--shadow);
-      transition: var(--transition);
-      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
     .recipe-card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
 
     .recipe-image {
       width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      height: 220px;
+      background: linear-gradient(135deg, #E8DFD5 0%, #F0E8E0 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
-      color: var(--white);
-      overflow: hidden;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-bottom: 3px solid var(--accent);
+      position: relative;
     }
 
-    .recipe-card:hover .recipe-image {
-      transform: scale(1.05);
+    .recipe-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .recipe-content {
+    .recipe-image-placeholder {
+      text-align: center;
+    }
+
+    .recipe-image-placeholder i {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .recipe-info {
       padding: 1.5rem;
     }
 
-    .recipe-title {
-      font-size: 1.3rem;
-      color: var(--text-dark);
+    .recipe-info h3 {
+      color: var(--primary);
       margin-bottom: 0.5rem;
+      font-size: 1.2rem;
     }
 
     .recipe-meta {
@@ -319,122 +359,105 @@
       color: var(--text-light);
     }
 
-    .recipe-meta span {
+    .recipe-meta-item {
       display: flex;
       align-items: center;
       gap: 0.3rem;
+    }
+
+    .recipe-meta-item i {
+      color: var(--secondary);
     }
 
     .recipe-description {
       color: var(--text-light);
       margin-bottom: 1rem;
       font-size: 0.95rem;
+      line-height: 1.5;
     }
 
-    .recipe-button {
-      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-      color: var(--white);
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 600;
+    .recipe-btn {
       width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .recipe-button:hover {
-      transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
-    }
-
-    /* PRODUCTS SECTION */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .product-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
+      padding: 0.8rem;
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: block;
       text-align: center;
     }
 
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .product-image {
-      width: 100%;
-      height: 200px;
-      background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      overflow: hidden;
-    }
-
-    .product-card:hover .product-image {
-      transform: scale(1.05);
-    }
-
-    .product-info {
-      padding: 1.5rem;
-    }
-
-    .product-name {
-      font-size: 1.2rem;
-      color: var(--text-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .product-price {
-      font-size: 1.5rem;
-      color: var(--primary-color);
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
-
-    .add-to-cart {
-      background: var(--primary-color);
-      color: var(--white);
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: var(--transition);
-      font-weight: 600;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
-
-    .add-to-cart:hover {
+    .recipe-btn:hover {
       transform: scale(1.02);
-      box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+      box-shadow: 0 4px 12px rgba(107, 142, 35, 0.3);
+      opacity: 0.9;
+    }
+
+    /* FEATURES SECTION */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--secondary);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-top-color: var(--accent);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #E8DFD5 0%, #F0E8E0 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 2rem;
+      color: var(--secondary);
+    }
+
+    .feature-card:hover .feature-icon {
+      color: var(--accent);
+    }
+
+    .feature-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .feature-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
     }
 
     /* FOOTER */
     footer {
-      background: linear-gradient(135deg, var(--text-dark) 0%, #555 100%);
+      background: var(--primary);
       color: var(--white);
-      padding: 3rem 1rem 1rem;
-      margin-top: 3rem;
+      padding: 3rem 2rem;
+      margin-top: 4rem;
     }
 
-    .footer-content {
+    .footer-container {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
@@ -443,9 +466,9 @@
       margin-bottom: 2rem;
     }
 
-    .footer-section h3 {
+    .footer-section h4 {
       margin-bottom: 1rem;
-      color: var(--accent-color);
+      color: var(--white);
     }
 
     .footer-section ul {
@@ -456,180 +479,60 @@
       margin-bottom: 0.5rem;
     }
 
-    .footer-section a {
-      color: var(--white);
+    .footer-section ul li a {
+      color: #E8DFD5;
       text-decoration: none;
-      transition: var(--transition);
+      transition: all 0.3s ease;
     }
 
-    .footer-section a:hover {
-      color: var(--accent-color);
-      padding-left: 0.5rem;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .social-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .footer-section ul li a:hover {
       color: var(--white);
-      text-decoration: none;
-      transition: var(--transition);
-      font-size: 1.2rem;
     }
 
-    .social-icon:hover {
-      background: var(--primary-color);
-      transform: translateY(-3px);
+    .footer-section p {
+      color: #E8DFD5;
     }
 
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.2);
       padding-top: 2rem;
       text-align: center;
-      color: rgba(255, 255, 255, 0.8);
+      color: #E8DFD5;
     }
 
-    /* RESPONSIVE DESIGN */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1rem;
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
       }
 
       nav {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: var(--primary-color);
         flex-direction: column;
-        gap: 0;
-        padding: 1rem 0;
-        border-radius: 0 0 12px 12px;
+        gap: 0.5rem;
+        width: 100%;
       }
 
-      nav.active {
-        display: flex;
-      }
-
-      .nav-item {
-        padding: 1rem 1.5rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .dropdown-content {
-        position: static;
-        display: none;
-        box-shadow: none;
-        background: rgba(255, 255, 255, 0.1);
-        margin-top: 0;
-        border-radius: 0;
-      }
-
-      .dropdown.active .dropdown-content {
-        display: block;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      .recipe-grid,
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .container {
-        padding: 2rem 1rem;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .header-container {
-        padding: 0 0.5rem;
-      }
-
-      .logo {
-        font-size: 1.2rem;
-      }
-
-      .logo-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 1.2rem;
-      }
-
-      .hero {
-        padding: 2rem 1rem;
-        min-height: 300px;
+      nav a {
+        text-align: center;
       }
 
       .hero h1 {
-        font-size: 1.5rem;
+        font-size: 2.5rem;
       }
 
-      .cta-button {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+      .hero p {
+        font-size: 1.1rem;
       }
 
-      .section-title {
-        font-size: 1.5rem;
+      section h2 {
+        font-size: 2rem;
       }
 
-      .recipe-card,
-      .product-card {
-        border-radius: 12px;
-      }
-    }
-
-    /* ACCESSIBILITY */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
-    button:focus,
-    a:focus {
-      outline: 3px solid var(--accent-color);
-      outline-offset: 2px;
-    }
-
-    /* ANIMATIONS */
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+      .products-grid,
+      .recipes-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -638,249 +541,242 @@
   <!-- HEADER -->
   <header>
     <div class="header-container">
-      <a href="#" class="logo">
-        <div class="logo-icon">🍲</div>
-        <span>Buddha Bowls</span>
-      </a>
-      
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <nav id="navMenu">
-        <a href="#home" class="nav-item">Home</a>
-        
-        <div class="dropdown">
-          <a href="#shop" class="nav-item dropdown-toggle">Shop</a>
-          <div class="dropdown-content">
-            <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
-            <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
-            <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
-            <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
-          </div>
+      <div class="logo-section">
+        <div class="logo-circle">
+          <img src="logo.png" alt="Buddha Bowls Logo">
         </div>
-
-        <a href="#recipes" class="nav-item">Recipes</a>
-        <a href="#contact" class="nav-item">Contact</a>
+        <div class="logo">Buddha Bowls</div>
+      </div>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero" id="home">
-    <h1>Welcome to Buddha Bowls</h1>
-    <p>Discover delicious recipes and premium products for your healthy lifestyle</p>
-    <button class="cta-button">
-      <i class="fas fa-book"></i> Explore Recipes
-    </button>
+  <section class="hero">
+    <div class="hero-container">
+      <h1>Welcome to Buddha Bowls</h1>
+      <p>Discover our handcrafted coconut bowls and delicious, nourishing recipes</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Shop Now</a>
+        <a href="#recipes" class="btn btn-secondary"><i class="fas fa-book"></i> View Recipes</a>
+      </div>
+    </div>
   </section>
 
-  <!-- RECIPES SECTION -->
-  <section class="container" id="recipes">
-    <h2 class="section-title">
-      <i class="fas fa-utensils"></i> Featured Recipes
-    </h2>
-    <div class="recipe-grid">
-      <div class="recipe-card">
-        <div class="recipe-image">🥗</div>
-        <div class="recipe-content">
-          <h3 class="recipe-title">Buddha Bowl</h3>
-          <div class="recipe-meta">
-            <span><i class="fas fa-clock"></i> 15 min</span>
-            <span><i class="fas fa-leaf"></i> Vegan</span>
-          </div>
-          <p class="recipe-description">A nutritious and colorful bowl packed with quinoa, roasted vegetables, and tahini dressing.</p>
-          <button class="recipe-button">
-            <i class="fas fa-eye"></i> View Recipe
-          </button>
-        </div>
-      </div>
+  <!-- PRODUCTS SECTION -->
+  <section id="products">
+    <div class="container">
+      <h2>Our Products</h2>
+      <p class="section-subtitle">Premium handcrafted coconut bowls for your Buddha bowl creations</p>
 
-      <div class="recipe-card">
-        <div class="recipe-image">🍓</div>
-        <div class="recipe-content">
-          <h3 class="recipe-title">Smoothie Bowl</h3>
-          <div class="recipe-meta">
-            <span><i class="fas fa-clock"></i> 10 min</span>
-            <span><i class="fas fa-heart"></i> Healthy</span>
+      <div class="products-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="fas fa-image"></i>
+              <p>Product Image</p>
+            </div>
           </div>
-          <p class="recipe-description">Creamy acai smoothie topped with granola, fresh berries, and coconut flakes.</p>
-          <button class="recipe-button">
-            <i class="fas fa-eye"></i> View Recipe
-          </button>
+          <div class="product-info">
+            <h3>Classic Coconut Bowl</h3>
+            <p>Our signature handcrafted coconut bowl, perfect for any Buddha bowl creation.</p>
+            <div class="product-price">$4.99</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
         </div>
-      </div>
 
-      <div class="recipe-card">
-        <div class="recipe-image">🥙</div>
-        <div class="recipe-content">
-          <h3 class="recipe-title">Falafel Wrap</h3>
-          <div class="recipe-meta">
-            <span><i class="fas fa-clock"></i> 30 min</span>
-            <span><i class="fas fa-leaf"></i> Vegetarian</span>
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="fas fa-image"></i>
+              <p>Product Image</p>
+            </div>
           </div>
-          <p class="recipe-description">Crispy falafel with fresh vegetables and creamy tahini sauce wrapped in whole wheat tortilla.</p>
-          <button class="recipe-button">
-            <i class="fas fa-eye"></i> View Recipe
-          </button>
+          <div class="product-info">
+            <h3>Deluxe Coconut Bowl Set</h3>
+            <p>Set of 2 premium coconut bowls with matching spoons and carrying case.</p>
+            <div class="product-price">$9.99</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="fas fa-image"></i>
+              <p>Product Image</p>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Eco Coconut Bowl Bundle</h3>
+            <p>Complete bundle with 4 bowls, spoons, and canvas drawstring bag</p>
+            <div class="product-price">$9.99</div>
+            <button class="product-btn">Add to Cart</button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SHOP SECTION -->
-  <section class="container" id="shop">
-    <h2 class="section-title">
-      <i class="fas fa-shopping-bag"></i> Shop Our Products
-    </h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <div class="product-image">🥥</div>
-        <div class="product-info">
-          <h3 class="product-name">Coconut Bowl</h3>
-          <p class="product-price">$4.99</p>
-          <button class="add-to-cart">
-            <i class="fas fa-shopping-cart"></i> Add to Cart
-          </button>
+  <!-- RECIPES SECTION -->
+  <section id="recipes">
+    <div class="container">
+      <h2>Featured Recipes</h2>
+      <p class="section-subtitle">Delicious and nutritious Buddha bowl recipes</p>
+
+      <div class="recipes-grid">
+        <!-- Recipe 1 -->
+        <div class="recipe-card">
+          <div class="recipe-image">
+            <div class="recipe-image-placeholder">
+              <i class="fas fa-utensils"></i>
+              <p>Recipe Image</p>
+            </div>
+          </div>
+          <div class="recipe-info">
+            <h3>Acai Granola Bowl</h3>
+            <div class="recipe-meta">
+              <div class="recipe-meta-item"><i class="fas fa-clock"></i> 10 min</div>
+              <div class="recipe-meta-item"><i class="fas fa-users"></i> 1 serving</div>
+            </div>
+            <p class="recipe-description">A refreshing and antioxidant-rich brunch bowl featuring creamy acai blend topped with crunchy granola and fresh berries.</p>
+            <a href="#" class="recipe-btn">View Recipe</a>
+          </div>
+        </div>
+
+        <!-- Recipe 2 -->
+        <div class="recipe-card">
+          <div class="recipe-image">
+            <div class="recipe-image-placeholder">
+              <i class="fas fa-utensils"></i>
+              <p>Recipe Image</p>
+            </div>
+          </div>
+          <div class="recipe-info">
+            <h3>Almond Berry Breakfast</h3>
+            <div class="recipe-meta">
+              <div class="recipe-meta-item"><i class="fas fa-clock"></i> 5 min</div>
+              <div class="recipe-meta-item"><i class="fas fa-users"></i> 1 serving</div>
+            </div>
+            <p class="recipe-description">Creamy Greek yogurt topped with mixed berries, almond butter, sliced almonds, and a drizzle of honey.</p>
+            <a href="#" class="recipe-btn">View Recipe</a>
+          </div>
+        </div>
+
+        <!-- Recipe 3 -->
+        <div class="recipe-card">
+          <div class="recipe-image">
+            <div class="recipe-image-placeholder">
+              <i class="fas fa-utensils"></i>
+              <p>Recipe Image</p>
+            </div>
+          </div>
+          <div class="recipe-info">
+            <h3>Green Goddess Bowl</h3>
+            <div class="recipe-meta">
+              <div class="recipe-meta-item"><i class="fas fa-clock"></i> 15 min</div>
+              <div class="recipe-meta-item"><i class="fas fa-users"></i> 2 servings</div>
+            </div>
+            <p class="recipe-description">Nutrient-packed green bowl with quinoa, spinach, avocado, and a creamy green goddess dressing.</p>
+            <a href="#" class="recipe-btn">View Recipe</a>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="product-card">
-        <div class="product-image">🥄</div>
-        <div class="product-info">
-          <h3 class="product-name">Wooden Utensil Set</h3>
-          <p class="product-price">$3.99</p>
-          <button class="add-to-cart">
-            <i class="fas fa-shopping-cart"></i> Add to Cart
-          </button>
+  <!-- FEATURES SECTION -->
+  <section id="about">
+    <div class="container">
+      <h2>Why Choose Buddha Bowls?</h2>
+      <p class="section-subtitle">Quality, sustainability, and delicious recipes</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>100% Eco-Friendly</h3>
+          <p>Our bowls are handcrafted from sustainable coconut shells, completely biodegradable and eco-conscious.</p>
         </div>
-      </div>
 
-      <div class="product-card">
-        <div class="product-image">🌾</div>
-        <div class="product-info">
-          <h3 class="product-name">Market Bag</h3>
-          <p class="product-price">$5.99</p>
-          <button class="add-to-cart">
-            <i class="fas fa-shopping-cart"></i> Add to Cart
-          </button>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-hand-holding-heart"></i>
+          </div>
+          <h3>Handcrafted Quality</h3>
+          <p>Each bowl is carefully crafted by skilled artisans, ensuring unique quality and durability.</p>
         </div>
-      </div>
 
-      <div class="product-card">
-        <div class="product-image">🍯</div>
-        <div class="product-info">
-          <h3 class="product-name">Raw Honey</h3>
-          <p class="product-price">$15.99</p>
-          <button class="add-to-cart">
-            <i class="fas fa-shopping-cart"></i> Add to Cart
-          </button>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h3>Recipe Collection</h3>
+          <p>Access our growing collection of nutritious and delicious Buddha bowl recipes for every taste.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <h3>Fast Shipping</h3>
+          <p>Quick and reliable shipping to get your Buddha bowls to your door in perfect condition.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
+  <footer id="contact">
+    <div class="footer-container">
       <div class="footer-section">
-        <h3>About Us</h3>
-        <p>Your ultimate destination for healthy recipes and premium kitchen products.</p>
-        <div class="social-links">
-          <a href="#instagram" class="social-icon" aria-label="Instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="#facebook" class="social-icon" aria-label="Facebook">
-            <i class="fab fa-facebook"></i>
-          </a>
-          <a href="#twitter" class="social-icon" aria-label="Twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#pinterest" class="social-icon" aria-label="Pinterest">
-            <i class="fab fa-pinterest"></i>
-          </a>
-        </div>
+        <h4>About Us</h4>
+        <p>Buddha Bowls is dedicated to providing premium handcrafted coconut bowls and inspiring recipes for a healthier lifestyle.</p>
       </div>
 
       <div class="footer-section">
-        <h3>Quick Links</h3>
+        <h4>Quick Links</h4>
         <ul>
-          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
           <li><a href="#recipes">Recipes</a></li>
-          <li><a href="#shop">Shop</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#">Blog</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h3>Recipes</h3>
+        <h4>Customer Service</h4>
         <ul>
-          <li><a href="#breakfast">Breakfast Ideas</a></li>
-          <li><a href="#lunch">Lunch Bowls</a></li>
-          <li><a href="#dinner">Dinner Recipes</a></li>
-          <li><a href="#desserts">Healthy Desserts</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQ</a></li>
         </ul>
       </div>
 
       <div class="footer-section">
-        <h3>Support</h3>
+        <h4>Follow Us</h4>
         <ul>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#shipping">Shipping Info</a></li>
-          <li><a href="#returns">Returns</a></li>
-          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="#"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 Buddha Bowls. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--primary-color);"></i></p>
+      <p>&copy; 2016-2026 Buddha Bowls. All rights reserved. | Handcrafted with love for your wellness journey.</p>
     </div>
   </footer>
-
-  <script>
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navMenu = document.getElementById('navMenu');
-
-    menuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-item').forEach(item => {
-      item.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
-    });
-
-    // Dropdown toggle for mobile
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-      dropdown.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768) {
-          e.preventDefault();
-          dropdown.classList.toggle('active');
-        }
-      });
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('header')) {
-        navMenu.classList.remove('active');
-      }
-    });
-
-    // Add to cart button feedback
-    document.querySelectorAll('.add-to-cart, .recipe-button').forEach(button => {
-      button.addEventListener('click', function() {
-        const originalText = this.innerHTML;
-        this.innerHTML = '<i class="fas fa-check"></i> Added!';
-        setTimeout(() => {
-          this.innerHTML = originalText;
-        }, 1500);
-      });
-    });
-  </script>
 </body>
 </html>
