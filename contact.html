@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Buddha Bowls</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-hero {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+    }
+
+    .contact-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .info-card {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-card-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .info-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .info-card p {
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .info-card a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: var(--secondary);
+      transform: translateY(-3px);
+    }
+
+    .contact-form {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h2 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-row .form-group {
+      margin-bottom: 0;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 1rem;
+      background: var(--primary);
+      color: var(--white);
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .submit-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3);
+    }
+
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .form-message {
+      padding: 1rem;
+      border-radius: 6px;
+      margin-bottom: 1.5rem;
+      display: none;
+      border-left: 4px solid;
+    }
+
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border-left-color: #28a745;
+      display: block;
+    }
+
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border-left-color: #f5c6cb;
+      display: block;
+    }
+
+    .faq-section {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 2px solid #eee;
+    }
+
+    .faq-section h2 {
+      color: var(--primary);
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .faq-item {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      color: var(--text-light);
+      margin-top: 1rem;
+      display: none;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .response-time {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      border-left: 4px solid var(--primary);
+      padding: 1.5rem;
+      border-radius: 6px;
+      margin-top: 2rem;
+    }
+
+    .response-time i {
+      color: var(--primary);
+      margin-right: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .contact-form,
+      .submit-btn {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header from theme -->
+
+  <!-- HERO SECTION -->
+  <section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you. Get in touch with our team today!</p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="page-container">
+    <div class="contact-container">
+      <div class="contact-content">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <!-- Email -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>Have a question? Send us an email and we'll respond as soon as possible.</p>
+            <a href="mailto:hello@buddhabowls.com">hello@buddhabowls.com</a>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Response time: Within 24 hours</p>
+          </div>
+
+          <!-- Phone -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Phone</h3>
+            <p>Call us during business hours for immediate assistance.</p>
+            <a href="tel:+1-800-BOWLS-01">+1 (800) BOWLS-01</a>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Mon-Fri: 9am-5pm EST</p>
+          </div>
+
+          <!-- Address -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Address</h3>
+            <p>Visit us at our headquarters:</p>
+            <p>
+              Buddha Bowls HQ<br>
+              123 Wellness Street<br>
+              Boulder, CO 80301<br>
+              United States
+            </p>
+          </div>
+
+          <!-- Social Media -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <h3>Follow Us</h3>
+            <p>Connect with us on social media for updates and inspiration.</p>
+            <div class="social-links">
+              <a href="#facebook" class="social-link" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#instagram" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#twitter" class="social-link" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#pinterest" class="social-link" title="Pinterest">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+              <a href="#youtube" class="social-link" title="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2>Send us a Message</h2>
+          
+          <div id="formMessage" class="form-message"></div>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Select a subject...</option>
+                  <option value="product-inquiry">Product Inquiry</option>
+                  <option value="order-issue">Order Issue</option>
+                  <option value="shipping">Shipping Question</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+
+          <div class="response-time">
+            <i class="fas fa-clock"></i>
+            <strong>Response Time:</strong> We typically respond to all inquiries within 24 business hours.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              What are your shipping times?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              We ship most orders within 2-3 business days. Standard shipping takes 5-7 business days, while expedited shipping takes 2-3 business days. You'll receive a tracking number via email once your order ships.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              Are your products eco-friendly?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Yes! All our coconut bowls are handcrafted from sustainable coconut shells. They're 100% biodegradable and compostable, making them an excellent eco-friendly choice for conscious consumers.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              What is your return policy?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              We offer a 30-day money-back guarantee on all products. If you're not completely satisfied, simply contact us for a return label and we'll process your refund within 5-7 business days of receiving your return.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              Do you offer bulk orders?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Absolutely! We offer special pricing for bulk orders of 50+ units. Please contact our sales team at sales@buddhabowls.com for a custom quote.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              How do I care for my coconut bowl?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Hand wash your bowl with warm water and mild soap. Avoid the dishwasher and prolonged soaking. To maintain the natural finish, occasionally apply food-grade coconut oil. Your bowl will develop a beautiful patina over time.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              Do you ship internationally?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Yes, we ship to most countries worldwide! International shipping rates vary by location. You can calculate shipping costs at checkout, and we'll handle all customs documentation for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer from theme -->
+
+  <script>
+    // Handle Form Submission
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('contactForm');
+      const submitBtn = form.querySelector('.submit-btn');
+      const formMessage = document.getElementById('formMessage');
+
+      // Disable button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      // Get form data
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+        timestamp: new Date().toISOString()
+      };
+
+      // Simulate sending (in production, this would send to a server)
+      setTimeout(() => {
+        // Show success message
+        formMessage.className = 'form-message success';
+        formMessage.innerHTML = '<strong>Success!</strong> Thank you for your message. We\'ll get back to you as soon as possible.';
+
+        // Reset form
+        form.reset();
+
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.className = 'form-message';
+        }, 5000);
+
+        // Log data (in production, send to server)
+        console.log('Form submitted:', data);
+      }, 1500);
+    }
+
+    // Toggle FAQ Items
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+
+    // Close FAQ when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.faq-item')) {
+        document.querySelectorAll('.faq-item.active').forEach(item => {
+          if (!item.contains(event.target)) {
+            item.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
