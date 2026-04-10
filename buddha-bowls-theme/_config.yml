@@ -1,0 +1,21 @@
+theme: none
+markdown: kramdown
+plugins:
+- jekyll-feed
+
+# Site settings
+title: Buddha Bowls
+description: Healthy recipes and wellness tips
+url: "https://yourusername.github.io"
+author: Your Name
+email: your.email@example.com
+
+# Theme colors
+colors:
+primary: "#0D9488"
+secondary: "#14B8A6"
+accent: "#FFD700"
+text-dark: "#333"
+text-light: "#666"
+bg-light: "#F0FDFA"
+white: "#FFFFFF"
