@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buddha Bowls - Healthy Recipes & Wellness</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      background: var(--accent);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 3rem;
+    }
+
+    .quizzes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .quiz-card {
+      background: var(--white);
+      border: 2px solid var(--light);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .quiz-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.2);
+    }
+
+    .quiz-card-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .quiz-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .quiz-card p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .quiz-card a {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-card a:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav a {
+        margin-left: 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .quizzes-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <span>🥗</span> Buddha Bowls
+      </div>
+      <nav>
+        <a href="#quizzes">Quizzes</a>
+        <a href="#recipes">Recipes</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Buddha Bowls 🥣</h1>
+      <p>Discover delicious, nutritious bowls and find your perfect match with our interactive quizzes!</p>
+      <a href="#quizzes" class="cta-button">Explore Quizzes</a>
+    </div>
+  </section>
+
+  <!-- Quizzes Section -->
+  <section class="container" id="quizzes">
+    <h2 class="section-title">🎯 Take Our Fun Quizzes!</h2>
+    
+    <div class="quizzes-grid">
+      <div class="quiz-card">
+        <div class="quiz-card-icon">🥗</div>
+        <h3>What Kind of Healthy Foodie Are You?</h3>
+        <p>Discover if you're a Sustainable Snacker, Plant-Powered Enthusiast, Quick Prep Pro, or Flavor-Seeking Foodie!</p>
+        <a href="quizzes/foodie-quiz.html">Take Quiz</a>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-icon">🌍</div>
+        <h3>Your Sustainability Score</h3>
+        <p>Test your knowledge on coconut waste reduction and sustainable practices with 12 questions!</p>
+        <a href="quizzes/sustainability-quiz.html">Take Quiz</a>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-icon">🎨</div>
+        <h3>Build Your Dream Bowl</h3>
+        <p>Create your perfect bowl and discover what it reveals about your personality!</p>
+        <a href="quizzes/personality-bowl-quiz.html">Take Quiz</a>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-icon">🍯</div>
+        <h3>Which Dressing Matches You?</h3>
+        <p>Find out if you're Tahini, Peanut Satay, Citrus Vinaigrette, or Creamy Hemp Seed!</p>
+        <a href="quizzes/dressing-personality-quiz.html">Take Quiz</a>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-icon">🥣</div>
+        <h3>What's Your Weekend Bowl Vibe?</h3>
+        <p>Discover your weekend mood with funny questions and get a complete recipe!</p>
+        <a href="quizzes/weekend-bowl-vibe-quiz.html">Take Quiz</a>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-icon">🎁</div>
+        <h3>Spin the Coconut</h3>
+        <p>Enter your email and spin to win exclusive discounts and rewards!</p>
+        <a href="quizzes/spin-wheel.html">Spin Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Buddha Bowls. All rights reserved. Made with 🥗 and ❤️</p>
+  </footer>
+</body>
+</html>
