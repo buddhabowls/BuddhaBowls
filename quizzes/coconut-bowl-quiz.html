@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post - Buddha Bowls</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    article {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin: 2rem 0;
+    }
+
+    article h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    article h2 {
+      color: var(--secondary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    article h3 {
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    article p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    article ul, article ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article li {
+      margin-bottom: 0.5rem;
+    }
+
+    article blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    article code {
+      background: #F3F4F6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    article pre {
+      background: #1F2937;
+      color: #E5E7EB;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    article pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 1rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+
+      article h1 {
+        font-size: 1.8rem;
+      }
+
+      article h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+  <script src="/assets/js/load-components.js"></script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="page-container">
+    <article>
+
+<header style="background: #FFFFFF; color: #3E3E3E; padding: 1.5rem 0; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border-bottom: 1px solid #E0D5C8; position: sticky; top: 0; z-index: 100;">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+  <div style="display: flex; align-items: center; gap: 1rem;">
+    <div style="width: 50px; height: 50px; background: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); border: 2px solid #E0D5C8;">
+      <img src="logo.png" alt="Buddha Bowls Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+    </div>
+    <a href="index.html" style="font-size: 1.8rem; font-weight: 700; color: #8B7355; text-decoration: none;">Buddha Bowls</a>
+  </div>
+  <nav style="display: flex; gap: 2rem;">
+    <a href="index.html" style="color: #3E3E3E; text-decoration: none; font-weight: 600; transition: all 0.3s ease; padding: 0.5rem 1rem; border-radius: 6px;">Home</a>
+    <a href="products.html" style="color: #3E3E3E; text-decoration: none; font-weight: 600; transition: all 0.3s ease; padding: 0.5rem 1rem; border-radius: 6px;">Products</a>
+    <a href="index.html#recipes" style="color: #3E3E3E; text-decoration: none; font-weight: 600; transition: all 0.3s ease; padding: 0.5rem 1rem; border-radius: 6px;">Recipes</a>
+    <a href="about.html" style="color: #3E3E3E; text-decoration: none; font-weight: 600; transition: all 0.3s ease; padding: 0.5rem 1rem; border-radius: 6px;">About</a>
+    <a href="contact.html" style="color: #3E3E3E; text-decoration: none; font-weight: 600; transition: all 0.3s ease; padding: 0.5rem 1rem; border-radius: 6px;">Contact</a>
+  </nav>
+</div>
+</header>
+  <div class="quiz-container">
+      <div class="quiz-header">
+          <h1>Coconut Bowls: Test Your Knowledge!</h1>
+      </div>
+      <div class="quiz-content">
+          <div class="introduction">
+              <p>Welcome to our coconut bowl quiz! Coconut bowls are eco-friendly, versatile, and beautiful alternatives to traditional dishware. Made from reclaimed coconut shells, these bowls are not only sustainable but also add a tropical touch to your dining experience. Let's test your knowledge about these amazing products!</p>
+          </div>
+          <div id="quiz">
+              <div class="question" id="q1">
+                  <h3>1. What are coconut bowls made from?</h3>
+                  <ul class="options">
+                      <li class="option" data-value="A">A) Plastic</li>
+                      <li class="option" data-value="B">B) Wood</li>
+                      <li class="option" data-value="C">C) Coconut shells</li>
+                      <li class="option" data-value="D">D) Glass</li>
+                  </ul>
+              </div>
+              <div class="question hidden" id="q2">
+                  <h3>2. What is one benefit of using coconut bowls?</h3>
+                  <ul class="options">
+                      <li class="option" data-value="A">A) They are biodegradable</li>
+                      <li class="option" data-value="B">B) They are made from non-renewable resources</li>
+                      <li class="option" data-value="C">C) They are heavy</li>
+                      <li class="option" data-value="D">D) They are expensive</li>
+                  </ul>
+              </div>
+              <div class="question hidden" id="q3">
+                  <h3>3. Which of the following is a common use for coconut bowls?</h3>
+                  <ul class="options">
+                      <li class="option" data-value="A">A) Serving food</li>
+                      <li class="option" data-value="B">B) Storing chemicals</li>
+                      <li class="option" data-value="C">C) Building furniture</li>
+                      <li class="option" data-value="D">D) None of the above</li>
+                  </ul>
+              </div>
+              <div class="question hidden" id="q4">
+                  <h3>4. How should coconut bowls be cleaned?</h3>
+                  <ul class="options">
+                      <li class="option" data-value="A">A) Dishwasher</li>
+                      <li class="option" data-value="B">B) Hand wash with mild soap</li>
+                      <li class="option" data-value="C">C) Scrub with steel wool</li>
+                      <li class="option" data-value="D">D) Soak in bleach</li>
+                  </ul>
+              </div>
+              <button class="submit-btn" id="submitBtn">Submit Answer</button>
+              <button class="next-btn hidden" id="nextBtn">Next Question</button>
+          </div>
+          <div class="result hidden" id="result"></div>
+          <div class="conclusion hidden" id="conclusion">
+              <p>Thank you for taking our coconut bowl quiz! We hope you've learned something new about these amazing sustainable products. Consider incorporating coconut bowls into your daily life to reduce plastic waste and add a touch of natural beauty to your meals. Remember, small changes in our daily habits can make a big difference for our planet!</p>
+              <button class="restart-btn" id="restartBtn">Restart Quiz</button>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      const questions = [
+          { id: 'q1', correct: 'C' },
+          { id: 'q2', correct: 'A' },
+          { id: 'q3', correct: 'A' },
+          { id: 'q4', correct: 'B' }
+      ];
+
+      let currentQuestion = 0;
+      let score = 0;
+
+      const quizElement = document.getElementById('quiz');
+      const resultElement = document.getElementById('result');
+      const conclusionElement = document.getElementById('conclusion');
+      const submitBtn = document.getElementById('submitBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const restartBtn = document.getElementById('restartBtn');
+
+      function selectOption(option) {
+          const questionElement = document.getElementById(questions[currentQuestion].id);
+          questionElement.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+          option.classList.add('selected');
+      }
+
+      function submitAnswer() {
+          const questionElement = document.getElementById(questions[currentQuestion].id);
+          const selectedOption = questionElement.querySelector('.selected');
+          
+          if (selectedOption) {
+              const userAnswer = selectedOption.getAttribute('data-value');
+              const correctAnswer = questions[currentQuestion].correct;
+              
+              if (userAnswer === correctAnswer) {
+                  selectedOption.classList.add('correct');
+                  score++;
+              } else {
+                  selectedOption.classList.add('incorrect');
+                  questionElement.querySelector(`[data-value="${correctAnswer}"]`).classList.add('correct');
+              }
+              
+              submitBtn.classList.add('hidden');
+              nextBtn.classList.remove('hidden');
+          } else {
+              alert('Please select an answer before submitting.');
+          }
+      }
+
+      function nextQuestion() {
+          document.getElementById(questions[currentQuestion].id).classList.add('hidden');
+          currentQuestion++;
+          
+          if (currentQuestion < questions.length) {
+              document.getElementById(questions[currentQuestion].id).classList.remove('hidden');
+              submitBtn.classList.remove('hidden');
+              nextBtn.classList.add('hidden');
+          } else {
+              showResult();
+          }
+      }
+
+      function showResult() {
+          quizElement.classList.add('hidden');
+          resultElement.classList.remove('hidden');
+          conclusionElement.classList.remove('hidden');
+          
+          let message = `You scored ${score} out of ${questions.length}. `;
+          if (score === questions.length) {
+              message += "Perfect score! You're a coconut bowl expert!";
+          } else if (score >= questions.length / 2) {
+              message += "Great job! You know quite a bit about coconut bowls.";
+          } else {
+              message += "Keep learning about coconut bowls. They're amazing products!";
+          }
+          
+          resultElement.textContent = message;
+      }
+
+      function restartQuiz() {
+          currentQuestion = 0;
+          score = 0;
+          questions.forEach(q => {
+              const questionElement = document.getElementById(q.id);
+              questionElement.classList.add('hidden');
+              questionElement.querySelectorAll('.option').forEach(opt => {
+                  opt.classList.remove('selected', 'correct', 'incorrect');
+              });
+          });
+          document.getElementById(questions[0].id).classList.remove('hidden');
+          quizElement.classList.remove('hidden');
+          resultElement.classList.add('hidden');
+          conclusionElement.classList.add('hidden');
+          submitBtn.classList.remove('hidden');
+          nextBtn.classList.add('hidden');
+      }
+
+      document.querySelectorAll('.option').forEach(option => {
+          option.addEventListener('click', () => selectOption(option));
+      });
+
+      submitBtn.addEventListener('click', submitAnswer);
+      nextBtn.addEventListener('click', nextQuestion);
+      restartBtn.addEventListener('click', restartQuiz);
+  </script>
+
+<footer style="background: #8B7355; color: #FFFFFF; padding: 3rem 2rem; margin-top: 4rem;">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+  <div>
+    <h4 style="margin-bottom: 1rem; color: #FFFFFF;">About Us</h4>
+    <p style="color: #E8DFD5;">Buddha Bowls is dedicated to providing premium handcrafted coconut bowls and inspiring recipes for a healthier lifestyle.</p>
+  </div>
+  <div>
+    <h4 style="margin-bottom: 1rem; color: #FFFFFF;">Quick Links</h4>
+    <ul style="list-style: none;">
+      <li style="margin-bottom: 0.5rem;"><a href="products.html" style="color: #E8DFD5; text-decoration: none;">Products</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="index.html#recipes" style="color: #E8DFD5; text-decoration: none;">Recipes</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="about.html" style="color: #E8DFD5; text-decoration: none;">About</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#">Blog</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 style="margin-bottom: 1rem; color: #FFFFFF;">Customer Service</h4>
+    <ul style="list-style: none;">
+      <li style="margin-bottom: 0.5rem;"><a href="contact.html" style="color: #E8DFD5; text-decoration: none;">Contact Us</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;">Shipping Info</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;">Returns</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4 style="margin-bottom: 1rem; color: #FFFFFF;">Follow Us</h4>
+    <ul style="list-style: none;">
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;"><i class="fab fa-facebook"></i> Facebook</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;"><i class="fab fa-instagram"></i> Instagram</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+      <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #E8DFD5; text-decoration: none;"><i class="fab fa-twitter"></i> Twitter</a></li>
+    </ul>
+  </div>
+</div>
+<div style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 2rem; text-align: center; color: #E8DFD5;">
+  <p>&copy; 2024 Buddha Bowls. All rights reserved. | Handcrafted with love for your wellness journey.</p>
+</div>
+</footer>
+
+    </article>
+  </div>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>
