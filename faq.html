@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    article {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin: 2rem 0;
+    }
+
+    article h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    article h2 {
+      color: var(--secondary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    article h3 {
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    article p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    article ul, article ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article li {
+      margin-bottom: 0.5rem;
+    }
+
+    article blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    article code {
+      background: #F3F4F6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    article pre {
+      background: #1F2937;
+      color: #E5E7EB;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    article pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 1rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+
+      article h1 {
+        font-size: 1.8rem;
+      }
+
+      article h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+  <script src="/assets/js/load-components.js"></script>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+
+  <div class="page-container">
+    <article>
+
+  <!-- Header from theme -->
+
+  <!-- HERO SECTION -->
+  <section class="faq-hero">
+    <h1>Frequently Asked Questions</h1>
+    <p>Find answers to common questions about our products, shipping, and more</p>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section class="page-container">
+    <div class="faq-container">
+      <!-- Quick Stats -->
+      <div class="faq-stats">
+        <div class="stat-card">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Questions Answered</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Customer Satisfaction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">24hrs</div>
+          <div class="stat-label">Average Response Time</div>
+        </div>
+      </div>
+
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search FAQ..."
+            onkeyup="searchFAQ()"
+          >
+        </div>
+        <div class="search-results">
+          Showing <strong id="resultCount">0</strong> results
+        </div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs">
+        <button class="category-tab active" onclick="filterByCategory('all')">
+          <i class="fas fa-th"></i> All
+        </button>
+        <button class="category-tab" onclick="filterByCategory('products')">
+          <i class="fas fa-shopping-cart"></i> Products
+        </button>
+        <button class="category-tab" onclick="filterByCategory('shipping')">
+          <i class="fas fa-truck"></i> Shipping
+        </button>
+        <button class="category-tab" onclick="filterByCategory('orders')">
+          <i class="fas fa-receipt"></i> Orders
+        </button>
+        <button class="category-tab" onclick="filterByCategory('account')">
+          <i class="fas fa-user"></i> Account
+        </button>
+        <button class="category-tab" onclick="filterByCategory('returns')">
+          <i class="fas fa-undo"></i> Returns
+        </button>
+      </div>
+
+      <!-- FAQ Sections -->
+      <div id="faqContainer"></div>
+
+      <!-- No Results -->
+      <div id="noResults" class="no-results" style="display: none;">
+        <i class="fas fa-search"></i>
+        <h3>No Results Found</h3>
+        <p>We couldn't find any answers matching your search. Try different keywords or browse by category.</p>
+        <a href="#" class="no-results-btn" onclick="resetSearch(); return false;">
+          <i class="fas fa-redo"></i> Reset Search
+        </a>
+      </div>
+
+      <!-- Quick Links -->
+      <div style="margin-top: 3rem;">
+        <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">Quick Links</h2>
+        <div class="quick-links">
+          <div class="quick-link-card" onclick="scrollToCategory('products')">
+            <div class="quick-link-icon">
+              <i class="fas fa-box"></i>
+            </div>
+            <h3>Product Info</h3>
+            <p>Learn about our coconut bowls and accessories</p>
+          </div>
+
+          <div class="quick-link-card" onclick="scrollToCategory('shipping')">
+            <div class="quick-link-icon">
+              <i class="fas fa-map"></i>
+            </div>
+            <h3>Shipping & Delivery</h3>
+            <p>Find out about shipping times and costs</p>
+          </div>
+
+          <div class="quick-link-card" onclick="scrollToCategory('returns')">
+            <div class="quick-link-icon">
+              <i class="fas fa-sync"></i>
+            </div>
+            <h3>Returns & Refunds</h3>
+            <p>Our hassle-free return policy</p>
+          </div>
+
+          <div class="quick-link-card" onclick="scrollToCategory('account')">
+            <div class="quick-link-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Account & Security</h3>
+            <p>Manage your account and privacy</p>
+          </div>
+
+          <div class="quick-link-card" onclick="scrollToCategory('orders')">
+            <div class="quick-link-icon">
+              <i class="fas fa-list"></i>
+            </div>
+            <h3>Orders & Tracking</h3>
+            <p>Track your order and manage purchases</p>
+          </div>
+
+          <div class="quick-link-card" onclick="document.querySelector('.contact-cta').scrollIntoView({behavior: 'smooth'})">
+            <div class="quick-link-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h3>Contact Support</h3>
+            <p>Can't find what you need? Contact us</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact CTA -->
+      <div class="contact-cta">
+        <h2>Still Have Questions?</h2>
+        <p>Our friendly team is here to help. Reach out anytime!</p>
+        <div class="contact-cta-buttons">
+          <a href="/contact.html" class="cta-btn">
+            <i class="fas fa-envelope"></i> Send Email
+          </a>
+          <a href="tel:+1-800-BOWLS-01" class="cta-btn">
+            <i class="fas fa-phone"></i> Call Us
+          </a>
+          <a href="#" class="cta-btn" onclick="alert('Live chat coming soon!'); return false;">
+            <i class="fas fa-comments"></i> Live Chat
+          </a>
+        </div>
+      </div>
+
+      <!-- Helpful Section -->
+      <div class="helpful-section">
+        <h3>Was this page helpful?</h3>
+        <div class="helpful-buttons">
+          <button class="helpful-btn" onclick="markHelpful(true)">
+            <i class="fas fa-thumbs-up"></i> Yes, Very Helpful
+          </button>
+          <button class="helpful-btn" onclick="markHelpful(false)">
+            <i class="fas fa-thumbs-down"></i> Not Really
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer from theme -->
+
+  <script>
+    // FAQ Data
+    const faqData = {
+      products: {
+        title: 'Products',
+        icon: 'fas fa-shopping-cart',
+        items: [
+          {
+            question: 'What are your coconut bowls made from?',
+            answer: 'Our coconut bowls are handcrafted from 100% natural coconut shells. Each bowl is created by skilled artisans using sustainable harvesting practices. The shells are cleaned, polished, and finished with food-safe treatments to ensure they\'re safe for eating.'
+          },
+          {
+            question: 'Are the bowls food-safe?',
+            answer: 'Yes! All our coconut bowls are completely food-safe. We use only non-toxic, food-grade finishes. The natural coconut material is naturally antimicrobial and won\'t leach any harmful chemicals into your food.'
+          },
+          {
+            question: 'How durable are the bowls?',
+            answer: 'Our coconut bowls are very durable when cared for properly. With proper maintenance, they can last for years. Hand wash with warm water and mild soap, avoid the dishwasher, and apply food-grade coconut oil occasionally to maintain the finish.'
+          },
+          {
+            question: 'Can I use the bowls in the microwave?',
+            answer: 'We do not recommend using coconut bowls in the microwave. The natural material can crack or warp with heat. For best results, hand wash and use at room temperature or with room-temperature foods.'
+          },
+          {
+            question: 'Do you offer different sizes?',
+            answer: 'Yes! We offer several sizes including small (6"), medium (8"), and large (10") bowls. We also have specialty sizes for specific uses. Check our products page to see all available options.'
+          },
+          {
+            question: 'Are the bowls vegan?',
+            answer: 'Absolutely! Our coconut bowls are 100% vegan and plant-based. No animal products are used in their creation or finishing.'
+          }
+        ]
+      },
+      shipping: {
+        title: 'Shipping & Delivery',
+        icon: 'fas fa-truck',
+        items: [
+          {
+            question: 'What are your shipping times?',
+            answer: 'We ship most orders within 2-3 business days. Standard shipping takes 5-7 business days, while expedited shipping takes 2-3 business days. International shipping times vary by location but typically take 10-21 business days.'
+          },
+          {
+            question: 'Do you offer free shipping?',
+            answer: 'We offer free standard shipping on orders over $50 within the continental United States. For orders under $50, standard shipping is $5.99. Expedited and international shipping rates are calculated at checkout.'
+          },
+          {
+            question: 'Where do you ship to?',
+            answer: 'We ship to all 50 US states and over 100 countries worldwide. If your country isn\'t listed at checkout, please contact us and we\'ll do our best to accommodate your order.'
+          },
+          {
+            question: 'How can I track my order?',
+            answer: 'You\'ll receive a tracking number via email as soon as your order ships. You can use this number to track your package on the carrier\'s website. Most carriers provide real-time updates.'
+          },
+          {
+            question: 'What if my order is delayed?',
+            answer: 'If your order doesn\'t arrive within the estimated timeframe, please contact us immediately. We\'ll investigate with the carrier and help resolve the issue. We may offer a replacement or refund depending on the situation.'
+          },
+          {
+            question: 'Do you ship internationally?',
+            answer: 'Yes! We ship to most countries worldwide. International orders typically take 10-21 business days. Customs duties and taxes may apply depending on your country. We\'ll handle all customs documentation.'
+          }
+        ]
+      },
+      orders: {
+        title: 'Orders & Tracking',
+        icon: 'fas fa-receipt',
+        items: [
+          {
+            question: 'How do I place an order?',
+            answer: 'Simply browse our products page, add items to your cart, and proceed to checkout. You\'ll need to provide shipping and payment information. We accept all major credit cards, PayPal, and other payment methods.'
+          },
+          {
+            question: 'Can I modify my order after placing it?',
+            answer: 'If you contact us within 2 hours of placing your order, we may be able to modify or cancel it. After that, your order enters our fulfillment process and cannot be changed. Contact us immediately if you need to make changes.'
+          },
+          {
+            question: 'Do you offer bulk discounts?',
+            answer: 'Yes! We offer special pricing for bulk orders of 50+ units. Please contact our sales team at sales@buddhabowls.com for a custom quote.'
+          },
+          {
+            question: 'What payment methods do you accept?',
+            answer: 'We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and Apple Pay. All payments are processed securely through our encrypted payment system.'
+          },
+          {
+            question: 'Is my payment information secure?',
+            answer: 'Yes! We use industry-standard SSL encryption to protect all payment information. Your credit card details are never stored on our servers. We comply with all PCI security standards.'
+          },
+          {
+            question: 'When will I be charged?',
+            answer: 'You\'ll be charged when you place your order. Your payment is processed immediately, and you\'ll receive a confirmation email with your order details and receipt.'
+          }
+        ]
+      },
+      account: {
+        title: 'Account & Security',
+        icon: 'fas fa-user',
+        items: [
+          {
+            question: 'How do I create an account?',
+            answer: 'You can create an account during checkout or by visiting our account page. Simply provide your email and create a password. An account allows you to track orders, save addresses, and manage preferences.'
+          },
+          {
+            question: 'How do I reset my password?',
+            answer: 'Click "Forgot Password" on the login page and enter your email. We\'ll send you a link to reset your password. The link expires after 24 hours for security.'
+          },
+          {
+            question: 'How do I update my profile information?',
+            answer: 'Log into your account and go to "Account Settings." You can update your name, email, phone number, and other personal information. Changes take effect immediately.'
+          },
+          {
+            question: 'How do I manage my email preferences?',
+            answer: 'In your account settings, you can choose which emails you\'d like to receive. You can opt out of promotional emails while keeping order notifications enabled.'
+          },
+          {
+            question: 'Is my personal information safe?',
+            answer: 'Yes! We take privacy very seriously. Your information is encrypted and stored securely. We never share your personal data with third parties without your consent. See our privacy policy for details.'
+          },
+          {
+            question: 'How do I delete my account?',
+            answer: 'You can request account deletion by contacting our support team. We\'ll delete your account and personal information within 30 days, except where required by law for record-keeping.'
+          }
+        ]
+      },
+      returns: {
+        title: 'Returns & Refunds',
+        icon: 'fas fa-undo',
+        items: [
+          {
+            question: 'What is your return policy?',
+            answer: 'We offer a 30-day money-back guarantee on all products. If you\'re not completely satisfied, simply contact us for a return label and we\'ll process your refund within 5-7 business days of receiving your return.'
+          },
+          {
+            question: 'How do I initiate a return?',
+            answer: 'Contact our support team at hello@buddhabowls.com or call +1 (800) BOWLS-01. Provide your order number and reason for return. We\'ll send you a prepaid return label.'
+          },
+          {
+            question: 'What condition must items be in for return?',
+            answer: 'Items must be unused and in original condition with all packaging. If you\'ve used the product, we may still accept returns but may deduct a restocking fee. Contact us to discuss your specific situation.'
+          },
+          {
+            question: 'How long does a refund take?',
+            answer: 'Once we receive your return, we process refunds within 5-7 business days. The refund is issued to your original payment method. Depending on your bank, it may take an additional 3-5 business days to appear.'
+          },
+          {
+            question: 'What if my item arrives damaged?',
+            answer: 'If your item arrives damaged, contact us immediately with photos. We\'ll send a replacement or issue a refund at no cost to you. We take shipping damage very seriously and will investigate with the carrier.'
+          },
+          {
+            question: 'Do you offer exchanges?',
+            answer: 'Yes! If you\'d like to exchange an item for a different size or style, contact us and we\'ll arrange an exchange. You may need to cover return shipping depending on the reason for exchange.'
+          }
+        ]
+      }
+    };
+
+    let currentCategory = 'all';
+    let filteredFAQ = [];
+
+    // Initialize
+    function init() {
+      displayFAQ('all');
+    }
+
+    // Display FAQ
+    function displayFAQ(category) {
+      const container = document.getElementById('faqContainer');
+      container.innerHTML = '';
+
+      if (category === 'all') {
+        Object.values(faqData).forEach(section => {
+          container.innerHTML += createFAQSection(section);
+        });
+      } else {
+        container.innerHTML += createFAQSection(faqData[category]);
+      }
+
+      attachEventListeners();
+      updateResultCount();
+    }
+
+    // Create FAQ Section
+    function createFAQSection(section) {
+      const items = section.items.map((item, index) => `
+        <div class="faq-item" data-question="${item.question.toLowerCase()}" data-answer="${item.answer.toLowerCase()}">
+          <button class="faq-question" onclick="toggleFAQ(this)">
+            <span>${item.question}</span>
+            <i class="fas fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-answer">
+            <p>${item.answer}</p>
+          </div>
+        </div>
+      `).join('');
+
+      return `
+        <div class="faq-section">
+          <div class="faq-section-title">
+            <i class="${section.icon}"></i>
+            ${section.title}
+          </div>
+          <div class="faq-items">
+            ${items}
+          </div>
+        </div>
+      `;
+    }
+
+    // Toggle FAQ
+    function toggleFAQ(button) {
+      const item = button.closest('.faq-item');
+      item.classList.toggle('active');
+    }
+
+    // Filter by Category
+    function filterByCategory(category) {
+      currentCategory = category;
+      
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      event.target.closest('.category-tab').classList.add('active');
+
+      displayFAQ(category);
+      document.getElementById('searchInput').value = '';
+    }
+
+    // Search FAQ
+    function searchFAQ() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      const allItems = document.querySelectorAll('.faq-item');
+      let visibleCount = 0;
+
+      allItems.forEach(item => {
+        const question = item.dataset.question;
+        const answer = item.dataset.answer;
+        
+        if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+          item.classList.remove('active');
+        }
+      });
+
+      // Hide sections with no visible items
+      document.querySelectorAll('.faq-section').forEach(section => {
+        const visibleItems = section.querySelectorAll('.faq-item:not([style*="display: none"])');
+        section.style.display = visibleItems.length > 0 ? 'block' : 'none';
+      });
+
+      // Show/hide no results
+      const noResults = document.getElementById('noResults');
+      noResults.style.display = visibleCount === 0 && searchTerm ? 'block' : 'none';
+
+      updateResultCount(visibleCount);
+    }
+
+    // Reset Search
+    function resetSearch() {
+      document.getElementById('searchInput').value = '';
+      displayFAQ('all');
+    }
+
+    // Update Result Count
+    function updateResultCount(count) {
+      if (count !== undefined) {
+        document.getElementById('resultCount').textContent = count;
+      } else {
+        const totalItems = document.querySelectorAll('.faq-item').length;
+        document.getElementById('resultCount').textContent = totalItems;
+      }
+    }
+
+    // Attach Event Listeners
+    function attachEventListeners() {
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', function() {
+          toggleFAQ(this);
+        });
+      });
+    }
+
+    // Scroll to Category
+    function scrollToCategory(category) {
+      filterByCategory(category);
+      document.querySelector('.faq-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Mark Helpful
+    function markHelpful(isHelpful) {
+      const message = isHelpful ? 'Thank you! We\'re glad we could help.' : 'Sorry to hear that. We\'ll work on improving our FAQ.';
+      alert(message);
+    }
+
+    // Initialize on load
+    window.addEventListener('load', init);
+  </script>
+
+    </article>
+  </div>
+
+  <div id="footer-placeholder"></div>
+</body>
+</html>
