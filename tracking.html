@@ -3,688 +3,139 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Tracking - Buddha Bowls</title>
+  <title>Order Tracking</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     :root {
-      --primary: #8B7355;
-      --secondary: #A0826D;
-      --accent: #6B8E23;
-      --light: #F5F3F0;
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
       --white: #FFFFFF;
-      --text: #3E3E3E;
-      --text-light: #6B6B6B;
+      --text: #333;
+      --text-light: #666;
       --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      --header-bg: #FFFFFF;
-      --success: #28A745;
-      --warning: #FFC107;
-      --info: #17A2B8;
     }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #F5F3F0 0%, #E8E4E0 100%);
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
-    /* HEADER */
-    header {
-      background: var(--header-bg);
-      color: var(--text);
-      padding: 1.5rem 0;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #E0D5C8;
-    }
-
-    .header-container {
+    .page-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      padding: 2rem;
     }
 
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .logo-circle {
-      width: 50px;
-      height: 50px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border: 2px solid #E0D5C8;
-    }
-
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-    }
-
-    nav a:hover {
-      background: var(--accent);
-      color: var(--white);
-    }
-
-    /* PAGE HEADER */
-    .page-header {
-      background: linear-gradient(135deg, #E8DFD5 0%, #F0E8E0 100%);
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-
-    .page-header h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    .page-header p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-    }
-
-    /* MAIN CONTAINER */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* SEARCH SECTION */
-    .search-section {
-      padding: 3rem 0;
-    }
-
-    .search-card {
+    article {
       background: var(--white);
       padding: 2rem;
       border-radius: 12px;
       box-shadow: var(--shadow);
-      margin-bottom: 2rem;
+      margin: 2rem 0;
     }
 
-    .search-card h2 {
+    article h1 {
       color: var(--primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.3rem;
-      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
     }
 
-    .search-form {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 1rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .form-group label {
-      color: var(--text);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .form-group input {
-      padding: 0.9rem;
-      border: 2px solid #E0D5C8;
-      border-radius: 6px;
-      font-size: 1rem;
-      color: var(--text);
-      transition: all 0.3s ease;
-    }
-
-    .form-group input:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.1);
-    }
-
-    .btn-search {
-      padding: 0.9rem 2rem;
-      background: linear-gradient(135deg, var(--accent) 0%, #5A7A1F 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      align-self: flex-end;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .btn-search:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(107, 142, 35, 0.3);
-    }
-
-    /* DEMO ORDERS */
-    .demo-orders {
-      background: linear-gradient(135deg, #F0F8E8 0%, #E8F5E0 100%);
-      border-left: 4px solid var(--secondary);
-      padding: 1rem;
-      border-radius: 6px;
-      margin-bottom: 2rem;
-    }
-
-    .demo-orders p {
-      color: var(--text);
-      margin-bottom: 0.8rem;
-      font-weight: 600;
-    }
-
-    .demo-buttons {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-    }
-
-    .demo-btn {
-      padding: 0.6rem 1.2rem;
-      background: var(--white);
+    article h2 {
       color: var(--secondary);
-      border: 2px solid var(--secondary);
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      font-size: 0.9rem;
-    }
-
-    .demo-btn:hover {
-      background: var(--secondary);
-      color: var(--white);
-    }
-
-    /* ORDER DETAILS */
-    .order-details {
-      display: none;
       margin-top: 2rem;
-    }
-
-    .order-details.active {
-      display: block;
-    }
-
-    .order-header {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .order-info h3 {
-      color: var(--primary);
       margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.8rem;
     }
 
-    .info-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #E0D5C8;
+    article h3 {
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
     }
 
-    .info-row:last-child {
-      border-bottom: none;
-    }
-
-    .info-label {
-      color: var(--text-light);
-      font-weight: 600;
-    }
-
-    .info-value {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .order-status {
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #F0F8E8 0%, #E8F5E0 100%);
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      border-radius: 20px;
-      font-weight: 700;
+    article p {
       margin-bottom: 1rem;
-      font-size: 0.95rem;
+      line-height: 1.8;
     }
 
-    .status-badge.pending {
-      background: var(--warning);
-      color: #000;
-    }
-
-    .status-badge.processing {
-      background: var(--info);
-      color: var(--white);
-    }
-
-    .status-badge.shipped {
-      background: var(--accent);
-      color: var(--white);
-    }
-
-    .status-badge.delivered {
-      background: var(--success);
-      color: var(--white);
-    }
-
-    .status-text {
-      color: var(--text);
-      font-size: 0.95rem;
-    }
-
-    /* TIMELINE */
-    .timeline-section {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .timeline-section h3 {
-      color: var(--primary);
-      margin-bottom: 2rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .timeline {
-      position: relative;
-      padding: 1rem 0;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 3px;
-      background: #E0D5C8;
-    }
-
-    .timeline-item {
-      margin-bottom: 2rem;
-      padding-left: 80px;
-      position: relative;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 8px;
-      top: 0;
-      width: 24px;
-      height: 24px;
-      background: var(--white);
-      border: 3px solid #E0D5C8;
-      border-radius: 50%;
-      transition: all 0.3s ease;
-    }
-
-    .timeline-item.completed .timeline-dot {
-      background: var(--success);
-      border-color: var(--success);
-    }
-
-    .timeline-item.current .timeline-dot {
-      background: var(--accent);
-      border-color: var(--accent);
-      width: 30px;
-      height: 30px;
-      left: 5px;
-      box-shadow: 0 0 0 4px rgba(107, 142, 35, 0.1);
-    }
-
-    .timeline-content {
-      background: linear-gradient(135deg, #F5F3F0 0%, #F0E8E0 100%);
-      padding: 1rem;
-      border-radius: 6px;
-      border-left: 3px solid #E0D5C8;
-    }
-
-    .timeline-item.completed .timeline-content {
-      border-left-color: var(--success);
-    }
-
-    .timeline-item.current .timeline-content {
-      border-left-color: var(--accent);
-      background: linear-gradient(135deg, #F0F8E8 0%, #E8F5E0 100%);
-    }
-
-    .timeline-title {
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .timeline-date {
-      color: var(--text-light);
-      font-size: 0.9rem;
-    }
-
-    .timeline-description {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-    }
-
-    /* ITEMS SECTION */
-    .items-section {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .items-section h3 {
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .order-item {
-      display: grid;
-      grid-template-columns: 100px 1fr auto;
-      gap: 1.5rem;
-      padding: 1rem;
-      background: var(--light);
+    article img {
+      max-width: 100%;
+      height: auto;
       border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    article ul, article ol {
+      margin-left: 2rem;
       margin-bottom: 1rem;
-      align-items: center;
     }
 
-    .item-image {
-      width: 100px;
-      height: 100px;
-      background: linear-gradient(135deg, #E8DFD5 0%, #F0E8E0 100%);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-light);
-    }
-
-    .item-image i {
-      font-size: 2rem;
-      color: var(--secondary);
-    }
-
-    .item-info h4 {
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-    }
-
-    .item-details {
-      color: var(--text-light);
-      font-size: 0.9rem;
+    article li {
       margin-bottom: 0.5rem;
     }
 
-    .item-price {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    /* SUMMARY SECTION */
-    .summary-section {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.8rem 0;
-      border-bottom: 1px solid #E0D5C8;
-    }
-
-    .summary-row:last-child {
-      border-bottom: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: var(--primary);
-    }
-
-    .summary-label {
+    article blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
       color: var(--text-light);
     }
 
-    .summary-value {
-      color: var(--text);
-      font-weight: 600;
+    article code {
+      background: #F3F4F6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
     }
 
-    /* ACTIONS */
-    .actions-section {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .actions-section h3 {
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .action-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 0.8rem 1.5rem;
-      border: none;
+    article pre {
+      background: #1F2937;
+      color: #E5E7EB;
+      padding: 1rem;
       border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      overflow-x: auto;
+      margin: 1rem 0;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: var(--white);
+    article pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(107, 142, 35, 0.3);
-    }
-
-    .btn-secondary {
-      background: var(--light);
-      color: var(--primary);
-      border: 2px solid var(--secondary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--secondary);
-      color: var(--white);
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--primary);
-      color: var(--white);
-      padding: 3rem 2rem;
-      margin-top: 4rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      margin-bottom: 1rem;
-      color: var(--white);
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section ul li a {
-      color: #E8DFD5;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .footer-section ul li a:hover {
-      color: var(--white);
-    }
-
-    .footer-section p {
-      color: #E8DFD5;
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 2rem;
-      text-align: center;
-      color: #E8DFD5;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        gap: 1rem;
+      .page-container {
+        padding: 1rem;
       }
 
-      nav {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
+      article {
+        padding: 1rem;
       }
 
-      nav a {
-        text-align: center;
+      article h1 {
+        font-size: 1.8rem;
       }
 
-      .page-header h1 {
-        font-size: 2rem;
-      }
-
-      .search-form {
-        grid-template-columns: 1fr;
-      }
-
-      .btn-search {
-        align-self: auto;
-      }
-
-      .order-header {
-        grid-template-columns: 1fr;
-      }
-
-      .order-item {
-        grid-template-columns: 80px 1fr;
-      }
-
-      .item-price {
-        grid-column: 2;
-        text-align: right;
-      }
-
-      .action-buttons {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-        justify-content: center;
+      article h2 {
+        font-size: 1.4rem;
       }
     }
   </style>
+  <script src="/assets/js/load-components.js"></script>
 </head>
 <body>
+  <div id="header-placeholder"></div>
+
+  <div class="page-container">
+    <article>
+
   <!-- HEADER -->
   <header>
     <div class="header-container">
@@ -1031,5 +482,10 @@
       window.location.href = 'contact.html';
     }
   </script>
+
+    </article>
+  </div>
+
+  <div id="footer-placeholder"></div>
 </body>
 </html>
