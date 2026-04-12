@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buddha Bowls</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-section">
+      <div class="logo-circle">
+        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+      </div>
+      <div class="logo">Buddha Bowls</div>
+    </div>
+    <nav>
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="dropdown">
+        <a href="/shop" class="nav-item dropdown-toggle">Shop</a>
+        <div class="dropdown-content">
+          <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+          <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
+          <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
+          <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
+        </div>
+      </div>
+
+      <a href="/recipes" class="nav-item">Recipes</a>
+      <a href="/contact" class="nav-item">Contact</a>
+    </nav>
+
+    <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+  </div>
+</header>
+
+
+<!DOCTYPE html>
+
+
+
+
+
+
+  <div class="page-container">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    article {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin: 2rem 0;
+    }
+
+    article h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    article h2 {
+      color: var(--secondary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    article h3 {
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    article p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    article ul, article ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article li {
+      margin-bottom: 0.5rem;
+    }
+
+    article blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    article code {
+      background: #F3F4F6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    article pre {
+      background: #1F2937;
+      color: #E5E7EB;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    article pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 1rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+
+      article h1 {
+        font-size: 1.8rem;
+      }
+
+      article h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+  <script src="/assets/js/load-components.js"></script>
+</head>
+
+  <div id="header-placeholder"></div>
+
+  <div class="page-container">
+    <article>
+
+  <!-- Header from theme -->
+
+  <!-- HERO SECTION -->
+  <section class="contact-hero">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you. Get in touch with our team today!</p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="page-container">
+    <div class="contact-container">
+      <div class="contact-content">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <!-- Email -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>Have a question? Send us an email and we'll respond as soon as possible.</p>
+            <a href="mailto:hello@buddhabowls.com">hello@buddhabowls.com</a>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Response time: Within 24 hours</p>
+          </div>
+
+          <!-- Phone -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Phone</h3>
+            <p>Call us during business hours for immediate assistance.</p>
+            <a href="tel:+1-800-BOWLS-01">+1 (800) BOWLS-01</a>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;">Mon-Fri: 9am-5pm EST</p>
+          </div>
+
+          <!-- Address -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Address</h3>
+            <p>Visit us at our headquarters:</p>
+            <p>
+              Buddha Bowls HQ<br>
+              123 Wellness Street<br>
+              Boulder, CO 80301<br>
+              United States
+            </p>
+          </div>
+
+          <!-- Social Media -->
+          <div class="info-card">
+            <div class="info-card-icon">
+              <i class="fas fa-share-alt"></i>
+            </div>
+            <h3>Follow Us</h3>
+            <p>Connect with us on social media for updates and inspiration.</p>
+            <div class="social-links">
+              <a href="#facebook" class="social-link" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#instagram" class="social-link" title="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#twitter" class="social-link" title="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#pinterest" class="social-link" title="Pinterest">
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+              <a href="#youtube" class="social-link" title="YouTube">
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+          <h2>Send us a Message</h2>
+          
+          <div id="formMessage" class="form-message"></div>
+
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject *</label>
+                <select id="subject" name="subject" required>
+                  <option value="">Select a subject...</option>
+                  <option value="product-inquiry">Product Inquiry</option>
+                  <option value="order-issue">Order Issue</option>
+                  <option value="shipping">Shipping Question</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="partnership">Partnership Opportunity</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required placeholder="Tell us how we can help..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+
+          <div class="response-time">
+            <i class="fas fa-clock"></i>
+            <strong>Response Time:</strong> We typically respond to all inquiries within 24 business hours.
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-grid">
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              What are your shipping times?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              We ship most orders within 2-3 business days. Standard shipping takes 5-7 business days, while expedited shipping takes 2-3 business days. You'll receive a tracking number via email once your order ships.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              Are your products eco-friendly?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Yes! All our coconut bowls are handcrafted from sustainable coconut shells. They're 100% biodegradable and compostable, making them an excellent eco-friendly choice for conscious consumers.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              What is your return policy?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              We offer a 30-day money-back guarantee on all products. If you're not completely satisfied, simply contact us for a return label and we'll process your refund within 5-7 business days of receiving your return.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              Do you offer bulk orders?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Absolutely! We offer special pricing for bulk orders of 50+ units. Please contact our sales team at sales@buddhabowls.com for a custom quote.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              How do I care for my coconut bowl?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Hand wash your bowl with warm water and mild soap. Avoid the dishwasher and prolonged soaking. To maintain the natural finish, occasionally apply food-grade coconut oil. Your bowl will develop a beautiful patina over time.
+            </p>
+          </div>
+
+          <div class="faq-item" onclick="toggleFaq(this)">
+            <h3 class="faq-question">
+              Do you ship internationally?
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </h3>
+            <p class="faq-answer">
+              Yes, we ship to most countries worldwide! International shipping rates vary by location. You can calculate shipping costs at checkout, and we'll handle all customs documentation for you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer from theme -->
+
+  <script>
+    // Handle Form Submission
+    function handleSubmit(event) {
+      event.preventDefault();
+      
+      const form = document.getElementById('contactForm');
+      const submitBtn = form.querySelector('.submit-btn');
+      const formMessage = document.getElementById('formMessage');
+
+      // Disable button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+      // Get form data
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        phone: formData.get('phone'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+        timestamp: new Date().toISOString()
+      };
+
+      // Simulate sending (in production, this would send to a server)
+      setTimeout(() => {
+        // Show success message
+        formMessage.className = 'form-message success';
+        formMessage.innerHTML = '<strong>Success!</strong> Thank you for your message. We\'ll get back to you as soon as possible.';
+
+        // Reset form
+        form.reset();
+
+        // Re-enable button
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.className = 'form-message';
+        }, 5000);
+
+        // Log data (in production, send to server)
+        console.log('Form submitted:', data);
+      }, 1500);
+    }
+
+    // Toggle FAQ Items
+    function toggleFaq(element) {
+      element.classList.toggle('active');
+    }
+
+    // Close FAQ when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.faq-item')) {
+        document.querySelectorAll('.faq-item.active').forEach(item => {
+          if (!item.contains(event.target)) {
+            item.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
+
+    </article>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+
+
+  </div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Buddha Bowls</h4>
+      <p>Healthy, delicious bowls crafted with fresh ingredients and love.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/products.html">Products</a></li>
+        <li><a href="/pages/recipes.html">Recipes</a></li>
+        <li><a href="/pages/about.html">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@buddhbowls.com">Email</a></li>
+        <li><a href="tel:+1234567890">Phone</a></li>
+        <li><a href="#">Address</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Buddha Bowls. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
