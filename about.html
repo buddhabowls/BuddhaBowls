@@ -173,12 +173,37 @@
   <script src="/assets/js/load-components.js"></script>
 </head>
 
-  <div id="header-placeholder"></div>
+ <header>
+  <div class="header-container">
+    <div class="logo-section">
+      <div class="logo-circle">
+        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+      </div>
+      <div class="logo">Buddha Bowls</div>
+    </div>
+    <nav>
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="dropdown">
+        <a href="/shop" class="nav-item dropdown-toggle">Shop</a>
+        <div class="dropdown-content">
+          <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+          <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
+          <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
+          <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
+        </div>
+      </div>
 
-  <div class="page-container">
-    <article>
+      <a href="/recipes" class="nav-item">Recipes</a>
+      <a href="/contact" class="nav-item">Contact</a>
+    </nav>
 
-  <!-- Header from theme -->
+    <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+  </div>
+</header>
 
   <!-- HERO SECTION -->
   <section class="about-hero">
