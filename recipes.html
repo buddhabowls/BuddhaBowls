@@ -17,28 +17,36 @@
   <div class="header-container">
     <div class="logo-section">
       <div class="logo-circle">
-        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onerror="this.style.display='none'">
-        <span style="display: none;" id="logoFallback">🥗</span>
+        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
       </div>
       <div class="logo">Buddha Bowls</div>
     </div>
     <nav>
-      <a href="/">Home</a>
-      <a href="/pages/products.html">Products</a>
-      <a href="/pages/recipes.html">Recipes</a>
-      <a href="/pages/about.html">About</a>
-      <a href="/pages/contact.html">Contact</a>
+      <a href="/" class="nav-item">Home</a>
+      
+      <div class="dropdown">
+        <a href="/shop" class="nav-item dropdown-toggle">Shop</a>
+        <div class="dropdown-content">
+          <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+          <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
+          <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
+          <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
+        </div>
+      </div>
+
+      <a href="/recipes" class="nav-item">Recipes</a>
+      <a href="/contact" class="nav-item">Contact</a>
     </nav>
+
+    <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </div>
   </div>
 </header>
 
+
 <!DOCTYPE html>
-
-
-
-
-
-
   <div class="page-container">
 <head>
   <meta charset="UTF-8">
