@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipes - Buddha Bowls</title>
@@ -605,8 +603,9 @@
       }
     }
   </style>
+  <script src="/assets/js/load-components.js"></script>
 </head>
-<body>
+<body><div id="header-placeholder"></div>
   <!-- Header from theme -->
 
   <!-- HERO SECTION -->
@@ -648,12 +647,7 @@
         <div class="search-filter-row">
           <div class="search-box">
             <i class="fas fa-search"></i>
-            <input 
-              type="text" 
-              id="searchInput" 
-              placeholder="Search recipes by name or ingredient..."
-              onkeyup="filterRecipes()"
-            >
+            <input type="text" id="searchInput" placeholder="Search recipes by name or ingredient..." onkeyup="filterRecipes()">
           </div>
           <div class="sort-box">
             <label for="sortSelect" style="font-weight: 600; color: var(--text); margin-right: 0.5rem;">Sort by:</label>
@@ -743,7 +737,7 @@
   <!-- Recipe Modal -->
   <div id="recipeModal" class="modal">
     <div class="modal-content">
-      <span class="close-modal" onclick="closeRecipeModal()">&times;</span>
+      <span class="close-modal" onclick="closeRecipeModal()">×</span>
       <div id="modalRecipeContent"></div>
     </div>
   </div>
@@ -1396,5 +1390,6 @@
     // Initialize on load
     window.addEventListener('load', init);
   </script>
-</body>
-</html>
+
+
+<div id="footer-placeholder"></div></body></html>
