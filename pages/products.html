@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buddha Bowls</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-section">
+      <div class="logo-circle">
+        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onerror="this.style.display='none'">
+        <span style="display: none;" id="logoFallback">🥗</span>
+      </div>
+      <div class="logo">Buddha Bowls</div>
+    </div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/pages/products.html">Products</a>
+      <a href="/pages/recipes.html">Recipes</a>
+      <a href="/pages/about.html">About</a>
+      <a href="/pages/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!DOCTYPE html>
+
+
+
+
+
+
+  <div class="page-container">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/theme.css">
+  <style>
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    article {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin: 2rem 0;
+    }
+
+    article h1 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 2.5rem;
+    }
+
+    article h2 {
+      color: var(--secondary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    article h3 {
+      color: var(--primary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    article p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    article img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    article ul, article ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article li {
+      margin-bottom: 0.5rem;
+    }
+
+    article blockquote {
+      border-left: 4px solid var(--primary);
+      padding-left: 1rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: var(--text-light);
+    }
+
+    article code {
+      background: #F3F4F6;
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    article pre {
+      background: #1F2937;
+      color: #E5E7EB;
+      padding: 1rem;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 1rem 0;
+    }
+
+    article pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+
+    @media (max-width: 768px) {
+      .page-container {
+        padding: 1rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+
+      article h1 {
+        font-size: 1.8rem;
+      }
+
+      article h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+  <script src="/assets/js/load-components.js"></script>
+</head>
+
+  <div id="header-placeholder"></div>
+
+  <div class="page-container">
+    <article>
+
+  <!-- Header from theme -->
+
+  <!-- HERO SECTION -->
+  <section class="products-hero">
+    <h1>Our Products</h1>
+    <p>Discover our premium handcrafted coconut bowls and accessories</p>
+  </section>
+
+  <!-- PRODUCTS SECTION -->
+  <section class="page-container">
+    <div class="products-container">
+      <!-- Controls -->
+      <div class="products-controls">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search products..."
+            onkeyup="filterProducts()"
+          >
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <div class="sort-box">
+            <label for="sortSelect">Sort by:</label>
+            <select id="sortSelect" onchange="sortProducts()">
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="newest">Newest</option>
+              <option value="popular">Most Popular</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Buttons -->
+      <div style="margin-bottom: 2rem;">
+        <div class="filter-box">
+          <button class="filter-btn active" onclick="filterByCategory('all')">All Products</button>
+          <button class="filter-btn" onclick="filterByCategory('bowls')">Bowls</button>
+          <button class="filter-btn" onclick="filterByCategory('sets')">Sets</button>
+          <button class="filter-btn" onclick="filterByCategory('accessories')">Accessories</button>
+          <button class="filter-btn" onclick="filterByCategory('gifts')">Gift Packs</button>
+        </div>
+      </div>
+
+      <!-- Results Info -->
+      <div class="results-info">
+        Showing <span id="resultCount">0</span> products
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Products will be inserted here by JavaScript -->
+      </div>
+
+      <!-- No Results Message -->
+      <div class="no-results" id="noResults" style="display: none;">
+        <i class="fas fa-search"></i>
+        <h3>No products found</h3>
+        <p>Try adjusting your search or filter criteria</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer from theme -->
+
+  <script>
+    // Product Data
+    const products = [
+      {
+        id: 1,
+        name: 'Classic Coconut Bowl',
+        category: 'bowls',
+        price: 4.99,
+        originalPrice: null,
+        rating: 4.8,
+        reviews: 124,
+        description: 'Our signature handcrafted coconut bowl, perfect for any Buddha bowl creation.',
+        badge: null,
+        popular: true
+      },
+      {
+        id: 2,
+        name: 'Deluxe Coconut Bowl Set',
+        category: 'sets',
+        price: 9.99,
+        originalPrice: 12.99,
+        rating: 4.9,
+        reviews: 89,
+        description: 'Set of 2 premium coconut bowls with matching spoons and carrying case.',
+        badge: 'SALE',
+        popular: true
+      },
+      {
+        id: 3,
+        name: 'Eco Coconut Bowl Bundle',
+        category: 'sets',
+        price: 19.99,
+        originalPrice: 24.99,
+        rating: 4.7,
+        reviews: 56,
+        description: 'Complete bundle with 4 bowls, spoons, and canvas drawstring bag.',
+        badge: 'SALE',
+        popular: false
+      },
+      {
+        id: 4,
+        name: 'Bamboo Spoon Set',
+        category: 'accessories',
+        price: 3.99,
+        originalPrice: null,
+        rating: 4.6,
+        reviews: 42,
+        description: 'Set of 4 eco-friendly bamboo spoons perfect for your Buddha bowls.',
+        badge: 'NEW',
+        popular: false
+      },
+      {
+        id: 5,
+        name: 'Canvas Carrying Bag',
+        category: 'accessories',
+        price: 7.99,
+        originalPrice: null,
+        rating: 4.5,
+        reviews: 31,
+        description: 'Durable canvas bag with drawstring for easy transport of your bowls.',
+        badge: null,
+        popular: false
+      },
+      {
+        id: 6,
+        name: 'Coconut Bowl Gift Pack',
+        category: 'gifts',
+        price: 14.99,
+        originalPrice: 17.99,
+        rating: 4.9,
+        reviews: 78,
+        description: 'Perfect gift set with 2 bowls, spoons, and beautiful gift packaging.',
+        badge: 'GIFT',
+        popular: true
+      },
+      {
+        id: 7,
+        name: 'Premium Coconut Bowl',
+        category: 'bowls',
+        price: 6.99,
+        originalPrice: null,
+        rating: 4.8,
+        reviews: 95,
+        description: 'Handcrafted premium coconut bowl with extra thick walls for durability.',
+        badge: 'BESTSELLER',
+        popular: true
+      },
+      {
+        id: 8,
+        name: 'Wooden Spoon Set',
+        category: 'accessories',
+        price: 4.99,
+        originalPrice: null,
+        rating: 4.7,
+        reviews: 38,
+        description: 'Set of 4 handcrafted wooden spoons with natural finish.',
+        badge: 'NEW',
+        popular: false
+      },
+      {
+        id: 9,
+        name: 'Coconut Bowl Starter Pack',
+        category: 'sets',
+        price: 12.99,
+        originalPrice: 15.99,
+        rating: 4.8,
+        reviews: 67,
+        description: 'Everything you need to get started with 2 bowls and 4 spoons.',
+        badge: 'SALE',
+        popular: true
+      },
+      {
+        id: 10,
+        name: 'Luxury Gift Set',
+        category: 'gifts',
+        price: 24.99,
+        originalPrice: 29.99,
+        rating: 5.0,
+        reviews: 45,
+        description: 'Premium gift set with 4 bowls, spoons, bag, and recipe book.',
+        badge: 'LUXURY',
+        popular: false
+      },
+      {
+        id: 11,
+        name: 'Coconut Bowl Duo',
+        category: 'sets',
+        price: 8.99,
+        originalPrice: null,
+        rating: 4.6,
+        reviews: 52,
+        description: 'Pack of 2 classic coconut bowls at a great value.',
+        badge: null,
+        popular: false
+      },
+      {
+        id: 12,
+        name: 'Eco-Friendly Spoon Set',
+        category: 'accessories',
+        price: 5.99,
+        originalPrice: 7.99,
+        rating: 4.7,
+        reviews: 29,
+        description: 'Set of 6 biodegradable spoons made from sustainable materials.',
+        badge: 'SALE',
+        popular: false
+      }
+    ];
+
+    let filteredProducts = [...products];
+    let currentCategory = 'all';
+
+    // Initialize
+    function init() {
+      displayProducts(products);
+    }
+
+    // Display Products
+    function displayProducts(productsToDisplay) {
+      const grid = document.getElementById('productsGrid');
+      const noResults = document.getElementById('noResults');
+      const resultCount = document.getElementById('resultCount');
+
+      if (productsToDisplay.length === 0) {
+        grid.style.display = 'none';
+        noResults.style.display = 'block';
+        resultCount.textContent = '0';
+        return;
+      }
+
+      grid.style.display = 'grid';
+      noResults.style.display = 'none';
+      resultCount.textContent = productsToDisplay.length;
+
+      grid.innerHTML = productsToDisplay.map(product => `
+        <div class="product-card" data-category="${product.category}" data-name="${product.name.toLowerCase()}">
+          <div class="product-image">
+            <div class="product-image-placeholder">
+              <i class="fas fa-image"></i>
+              <p>Product Image</p>
+            </div>
+            ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ''}
+          </div>
+          <div class="product-info">
+            <div class="product-category">${product.category}</div>
+            <h3>${product.name}</h3>
+            <div class="product-rating">
+              <div>
+                ${Array(5).fill().map((_, i) => `
+                  <i class="fas fa-star" style="color: ${i < Math.floor(product.rating) ? '#FFD700' : '#ddd'}"></i>
+                `).join('')}
+              </div>
+              <span>(${product.reviews})</span>
+            </div>
+            <p class="product-description">${product.description}</p>
+            <div class="product-footer">
+              <div class="product-price">
+                ${product.originalPrice ? `<span class="product-price-original">$${product.originalPrice.toFixed(2)}</span>` : ''}
+                $${product.price.toFixed(2)}
+              </div>
+              <button class="product-btn" onclick="addToCart('${product.name}')">
+                <i class="fas fa-shopping-cart"></i> Add
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter by Category
+    function filterByCategory(category) {
+      currentCategory = category;
+      
+      // Update button states
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      event.target.classList.add('active');
+
+      filterProducts();
+    }
+
+    // Filter Products
+    function filterProducts() {
+      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+      
+      filteredProducts = products.filter(product => {
+        const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
+        const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
+                             product.description.toLowerCase().includes(searchTerm);
+        return matchesCategory && matchesSearch;
+      });
+
+      displayProducts(filteredProducts);
+    }
+
+    // Sort Products
+    function sortProducts() {
+      const sortValue = document.getElementById('sortSelect').value;
+      let sorted = [...filteredProducts];
+
+      switch(sortValue) {
+        case 'price-low':
+          sorted.sort((a, b) => a.price - b.price);
+          break;
+        case 'price-high':
+          sorted.sort((a, b) => b.price - a.price);
+          break;
+        case 'newest':
+          sorted.sort((a, b) => b.id - a.id);
+          break;
+        case 'popular':
+          sorted.sort((a, b) => b.reviews - a.reviews);
+          break;
+        case 'featured':
+        default:
+          sorted = [...filteredProducts];
+      }
+
+      displayProducts(sorted);
+    }
+
+    // Add to Cart
+    function addToCart(productName) {
+      alert('Added "' + productName + '" to cart!');
+    }
+
+    // Initialize on page load
+    window.addEventListener('load', init);
+  </script>
+
+    </article>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+
+
+  </div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Buddha Bowls</h4>
+      <p>Healthy, delicious bowls crafted with fresh ingredients and love.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/pages/products.html">Products</a></li>
+        <li><a href="/pages/recipes.html">Recipes</a></li>
+        <li><a href="/pages/about.html">About</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@buddhbowls.com">Email</a></li>
+        <li><a href="tel:+1234567890">Phone</a></li>
+        <li><a href="#">Address</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Buddha Bowls. All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
