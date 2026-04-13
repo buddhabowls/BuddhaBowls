@@ -1,54 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buddha Bowls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-
-</head>
-<body>
-
-<header>
-  <div class="header-container">
-    <div class="logo-section">
-      <div class="logo-circle">
-        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
-      </div>
-      <div class="logo">Buddha Bowls</div>
-    </div>
-    <nav>
-      <a href="/" class="nav-item">Home</a>
-      
-      <div class="dropdown">
-        <a href="/shop" class="nav-item dropdown-toggle">Shop</a>
-        <div class="dropdown-content">
-          <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
-          <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
-          <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
-          <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
-        </div>
-      </div>
-
-      <a href="/recipes" class="nav-item">Recipes</a>
-      <a href="/contact" class="nav-item">Contact</a>
-    </nav>
-
-    <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
-      <i class="fas fa-shopping-cart"></i>
-      <span class="cart-badge" id="cartBadge">0</span>
-    </div>
-  </div>
-</header>
-
-
-<!DOCTYPE html>
-  <div class="page-container">
-<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipes - Buddha Bowls</title>
@@ -92,7 +44,6 @@
       padding: 0 2rem;
     }
 
-    /* Controls Section */
     .recipes-controls {
       background: var(--white);
       padding: 2rem;
@@ -156,7 +107,6 @@
       border-color: var(--primary);
     }
 
-    /* Category Tabs */
     .category-tabs {
       display: flex;
       gap: 1rem;
@@ -188,11 +138,6 @@
       border-color: var(--primary);
     }
 
-    .category-tab i {
-      font-size: 1.1rem;
-    }
-
-    /* Difficulty & Diet Filters */
     .filter-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -232,7 +177,6 @@
       border-color: var(--secondary);
     }
 
-    /* Results Info */
     .results-info {
       display: flex;
       justify-content: space-between;
@@ -269,7 +213,6 @@
       border-color: var(--primary);
     }
 
-    /* Recipes Grid */
     .recipes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -433,7 +376,6 @@
       color: var(--white);
     }
 
-    /* No Results */
     .no-results {
       text-align: center;
       padding: 3rem 2rem;
@@ -459,7 +401,6 @@
       margin-bottom: 1.5rem;
     }
 
-    /* Featured Recipes */
     .featured-recipes {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -512,7 +453,6 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
-    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -592,7 +532,8 @@
       padding-bottom: 0.5rem;
     }
 
-    .modal-section ul {
+    .modal-section ul,
+    .modal-section ol {
       margin-left: 1.5rem;
     }
 
@@ -653,10 +594,40 @@
       }
     }
   </style>
-  <script src="/assets/js/load-components.js"></script>
 </head>
-<div id="header-placeholder"></div>
-  <!-- Header from theme -->
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <div class="logo-circle">
+          <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+        </div>
+        <div class="logo">Buddha Bowls</div>
+      </div>
+      <nav>
+        <a href="/" class="nav-item">Home</a>
+        
+        <div class="dropdown">
+          <a href="/shop" class="nav-item dropdown-toggle">Shop</a>
+          <div class="dropdown-content">
+            <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+            <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
+            <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
+            <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
+          </div>
+        </div>
+
+        <a href="/recipes" class="nav-item">Recipes</a>
+        <a href="/contact" class="nav-item">Contact</a>
+      </nav>
+
+      <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+    </div>
+  </header>
 
   <!-- HERO SECTION -->
   <section class="recipes-hero">
@@ -792,7 +763,43 @@
     </div>
   </div>
 
-  <!-- Footer from theme -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>Buddha Bowls</h4>
+        <p>Healthy, delicious bowls crafted with fresh ingredients and love.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/pages/products.html">Products</a></li>
+          <li><a href="/pages/recipes.html">Recipes</a></li>
+          <li><a href="/pages/about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@buddhbowls.com">Email</a></li>
+          <li><a href="tel:+1234567890">Phone</a></li>
+          <li><a href="#">Address</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Buddha Bowls. All rights reserved.</p>
+    </div>
+  </footer>
 
   <script>
     // Recipes Data
@@ -1201,12 +1208,10 @@
       diet: []
     };
 
-    // Initialize
     function init() {
       displayRecipes(recipes);
     }
 
-    // Display Recipes
     function displayRecipes(recipesToDisplay) {
       const grid = document.getElementById('recipesGrid');
       const noResults = document.getElementById('noResults');
@@ -1266,7 +1271,6 @@
       `).join('');
     }
 
-    // Filter by Type
     function filterByType(type) {
       activeFilters.type = type;
       
@@ -1278,7 +1282,6 @@
       filterRecipes();
     }
 
-    // Toggle Filter
     function toggleFilter(filterType, value) {
       const index = activeFilters[filterType].indexOf(value);
       if (index > -1) {
@@ -1291,7 +1294,6 @@
       filterRecipes();
     }
 
-    // Filter Recipes
     function filterRecipes() {
       const searchTerm = document.getElementById('searchInput').value.toLowerCase();
 
@@ -1309,7 +1311,6 @@
       displayRecipes(filteredRecipes);
     }
 
-    // Sort Recipes
     function sortRecipes() {
       const sortValue = document.getElementById('sortSelect').value;
       let sorted = [...filteredRecipes];
@@ -1332,7 +1333,6 @@
       displayRecipes(sorted);
     }
 
-    // Clear All Filters
     function clearAllFilters() {
       document.getElementById('searchInput').value = '';
       document.getElementById('sortSelect').value = 'featured';
@@ -1350,7 +1350,6 @@
       displayRecipes(recipes);
     }
 
-    // Open Recipe Modal
     function openRecipeModal(recipeId) {
       const recipe = recipes.find(r => r.id === recipeId);
       if (!recipe) return;
@@ -1406,19 +1405,16 @@
       modal.style.display = 'block';
     }
 
-    // Close Recipe Modal
     function closeRecipeModal() {
       document.getElementById('recipeModal').style.display = 'none';
     }
 
-    // Save Recipe
     function saveRecipe(button, recipeName) {
       button.classList.toggle('saved');
       const isSaved = button.classList.contains('saved');
       button.innerHTML = isSaved ? '<i class="fas fa-bookmark"></i>' : '<i class="fas fa-bookmark"></i>';
     }
 
-    // Scroll to Recipe
     function scrollToRecipe(recipeId) {
       filterByType('all');
       setTimeout(() => {
@@ -1429,7 +1425,6 @@
       }, 100);
     }
 
-    // Close modal when clicking outside
     window.onclick = function(event) {
       const modal = document.getElementById('recipeModal');
       if (event.target == modal) {
@@ -1437,51 +1432,7 @@
       }
     }
 
-    // Initialize on load
     window.addEventListener('load', init);
   </script>
-
-
-<div id="footer-placeholder"></div>
-
-  </div>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h4>Buddha Bowls</h4>
-      <p>Healthy, delicious bowls crafted with fresh ingredients and love.</p>
-    </div>
-    <div class="footer-section">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/pages/products.html">Products</a></li>
-        <li><a href="/pages/recipes.html">Recipes</a></li>
-        <li><a href="/pages/about.html">About</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:info@buddhbowls.com">Email</a></li>
-        <li><a href="tel:+1234567890">Phone</a></li>
-        <li><a href="#">Address</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>Follow Us</h4>
-      <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 Buddha Bowls. All rights reserved.</p>
-  </div>
-</footer>
-
 </body>
 </html>
