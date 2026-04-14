@@ -1,30 +1,57 @@
 // Ingredients Checkbox Functionality
 document.addEventListener('DOMContentLoaded', function() {
-  const ingredientItems = document.querySelectorAll('.ingredients ul li, .ingredients ol li, article .ingredients li, .recipe-card .ingredients li');
+  makeIngredientsClickable();
+});
+
+function makeIngredientsClickable() {
+  // Find all ingredient lists
+  const ingredientSections = document.querySelectorAll('.ingredients, [class*="ingredient"]');
   
-  ingredientItems.forEach(item => {
-    // Load saved state from localStorage
-    const recipeId = document.querySelector('article h2')?.textContent || 'default';
-    const ingredientText = item.textContent.trim();
-    const storageKey = `ingredient_${recipeId}_${ingredientText}`;
+  ingredientSections.forEach(section => {
+    const listItems = section.querySelectorAll('li');
     
-    if (localStorage.getItem(storageKey) === 'checked') {
-      item.classList.add('checked');
-    }
-    
-    // Add click handler
-    item.addEventListener('click', function(e) {
-      // Don't trigger if clicking a link
-      if (e.target.tagName === 'A') return;
+    listItems.forEach(item => {
+      // Skip if already has checkbox functionality
+      if (item.hasAttribute('data-checkbox-enabled')) return;
       
-      this.classList.toggle('checked');
+      item.setAttribute('data-checkbox-enabled', 'true');
+      item.style.cursor = 'pointer';
+      item.style.userSelect = 'none';
       
-      // Save state to localStorage
-      if (this.classList.contains('checked')) {
-        localStorage.setItem(storageKey, 'checked');
-      } else {
-        localStorage.removeItem(storageKey);
+      // Get recipe title for localStorage key
+      const recipeTitle = document.querySelector('h1, h2, article h2')?.textContent || 'default';
+      const ingredientText = item.textContent.trim();
+      const storageKey = `ingredient_${recipeTitle}_${ingredientText}`;
+      
+      // Load saved state
+      if (localStorage.getItem(storageKey) === 'checked') {
+        item.classList.add('checked');
       }
+      
+      // Add click handler
+      item.addEventListener('click', function(e) {
+        // Don't trigger if clicking a link
+        if (e.target.tagName === 'A') return;
+        
+        this.classList.toggle('checked');
+        
+        // Save state
+        if (this.classList.contains('checked')) {
+          localStorage.setItem(storageKey, 'checked');
+        } else {
+          localStorage.removeItem(storageKey);
+        }
+      });
     });
   });
+}
+
+// Re-run when content changes (for dynamic content)
+const observer = new MutationObserver(function() {
+  makeIngredientsClickable();
+});
+
+observer.observe(document.body, {
+  childList: true,
+  subtree: true
 });
