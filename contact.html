@@ -31,19 +31,20 @@
       line-height: 1.6;
     }
 
-    /* Header */
+    /* HEADER & NAVIGATION */
     header {
-      background: var(--white);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 1rem 0;
       box-shadow: var(--shadow);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
 
     .header-container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 1rem 2rem;
+      padding: 0 1rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -52,18 +53,28 @@
     .logo-section {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .logo-section:hover {
+      transform: scale(1.05);
     }
 
     .logo-circle {
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
+      background: var(--white);
       border-radius: 50%;
-      background: var(--light);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
     .logo-circle img {
@@ -73,9 +84,7 @@
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
+      color: var(--white);
     }
 
     nav {
@@ -84,69 +93,82 @@
       align-items: center;
     }
 
-    nav a {
-      color: var(--text);
-      text-decoration: none;
+    .nav-item {
+      color: var(--white);
+      cursor: pointer;
       font-weight: 500;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      text-decoration: none;
     }
 
-    nav a:hover {
-      color: var(--primary);
+    .nav-item:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
     }
 
     .dropdown {
       position: relative;
-    }
-
-    .dropdown-toggle::after {
-      content: '';
       display: inline-block;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 5px solid currentColor;
-      margin-left: 0.5rem;
     }
 
     .dropdown-content {
       display: none;
       position: absolute;
+      background-color: var(--white);
+      min-width: 200px;
+      box-shadow: var(--shadow);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
       top: 100%;
       left: 0;
-      background: var(--white);
-      border-radius: 8px;
-      box-shadow: var(--shadow-lg);
-      min-width: 200px;
-      padding: 0.5rem 0;
       margin-top: 0.5rem;
+    }
+
+    .dropdown-content a {
+      color: var(--text);
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--light);
+      border-left-color: var(--primary);
+      padding-left: 2rem;
     }
 
     .dropdown:hover .dropdown-content {
       display: block;
     }
 
-    .dropdown-content a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      color: var(--text);
-      text-decoration: none;
+    .dropdown-toggle::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
       transition: all 0.3s ease;
     }
 
-    .dropdown-content a:hover {
-      background: var(--light);
-      color: var(--primary);
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
     }
 
     .cart-icon {
       position: relative;
       cursor: pointer;
+      color: var(--white);
       font-size: 1.5rem;
-      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.1);
     }
 
     .cart-badge {
@@ -154,15 +176,74 @@
       top: -8px;
       right: -8px;
       background: var(--accent);
-      color: #333;
+      color: var(--text);
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
-      width: 20px;
-      height: 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 0.8rem;
-      font-weight: 700;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #675B5B;
+      color: var(--white);
+      padding: 3rem 1rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+      padding-left: 0.5rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-bottom .fa-heart {
+      color: #FF0000;
     }
 
     /* Hero Section */
@@ -470,58 +551,6 @@
       max-height: 500px;
     }
 
-    /* Footer */
-    footer {
-      background: var(--text);
-      color: var(--white);
-      padding: 3rem 2rem 1rem;
-      margin-top: 3rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .footer-section p {
-      color: #ccc;
-      font-size: 0.95rem;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section ul li a {
-      color: #ccc;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section ul li a:hover {
-      color: var(--accent);
-    }
-
-    .footer-bottom {
-      text-align: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: #999;
-    }
-
     /* Responsive */
     @media (max-width: 768px) {
       .header-container {
@@ -568,20 +597,20 @@
         <div class="logo">Buddha Bowls</div>
       </div>
       <nav>
-        <a href="/">Home</a>
+        <a href="index.html" class="nav-item">Home</a>
         
         <div class="dropdown">
-          <a href="/shop" class="dropdown-toggle">Shop</a>
+          <a href="shop.html" class="nav-item dropdown-toggle">Shop</a>
           <div class="dropdown-content">
-            <a href="#coconut-bowls"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
-            <a href="#accessories"><i class="fas fa-utensils"></i> Accessories</a>
-            <a href="#ingredients"><i class="fas fa-leaf"></i> Organic Ingredients</a>
-            <a href="#cookware"><i class="fas fa-pot-food"></i> Cookware</a>
+            <a href="coconut-bowls.html"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+            <a href="accessories.html"><i class="fas fa-utensils"></i> Accessories</a>
+            <a href="market-bags.html"><i class="fas fa-leaf"></i> Market Bags</a>
+            <a href="candles.html"><i class="fas fa-pot-food"></i> Candles</a>
           </div>
         </div>
 
-        <a href="/recipes">Recipes</a>
-        <a href="/contact">Contact</a>
+        <a href="recipes.html" class="nav-item">Recipes</a>
+        <a href="contact.html" class="nav-item">Contact</a>
       </nav>
 
       <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
@@ -793,37 +822,38 @@
   <footer>
     <div class="footer-container">
       <div class="footer-section">
-        <h4>Buddha Bowls</h4>
-        <p>Healthy, delicious bowls crafted with fresh ingredients and love.</p>
+        <h4>About Buddha Bowls</h4>
+        <p>Your ultimate destination for healthy recipes and premium eco-friendly kitchen products. We're committed to sustainability and wellness.</p>
       </div>
       <div class="footer-section">
         <h4>Quick Links</h4>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/pages/products.html">Products</a></li>
-          <li><a href="/pages/recipes.html">Recipes</a></li>
-          <li><a href="/pages/about.html">About</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h4>Contact</h4>
         <ul>
-          <li><a href="mailto:info@buddhbowls.com">Email</a></li>
-          <li><a href="tel:+1234567890">Phone</a></li>
-          <li><a href="#">Address</a></li>
+          <li><a href="mailto:joy@buddhabowls.org">Email</a></li>
+          <li><a href="shipping.html">Shipping Info</a></li>
+          <li><a href="returns.html">Returns</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h4>Follow Us</h4>
         <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter</a></li>
+          <li><a href="https://www.facebook.com/buddhabowlsorg"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://www.instagram.com/buddhabowlsorg_"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://www.pinterest.com/buddhabowlsorg"><i class="fab fa-pinterest"></i> Pinterest</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Buddha Bowls. All rights reserved.</p>
+      <p>&copy; 2026 Buddha Bowls. All rights reserved. | Designed with <i class="fas fa-heart"></i> for food lovers</p>
     </div>
   </footer>
 
