@@ -1,14 +1,18 @@
-// Ingredients Checkbox Functionality
+// Ingredients Checkbox Functionality - ONLY for recipe cards
 document.addEventListener('DOMContentLoaded', function() {
-  makeIngredientsClickable();
+  makeRecipeCardIngredientsClickable();
 });
 
-function makeIngredientsClickable() {
-  // Find all ingredient lists
-  const ingredientSections = document.querySelectorAll('.ingredients, [class*="ingredient"]');
+function makeRecipeCardIngredientsClickable() {
+  // ONLY target ingredients inside .recipe-card class
+  const recipeCards = document.querySelectorAll('.recipe-card');
   
-  ingredientSections.forEach(section => {
-    const listItems = section.querySelectorAll('li');
+  recipeCards.forEach(card => {
+    const ingredientsList = card.querySelector('.ingredients ul, .ingredients ol');
+    
+    if (!ingredientsList) return;
+    
+    const listItems = ingredientsList.querySelectorAll('li');
     
     listItems.forEach(item => {
       // Skip if already has checkbox functionality
@@ -19,7 +23,7 @@ function makeIngredientsClickable() {
       item.style.userSelect = 'none';
       
       // Get recipe title for localStorage key
-      const recipeTitle = document.querySelector('h1, h2, article h2')?.textContent || 'default';
+      const recipeTitle = document.querySelector('h1')?.textContent || 'default';
       const ingredientText = item.textContent.trim();
       const storageKey = `ingredient_${recipeTitle}_${ingredientText}`;
       
@@ -48,7 +52,7 @@ function makeIngredientsClickable() {
 
 // Re-run when content changes (for dynamic content)
 const observer = new MutationObserver(function() {
-  makeIngredientsClickable();
+  makeRecipeCardIngredientsClickable();
 });
 
 observer.observe(document.body, {
