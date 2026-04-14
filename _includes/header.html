@@ -1,0 +1,32 @@
+<header>
+  <div class="header-container">
+    <div class="logo-section">
+      <div class="logo-circle">
+        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+      </div>
+      <div class="logo">Buddha Bowls</div>
+    </div>
+    <nav>
+      <a href="{{ site.baseurl }}/" class="nav-item">Home</a>
+      
+      <div class="dropdown">
+        <a href="{{ site.baseurl }}/shop.html" class="nav-item dropdown-toggle">Shop</a>
+        <div class="dropdown-content">
+          <a href="{{ site.baseurl }}/products.html"><i class="fas fa-bowl-food"></i> Products</a>
+          <a href="{{ site.baseurl }}/shop.html"><i class="fas fa-utensils"></i> Shop</a>
+          <a href="{{ site.baseurl }}/market-bags.html"><i class="fas fa-leaf"></i> Market Bags</a>
+          <a href="{{ site.baseurl }}/candles.html"><i class="fas fa-pot-food"></i> Candles</a>
+        </div>
+      </div>
+
+      <a href="{{ site.baseurl }}/recipes.html" class="nav-item">Recipes</a>
+      <a href="{{ site.baseurl }}/about.html" class="nav-item">About</a>
+      <a href="{{ site.baseurl }}/contact.html" class="nav-item">Contact</a>
+    </nav>
+
+    <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+      <i class="fas fa-shopping-cart"></i>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </div>
+  </div>
+</header>
