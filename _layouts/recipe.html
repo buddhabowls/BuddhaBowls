@@ -21,8 +21,12 @@
     </article>
   </div>
   
+ {% include email-signup.html %}
   {% include footer.html %}
   
+  <!-- Scripts -->
+  <script src="{{ site.baseurl }}/assets/js/ingredients-checkbox.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/email-signup.js"></script>  
   <script>
     function toggleCart() {
       alert('Cart functionality coming soon!');
