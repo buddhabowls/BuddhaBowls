@@ -1,0 +1,38 @@
+<section class="email-signup-section">
+  <div class="email-signup-container">
+    <div class="signup-content">
+      <h2>Get Buddha Bowls Recipes & Tips</h2>
+      <p>Join our community and receive exclusive recipes, wellness tips, and special offers delivered to your inbox!</p>
+      
+      <form id="emailSignupForm" class="email-signup-form" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+        <div class="form-group">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Enter your email address" 
+            required
+            class="email-input"
+          >
+          <button type="submit" class="signup-btn">Subscribe</button>
+        </div>
+        <p class="form-note">We respect your privacy. Unsubscribe at any time.</p>
+        <div id="formMessage" class="form-message"></div>
+      </form>
+    </div>
+    
+    <div class="signup-benefits">
+      <div class="benefit-item">
+        <i class="fas fa-leaf"></i>
+        <span>Exclusive Recipes</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-heart"></i>
+        <span>Wellness Tips</span>
+      </div>
+      <div class="benefit-item">
+        <i class="fas fa-gift"></i>
+        <span>Special Offers</span>
+      </div>
+    </div>
+  </div>
+</section>
