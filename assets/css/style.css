@@ -775,3 +775,73 @@ body {
 main.page-container {
   flex: 1;
 }
+/* CHECKBOXES FOR INGREDIENTS */
+.ingredients ul li,
+.ingredients ol li,
+article .ingredients li,
+.recipe-card .ingredients li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.ingredients ul li::before,
+.ingredients ol li::before,
+article .ingredients li::before,
+.recipe-card .ingredients li::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--white);
+}
+
+.ingredients ul li:hover::before,
+.ingredients ol li:hover::before,
+article .ingredients li:hover::before,
+.recipe-card .ingredients li:hover::before {
+  background: var(--light);
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
+}
+
+.ingredients ul li.checked,
+.ingredients ol li.checked,
+article .ingredients li.checked,
+.recipe-card .ingredients li.checked {
+  opacity: 0.6;
+  text-decoration: line-through;
+  color: var(--text-light);
+}
+
+.ingredients ul li.checked::before,
+.ingredients ol li.checked::before,
+article .ingredients li.checked::before,
+.recipe-card .ingredients li.checked::before {
+  content: '✓';
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Make ingredients interactive */
+.ingredients,
+article .ingredients,
+.recipe-card .ingredients {
+  user-select: none;
+}
