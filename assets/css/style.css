@@ -753,3 +753,25 @@ footer {
   width: 100%;
   margin-top: auto;
 }
+/* Grid page layout fix */
+.page-container > article {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/* Ensure footer displays full width */
+footer {
+  clear: both;
+  width: 100%;
+}
+
+/* Make body a flex container */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main.page-container {
+  flex: 1;
+}
