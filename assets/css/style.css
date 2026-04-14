@@ -1005,12 +1005,10 @@ article .ingredients,
     grid-template-columns: 1fr;
   }
 }
-/* CHECKBOXES FOR INGREDIENTS - IMPROVED */
+/* CHECKBOXES FOR RECIPE CARD INGREDIENTS ONLY */
 
-/* Target all list items in ingredients sections */
-.ingredients li,
-.recipe-card .ingredients li,
-article li {
+/* Only apply to recipe card ingredients */
+.recipe-card .ingredients li {
   list-style: none;
   display: flex;
   align-items: center;
@@ -1022,10 +1020,8 @@ article li {
   padding-left: 2rem;
 }
 
-/* Create checkbox with ::before */
-.ingredients li::before,
-.recipe-card .ingredients li::before,
-article .ingredients li::before {
+/* Create checkbox with ::before - ONLY in recipe card */
+.recipe-card .ingredients li::before {
   content: '';
   width: 20px;
   height: 20px;
@@ -1044,28 +1040,22 @@ article .ingredients li::before {
   transform: translateY(-50%);
 }
 
-/* Hover state */
-.ingredients li:hover::before,
-.recipe-card .ingredients li:hover::before,
-article .ingredients li:hover::before {
+/* Hover state - ONLY in recipe card */
+.recipe-card .ingredients li:hover::before {
   background: var(--light);
   box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
   transform: translateY(-50%) scale(1.1);
 }
 
-/* Checked state */
-.ingredients li.checked,
-.recipe-card .ingredients li.checked,
-article .ingredients li.checked {
+/* Checked state - ONLY in recipe card */
+.recipe-card .ingredients li.checked {
   opacity: 0.6;
   text-decoration: line-through;
   color: var(--text-light);
 }
 
-/* Checked checkbox with checkmark */
-.ingredients li.checked::before,
-.recipe-card .ingredients li.checked::before,
-article .ingredients li.checked::before {
+/* Checked checkbox with checkmark - ONLY in recipe card */
+.recipe-card .ingredients li.checked::before {
   content: '✓';
   background: var(--primary);
   color: var(--white);
@@ -1077,30 +1067,34 @@ article .ingredients li.checked::before {
   font-size: 0.9rem;
 }
 
-/* Make ingredients section user-selectable text but clickable items */
-.ingredients,
-article .ingredients,
+/* Make recipe card ingredients clickable but preserve normal list styling elsewhere */
 .recipe-card .ingredients {
   user-select: none;
 }
 
-/* Ensure ingredients list items work */
-.ingredients ul,
-.ingredients ol,
-article .ingredients ul,
-article .ingredients ol,
 .recipe-card .ingredients ul,
 .recipe-card .ingredients ol {
   margin-left: 0;
   padding-left: 0;
 }
 
-.ingredients ul li,
-.ingredients ol li,
-article .ingredients ul li,
-article .ingredients ol li,
 .recipe-card .ingredients ul li,
 .recipe-card .ingredients ol li {
   margin-left: 0;
   padding-left: 2rem;
+}
+
+/* KEEP NORMAL STYLING FOR CONTENT SECTION INGREDIENTS */
+.recipe-content .ingredients li,
+article .ingredients li {
+  list-style: disc;
+  margin-left: 1.5rem;
+  padding: 0;
+  cursor: auto;
+  user-select: auto;
+}
+
+.recipe-content .ingredients li::before,
+article .ingredients li::before {
+  display: none !important;
 }
