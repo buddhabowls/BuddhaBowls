@@ -845,3 +845,163 @@ article .ingredients,
 .recipe-card .ingredients {
   user-select: none;
 }
+/* EMAIL SIGNUP SECTION */
+.email-signup-section {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  padding: 4rem 2rem;
+  margin: 3rem 0 0 0;
+}
+
+.email-signup-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.signup-content h2 {
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.signup-content p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.email-signup-form {
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.email-input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.email-input:focus {
+  outline: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.email-input::placeholder {
+  color: #999;
+}
+
+.signup-btn {
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--text);
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background: #FFC700;
+}
+
+.signup-btn:active {
+  transform: translateY(0);
+}
+
+.form-note {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.form-message {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  display: none;
+  font-weight: 500;
+}
+
+.form-message.success {
+  display: block;
+  background: rgba(13, 148, 136, 0.2);
+  color: var(--white);
+  border-left: 4px solid var(--white);
+}
+
+.form-message.error {
+  display: block;
+  background: rgba(255, 0, 0, 0.2);
+  color: #FFB3B3;
+  border-left: 4px solid #FF6B6B;
+}
+
+.signup-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.benefit-item i {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--accent);
+}
+
+.benefit-item span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .email-signup-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .signup-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .form-group {
+    flex-direction: column;
+  }
+
+  .signup-btn {
+    width: 100%;
+  }
+
+  .signup-benefits {
+    grid-template-columns: 1fr;
+  }
+}
