@@ -1005,3 +1005,102 @@ article .ingredients,
     grid-template-columns: 1fr;
   }
 }
+/* CHECKBOXES FOR INGREDIENTS - IMPROVED */
+
+/* Target all list items in ingredients sections */
+.ingredients li,
+.recipe-card .ingredients li,
+article li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 2rem;
+}
+
+/* Create checkbox with ::before */
+.ingredients li::before,
+.recipe-card .ingredients li::before,
+article .ingredients li::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--white);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Hover state */
+.ingredients li:hover::before,
+.recipe-card .ingredients li:hover::before,
+article .ingredients li:hover::before {
+  background: var(--light);
+  box-shadow: 0 2px 6px rgba(13, 148, 136, 0.2);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Checked state */
+.ingredients li.checked,
+.recipe-card .ingredients li.checked,
+article .ingredients li.checked {
+  opacity: 0.6;
+  text-decoration: line-through;
+  color: var(--text-light);
+}
+
+/* Checked checkbox with checkmark */
+.ingredients li.checked::before,
+.recipe-card .ingredients li.checked::before,
+article .ingredients li.checked::before {
+  content: '✓';
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Make ingredients section user-selectable text but clickable items */
+.ingredients,
+article .ingredients,
+.recipe-card .ingredients {
+  user-select: none;
+}
+
+/* Ensure ingredients list items work */
+.ingredients ul,
+.ingredients ol,
+article .ingredients ul,
+article .ingredients ol,
+.recipe-card .ingredients ul,
+.recipe-card .ingredients ol {
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.ingredients ul li,
+.ingredients ol li,
+article .ingredients ul li,
+article .ingredients ol li,
+.recipe-card .ingredients ul li,
+.recipe-card .ingredients ol li {
+  margin-left: 0;
+  padding-left: 2rem;
+}
