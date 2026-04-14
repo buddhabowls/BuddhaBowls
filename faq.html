@@ -1,54 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Buddha Bowls</title>
+  <title>FAQ - Buddha Bowls</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-
-</head>
-<body>
-
-<header>
-  <div class="header-container">
-    <div class="logo-section">
-      <div class="logo-circle">
-        <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" onerror="this.style.display='none'">
-        <span style="display: none;" id="logoFallback">🥗</span>
-      </div>
-      <div class="logo">Buddha Bowls</div>
-    </div>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/pages/products.html">Products</a>
-      <a href="/pages/recipes.html">Recipes</a>
-      <a href="/pages/about.html">About</a>
-      <a href="/pages/contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!DOCTYPE html>
-
-
-
-
-
-
-  <div class="page-container">
-
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     :root {
       --primary: #0D9488;
       --secondary: #14B8A6;
@@ -62,123 +25,682 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
+    /* HEADER & NAVIGATION */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .logo-section:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-circle {
+      width: 45px;
+      height: 45px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo {
+      color: var(--white);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      color: var(--white);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-item:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--white);
+      min-width: 200px;
+      box-shadow: var(--shadow);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      top: 100%;
+      left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-content a {
+      color: var(--text);
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--light);
+      border-left-color: var(--primary);
+      padding-left: 2rem;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-toggle::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: var(--text);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #675B5B;
+      color: var(--white);
+      padding: 3rem 1rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+      padding-left: 0.5rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-bottom .fa-heart {
+      color: #FF0000;
+    }
+
+    /* MAIN CONTENT */
     .page-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 2rem;
     }
 
-    article {
+    /* Hero Section */
+    .faq-hero {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .faq-hero h1 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .faq-hero p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* FAQ Stats */
+    .faq-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .stat-card {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* Search Section */
+    .search-section {
       background: var(--white);
       padding: 2rem;
       border-radius: 12px;
       box-shadow: var(--shadow);
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
 
-    article h1 {
-      color: var(--primary);
+    .search-box {
+      position: relative;
       margin-bottom: 1rem;
-      font-size: 2.5rem;
     }
 
-    article h2 {
-      color: var(--secondary);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      font-size: 1.8rem;
-    }
-
-    article h3 {
-      color: var(--primary);
-      margin-top: 1.5rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    article p {
-      margin-bottom: 1rem;
-      line-height: 1.8;
-    }
-
-    article img {
-      max-width: 100%;
-      height: auto;
+    .search-box input {
+      width: 100%;
+      padding: 0.8rem 1rem 0.8rem 2.5rem;
+      border: 2px solid #ddd;
       border-radius: 8px;
-      margin: 1.5rem 0;
+      font-size: 1rem;
+      transition: all 0.3s ease;
     }
 
-    article ul, article ol {
-      margin-left: 2rem;
-      margin-bottom: 1rem;
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
     }
 
-    article li {
-      margin-bottom: 0.5rem;
-    }
-
-    article blockquote {
-      border-left: 4px solid var(--primary);
-      padding-left: 1rem;
-      margin: 1.5rem 0;
-      font-style: italic;
+    .search-box i {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
       color: var(--text-light);
     }
 
-    article code {
-      background: #F3F4F6;
-      padding: 0.2rem 0.4rem;
-      border-radius: 3px;
-      font-family: 'Courier New', monospace;
+    .search-results {
+      color: var(--text-light);
+      font-size: 0.95rem;
     }
 
-    article pre {
-      background: #1F2937;
-      color: #E5E7EB;
-      padding: 1rem;
-      border-radius: 6px;
-      overflow-x: auto;
-      margin: 1rem 0;
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
 
-    article pre code {
-      background: none;
-      color: inherit;
+    .category-tab {
+      padding: 0.7rem 1.5rem;
+      border: 2px solid #ddd;
+      background: var(--white);
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-tab:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .category-tab.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* FAQ Container */
+    #faqContainer {
+      margin-bottom: 3rem;
+    }
+
+    .faq-section {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    .faq-section-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .faq-section-title i {
+      font-size: 1.8rem;
+    }
+
+    .faq-items {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      border: 2px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--primary);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 1.5rem;
+      background: var(--light);
+      color: var(--primary);
+      border: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    }
+
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
       padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
+    .faq-item.active .faq-answer {
+      padding: 1.5rem;
+      max-height: 500px;
+    }
+
+    .faq-answer p {
+      color: var(--text-light);
+      line-height: 1.8;
+    }
+
+    /* No Results */
+    .no-results {
+      text-align: center;
+      padding: 3rem 2rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .no-results i {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .no-results h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results p {
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .no-results-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .no-results-btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
+
+    /* Quick Links */
+    .quick-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .quick-link-card {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .quick-link-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .quick-link-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .quick-link-card h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .quick-link-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      padding: 3rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-cta h2 {
+      color: var(--white);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-cta p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
+
+    .contact-cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-btn {
+      padding: 0.8rem 1.5rem;
+      background: var(--white);
+      color: var(--primary);
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Helpful Section */
+    .helpful-section {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .helpful-section h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+
+    .helpful-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .helpful-btn {
+      padding: 0.8rem 1.5rem;
+      border: 2px solid #ddd;
+      background: var(--white);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .helpful-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--light);
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
-      .page-container {
-        padding: 1rem;
+      header nav {
+        display: none;
       }
 
-      article {
-        padding: 1rem;
+      .faq-hero h1 {
+        font-size: 2rem;
       }
 
-      article h1 {
-        font-size: 1.8rem;
+      .category-tabs {
+        justify-content: center;
       }
 
-      article h2 {
-        font-size: 1.4rem;
+      .contact-cta-buttons {
+        flex-direction: column;
+      }
+
+      .cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .helpful-buttons {
+        flex-direction: column;
+      }
+
+      .helpful-btn {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
-  <script src="/assets/js/load-components.js"></script>
 </head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <div class="logo-circle">
+          <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+        </div>
+        <div class="logo">Buddha Bowls</div>
+      </div>
+      <nav>
+        <a href="index.html" class="nav-item">Home</a>
+        
+        <div class="dropdown">
+          <a href="shop.html" class="nav-item dropdown-toggle">Shop</a>
+          <div class="dropdown-content">
+            <a href="coconut-bowls.html"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+            <a href="accessories.html"><i class="fas fa-utensils"></i> Accessories</a>
+            <a href="market-bags.html"><i class="fas fa-leaf"></i> Market Bags</a>
+            <a href="candles.html"><i class="fas fa-pot-food"></i> Candles</a>
+          </div>
+        </div>
 
-  <div id="header-placeholder"></div>
+        <a href="recipes.html" class="nav-item">Recipes</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </nav>
 
-  <div class="page-container">
-    <article>
-
-  <!-- Header from theme -->
+      <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+    </div>
+  </header>
 
   <!-- HERO SECTION -->
   <section class="faq-hero">
@@ -188,161 +710,196 @@
 
   <!-- FAQ SECTION -->
   <section class="page-container">
-    <div class="faq-container">
-      <!-- Quick Stats -->
-      <div class="faq-stats">
-        <div class="stat-card">
-          <div class="stat-number">150+</div>
-          <div class="stat-label">Questions Answered</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">98%</div>
-          <div class="stat-label">Customer Satisfaction</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">24hrs</div>
-          <div class="stat-label">Average Response Time</div>
-        </div>
+    <!-- Quick Stats -->
+    <div class="faq-stats">
+      <div class="stat-card">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Questions Answered</div>
       </div>
-
-      <!-- Search Section -->
-      <div class="search-section">
-        <div class="search-box">
-          <i class="fas fa-search"></i>
-          <input 
-            type="text" 
-            id="searchInput" 
-            placeholder="Search FAQ..."
-            onkeyup="searchFAQ()"
-          >
-        </div>
-        <div class="search-results">
-          Showing <strong id="resultCount">0</strong> results
-        </div>
+      <div class="stat-card">
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Customer Satisfaction</div>
       </div>
-
-      <!-- Category Tabs -->
-      <div class="category-tabs">
-        <button class="category-tab active" onclick="filterByCategory('all')">
-          <i class="fas fa-th"></i> All
-        </button>
-        <button class="category-tab" onclick="filterByCategory('products')">
-          <i class="fas fa-shopping-cart"></i> Products
-        </button>
-        <button class="category-tab" onclick="filterByCategory('shipping')">
-          <i class="fas fa-truck"></i> Shipping
-        </button>
-        <button class="category-tab" onclick="filterByCategory('orders')">
-          <i class="fas fa-receipt"></i> Orders
-        </button>
-        <button class="category-tab" onclick="filterByCategory('account')">
-          <i class="fas fa-user"></i> Account
-        </button>
-        <button class="category-tab" onclick="filterByCategory('returns')">
-          <i class="fas fa-undo"></i> Returns
-        </button>
+      <div class="stat-card">
+        <div class="stat-number">24hrs</div>
+        <div class="stat-label">Average Response Time</div>
       </div>
+    </div>
 
-      <!-- FAQ Sections -->
-      <div id="faqContainer"></div>
-
-      <!-- No Results -->
-      <div id="noResults" class="no-results" style="display: none;">
+    <!-- Search Section -->
+    <div class="search-section">
+      <div class="search-box">
         <i class="fas fa-search"></i>
-        <h3>No Results Found</h3>
-        <p>We couldn't find any answers matching your search. Try different keywords or browse by category.</p>
-        <a href="#" class="no-results-btn" onclick="resetSearch(); return false;">
-          <i class="fas fa-redo"></i> Reset Search
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Search FAQ..."
+          onkeyup="searchFAQ()"
+        >
+      </div>
+      <div class="search-results">
+        Showing <strong id="resultCount">0</strong> results
+      </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+      <button class="category-tab active" onclick="filterByCategory('all')">
+        <i class="fas fa-th"></i> All
+      </button>
+      <button class="category-tab" onclick="filterByCategory('products')">
+        <i class="fas fa-shopping-cart"></i> Products
+      </button>
+      <button class="category-tab" onclick="filterByCategory('shipping')">
+        <i class="fas fa-truck"></i> Shipping
+      </button>
+      <button class="category-tab" onclick="filterByCategory('orders')">
+        <i class="fas fa-receipt"></i> Orders
+      </button>
+      <button class="category-tab" onclick="filterByCategory('account')">
+        <i class="fas fa-user"></i> Account
+      </button>
+      <button class="category-tab" onclick="filterByCategory('returns')">
+        <i class="fas fa-undo"></i> Returns
+      </button>
+    </div>
+
+    <!-- FAQ Sections -->
+    <div id="faqContainer"></div>
+
+    <!-- No Results -->
+    <div id="noResults" class="no-results" style="display: none;">
+      <i class="fas fa-search"></i>
+      <h3>No Results Found</h3>
+      <p>We couldn't find any answers matching your search. Try different keywords or browse by category.</p>
+      <a href="#" class="no-results-btn" onclick="resetSearch(); return false;">
+        <i class="fas fa-redo"></i> Reset Search
+      </a>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="margin-top: 3rem;">
+      <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">Quick Links</h2>
+      <div class="quick-links">
+        <div class="quick-link-card" onclick="filterByCategory('products')">
+          <div class="quick-link-icon">
+            <i class="fas fa-box"></i>
+          </div>
+          <h3>Product Info</h3>
+          <p>Learn about our coconut bowls and accessories</p>
+        </div>
+
+        <div class="quick-link-card" onclick="filterByCategory('shipping')">
+          <div class="quick-link-icon">
+            <i class="fas fa-map"></i>
+          </div>
+          <h3>Shipping & Delivery</h3>
+          <p>Find out about shipping times and costs</p>
+        </div>
+
+        <div class="quick-link-card" onclick="filterByCategory('returns')">
+          <div class="quick-link-icon">
+            <i class="fas fa-sync"></i>
+          </div>
+          <h3>Returns & Refunds</h3>
+          <p>Our hassle-free return policy</p>
+        </div>
+
+        <div class="quick-link-card" onclick="filterByCategory('account')">
+          <div class="quick-link-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>Account & Security</h3>
+          <p>Manage your account and privacy</p>
+        </div>
+
+        <div class="quick-link-card" onclick="filterByCategory('orders')">
+          <div class="quick-link-icon">
+            <i class="fas fa-list"></i>
+          </div>
+          <h3>Orders & Tracking</h3>
+          <p>Track your order and manage purchases</p>
+        </div>
+
+        <div class="quick-link-card" onclick="document.querySelector('.contact-cta').scrollIntoView({behavior: 'smooth'})">
+          <div class="quick-link-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>Contact Support</h3>
+          <p>Can't find what you need? Contact us</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-cta">
+      <h2>Still Have Questions?</h2>
+      <p>Our friendly team is here to help. Reach out anytime!</p>
+      <div class="contact-cta-buttons">
+        <a href="contact.html" class="cta-btn">
+          <i class="fas fa-envelope"></i> Send Email
+        </a>
+        <a href="tel:+1-800-BOWLS-01" class="cta-btn">
+          <i class="fas fa-phone"></i> Call Us
+        </a>
+        <a href="#" class="cta-btn" onclick="alert('Live chat coming soon!'); return false;">
+          <i class="fas fa-comments"></i> Live Chat
         </a>
       </div>
+    </div>
 
-      <!-- Quick Links -->
-      <div style="margin-top: 3rem;">
-        <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">Quick Links</h2>
-        <div class="quick-links">
-          <div class="quick-link-card" onclick="scrollToCategory('products')">
-            <div class="quick-link-icon">
-              <i class="fas fa-box"></i>
-            </div>
-            <h3>Product Info</h3>
-            <p>Learn about our coconut bowls and accessories</p>
-          </div>
-
-          <div class="quick-link-card" onclick="scrollToCategory('shipping')">
-            <div class="quick-link-icon">
-              <i class="fas fa-map"></i>
-            </div>
-            <h3>Shipping & Delivery</h3>
-            <p>Find out about shipping times and costs</p>
-          </div>
-
-          <div class="quick-link-card" onclick="scrollToCategory('returns')">
-            <div class="quick-link-icon">
-              <i class="fas fa-sync"></i>
-            </div>
-            <h3>Returns & Refunds</h3>
-            <p>Our hassle-free return policy</p>
-          </div>
-
-          <div class="quick-link-card" onclick="scrollToCategory('account')">
-            <div class="quick-link-icon">
-              <i class="fas fa-lock"></i>
-            </div>
-            <h3>Account & Security</h3>
-            <p>Manage your account and privacy</p>
-          </div>
-
-          <div class="quick-link-card" onclick="scrollToCategory('orders')">
-            <div class="quick-link-icon">
-              <i class="fas fa-list"></i>
-            </div>
-            <h3>Orders & Tracking</h3>
-            <p>Track your order and manage purchases</p>
-          </div>
-
-          <div class="quick-link-card" onclick="document.querySelector('.contact-cta').scrollIntoView({behavior: 'smooth'})">
-            <div class="quick-link-icon">
-              <i class="fas fa-headset"></i>
-            </div>
-            <h3>Contact Support</h3>
-            <p>Can't find what you need? Contact us</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Contact CTA -->
-      <div class="contact-cta">
-        <h2>Still Have Questions?</h2>
-        <p>Our friendly team is here to help. Reach out anytime!</p>
-        <div class="contact-cta-buttons">
-          <a href="/contact.html" class="cta-btn">
-            <i class="fas fa-envelope"></i> Send Email
-          </a>
-          <a href="tel:+1-800-BOWLS-01" class="cta-btn">
-            <i class="fas fa-phone"></i> Call Us
-          </a>
-          <a href="#" class="cta-btn" onclick="alert('Live chat coming soon!'); return false;">
-            <i class="fas fa-comments"></i> Live Chat
-          </a>
-        </div>
-      </div>
-
-      <!-- Helpful Section -->
-      <div class="helpful-section">
-        <h3>Was this page helpful?</h3>
-        <div class="helpful-buttons">
-          <button class="helpful-btn" onclick="markHelpful(true)">
-            <i class="fas fa-thumbs-up"></i> Yes, Very Helpful
-          </button>
-          <button class="helpful-btn" onclick="markHelpful(false)">
-            <i class="fas fa-thumbs-down"></i> Not Really
-          </button>
-        </div>
+    <!-- Helpful Section -->
+    <div class="helpful-section">
+      <h3>Was this page helpful?</h3>
+      <div class="helpful-buttons">
+        <button class="helpful-btn" onclick="markHelpful(true)">
+          <i class="fas fa-thumbs-up"></i> Yes, Very Helpful
+        </button>
+        <button class="helpful-btn" onclick="markHelpful(false)">
+          <i class="fas fa-thumbs-down"></i> Not Really
+        </button>
       </div>
     </div>
   </section>
 
-  <!-- Footer from theme -->
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Buddha Bowls</h4>
+        <p>Your ultimate destination for healthy recipes and premium eco-friendly kitchen products. We're committed to sustainability and wellness.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:joy@buddhabowls.org">Email</a></li>
+          <li><a href="shipping.html">Shipping Info</a></li>
+          <li><a href="returns.html">Returns</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/buddhabowlsorg"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://www.instagram.com/buddhabowlsorg_"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://www.pinterest.com/buddhabowlsorg"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Buddha Bowls. All rights reserved. | Designed with <i class="fas fa-heart"></i> for food lovers</p>
+    </div>
+  </footer>
 
   <script>
     // FAQ Data
@@ -500,7 +1057,6 @@
     };
 
     let currentCategory = 'all';
-    let filteredFAQ = [];
 
     // Initialize
     function init() {
@@ -526,7 +1082,7 @@
 
     // Create FAQ Section
     function createFAQSection(section) {
-      const items = section.items.map((item, index) => `
+      const items = section.items.map((item) => `
         <div class="faq-item" data-question="${item.question.toLowerCase()}" data-answer="${item.answer.toLowerCase()}">
           <button class="faq-question" onclick="toggleFAQ(this)">
             <span>${item.question}</span>
@@ -627,66 +1183,19 @@
       });
     }
 
-    // Scroll to Category
-    function scrollToCategory(category) {
-      filterByCategory(category);
-      document.querySelector('.faq-section').scrollIntoView({ behavior: 'smooth' });
-    }
-
     // Mark Helpful
     function markHelpful(isHelpful) {
       const message = isHelpful ? 'Thank you! We\'re glad we could help.' : 'Sorry to hear that. We\'ll work on improving our FAQ.';
       alert(message);
     }
 
+    // Toggle Cart
+    function toggleCart() {
+      alert('Cart functionality coming soon!');
+    }
+
     // Initialize on load
     window.addEventListener('load', init);
   </script>
-
-    </article>
-  </div>
-
-  <div id="footer-placeholder"></div>
-
-
-  </div>
-
-<footer>
-  <div class="footer-container">
-    <div class="footer-section">
-      <h4>Buddha Bowls</h4>
-      <p>Healthy, delicious bowls crafted with fresh ingredients and love.</p>
-    </div>
-    <div class="footer-section">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/pages/products.html">Products</a></li>
-        <li><a href="/pages/recipes.html">Recipes</a></li>
-        <li><a href="/pages/about.html">About</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>Contact</h4>
-      <ul>
-        <li><a href="mailto:info@buddhbowls.com">Email</a></li>
-        <li><a href="tel:+1234567890">Phone</a></li>
-        <li><a href="#">Address</a></li>
-      </ul>
-    </div>
-    <div class="footer-section">
-      <h4>Follow Us</h4>
-      <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2024 Buddha Bowls. All rights reserved.</p>
-  </div>
-</footer>
-
 </body>
 </html>
