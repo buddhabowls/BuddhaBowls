@@ -1,0 +1,28 @@
+title: Buddha Bowls
+description: Premium handcrafted coconut bowls and healthy recipes
+url: "https://buddhabowls.github.io"
+baseurl: "/buddhabowls"
+theme: minima
+
+# Collections
+collections:
+  recipes:
+    output: true
+    permalink: /recipes/:path/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+  - scope:
+      path: "_recipes"
+    values:
+      layout: "recipe"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
