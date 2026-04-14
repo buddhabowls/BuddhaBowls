@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acai Granola Breakfast Bowl - Buddha Bowls</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0D9488;
+      --secondary: #14B8A6;
+      --accent: #FFD700;
+      --light: #F0FDFA;
+      --white: #FFFFFF;
+      --text: #333;
+      --text-light: #666;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      padding: 1rem 0;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--white);
+      font-size: 1.5rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .logo-section:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-circle {
+      width: 45px;
+      height: 45px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo {
+      color: var(--white);
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-item {
+      color: var(--white);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-item:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: var(--white);
+      min-width: 200px;
+      box-shadow: var(--shadow);
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      top: 100%;
+      left: 0;
+      margin-top: 0.5rem;
+    }
+
+    .dropdown-content a {
+      color: var(--text);
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      border-left: 4px solid transparent;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--light);
+      border-left-color: var(--primary);
+      padding-left: 2rem;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-toggle::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.75rem;
+      margin-left: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown:hover .dropdown-toggle::after {
+      transform: rotate(180deg);
+    }
+
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.1);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: var(--text);
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #675B5B;
+      color: var(--white);
+      padding: 3rem 1rem 1rem;
+      margin-top: 3rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-section h4 {
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: var(--accent);
+      padding-left: 0.5rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .footer-bottom .fa-heart {
+      color: #FF0000;
+    }
+
+    /* MAIN CONTENT */
+    .page-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Recipe Hero */
+    .recipe-hero {
+      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      border-radius: 12px;
+    }
+
+    .recipe-hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .recipe-hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Article Content */
+    article {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+    }
+
+    article h2 {
+      color: var(--primary);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    article h3 {
+      color: var(--secondary);
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    article p {
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    article ul, article ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    article li {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    article strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Recipe Card */
+    .recipe-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2rem 0;
+      border-left: 4px solid var(--primary);
+    }
+
+    .recipe-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .recipe-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .meta-item strong {
+      color: var(--primary);
+    }
+
+    .ingredients, .instructions {
+      margin: 1.5rem 0;
+    }
+
+    .ingredients h4, .instructions h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .tips {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .tips strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      header nav {
+        display: none;
+      }
+
+      .recipe-hero h1 {
+        font-size: 1.8rem;
+      }
+
+      article {
+        padding: 1rem;
+      }
+
+      article h2 {
+        font-size: 1.5rem;
+      }
+
+      article h3 {
+        font-size: 1.1rem;
+      }
+
+      .recipe-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <div class="logo-circle">
+          <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+        </div>
+        <div class="logo">Buddha Bowls</div>
+      </div>
+      <nav>
+        <a href="index.html" class="nav-item">Home</a>
+        
+        <div class="dropdown">
+          <a href="shop.html" class="nav-item dropdown-toggle">Shop</a>
+          <div class="dropdown-content">
+            <a href="coconut-bowls.html"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
+            <a href="accessories.html"><i class="fas fa-utensils"></i> Accessories</a>
+            <a href="market-bags.html"><i class="fas fa-leaf"></i> Market Bags</a>
+            <a href="candles.html"><i class="fas fa-pot-food"></i> Candles</a>
+          </div>
+        </div>
+
+        <a href="recipes.html" class="nav-item">Recipes</a>
+        <a href="contact.html" class="nav-item">Contact</a>
+      </nav>
+
+      <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- RECIPE HERO -->
+  <section class="recipe-hero">
+    <h1>Acai Granola Breakfast Bowl</h1>
+    <p>A refreshing and antioxidant-rich brunch bowl featuring creamy acai blend topped with crunchy granola and fresh berries.</p>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-container">
+    <article>
+      <h2>Rise and Shine with the Ultimate Acai Granola Breakfast Bowl</h2>
+      
+      <p>Let's face it: mornings can be tough. The alarm clock screeches, you stumble out of bed in search of caffeine, and the thought of making breakfast feels as daunting as climbing Mount Everest. But fear not, breakfast warriors! I bring you a solution so simple, so delicious, and so Instagram-worthy that it might just make you a morning person. Enter: the Acai Granola Breakfast Bowl.</p>
+
+      <p>This isn't your average bowl of cereal, folks. This is a tropical vacation for your taste buds, a health-packed masterpiece served in (wait for it)... a coconut bowl. Yes, because why settle for boring when you can eat like a mindful Buddha?</p>
+
+      <h3>What's in This Magical Bowl of Goodness?</h3>
+      
+      <p>Before we dive into the recipe, let's break down the star-studded cast of ingredients that make this breakfast bowl a true A-lister:</p>
+
+      <ul>
+        <li><strong>2 frozen acai packets:</strong> These little purple powerhouses are the Beyoncé of superfoods. Packed with antioxidants, acai berries are here to make you feel like the glowing health guru you've always aspired to be.</li>
+        <li><strong>1 banana:</strong> Nature's candy and the glue that holds this smoothie-like base together. Plus, potassium is your best friend after a night of questionable dietary choices.</li>
+        <li><strong>1/2 cup almond milk:</strong> Creamy, dairy-free, and just bougie enough to make you feel fancy.</li>
+        <li><strong>1 cup mixed berries:</strong> Strawberries, blueberries, raspberries—basically a party in your bowl.</li>
+        <li><strong>1/2 cup granola:</strong> The crunchy crown jewel that adds texture and keeps you coming back for more.</li>
+        <li><strong>2 tbsp almond butter:</strong> Smooth, nutty decadence that makes everything better. (Seriously, is there anything almond butter can't do?)</li>
+        <li><strong>1 tbsp chia seeds:</strong> Tiny but mighty, these little guys are loaded with omega-3s and fiber. Plus, sprinkling them on top makes you look like you have your life together.</li>
+        <li><strong>1 tbsp honey:</strong> A drizzle of liquid gold to sweeten the deal.</li>
+      </ul>
+
+      <p>And let's not forget the pièce de résistance: serving it all in a coconut bowl. Because eating out of a regular bowl is so last season.</p>
+
+      <h3>How to Make It (a.k.a. Breakfast Bliss in 5 Minutes)</h3>
+
+      <ol>
+        <li><strong>Blend like a boss:</strong> Toss the frozen acai packets, banana, almond milk, and half of the mixed berries into a blender. Hit that blend button and watch as your kitchen transforms into a tropical paradise. Pro tip: If your blender is struggling, give it a pep talk or add a splash more almond milk.</li>
+        <li><strong>Pour and admire:</strong> Once your acai mixture reaches that perfect thick-and-creamy consistency (think soft-serve ice cream), pour it into your coconut bowl. Pause for a moment to admire your handiwork. You're basically Picasso with a blender.</li>
+        <li><strong>Top it like you mean it:</strong> Now comes the fun part—toppings! Artfully arrange the remaining mixed berries, granola, almond butter, chia seeds, and honey on top of your acai base. Or just throw them on there haphazardly; it'll taste amazing either way.</li>
+        <li><strong>Snap and share:</strong> Let's be real—you didn't make this masterpiece just for yourself. Snap a photo, slap on a filter, and share it with the world. #BreakfastGoals</li>
+        <li><strong>Dig in:</strong> Grab a spoon and savor every bite. You've earned this moment of zen.</li>
+      </ol>
+
+      <h3>Why This Bowl Deserves a Spot in Your Morning Routine</h3>
+
+      <p>Not only does this Acai Granola Breakfast Bowl taste like dessert disguised as breakfast, but it's also jam-packed with nutrients to fuel your day. Antioxidants? Check. Fiber? Check. Healthy fats? Double check. Plus, it's so pretty that eating it feels like an act of self-care.</p>
+
+      <p>And let's not overlook the sheer versatility of this recipe. Don't have almond milk? Use coconut milk or oat milk. Out of mixed berries? Swap them for mango or kiwi. No granola? Crushed nuts work just as well. This bowl is basically the little black dress of breakfasts—always chic, never boring.</p>
+
+      <h3>The Final Word</h3>
+
+      <p>So there you have it: the Acai Granola Breakfast Bowl—a breakfast so good it might just make mornings your favorite part of the day. Whether you're fueling up for a busy workday or recovering from last night's Netflix binge, this bowl has got your back (and your taste buds).</p>
+
+      <p>Now go forth, blend with confidence, and conquer your morning like the mindful Buddha you were born to be. Just don't forget to wash your blender—it's all fun and games until someone finds dried acai in there three days later.</p>
+
+      <!-- RECIPE CARD -->
+      <div class="recipe-card">
+        <h3><i class="fas fa-utensils"></i> Acai Granola Breakfast Bowl Recipe</h3>
+        
+        <div class="recipe-meta">
+          <div class="meta-item">
+            <strong>Course:</strong>
+            <span>Brunch</span>
+          </div>
+          <div class="meta-item">
+            <strong>Cuisine:</strong>
+            <span>Brazilian-inspired</span>
+          </div>
+          <div class="meta-item">
+            <strong>Servings:</strong>
+            <span>2</span>
+          </div>
+          <div class="meta-item">
+            <strong>Prep Time:</strong>
+            <span>5 minutes</span>
+          </div>
+        </div>
+
+        <!-- INGREDIENTS -->
+        <div class="ingredients">
+          <h4><i class="fas fa-list"></i> Ingredients</h4>
+          <ul>
+            <li>2 frozen acai packets</li>
+            <li>1 banana</li>
+            <li>1/2 cup almond milk</li>
+            <li>1 cup mixed berries</li>
+            <li>1/2 cup granola</li>
+            <li>2 tbsp almond butter</li>
+            <li>1 tbsp chia seeds</li>
+            <li>1 tbsp honey</li>
+          </ul>
+        </div>
+
+        <!-- INSTRUCTIONS -->
+        <div class="instructions">
+          <h4><i class="fas fa-tasks"></i> Instructions</h4>
+          <ol>
+            <li>Blend acai, banana, and almond milk until smooth and creamy.</li>
+            <li>Pour the acai mixture into bowls.</li>
+            <li>Top with mixed berries, granola, almond butter, chia seeds, and a drizzle of honey.</li>
+            <li>Serve immediately and enjoy!</li>
+          </ol>
+        </div>
+
+        <!-- TIPS -->
+        <div class="tips">
+          <strong><i class="fas fa-lightbulb"></i> Pro Tips:</strong>
+          <p>Add protein powder for a more filling meal. Use coconut milk for a tropical flavor. Prepare ingredients the night before for a quick morning blend.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h4>About Buddha Bowls</h4>
+        <p>Your ultimate destination for healthy recipes and premium eco-friendly kitchen products. We're committed to sustainability and wellness.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="recipes.html">Recipes</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:joy@buddhabowls.org">Email</a></li>
+          <li><a href="shipping.html">Shipping Info</a></li>
+          <li><a href="returns.html">Returns</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/buddhabowlsorg"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://www.instagram.com/buddhabowlsorg_"><i class="fab fa-instagram"></i> Instagram</a></li>
+          <li><a href="https://www.pinterest.com/buddhabowlsorg"><i class="fab fa-pinterest"></i> Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Buddha Bowls. All rights reserved. | Designed with <i class="fas fa-heart"></i> for food lovers</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleCart() {
+      alert('Cart functionality coming soon!');
+    }
+  </script>
+</body>
+</html>
