@@ -406,9 +406,7 @@ permalink: /shop/
     const cartItems = document.getElementById('cartItems');
     const cartBadge = document.getElementById('cartBadge');
 
-    if (cartBadge) {
-      cartBadge.textContent = cart.length;
-    }
+    cartBadge.textContent = cart.length;
 
     if (cart.length === 0) {
       cartItems.innerHTML = `
