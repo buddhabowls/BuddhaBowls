@@ -1,0 +1,306 @@
+---
+layout: default
+---
+
+<article class="product-page">
+  <div class="product-hero">
+    {% if page.image %}
+      <div class="product-image">
+        <img src="{{ page.image }}" alt="{{ page.title }}" loading="lazy">
+      </div>
+    {% else %}
+      <div class="product-image-placeholder">
+        <i class="fas fa-image"></i>
+      </div>
+    {% endif %}
+    
+    <div class="product-details">
+      <h1>{{ page.title }}</h1>
+      
+      <div class="product-meta">
+        {% if page.categories %}
+          <span class="category">
+            <i class="fas fa-tag"></i>
+            {% for cat in page.categories %}
+              {{ cat }}{% unless forloop.last %}, {% endunless %}
+            {% endfor %}
+          </span>
+        {% endif %}
+      </div>
+
+      <div class="product-pricing">
+        {% if page.sale_price %}
+          <span class="price-original">${{ page.price }}</span>
+          <span class="price-sale">${{ page.sale_price }}</span>
+          <span class="badge sale">SALE</span>
+        {% else %}
+          <span class="price">${{ page.price }}</span>
+        {% endif %}
+      </div>
+
+      <div class="product-status">
+        {% if page.in_stock %}
+          <span class="in-stock"><i class="fas fa-check-circle"></i> In Stock</span>
+        {% else %}
+          <span class="out-of-stock"><i class="fas fa-times-circle"></i> Out of Stock</span>
+        {% endif %}
+        {% if page.featured %}
+          <span class="featured"><i class="fas fa-star"></i> Featured</span>
+        {% endif %}
+      </div>
+
+      <button class="add-to-cart-btn" onclick="addToCart('{{ page.title }}', {{ page.price }})">
+        <i class="fas fa-shopping-cart"></i> Add to Cart
+      </button>
+    </div>
+  </div>
+
+  <div class="product-content">
+    {{ content }}
+  </div>
+
+  <div class="product-navigation">
+    <a href="{{ site.baseurl }}/shop/" class="btn btn-secondary">
+      <i class="fas fa-arrow-left"></i> Back to Shop
+    </a>
+  </div>
+</article>
+
+<style>
+  .product-page {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+  }
+
+  .product-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .product-image-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: var(--secondary);
+    border-radius: 8px;
+  }
+
+  .product-details h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .product-meta {
+    margin-bottom: 1.5rem;
+  }
+
+  .category {
+    display: inline-block;
+    background: var(--light);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .product-pricing {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .price {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: bold;
+  }
+
+  .price-original {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+  }
+
+  .price-sale {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: bold;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .badge.sale {
+    background: var(--accent);
+    color: #333;
+  }
+
+  .product-status {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .in-stock {
+    color: #27ae60;
+    font-weight: 600;
+  }
+
+  .out-of-stock {
+    color: #e74c3c;
+    font-weight: 600;
+  }
+
+  .featured {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .add-to-cart-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .add-to-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.3);
+  }
+
+  .product-content {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    color: var(--text-light);
+  }
+
+  .product-content h2 {
+    color: var(--primary);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  .product-content ul, .product-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .product-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .product-navigation {
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary {
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .product-hero {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .product-details h1 {
+      font-size: 1.8rem;
+    }
+
+    .price {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  function addToCart(productName, price) {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      background: linear-gradient(135deg, #0D9488, #14B8A6);
+      color: white;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 3000;
+      animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = `Added "${productName}" to cart!`;
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+      notification.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => notification.remove(), 300);
+    }, 2000);
+  }
+</script>
