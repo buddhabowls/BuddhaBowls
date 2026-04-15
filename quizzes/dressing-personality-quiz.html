@@ -1,1101 +1,1107 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Which Dressing Matches Your Personality? - Buddha Bowls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-  <style>
-    :root {
-      --primary: #0D9488;
-      --secondary: #14B8A6;
-      --accent: #FFD700;
-      --light: #F0FDFA;
-      --white: #FFFFFF;
-      --text: #333;
-      --text-light: #666;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .quiz-hero {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .quiz-hero h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .quiz-hero p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .quiz-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Start Screen */
-    .start-screen {
-      background: var(--white);
-      padding: 3rem 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .start-screen h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .start-screen p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .dressing-preview {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .dressing-item {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .dressing-item-icon {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .dressing-item-name {
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .dressing-item-desc {
-      color: var(--text-light);
-      font-size: 0.85rem;
-    }
-
-    .start-button {
-      padding: 1.2rem 2.5rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .start-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
-    }
-
-    /* Quiz Screen */
-    .quiz-screen {
-      display: none;
-    }
-
-    .quiz-screen.active {
-      display: block;
-    }
-
-    .progress-section {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .progress-bar {
-      background: #eee;
-      height: 8px;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-      height: 100%;
-      transition: width 0.3s ease;
-    }
-
-    .progress-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-
-    .question-container {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .question-text {
-      color: var(--primary);
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .answers-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .answer-option {
-      padding: 1.2rem;
-      border: 2px solid #ddd;
-      background: var(--white);
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-      text-align: center;
-    }
-
-    .answer-option:hover {
-      border-color: var(--primary);
-      background: var(--light);
-      transform: translateY(-3px);
-    }
-
-    .answer-option.selected {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-
-    .answer-icon {
-      font-size: 2rem;
-    }
-
-    .answer-text {
-      font-size: 0.95rem;
-    }
-
-    .quiz-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .quiz-btn {
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-next {
-      background: var(--primary);
-      color: var(--white);
-      flex: 1;
-    }
-
-    .btn-next:hover:not(:disabled) {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
-
-    .btn-next:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .btn-back {
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .btn-back:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    /* Result Screen */
-    .result-screen {
-      display: none;
-    }
-
-    .result-screen.active {
-      display: block;
-    }
-
-    .result-container {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .result-header {
-      margin-bottom: 2rem;
-    }
-
-    .result-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      display: block;
-      animation: bounce 0.6s ease-in-out;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .result-title {
-      color: var(--primary);
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .result-subtitle {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .dressing-showcase {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-      border: 2px solid var(--primary);
-    }
-
-    .dressing-showcase-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-    }
-
-    .dressing-showcase-name {
-      color: var(--primary);
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .dressing-showcase-desc {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .dressing-ingredients {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .ingredient-badge {
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .result-description {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-
-    .personality-section {
-      background: #F0F8FF;
-      border-left: 4px solid #2196F3;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    .personality-section h3 {
-      color: #1565C0;
-      margin-bottom: 1rem;
-    }
-
-    .personality-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .personality-item {
-      background: var(--white);
-      padding: 1rem;
-      border-radius: 6px;
-      border-left: 3px solid #2196F3;
-    }
-
-    .personality-item strong {
-      color: #1565C0;
-    }
-
-    .personality-item p {
-      color: var(--text-light);
-      font-size: 0.85rem;
-      margin: 0.5rem 0 0 0;
-    }
-
-    .pairing-section {
-      background: #FFF3CD;
-      border-left: 4px solid var(--accent);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    .pairing-section h3 {
-      color: #856404;
-      margin-bottom: 1rem;
-    }
-
-    .pairing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .pairing-item {
-      background: var(--white);
-      padding: 1rem;
-      border-radius: 6px;
-      text-align: center;
-      border-top: 3px solid var(--accent);
-    }
-
-    .pairing-item strong {
-      color: #856404;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .pairing-item p {
-      color: var(--text-light);
-      font-size: 0.85rem;
-      margin: 0;
-    }
-
-    .recipe-section {
-      background: #E8F5E9;
-      border-left: 4px solid #4CAF50;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    .recipe-section h3 {
-      color: #2E7D32;
-      margin-bottom: 1rem;
-    }
-
-    .recipe-section p {
-      color: #2E7D32;
-      line-height: 1.6;
-      margin: 0.5rem 0;
-    }
-
-    .recipe-section ul {
-      list-style: none;
-      margin: 1rem 0 0 0;
-      padding: 0;
-    }
-
-    .recipe-section li {
-      color: #2E7D32;
-      padding: 0.3rem 0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .recipe-section li i {
-      color: #4CAF50;
-    }
-
-    .share-section {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-
-    .share-section h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .share-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-    }
-
-    .share-btn {
-      padding: 0.8rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .share-btn i {
-      font-size: 1.5rem;
-    }
-
-    .share-btn-facebook {
-      background: #1877F2;
-      color: var(--white);
-    }
-
-    .share-btn-facebook:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
-    }
-
-    .share-btn-twitter {
-      background: #1DA1F2;
-      color: var(--white);
-    }
-
-    .share-btn-twitter:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
-    }
-
-    .share-btn-copy {
-      background: var(--accent);
-      color: #333;
-    }
-
-    .share-btn-copy:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-    }
-
-    .result-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .result-btn {
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .result-btn-primary {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .result-btn-primary:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
-
-    .result-btn-secondary {
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .result-btn-secondary:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    @media (max-width: 768px) {
-      .quiz-hero h1 {
-        font-size: 2rem;
-      }
-
-      .question-text {
-        font-size: 1.3rem;
-      }
-
-      .answers-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .personality-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .share-buttons {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .result-buttons {
-        flex-direction: column;
-      }
-
-      .result-btn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header from theme -->
-
-  <!-- HERO SECTION -->
-  <section class="quiz-hero">
-    <h1>🍯 Which Dressing Matches Your Personality?</h1>
-    <p>Discover which signature dressing perfectly captures your essence!</p>
-  </section>
-
-  <!-- QUIZ SECTION -->
-  <section class="page-container">
-    <div class="quiz-container">
-      <!-- Start Screen -->
-      <div id="startScreen" class="start-screen">
-        <h2>Find Your Perfect Dressing!</h2>
-        <p>
-          Just like the perfect dressing brings a bowl together, we believe the right dressing reflects who you are. Answer 8 quick questions to discover which of our signature dressings matches your personality!
-        </p>
-
-        <div class="dressing-preview">
-          <div class="dressing-item">
-            <div class="dressing-item-icon">🟤</div>
-            <div class="dressing-item-name">Tahini</div>
-            <div class="dressing-item-desc">Creamy & Grounded</div>
-          </div>
-          <div class="dressing-item">
-            <div class="dressing-item-icon">🥜</div>
-            <div class="dressing-item-name">Peanut Satay</div>
-            <div class="dressing-item-desc">Bold & Complex</div>
-          </div>
-          <div class="dressing-item">
-            <div class="dressing-item-icon">🍋</div>
-            <div class="dressing-item-name">Citrus Vinaigrette</div>
-            <div class="dressing-item-desc">Fresh & Vibrant</div>
-          </div>
-          <div class="dressing-item">
-            <div class="dressing-item-icon">🌱</div>
-            <div class="dressing-item-name">Creamy Hemp Seed</div>
-            <div class="dressing-item-desc">Smooth & Nutritious</div>
-          </div>
+---
+layout: default
+title: Which Dressing Matches Your Personality?
+permalink: /quizzes/dressing-personality-quiz/
+---
+
+<!-- HERO SECTION -->
+<section class="quiz-hero">
+  <h1>🍯 Which Dressing Matches Your Personality?</h1>
+  <p>Discover which signature dressing perfectly captures your essence!</p>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="page-container">
+  <div class="quiz-container">
+    <!-- Start Screen -->
+    <div id="startScreen" class="start-screen">
+      <h2>Find Your Perfect Dressing!</h2>
+      <p>
+        Just like the perfect dressing brings a bowl together, we believe the right dressing reflects who you are. Answer 8 quick questions to discover which of our signature dressings matches your personality!
+      </p>
+
+      <div class="dressing-preview">
+        <div class="dressing-item">
+          <div class="dressing-item-icon">🟤</div>
+          <div class="dressing-item-name">Tahini</div>
+          <div class="dressing-item-desc">Creamy & Grounded</div>
         </div>
+        <div class="dressing-item">
+          <div class="dressing-item-icon">🥜</div>
+          <div class="dressing-item-name">Peanut Satay</div>
+          <div class="dressing-item-desc">Bold & Complex</div>
+        </div>
+        <div class="dressing-item">
+          <div class="dressing-item-icon">🍋</div>
+          <div class="dressing-item-name">Citrus Vinaigrette</div>
+          <div class="dressing-item-desc">Fresh & Vibrant</div>
+        </div>
+        <div class="dressing-item">
+          <div class="dressing-item-icon">🌱</div>
+          <div class="dressing-item-name">Creamy Hemp Seed</div>
+          <div class="dressing-item-desc">Smooth & Nutritious</div>
+        </div>
+      </div>
 
-        <button class="start-button" onclick="startQuiz()">
-          <i class="fas fa-play"></i> Start Quiz
+      <button class="start-button" onclick="startQuiz()">
+        <i class="fas fa-play"></i> Start Quiz
+      </button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="quiz-screen">
+      <div class="progress-section">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-info">
+          <span id="questionProgress">Question 1 of 8</span>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question-text" id="questionText">Loading question...</div>
+        <div class="answers-grid" id="answersGrid"></div>
+      </div>
+
+      <div class="quiz-buttons">
+        <button class="quiz-btn btn-back" onclick="previousQuestion()" id="backBtn" style="display: none;">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <button class="quiz-btn btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
+          <i class="fas fa-arrow-right"></i> Next
         </button>
       </div>
+    </div>
 
-      <!-- Quiz Screen -->
-      <div id="quizScreen" class="quiz-screen">
-        <div class="progress-section">
-          <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-          <div class="progress-info">
-            <span id="questionProgress">Question 1 of 8</span>
-          </div>
+    <!-- Result Screen -->
+    <div id="resultScreen" class="result-screen">
+      <div class="result-container">
+        <div class="result-header">
+          <span class="result-icon" id="resultIcon">🍯</span>
+          <h2 class="result-title" id="resultTitle">Tahini</h2>
+          <p class="result-subtitle" id="resultSubtitle">Creamy, Grounded & Reliable</p>
         </div>
 
-        <div class="question-container">
-          <div class="question-text" id="questionText">Loading question...</div>
-          <div class="answers-grid" id="answersGrid"></div>
+        <div class="dressing-showcase">
+          <div class="dressing-showcase-icon" id="dressingIcon">🟤</div>
+          <div class="dressing-showcase-name" id="dressingName">Tahini Dressing</div>
+          <div class="dressing-showcase-desc" id="dressingDesc">Smooth, nutty, and perfectly balanced</div>
+          <div class="dressing-ingredients" id="dressingIngredients"></div>
         </div>
 
-        <div class="quiz-buttons">
-          <button class="quiz-btn btn-back" onclick="previousQuestion()" id="backBtn" style="display: none;">
-            <i class="fas fa-arrow-left"></i> Back
-          </button>
-          <button class="quiz-btn btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
-            <i class="fas fa-arrow-right"></i> Next
-          </button>
+        <div class="result-description" id="resultDescription">
+          Loading your dressing personality...
         </div>
-      </div>
 
-      <!-- Result Screen -->
-      <div id="resultScreen" class="result-screen">
-        <div class="result-container">
-          <div class="result-header">
-            <span class="result-icon" id="resultIcon">🍯</span>
-            <h2 class="result-title" id="resultTitle">Tahini</h2>
-            <p class="result-subtitle" id="resultSubtitle">Creamy, Grounded & Reliable</p>
-          </div>
+        <div class="personality-section">
+          <h3>Your Dressing Personality:</h3>
+          <div class="personality-grid" id="personalityGrid"></div>
+        </div>
 
-          <div class="dressing-showcase">
-            <div class="dressing-showcase-icon" id="dressingIcon">🟤</div>
-            <div class="dressing-showcase-name" id="dressingName">Tahini Dressing</div>
-            <div class="dressing-showcase-desc" id="dressingDesc">Smooth, nutty, and perfectly balanced</div>
-            <div class="dressing-ingredients" id="dressingIngredients"></div>
-          </div>
+        <div class="pairing-section">
+          <h3>🥗 Perfect Bowl Pairings:</h3>
+          <div class="pairing-grid" id="pairingGrid"></div>
+        </div>
 
-          <div class="result-description" id="resultDescription">
-            Loading your dressing personality...
-          </div>
+        <div class="recipe-section">
+          <h3>🍳 Make It At Home:</h3>
+          <p id="recipeIntro">Loading recipe...</p>
+          <ul id="recipeList"></ul>
+        </div>
 
-          <div class="personality-section">
-            <h3>Your Dressing Personality:</h3>
-            <div class="personality-grid" id="personalityGrid"></div>
-          </div>
-
-          <div class="pairing-section">
-            <h3>🥗 Perfect Bowl Pairings:</h3>
-            <div class="pairing-grid" id="pairingGrid"></div>
-          </div>
-
-          <div class="recipe-section">
-            <h3>🍳 Make It At Home:</h3>
-            <p id="recipeIntro">Loading recipe...</p>
-            <ul id="recipeList"></ul>
-          </div>
-
-          <div class="share-section">
-            <h3>Share Your Dressing Match!</h3>
-            <div class="share-buttons">
-              <button class="share-btn share-btn-facebook" onclick="shareToFacebook()">
-                <i class="fab fa-facebook"></i> Facebook
-              </button>
-              <button class="share-btn share-btn-twitter" onclick="shareToTwitter()">
-                <i class="fab fa-twitter"></i> Twitter
-              </button>
-              <button class="share-btn share-btn-copy" onclick="copyToClipboard()">
-                <i class="fas fa-copy"></i> Copy Link
-              </button>
-            </div>
-          </div>
-
-          <div class="result-buttons">
-            <button class="result-btn result-btn-primary" onclick="orderBowl()">
-              <i class="fas fa-shopping-cart"></i> Order Your Bowl
+        <div class="share-section">
+          <h3>Share Your Dressing Match!</h3>
+          <div class="share-buttons">
+            <button class="share-btn share-btn-facebook" onclick="shareToFacebook()">
+              <i class="fab fa-facebook"></i> Facebook
             </button>
-            <button class="result-btn result-btn-secondary" onclick="retakeQuiz()">
-              <i class="fas fa-redo"></i> Try Again
+            <button class="share-btn share-btn-twitter" onclick="shareToTwitter()">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+            <button class="share-btn share-btn-copy" onclick="copyToClipboard()">
+              <i class="fas fa-copy"></i> Copy Link
             </button>
           </div>
+        </div>
+
+        <div class="result-buttons">
+          <button class="result-btn result-btn-primary" onclick="orderBowl()">
+            <i class="fas fa-shopping-cart"></i> Order Your Bowl
+          </button>
+          <button class="result-btn result-btn-secondary" onclick="retakeQuiz()">
+            <i class="fas fa-redo"></i> Try Again
+          </button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer from theme -->
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 
-  <script>
-    // Dressing Types
-    const dressingTypes = {
-      'tahini': {
-        name: 'Tahini',
-        icon: '🟤',
-        subtitle: 'Creamy, Grounded & Reliable',
-        description: 'You\'re the foundation that holds everything together. Like tahini\'s rich, nutty flavor that complements any bowl, you\'re the steady, dependable presence in others\' lives. You value authenticity and substance over flash. Your calm demeanor and thoughtful nature make you someone people trust completely. You\'re not flashy, but you\'re absolutely essential—and everyone knows it.',
-        traits: [
-          { name: 'Grounded', desc: 'Stable and reliable' },
-          { name: 'Authentic', desc: 'Genuinely yourself' },
-          { name: 'Thoughtful', desc: 'Considers all angles' },
-          { name: 'Nurturing', desc: 'Supports others' }
-        ],
-        pairings: [
-          { name: 'Green Goddess Bowl', desc: 'Complements greens perfectly' },
-          { name: 'Mediterranean Bowl', desc: 'Brings richness' },
-          { name: 'Buddha Power Bowl', desc: 'Balances everything' }
-        ],
-        recipe: 'Make tahini dressing at home with sesame tahini, lemon juice, garlic, water, and a pinch of sea salt. Whisk until smooth and creamy!',
-        ingredients: [
-          '3 tbsp sesame tahini',
-          '2 tbsp lemon juice',
-          '1 clove garlic, minced',
-          '3-4 tbsp water',
-          'Salt & pepper to taste'
-        ]
-      },
-      'peanut-satay': {
-        name: 'Peanut Satay',
-        icon: '🥜',
-        subtitle: 'Bold, Complex & Adventurous',
-        description: 'You\'re the life of the party with layers of depth that keep people intrigued. Like peanut satay\'s bold, complex flavor profile, you\'re not afraid to stand out and make an impression. You bring excitement and passion to everything you do. Your adventurous spirit and willingness to take risks inspire those around you. You\'re the friend who suggests the unexpected trip, tries the new restaurant, and always has an interesting story to tell.',
-        traits: [
-          { name: 'Bold', desc: 'Unafraid to stand out' },
-          { name: 'Complex', desc: 'Multi-layered personality' },
-          { name: 'Passionate', desc: 'Deeply committed' },
-          { name: 'Adventurous', desc: 'Loves new experiences' }
-        ],
-        pairings: [
-          { name: 'Asian Fusion Bowl', desc: 'Natural match' },
-          { name: 'Spicy Veggie Bowl', desc: 'Complements heat' },
-          { name: 'Rainbow Power Bowl', desc: 'Brings it together' }
-        ],
-        recipe: 'Blend peanut butter, coconut milk, lime juice, soy sauce, garlic, and ginger for a rich, complex satay sauce.',
-        ingredients: [
-          '3 tbsp peanut butter',
-          '2 tbsp coconut milk',
-          '1 tbsp lime juice',
-          '1 tbsp soy sauce',
-          '1 clove garlic, minced',
-          'Fresh ginger to taste'
-        ]
-      },
-      'citrus-vinaigrette': {
-        name: 'Citrus Vinaigrette',
-        icon: '🍋',
-        subtitle: 'Fresh, Vibrant & Energetic',
-        description: 'You\'re the spark that lights up any room with your infectious energy and optimism. Like citrus vinaigrette\'s bright, zesty flavor, you bring freshness and vitality wherever you go. You\'re quick-witted, enthusiastic, and always looking for the silver lining. Your positive outlook is contagious, and people gravitate toward your uplifting presence. You believe in living life to the fullest and making every moment count.',
-        traits: [
-          { name: 'Energetic', desc: 'Always full of life' },
-          { name: 'Optimistic', desc: 'Sees the bright side' },
-          { name: 'Quick-witted', desc: 'Sharp and clever' },
-          { name: 'Uplifting', desc: 'Brightens others\' days' }
-        ],
-        pairings: [
-          { name: 'Summer Harvest Bowl', desc: 'Perfect match' },
-          { name: 'Tropical Paradise Bowl', desc: 'Brings out flavors' },
-          { name: 'Light & Fresh Bowl', desc: 'Natural pairing' }
-        ],
-        recipe: 'Whisk together fresh citrus juice (lemon, lime, orange), olive oil, Dijon mustard, and a touch of honey for brightness.',
-        ingredients: [
-          '2 tbsp lemon juice',
-          '1 tbsp lime juice',
-          '3 tbsp olive oil',
-          '1 tsp Dijon mustard',
-          '½ tsp honey',
-          'Salt & pepper to taste'
-        ]
-      },
-      'hemp-seed': {
-        name: 'Creamy Hemp Seed',
-        icon: '🌱',
-        subtitle: 'Smooth, Nutritious & Balanced',
-        description: 'You\'re the wellness-focused friend who inspires others to be their best selves. Like hemp seed dressing\'s nutritious profile and smooth texture, you\'re all about balance and holistic well-being. You\'re thoughtful about your choices and genuinely care about health—both physical and mental. You\'re the one who researches ingredients, prioritizes self-care, and leads by example. Your commitment to living well is inspiring and authentic.',
-        traits: [
-          { name: 'Health-conscious', desc: 'Prioritizes wellness' },
-          { name: 'Balanced', desc: 'Holistic approach' },
-          { name: 'Informed', desc: 'Researches choices' },
-          { name: 'Inspiring', desc: 'Leads by example' }
-        ],
-        pairings: [
-          { name: 'Superfood Bowl', desc: 'Nutritional powerhouse' },
-          { name: 'Green Wellness Bowl', desc: 'Perfect alignment' },
-          { name: 'Plant-Powered Bowl', desc: 'Ideal match' }
-        ],
-        recipe: 'Blend hemp seeds, plant-based milk, lemon juice, and garlic for a creamy, protein-rich dressing.',
-        ingredients: [
-          '3 tbsp hemp seeds',
-          '¼ cup plant-based milk',
-          '1 tbsp lemon juice',
-          '1 clove garlic, minced',
-          'Salt & pepper to taste'
-        ]
-      }
+  .quiz-hero {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-hero h1 {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .quiz-hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .quiz-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .start-screen {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .start-screen h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .start-screen p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .dressing-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .dressing-item {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .dressing-item-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .dressing-item-name {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+
+  .dressing-item-desc {
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+
+  .start-button {
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .quiz-screen {
+    display: none;
+  }
+
+  .quiz-screen.active {
+    display: block;
+  }
+
+  .progress-section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+
+  .progress-bar {
+    background: #eee;
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .question-container {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+
+  .question-text {
+    color: var(--primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .answers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .answer-option {
+    padding: 1.2rem;
+    border: 2px solid #ddd;
+    background: var(--white);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    text-align: center;
+  }
+
+  .answer-option:hover {
+    border-color: var(--primary);
+    background: var(--light);
+    transform: translateY(-3px);
+  }
+
+  .answer-option.selected {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+  }
+
+  .answer-text {
+    font-size: 0.95rem;
+  }
+
+  .quiz-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .quiz-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-next {
+    background: var(--primary);
+    color: var(--white);
+    flex: 1;
+  }
+
+  .btn-next:hover:not(:disabled) {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .btn-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-back {
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .btn-back:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .result-screen {
+    display: none;
+  }
+
+  .result-screen.active {
+    display: block;
+  }
+
+  .result-container {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .result-header {
+    margin-bottom: 2rem;
+  }
+
+  .result-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+    animation: bounce 0.6s ease-in-out;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .result-title {
+    color: var(--primary);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dressing-showcase {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--primary);
+  }
+
+  .dressing-showcase-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  .dressing-showcase-name {
+    color: var(--primary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .dressing-showcase-desc {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .dressing-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .ingredient-badge {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .result-description {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .personality-section {
+    background: #F0F8FF;
+    border-left: 4px solid #2196F3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .personality-section h3 {
+    color: #1565C0;
+    margin-bottom: 1rem;
+  }
+
+  .personality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .personality-item {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid #2196F3;
+  }
+
+  .personality-item strong {
+    color: #1565C0;
+  }
+
+  .personality-item p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .pairing-section {
+    background: #FFF3CD;
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .pairing-section h3 {
+    color: #856404;
+    margin-bottom: 1rem;
+  }
+
+  .pairing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .pairing-item {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    border-top: 3px solid var(--accent);
+  }
+
+  .pairing-item strong {
+    color: #856404;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .pairing-item p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .recipe-section {
+    background: #E8F5E9;
+    border-left: 4px solid #4CAF50;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .recipe-section h3 {
+    color: #2E7D32;
+    margin-bottom: 1rem;
+  }
+
+  .recipe-section p {
+    color: #2E7D32;
+    line-height: 1.6;
+    margin: 0.5rem 0;
+  }
+
+  .recipe-section ul {
+    list-style: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+  }
+
+  .recipe-section li {
+    color: #2E7D32;
+    padding: 0.3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .recipe-section li i {
+    color: #4CAF50;
+  }
+
+  .share-section {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-section h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .share-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .share-btn {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .share-btn i {
+    font-size: 1.5rem;
+  }
+
+  .share-btn-facebook {
+    background: #1877F2;
+    color: var(--white);
+  }
+
+  .share-btn-facebook:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+  }
+
+  .share-btn-twitter {
+    background: #1DA1F2;
+    color: var(--white);
+  }
+
+  .share-btn-twitter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
+  }
+
+  .share-btn-copy {
+    background: var(--accent);
+    color: #333;
+  }
+
+  .share-btn-copy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  }
+
+  .result-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .result-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .result-btn-primary {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .result-btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .result-btn-secondary {
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .result-btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .quiz-hero h1 {
+      font-size: 2rem;
+    }
+
+    .question-text {
+      font-size: 1.3rem;
+    }
+
+    .answers-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .personality-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .share-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-buttons {
+      flex-direction: column;
+    }
+
+    .result-btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .quiz-hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .quiz-container {
+      padding: 0 1rem;
+    }
+
+    .start-screen {
+      padding: 1.5rem;
+    }
+
+    .question-container {
+      padding: 1rem;
+    }
+
+    .answers-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .result-container {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Dressing Types
+  const dressingTypes = {
+    'tahini': {
+      name: 'Tahini',
+      icon: '🟤',
+      subtitle: 'Creamy, Grounded & Reliable',
+      description: 'You\'re the foundation that holds everything together. Like tahini\'s rich, nutty flavor that complements any bowl, you\'re the steady, dependable presence in others\' lives. You value authenticity and substance over flash. Your calm demeanor and thoughtful nature make you someone people trust completely. You\'re not flashy, but you\'re absolutely essential—and everyone knows it.',
+      traits: [
+        { name: 'Grounded', desc: 'Stable and reliable' },
+        { name: 'Authentic', desc: 'Genuinely yourself' },
+        { name: 'Thoughtful', desc: 'Considers all angles' },
+        { name: 'Nurturing', desc: 'Supports others' }
+      ],
+      pairings: [
+        { name: 'Green Goddess Bowl', desc: 'Complements greens perfectly' },
+        { name: 'Mediterranean Bowl', desc: 'Brings richness' },
+        { name: 'Buddha Power Bowl', desc: 'Balances everything' }
+      ],
+      recipe: 'Make tahini dressing at home with sesame tahini, lemon juice, garlic, water, and a pinch of sea salt. Whisk until smooth and creamy!',
+      ingredients: [
+        '3 tbsp sesame tahini',
+        '2 tbsp lemon juice',
+        '1 clove garlic, minced',
+        '3-4 tbsp water',
+        'Salt & pepper to taste'
+      ]
+    },
+    'peanut-satay': {
+      name: 'Peanut Satay',
+      icon: '🥜',
+      subtitle: 'Bold, Complex & Adventurous',
+      description: 'You\'re the life of the party with layers of depth that keep people intrigued. Like peanut satay\'s bold, complex flavor profile, you\'re not afraid to stand out and make an impression. You bring excitement and passion to everything you do. Your adventurous spirit and willingness to take risks inspire those around you. You\'re the friend who suggests the unexpected trip, tries the new restaurant, and always has an interesting story to tell.',
+      traits: [
+        { name: 'Bold', desc: 'Unafraid to stand out' },
+        { name: 'Complex', desc: 'Multi-layered personality' },
+        { name: 'Passionate', desc: 'Deeply committed' },
+        { name: 'Adventurous', desc: 'Loves new experiences' }
+      ],
+      pairings: [
+        { name: 'Asian Fusion Bowl', desc: 'Natural match' },
+        { name: 'Spicy Veggie Bowl', desc: 'Complements heat' },
+        { name: 'Rainbow Power Bowl', desc: 'Brings it together' }
+      ],
+      recipe: 'Blend peanut butter, coconut milk, lime juice, soy sauce, garlic, and ginger for a rich, complex satay sauce.',
+      ingredients: [
+        '3 tbsp peanut butter',
+        '2 tbsp coconut milk',
+        '1 tbsp lime juice',
+        '1 tbsp soy sauce',
+        '1 clove garlic, minced',
+        'Fresh ginger to taste'
+      ]
+    },
+    'citrus-vinaigrette': {
+      name: 'Citrus Vinaigrette',
+      icon: '🍋',
+      subtitle: 'Fresh, Vibrant & Energetic',
+      description: 'You\'re the spark that lights up any room with your infectious energy and optimism. Like citrus vinaigrette\'s bright, zesty flavor, you bring freshness and vitality wherever you go. You\'re quick-witted, enthusiastic, and always looking for the silver lining. Your positive outlook is contagious, and people gravitate toward your uplifting presence. You believe in living life to the fullest and making every moment count.',
+      traits: [
+        { name: 'Energetic', desc: 'Always full of life' },
+        { name: 'Optimistic', desc: 'Sees the bright side' },
+        { name: 'Quick-witted', desc: 'Sharp and clever' },
+        { name: 'Uplifting', desc: 'Brightens others\' days' }
+      ],
+      pairings: [
+        { name: 'Summer Harvest Bowl', desc: 'Perfect match' },
+        { name: 'Tropical Paradise Bowl', desc: 'Brings out flavors' },
+        { name: 'Light & Fresh Bowl', desc: 'Natural pairing' }
+      ],
+      recipe: 'Whisk together fresh citrus juice (lemon, lime, orange), olive oil, Dijon mustard, and a touch of honey for brightness.',
+      ingredients: [
+        '2 tbsp lemon juice',
+        '1 tbsp lime juice',
+        '3 tbsp olive oil',
+        '1 tsp Dijon mustard',
+        '½ tsp honey',
+        'Salt & pepper to taste'
+      ]
+    },
+    'hemp-seed': {
+      name: 'Creamy Hemp Seed',
+      icon: '🌱',
+      subtitle: 'Smooth, Nutritious & Balanced',
+      description: 'You\'re the wellness-focused friend who inspires others to be their best selves. Like hemp seed dressing\'s nutritious profile and smooth texture, you\'re all about balance and holistic well-being. You\'re thoughtful about your choices and genuinely care about health—both physical and mental. You\'re the one who researches ingredients, prioritizes self-care, and leads by example. Your commitment to living well is inspiring and authentic.',
+      traits: [
+        { name: 'Health-conscious', desc: 'Prioritizes wellness' },
+        { name: 'Balanced', desc: 'Holistic approach' },
+        { name: 'Informed', desc: 'Researches choices' },
+        { name: 'Inspiring', desc: 'Leads by example' }
+      ],
+      pairings: [
+        { name: 'Superfood Bowl', desc: 'Nutritional powerhouse' },
+        { name: 'Green Wellness Bowl', desc: 'Perfect alignment' },
+        { name: 'Plant-Powered Bowl', desc: 'Ideal match' }
+      ],
+      recipe: 'Blend hemp seeds, plant-based milk, lemon juice, and garlic for a creamy, protein-rich dressing.',
+      ingredients: [
+        '3 tbsp hemp seeds',
+        '¼ cup plant-based milk',
+        '1 tbsp lemon juice',
+        '1 clove garlic, minced',
+        'Salt & pepper to taste'
+      ]
+    }
+  };
+
+  // Quiz Questions
+  const quizQuestions = [
+    {
+      question: 'How do you approach new situations?',
+      answers: [
+        { text: 'Thoughtfully & carefully', dressing: 'tahini' },
+        { text: 'With bold enthusiasm', dressing: 'peanut-satay' },
+        { text: 'With optimistic energy', dressing: 'citrus-vinaigrette' },
+        { text: 'With balanced consideration', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'What\'s your ideal social gathering?',
+      answers: [
+        { text: 'Intimate dinner with close friends', dressing: 'tahini' },
+        { text: 'Wild adventure with a group', dressing: 'peanut-satay' },
+        { text: 'Fun party with lots of people', dressing: 'citrus-vinaigrette' },
+        { text: 'Wellness retreat or yoga class', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'How do people describe you?',
+      answers: [
+        { text: 'Reliable and grounded', dressing: 'tahini' },
+        { text: 'Exciting and unpredictable', dressing: 'peanut-satay' },
+        { text: 'Bright and uplifting', dressing: 'citrus-vinaigrette' },
+        { text: 'Balanced and thoughtful', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'What\'s your approach to challenges?',
+      answers: [
+        { text: 'Face them steadily', dressing: 'tahini' },
+        { text: 'Attack them head-on', dressing: 'peanut-satay' },
+        { text: 'Find the positive angle', dressing: 'citrus-vinaigrette' },
+        { text: 'Consider all options carefully', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'What matters most to you?',
+      answers: [
+        { text: 'Authenticity & trust', dressing: 'tahini' },
+        { text: 'Passion & excitement', dressing: 'peanut-satay' },
+        { text: 'Joy & positivity', dressing: 'citrus-vinaigrette' },
+        { text: 'Health & wellness', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'Your ideal weekend is:',
+      answers: [
+        { text: 'Quiet time at home', dressing: 'tahini' },
+        { text: 'Trying something new', dressing: 'peanut-satay' },
+        { text: 'Out doing something fun', dressing: 'citrus-vinaigrette' },
+        { text: 'Self-care & wellness', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'How do you handle conflict?',
+      answers: [
+        { text: 'With calm understanding', dressing: 'tahini' },
+        { text: 'Direct & passionate', dressing: 'peanut-satay' },
+        { text: 'With humor & lightness', dressing: 'citrus-vinaigrette' },
+        { text: 'With thoughtful dialogue', dressing: 'hemp-seed' }
+      ]
+    },
+    {
+      question: 'What\'s your life philosophy?',
+      answers: [
+        { text: 'Be true to yourself', dressing: 'tahini' },
+        { text: 'Live boldly & fully', dressing: 'peanut-satay' },
+        { text: 'Embrace joy & positivity', dressing: 'citrus-vinaigrette' },
+        { text: 'Balance & holistic living', dressing: 'hemp-seed' }
+      ]
+    }
+  ];
+
+  // Game State
+  let quizState = {
+    currentQuestion: 0,
+    answers: [],
+    dressingScores: {
+      'tahini': 0,
+      'peanut-satay': 0,
+      'citrus-vinaigrette': 0,
+      'hemp-seed': 0
+    }
+  };
+
+  // Start Quiz
+  function startQuiz() {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('quizScreen').classList.add('active');
+    quizState.currentQuestion = 0;
+    quizState.answers = [];
+    quizState.dressingScores = {
+      'tahini': 0,
+      'peanut-satay': 0,
+      'citrus-vinaigrette': 0,
+      'hemp-seed': 0
     };
+    loadQuestion();
+  }
 
-    // Quiz Questions
-    const quizQuestions = [
-      {
-        question: 'How do you approach new situations?',
-        answers: [
-          { text: 'Thoughtfully & carefully', dressing: 'tahini' },
-          { text: 'With bold enthusiasm', dressing: 'peanut-satay' },
-          { text: 'With optimistic energy', dressing: 'citrus-vinaigrette' },
-          { text: 'With balanced consideration', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'What\'s your ideal social gathering?',
-        answers: [
-          { text: 'Intimate dinner with close friends', dressing: 'tahini' },
-          { text: 'Wild adventure with a group', dressing: 'peanut-satay' },
-          { text: 'Fun party with lots of people', dressing: 'citrus-vinaigrette' },
-          { text: 'Wellness retreat or yoga class', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'How do people describe you?',
-        answers: [
-          { text: 'Reliable and grounded', dressing: 'tahini' },
-          { text: 'Exciting and unpredictable', dressing: 'peanut-satay' },
-          { text: 'Bright and uplifting', dressing: 'citrus-vinaigrette' },
-          { text: 'Balanced and thoughtful', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'What\'s your approach to challenges?',
-        answers: [
-          { text: 'Face them steadily', dressing: 'tahini' },
-          { text: 'Attack them head-on', dressing: 'peanut-satay' },
-          { text: 'Find the positive angle', dressing: 'citrus-vinaigrette' },
-          { text: 'Consider all options carefully', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'What matters most to you?',
-        answers: [
-          { text: 'Authenticity & trust', dressing: 'tahini' },
-          { text: 'Passion & excitement', dressing: 'peanut-satay' },
-          { text: 'Joy & positivity', dressing: 'citrus-vinaigrette' },
-          { text: 'Health & wellness', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'Your ideal weekend is:',
-        answers: [
-          { text: 'Quiet time at home', dressing: 'tahini' },
-          { text: 'Trying something new', dressing: 'peanut-satay' },
-          { text: 'Out doing something fun', dressing: 'citrus-vinaigrette' },
-          { text: 'Self-care & wellness', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'How do you handle conflict?',
-        answers: [
-          { text: 'With calm understanding', dressing: 'tahini' },
-          { text: 'Direct & passionate', dressing: 'peanut-satay' },
-          { text: 'With humor & lightness', dressing: 'citrus-vinaigrette' },
-          { text: 'With thoughtful dialogue', dressing: 'hemp-seed' }
-        ]
-      },
-      {
-        question: 'What\'s your life philosophy?',
-        answers: [
-          { text: 'Be true to yourself', dressing: 'tahini' },
-          { text: 'Live boldly & fully', dressing: 'peanut-satay' },
-          { text: 'Embrace joy & positivity', dressing: 'citrus-vinaigrette' },
-          { text: 'Balance & holistic living', dressing: 'hemp-seed' }
-        ]
-      }
-    ];
+  // Load Question
+  function loadQuestion() {
+    const question = quizQuestions[quizState.currentQuestion];
+    const progress = ((quizState.currentQuestion + 1) / quizQuestions.length) * 100;
 
-    // Game State
-    let quizState = {
-      currentQuestion: 0,
-      answers: [],
-      dressingScores: {
-        'tahini': 0,
-        'peanut-satay': 0,
-        'citrus-vinaigrette': 0,
-        'hemp-seed': 0
-      }
-    };
+    document.getElementById('progressFill').style.width = progress + '%';
+    document.getElementById('questionProgress').textContent = `Question ${quizState.currentQuestion + 1} of ${quizQuestions.length}`;
+    document.getElementById('questionText').textContent = question.question;
 
-    // Start Quiz
-    function startQuiz() {
-      document.getElementById('startScreen').style.display = 'none';
-      document.getElementById('quizScreen').classList.add('active');
-      quizState.currentQuestion = 0;
-      quizState.answers = [];
-      quizState.dressingScores = {
-        'tahini': 0,
-        'peanut-satay': 0,
-        'citrus-vinaigrette': 0,
-        'hemp-seed': 0
-      };
+    const answersHtml = question.answers.map((answer, index) => `
+      <button class="answer-option" onclick="selectAnswer(${index})">
+        <div class="answer-text">${answer.text}</div>
+      </button>
+    `).join('');
+
+    document.getElementById('answersGrid').innerHTML = answersHtml;
+    document.getElementById('nextBtn').disabled = true;
+    document.getElementById('backBtn').style.display = quizState.currentQuestion > 0 ? 'block' : 'none';
+  }
+
+  // Select Answer
+  function selectAnswer(index) {
+    const question = quizQuestions[quizState.currentQuestion];
+    const answer = question.answers[index];
+
+    quizState.answers[quizState.currentQuestion] = index;
+    quizState.dressingScores[answer.dressing]++;
+
+    document.querySelectorAll('.answer-option').forEach((btn, i) => {
+      btn.classList.toggle('selected', i === index);
+    });
+
+    document.getElementById('nextBtn').disabled = false;
+  }
+
+  // Next Question
+  function nextQuestion() {
+    if (quizState.currentQuestion < quizQuestions.length - 1) {
+      quizState.currentQuestion++;
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  // Previous Question
+  function previousQuestion() {
+    if (quizState.currentQuestion > 0) {
+      quizState.currentQuestion--;
       loadQuestion();
     }
+  }
 
-    // Load Question
-    function loadQuestion() {
-      const question = quizQuestions[quizState.currentQuestion];
-      const progress = ((quizState.currentQuestion + 1) / quizQuestions.length) * 100;
-
-      document.getElementById('progressFill').style.width = progress + '%';
-      document.getElementById('questionProgress').textContent = `Question ${quizState.currentQuestion + 1} of ${quizQuestions.length}`;
-      document.getElementById('questionText').textContent = question.question;
-
-      const answersHtml = question.answers.map((answer, index) => `
-        <button class="answer-option" onclick="selectAnswer(${index})">
-          <div class="answer-text">${answer.text}</div>
-        </button>
-      `).join('');
-
-      document.getElementById('answersGrid').innerHTML = answersHtml;
-      document.getElementById('nextBtn').disabled = true;
-      document.getElementById('backBtn').style.display = quizState.currentQuestion > 0 ? 'block' : 'none';
-    }
-
-    // Select Answer
-    function selectAnswer(index) {
-      const question = quizQuestions[quizState.currentQuestion];
-      const answer = question.answers[index];
-
-      quizState.answers[quizState.currentQuestion] = index;
-      quizState.dressingScores[answer.dressing]++;
-
-      document.querySelectorAll('.answer-option').forEach((btn, i) => {
-        btn.classList.toggle('selected', i === index);
-      });
-
-      document.getElementById('nextBtn').disabled = false;
-    }
-
-    // Next Question
-    function nextQuestion() {
-      if (quizState.currentQuestion < quizQuestions.length - 1) {
-        quizState.currentQuestion++;
-        loadQuestion();
-      } else {
-        showResult();
+  // Show Result
+  function showResult() {
+    let maxScore = 0;
+    let resultDressing = 'tahini';
+    
+    for (const [dressing, score] of Object.entries(quizState.dressingScores)) {
+      if (score > maxScore) {
+        maxScore = score;
+        resultDressing = dressing;
       }
     }
 
-    // Previous Question
-    function previousQuestion() {
-      if (quizState.currentQuestion > 0) {
-        quizState.currentQuestion--;
-        loadQuestion();
-      }
-    }
+    const result = dressingTypes[resultDressing];
 
-    // Show Result
-    function showResult() {
-      // Find highest dressing score
-      let maxScore = 0;
-      let resultDressing = 'tahini';
-      
-      for (const [dressing, score] of Object.entries(quizState.dressingScores)) {
-        if (score > maxScore) {
-          maxScore = score;
-          resultDressing = dressing;
-        }
-      }
+    document.getElementById('quizScreen').classList.remove('active');
+    document.getElementById('resultScreen').classList.add('active');
 
-      const result = dressingTypes[resultDressing];
+    document.getElementById('resultIcon').textContent = result.icon;
+    document.getElementById('resultTitle').textContent = result.name;
+    document.getElementById('resultSubtitle').textContent = result.subtitle;
+    document.getElementById('resultDescription').textContent = result.description;
 
-      document.getElementById('quizScreen').classList.remove('active');
-      document.getElementById('resultScreen').classList.add('active');
+    document.getElementById('dressingIcon').textContent = result.icon;
+    document.getElementById('dressingName').textContent = result.name + ' Dressing';
+    document.getElementById('dressingDesc').textContent = result.subtitle.toLowerCase();
 
-      document.getElementById('resultIcon').textContent = result.icon;
-      document.getElementById('resultTitle').textContent = result.name;
-      document.getElementById('resultSubtitle').textContent = result.subtitle;
-      document.getElementById('resultDescription').textContent = result.description;
+    const ingredientsHtml = result.ingredients.map(ing => `<span class="ingredient-badge">${ing}</span>`).join('');
+    document.getElementById('dressingIngredients').innerHTML = ingredientsHtml;
 
-      document.getElementById('dressingIcon').textContent = result.icon;
-      document.getElementById('dressingName').textContent = result.name + ' Dressing';
-      document.getElementById('dressingDesc').textContent = result.subtitle.toLowerCase();
+    const traitsHtml = result.traits.map(trait => `
+      <div class="personality-item">
+        <strong>${trait.name}</strong>
+        <p>${trait.desc}</p>
+      </div>
+    `).join('');
+    document.getElementById('personalityGrid').innerHTML = traitsHtml;
 
-      const ingredientsHtml = result.ingredients.map(ing => `<span class="ingredient-badge">${ing}</span>`).join('');
-      document.getElementById('dressingIngredients').innerHTML = ingredientsHtml;
+    const pairingsHtml = result.pairings.map(pairing => `
+      <div class="pairing-item">
+        <strong>${pairing.name}</strong>
+        <p>${pairing.desc}</p>
+      </div>
+    `).join('');
+    document.getElementById('pairingGrid').innerHTML = pairingsHtml;
 
-      // Traits
-      const traitsHtml = result.traits.map(trait => `
-        <div class="personality-item">
-          <strong>${trait.name}</strong>
-          <p>${trait.desc}</p>
-        </div>
-      `).join('');
-      document.getElementById('personalityGrid').innerHTML = traitsHtml;
+    document.getElementById('recipeIntro').textContent = result.recipe;
+    const recipeHtml = result.ingredients.map(ing => `
+      <li><i class="fas fa-check"></i> ${ing}</li>
+    `).join('');
+    document.getElementById('recipeList').innerHTML = recipeHtml;
+  }
 
-      // Pairings
-      const pairingsHtml = result.pairings.map(pairing => `
-        <div class="pairing-item">
-          <strong>${pairing.name}</strong>
-          <p>${pairing.desc}</p>
-        </div>
-      `).join('');
-      document.getElementById('pairingGrid').innerHTML = pairingsHtml;
+  // Share Functions
+  function shareToFacebook() {
+    const dressing = document.getElementById('resultTitle').textContent;
+    const text = `I'm a ${dressing} personality! Take the dressing personality quiz at Buddha Bowls!`;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`, '_blank');
+  }
 
-      // Recipe
-      document.getElementById('recipeIntro').textContent = result.recipe;
-      const recipeHtml = result.ingredients.map(ing => `
-        <li><i class="fas fa-check"></i> ${ing}</li>
-      `).join('');
-      document.getElementById('recipeList').innerHTML = recipeHtml;
-    }
+  function shareToTwitter() {
+    const dressing = document.getElementById('resultTitle').textContent;
+    const text = `I'm a ${dressing} personality! 🍯 Take the dressing personality quiz at Buddha Bowls and find out which one matches you!`;
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+  }
 
-    // Share Functions
-    function shareToFacebook() {
-      const dressing = document.getElementById('resultTitle').textContent;
-      const text = `I\'m a ${dressing} personality! Take the dressing personality quiz at Buddha Bowls!`;
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`, '_blank');
-    }
+  function copyToClipboard() {
+    const dressing = document.getElementById('resultTitle').textContent;
+    const text = `I'm a ${dressing} personality! Take the dressing personality quiz: ${window.location.href}`;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Link copied to clipboard!');
+    });
+  }
 
-    function shareToTwitter() {
-      const dressing = document.getElementById('resultTitle').textContent;
-      const text = `I\'m a ${dressing} personality! 🍯 Take the dressing personality quiz at Buddha Bowls and find out which one matches you!`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
-    }
+  // Order Bowl
+  function orderBowl() {
+    window.location.href = '{{ site.baseurl }}/shop/';
+  }
 
-    function copyToClipboard() {
-      const dressing = document.getElementById('resultTitle').textContent;
-      const text = `I\'m a ${dressing} personality! Take the dressing personality quiz: ${window.location.href}`;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Link copied to clipboard!');
-      });
-    }
-
-    // Order Bowl
-    function orderBowl() {
-      alert('Redirecting to order your bowl...');
-    }
-
-    // Retake Quiz
-    function retakeQuiz() {
-      document.getElementById('resultScreen').classList.remove('active');
-      document.getElementById('startScreen').style.display = 'block';
-    }
-  </script>
-</body>
-</html>
+  // Retake Quiz
+  function retakeQuiz() {
+    document.getElementById('resultScreen').classList.remove('active');
+    document.getElementById('startScreen').style.display = 'block';
+  }
+</script>
