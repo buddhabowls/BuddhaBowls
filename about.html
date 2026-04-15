@@ -1,1102 +1,312 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Buddha Bowls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #0D9488;
-      --secondary: #14B8A6;
-      --accent: #FFD700;
-      --light: #F0FDFA;
-      --white: #FFFFFF;
-      --text: #333;
-      --text-light: #666;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* HEADER & NAVIGATION */
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      padding: 1rem 0;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .logo-section:hover {
-      transform: scale(1.05);
-    }
-
-    .logo-circle {
-      width: 45px;
-      height: 45px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .logo {
-      color: var(--white);
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-item {
-      color: var(--white);
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .nav-item:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: var(--white);
-      min-width: 200px;
-      box-shadow: var(--shadow);
-      z-index: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      top: 100%;
-      left: 0;
-      margin-top: 0.5rem;
-    }
-
-    .dropdown-content a {
-      color: var(--text);
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-      border-left: 4px solid transparent;
-    }
-
-    .dropdown-content a:hover {
-      background-color: var(--light);
-      border-left-color: var(--primary);
-      padding-left: 2rem;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-toggle::after {
-      content: '\f078';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      font-size: 0.75rem;
-      margin-left: 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .dropdown:hover .dropdown-toggle::after {
-      transform: rotate(180deg);
-    }
-
-    .cart-icon {
-      position: relative;
-      cursor: pointer;
-      color: var(--white);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .cart-icon:hover {
-      transform: scale(1.1);
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: var(--accent);
-      color: var(--text);
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: #675B5B;
-      color: var(--white);
-      padding: 3rem 1rem 1rem;
-      margin-top: 3rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .footer-section p {
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section a {
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--accent);
-      padding-left: 0.5rem;
-    }
-
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 2rem;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .footer-bottom .fa-heart {
-      color: #FF0000;
-    }
-
-    /* MAIN CONTENT */
-    .page-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    /* Hero Section */
-    .about-hero {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 4rem 2rem;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .about-hero h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .about-hero p {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    /* Story Section */
-    .story-section {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .story-image {
-      font-size: 5rem;
-      color: var(--primary);
-      text-align: center;
-    }
-
-    .story-content h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .story-content p {
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      line-height: 1.8;
-    }
-
-    /* Mission Section */
-    .mission-section {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .mission-image {
-      font-size: 5rem;
-      color: var(--secondary);
-      text-align: center;
-      order: 2;
-    }
-
-    .mission-content {
-      order: 1;
-    }
-
-    .mission-content h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .mission-content p {
-      color: var(--text-light);
-      margin-bottom: 1rem;
-      line-height: 1.8;
-    }
-
-    .values-list {
-      list-style: none;
-      margin-top: 1.5rem;
-    }
-
-    .values-list li {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      color: var(--text-light);
-    }
-
-    .values-list i {
-      color: var(--primary);
-      font-size: 1.2rem;
-    }
-
-    /* Values Section */
-    .values-section {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 3rem;
-    }
-
-    .values-section h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .value-card {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .value-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .value-icon {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .value-card h3 {
-      color: var(--primary);
-      margin-bottom: 0.8rem;
-      font-size: 1.2rem;
-    }
-
-    .value-card p {
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-
-    /* Stats Section */
-    .stats-section {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      padding: 3rem;
-      border-radius: 12px;
-      margin-bottom: 3rem;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .stat-item {
-      text-align: center;
-      color: var(--white);
-    }
-
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .stat-label {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    /* Team Section */
-    .team-section {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 3rem;
-    }
-
-    .team-section h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .team-member {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .team-member:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .team-image {
-      font-size: 4rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .team-info h3 {
-      color: var(--primary);
-      margin-bottom: 0.3rem;
-      font-size: 1.2rem;
-    }
-
-    .team-role {
-      color: var(--secondary);
-      font-weight: 600;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-    }
-
-    .team-bio {
-      color: var(--text-light);
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-    }
-
-    .team-social {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .team-social a {
-      width: 35px;
-      height: 35px;
-      background: var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .team-social a:hover {
-      background: var(--secondary);
-      transform: translateY(-3px);
-    }
-
-    /* Timeline Section */
-    .timeline-section {
-      background: var(--white);
-      padding: 3rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 3rem;
-    }
-
-    .timeline-section h2 {
-      color: var(--primary);
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .timeline {
-      position: relative;
-      padding: 2rem 0;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 3px;
-      height: 100%;
-      background: var(--primary);
-    }
-
-    .timeline-item {
-      margin-bottom: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      position: relative;
-    }
-
-    .timeline-item:nth-child(even) {
-      direction: rtl;
-    }
-
-    .timeline-item:nth-child(even) .timeline-content {
-      direction: ltr;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 20px;
-      height: 20px;
-      background: var(--white);
-      border: 3px solid var(--primary);
-      border-radius: 50%;
-      top: 0;
-    }
-
-    .timeline-content {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 1.5rem;
-      border-radius: 8px;
-    }
-
-    .timeline-year {
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .timeline-description {
-      color: var(--text-light);
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      padding: 3rem;
-      border-radius: 12px;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .cta-section h2 {
-      color: var(--white);
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      opacity: 0.95;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .cta-btn {
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 1rem;
-    }
-
-    .cta-btn-primary {
-      background: var(--white);
-      color: var(--primary);
-    }
-
-    .cta-btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .cta-btn-secondary {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--white);
-    }
-
-    .cta-btn-secondary:hover {
-      background: var(--white);
-      color: var(--primary);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header nav {
-        display: none;
-      }
-
-      .about-hero h1 {
-        font-size: 2rem;
-      }
-
-      .story-section,
-      .mission-section {
-        grid-template-columns: 1fr;
-      }
-
-      .mission-image {
-        order: 1;
-      }
-
-      .mission-content {
-        order: 2;
-      }
-
-      .timeline::before {
-        left: 0;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        direction: ltr;
-      }
-
-      .timeline-item:nth-child(even) {
-        direction: ltr;
-      }
-
-      .timeline-dot {
-        left: 0;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-      }
-
-      .cta-btn {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="header-container">
-      <div class="logo-section">
-        <div class="logo-circle">
-          <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+---
+layout: default
+title: About Us
+permalink: /about/
+---
+
+<!-- HERO SECTION -->
+<section class="about-hero">
+  <h1>About Buddha Bowls</h1>
+  <p>Handcrafted coconut bowls and wellness recipes for a mindful, sustainable lifestyle</p>
+</section>
+
+<!-- ABOUT CONTENT -->
+<section class="page-container">
+  <!-- Our Story -->
+  <div class="story-section">
+    <div class="story-image">
+      <i class="fas fa-leaf"></i>
+    </div>
+    <div class="story-content">
+      <h2>Our Story</h2>
+      <p>
+        Buddha Bowls was born from a simple passion: to create beautiful, sustainable products that inspire healthier living. What started as a small project in 2016 has grown into a thriving community of wellness enthusiasts around the world.
+      </p>
+      <p>
+        Our founder discovered the beauty of coconut bowls while traveling through Southeast Asia. Inspired by the craftsmanship and sustainability of these natural vessels, they decided to bring this tradition to a global audience. Today, every bowl we create is handcrafted by skilled artisans using sustainable practices.
+      </p>
+      <p>
+        We believe that wellness is not just about what you eat, but how you eat it. Our coconut bowls are designed to transform your meals into mindful moments of nourishment and gratitude.
+      </p>
+    </div>
+  </div>
+
+  <!-- Our Mission -->
+  <div class="mission-section">
+    <div class="mission-image">
+      <i class="fas fa-heart"></i>
+    </div>
+    <div class="mission-content">
+      <h2>Our Mission</h2>
+      <p>
+        At Buddha Bowls, our mission is to inspire a global community to live more mindfully, eat more consciously, and care for our planet. We're committed to creating products that are beautiful, sustainable, and functional.
+      </p>
+      <p>
+        We believe that every purchase is a vote for the kind of world we want to create. By choosing Buddha Bowls, you're supporting fair-trade practices, sustainable harvesting, and artisan communities around the world.
+      </p>
+      <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 1rem;">Our Core Values</h3>
+      <ul class="values-list">
+        <li>
+          <i class="fas fa-check-circle"></i>
+          <span><strong>Sustainability:</strong> Eco-friendly products and practices</span>
+        </li>
+        <li>
+          <i class="fas fa-check-circle"></i>
+          <span><strong>Quality:</strong> Handcrafted excellence in every product</span>
+        </li>
+        <li>
+          <i class="fas fa-check-circle"></i>
+          <span><strong>Community:</strong> Supporting artisans and local economies</span>
+        </li>
+        <li>
+          <i class="fas fa-check-circle"></i>
+          <span><strong>Wellness:</strong> Promoting health and mindfulness</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Values Section -->
+  <div class="values-section">
+    <h2>What We Stand For</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-leaf"></i>
         </div>
-        <div class="logo">Buddha Bowls</div>
+        <h3>Eco-Friendly</h3>
+        <p>100% biodegradable and compostable products made from sustainable coconut shells. Zero waste, maximum impact.</p>
       </div>
-      <nav>
-        <a href="index.html" class="nav-item">Home</a>
-        
-        <div class="dropdown">
-          <a href="shop.html" class="nav-item dropdown-toggle">Shop</a>
-          <div class="dropdown-content">
-            <a href="coconut-bowls.html"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
-            <a href="accessories.html"><i class="fas fa-utensils"></i> Accessories</a>
-            <a href="market-bags.html"><i class="fas fa-leaf"></i> Market Bags</a>
-            <a href="candles.html"><i class="fas fa-pot-food"></i> Candles</a>
-          </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-hands"></i>
         </div>
+        <h3>Handcrafted</h3>
+        <p>Each bowl is carefully crafted by skilled artisans using traditional methods. Quality and uniqueness guaranteed.</p>
+      </div>
 
-        <a href="recipes.html" class="nav-item">Recipes</a>
-        <a href="contact.html" class="nav-item">Contact</a>
-      </nav>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3>Fair Trade</h3>
+        <p>We ensure fair wages and safe working conditions for all artisans. Supporting communities, not exploiting them.</p>
+      </div>
 
-      <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge" id="cartBadge">0</span>
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3>Wellness</h3>
+        <p>Promoting mindful eating and healthy lifestyles through beautiful, functional products and inspiring recipes.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Community</h3>
+        <p>Building a global community of wellness enthusiasts who share our passion for sustainability and health.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>Excellence</h3>
+        <p>Committed to continuous improvement and delivering the best products and customer experience possible.</p>
       </div>
     </div>
-  </header>
+  </div>
 
-  <!-- HERO SECTION -->
-  <section class="about-hero">
-    <h1>About Buddha Bowls</h1>
-    <p>Handcrafted coconut bowls and wellness recipes for a mindful, sustainable lifestyle</p>
-  </section>
-
-  <!-- ABOUT CONTENT -->
-  <section class="page-container">
-    <!-- Our Story -->
-    <div class="story-section">
-      <div class="story-image">
-        <i class="fas fa-leaf"></i>
+  <!-- Stats Section -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">50K+</div>
+        <div class="stat-label">Happy Customers</div>
       </div>
-      <div class="story-content">
-        <h2>Our Story</h2>
-        <p>
-          Buddha Bowls was born from a simple passion: to create beautiful, sustainable products that inspire healthier living. What started as a small project in 2016 has grown into a thriving community of wellness enthusiasts around the world.
-        </p>
-        <p>
-          Our founder discovered the beauty of coconut bowls while traveling through Southeast Asia. Inspired by the craftsmanship and sustainability of these natural vessels, they decided to bring this tradition to a global audience. Today, every bowl we create is handcrafted by skilled artisans using sustainable practices.
-        </p>
-        <p>
-          We believe that wellness is not just about what you eat, but how you eat it. Our coconut bowls are designed to transform your meals into mindful moments of nourishment and gratitude.
-        </p>
+      <div class="stat-item">
+        <div class="stat-number">100K+</div>
+        <div class="stat-label">Bowls Sold</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">150+</div>
+        <div class="stat-label">Recipes Shared</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label">Years of Impact</div>
       </div>
     </div>
+  </div>
 
-    <!-- Our Mission -->
-    <div class="mission-section">
-      <div class="mission-image">
-        <i class="fas fa-heart"></i>
-      </div>
-      <div class="mission-content">
-        <h2>Our Mission</h2>
-        <p>
-          At Buddha Bowls, our mission is to inspire a global community to live more mindfully, eat more consciously, and care for our planet. We're committed to creating products that are beautiful, sustainable, and functional.
-        </p>
-        <p>
-          We believe that every purchase is a vote for the kind of world we want to create. By choosing Buddha Bowls, you're supporting fair-trade practices, sustainable harvesting, and artisan communities around the world.
-        </p>
-        <h3 style="color: var(--primary); margin-top: 1.5rem; margin-bottom: 1rem;">Our Core Values</h3>
-        <ul class="values-list">
-          <li>
-            <i class="fas fa-check-circle"></i>
-            <span><strong>Sustainability:</strong> Eco-friendly products and practices</span>
-          </li>
-          <li>
-            <i class="fas fa-check-circle"></i>
-            <span><strong>Quality:</strong> Handcrafted excellence in every product</span>
-          </li>
-          <li>
-            <i class="fas fa-check-circle"></i>
-            <span><strong>Community:</strong> Supporting artisans and local economies</span>
-          </li>
-          <li>
-            <i class="fas fa-check-circle"></i>
-            <span><strong>Wellness:</strong> Promoting health and mindfulness</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Values Section -->
-    <div class="values-section">
-      <h2>What We Stand For</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-icon">
-            <i class="fas fa-leaf"></i>
-          </div>
-          <h3>Eco-Friendly</h3>
-          <p>100% biodegradable and compostable products made from sustainable coconut shells. Zero waste, maximum impact.</p>
+  <!-- Team Section -->
+  <div class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user-circle"></i>
         </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <i class="fas fa-hands"></i>
+        <div class="team-info">
+          <h3>Sarah Johnson</h3>
+          <div class="team-role">Founder & CEO</div>
+          <p class="team-bio">Passionate about sustainability and wellness. Started Buddha Bowls to share the beauty of mindful living.</p>
+          <div class="team-social">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
           </div>
-          <h3>Handcrafted</h3>
-          <p>Each bowl is carefully crafted by skilled artisans using traditional methods. Quality and uniqueness guaranteed.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <h3>Fair Trade</h3>
-          <p>We ensure fair wages and safe working conditions for all artisans. Supporting communities, not exploiting them.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>Wellness</h3>
-          <p>Promoting mindful eating and healthy lifestyles through beautiful, functional products and inspiring recipes.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Community</h3>
-          <p>Building a global community of wellness enthusiasts who share our passion for sustainability and health.</p>
-        </div>
-
-        <div class="value-card">
-          <div class="value-icon">
-            <i class="fas fa-star"></i>
-          </div>
-          <h3>Excellence</h3>
-          <p>Committed to continuous improvement and delivering the best products and customer experience possible.</p>
         </div>
       </div>
-    </div>
 
-    <!-- Stats Section -->
-    <div class="stats-section">
-      <div class="stats-grid">
-        <div class="stat-item">
-          <div class="stat-number">50K+</div>
-          <div class="stat-label">Happy Customers</div>
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user-circle"></i>
         </div>
-        <div class="stat-item">
-          <div class="stat-number">100K+</div>
-          <div class="stat-label">Bowls Sold</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">150+</div>
-          <div class="stat-label">Recipes Shared</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">10+</div>
-          <div class="stat-label">Years of Impact</div>
+        <div class="team-info">
+          <h3>Marcus Chen</h3>
+          <div class="team-role">Product Director</div>
+          <p class="team-bio">Expert in sustainable design and product development. Ensures every bowl meets our quality standards.</p>
+          <div class="team-social">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Team Section -->
-    <div class="team-section">
-      <h2>Meet Our Team</h2>
-      <div class="team-grid">
-        <div class="team-member">
-          <div class="team-image">
-            <i class="fas fa-user-circle"></i>
-          </div>
-          <div class="team-info">
-            <h3>Sarah Johnson</h3>
-            <div class="team-role">Founder & CEO</div>
-            <p class="team-bio">Passionate about sustainability and wellness. Started Buddha Bowls to share the beauty of mindful living.</p>
-            <div class="team-social">
-              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div class="team-info">
+          <h3>Emily Rodriguez</h3>
+          <div class="team-role">Head Chef & Recipe Developer</div>
+          <p class="team-bio">Culinary expert creating delicious, nutritious recipes that inspire our community.</p>
+          <div class="team-social">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
+      </div>
 
-        <div class="team-member">
-          <div class="team-image">
-            <i class="fas fa-user-circle"></i>
-          </div>
-          <div class="team-info">
-            <h3>Marcus Chen</h3>
-            <div class="team-role">Product Director</div>
-            <p class="team-bio">Expert in sustainable design and product development. Ensures every bowl meets our quality standards.</p>
-            <div class="team-social">
-              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
+      <div class="team-member">
+        <div class="team-image">
+          <i class="fas fa-user-circle"></i>
         </div>
-
-        <div class="team-member">
-          <div class="team-image">
-            <i class="fas fa-user-circle"></i>
-          </div>
-          <div class="team-info">
-            <h3>Emily Rodriguez</h3>
-            <div class="team-role">Head Chef & Recipe Developer</div>
-            <p class="team-bio">Culinary expert creating delicious, nutritious recipes that inspire our community.</p>
-            <div class="team-social">
-              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="team-member">
-          <div class="team-image">
-            <i class="fas fa-user-circle"></i>
-          </div>
-          <div class="team-info">
-            <h3>David Kim</h3>
-            <div class="team-role">Community Manager</div>
-            <p class="team-bio">Building and nurturing our global community of wellness enthusiasts and conscious consumers.</p>
-            <div class="team-social">
-              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-            </div>
+        <div class="team-info">
+          <h3>David Kim</h3>
+          <div class="team-role">Community Manager</div>
+          <p class="team-bio">Building and nurturing our global community of wellness enthusiasts and conscious consumers.</p>
+          <div class="team-social">
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Timeline Section -->
-    <div class="timeline-section">
-      <h2>Our Journey</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2016</div>
-            <div class="timeline-description">Buddha Bowls founded with a vision to bring sustainable coconut bowls to the world.</div>
-          </div>
+  <!-- Timeline Section -->
+  <div class="timeline-section">
+    <h2>Our Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2016</div>
+          <div class="timeline-description">Buddha Bowls founded with a vision to bring sustainable coconut bowls to the world.</div>
         </div>
+      </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2017</div>
-            <div class="timeline-description">Launched our first recipe collection and reached 5,000 happy customers.</div>
-          </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2017</div>
+          <div class="timeline-description">Launched our first recipe collection and reached 5,000 happy customers.</div>
         </div>
+      </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2019</div>
-            <div class="timeline-description">Expanded to international shipping and opened partnerships with wellness influencers.</div>
-          </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-description">Expanded to international shipping and opened partnerships with wellness influencers.</div>
         </div>
+      </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2021</div>
-            <div class="timeline-description">Reached 50,000 customers and launched our sustainability initiative program.</div>
-          </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-description">Reached 50,000 customers and launched our sustainability initiative program.</div>
         </div>
+      </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2023</div>
-            <div class="timeline-description">Celebrated 100,000 bowls sold and expanded our artisan partner network globally.</div>
-          </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-description">Celebrated 100,000 bowls sold and expanded our artisan partner network globally.</div>
         </div>
+      </div>
 
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-content">
-            <div class="timeline-year">2024</div>
-            <div class="timeline-description">Launched new product lines and committed to carbon-neutral operations by 2025.</div>
-          </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-year">2024</div>
+          <div class="timeline-description">Launched new product lines and committed to carbon-neutral operations by 2025.</div>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- CTA Section -->
-    <div class="cta-section">
-      <h2>Join Our Community</h2>
-      <p>Be part of a global movement toward sustainability, wellness, and mindful living.</p>
-      <div class="cta-buttons">
-        <a href="products.html" class="cta-btn cta-btn-primary">
-          <i class="fas fa-shopping-cart"></i> Shop Now
-        </a>
-        <a href="contact.html" class="cta-btn cta-btn-secondary">
-          <i class="fas fa-envelope"></i> Get In Touch
-        </a>
-      </div>
+  <!-- CTA Section -->
+  <div class="cta-section">
+    <h2>Join Our Community</h2>
+    <p>Be part of a global movement toward sustainability, wellness, and mindful living.</p>
+    <div class="cta-buttons">
+      <a href="{{ site.baseurl }}/shop/" class="cta-btn cta-btn-primary">
+        <i class="fas fa-shopping-cart"></i> Shop Now
+      </a>
+      <a href="{{ site.baseurl }}/contact/" class="cta-btn cta-btn-secondary">
+        <i class="fas fa-envelope"></i> Get In Touch
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>About Buddha Bowls</h4>
-        <p>Your ultimate destination for healthy recipes and premium eco-friendly kitchen products. We're committed to sustainability and wellness.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="recipes.html">Recipes</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:joy@buddhabowls.org">Email</a></li>
-          <li><a href="shipping.html">Shipping Info</a></li>
-          <li><a href="returns.html">Returns</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Follow Us</h4>
-        <ul>
-          <li><a href="https://www.facebook.com/buddhabowlsorg"><i class="fab fa-facebook"></i> Facebook</a></li>
-          <li><a href="https://www.instagram.com/buddhabowlsorg_"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="https://www.pinterest.com/buddhabowlsorg"><i class="fab fa-pinterest"></i> Pinterest</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Buddha Bowls. All rights reserved. | Designed with <i class="fas fa-heart"></i> for food lovers</p>
-    </div>
-  </footer>
+<script>
+  // Animate stats on scroll
+  function animateStats() {
+    const stats = document.querySelectorAll('.stat-number');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = entry.target;
+          const finalValue = target.textContent;
+          const numericValue = parseInt(finalValue);
+          let currentValue = 0;
+          const increment = numericValue / 50;
 
-  <script>
-    // Toggle Cart
-    function toggleCart() {
-      alert('Cart functionality coming soon!');
-    }
+          const counter = setInterval(() => {
+            currentValue += increment;
+            if (currentValue >= numericValue) {
+              target.textContent = finalValue;
+              clearInterval(counter);
+            } else {
+              target.textContent = Math.floor(currentValue) + (finalValue.includes('+') ? '+' : '');
+            }
+          }, 30);
 
-    // Animate stats on scroll
-    function animateStats() {
-      const stats = document.querySelectorAll('.stat-number');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const target = entry.target;
-            const finalValue = target.textContent;
-            const numericValue = parseInt(finalValue);
-            let currentValue = 0;
-            const increment = numericValue / 50;
-
-            const counter = setInterval(() => {
-              currentValue += increment;
-              if (currentValue >= numericValue) {
-                target.textContent = finalValue;
-                clearInterval(counter);
-              } else {
-                target.textContent = Math.floor(currentValue) + (finalValue.includes('+') ? '+' : '');
-              }
-            }, 30);
-
-            observer.unobserve(target);
-          }
-        });
+          observer.unobserve(target);
+        }
       });
+    });
 
-      stats.forEach(stat => observer.observe(stat));
-    }
+    stats.forEach(stat => observer.observe(stat));
+  }
 
-    window.addEventListener('load', animateStats);
-  </script>
-</body>
-</html>
+  window.addEventListener('load', animateStats);
+</script>
