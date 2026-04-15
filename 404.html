@@ -1,0 +1,194 @@
+---
+layout: default
+title: Page Not Found
+permalink: /404.html
+---
+
+<div class="error-container">
+  <div class="error-content">
+    <div class="error-icon">
+      <i class="fas fa-search"></i>
+    </div>
+    
+    <h1 class="error-title">404</h1>
+    <h2 class="error-subtitle">Oops! Page Not Found</h2>
+    
+    <p class="error-description">
+      The page you're looking for seems to have wandered off like a lost ingredient in the kitchen. 
+      Let's help you find what you need!
+    </p>
+
+    <!-- SEARCH FUNCTION -->
+    <div class="search-section">
+      <h3>Search Our Site</h3>
+      <div class="search-box">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search recipes, products, tips..."
+          onkeyup="searchSite()"
+        >
+        <button class="search-btn" onclick="searchSite()">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+      
+      <div id="searchResults" class="search-results" style="display: none;">
+        <h4>Search Results</h4>
+        <div id="resultsList" class="results-list"></div>
+      </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="quick-links-section">
+      <h3>Quick Navigation</h3>
+      <div class="quick-links">
+        <a href="{{ site.baseurl }}/" class="quick-link">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+        <a href="{{ site.baseurl }}/recipes/" class="quick-link">
+          <i class="fas fa-book"></i>
+          <span>Recipes</span>
+        </a>
+        <a href="{{ site.baseurl }}/shop/" class="quick-link">
+          <i class="fas fa-shopping-bag"></i>
+          <span>Shop</span>
+        </a>
+        <a href="{{ site.baseurl }}/about/" class="quick-link">
+          <i class="fas fa-heart"></i>
+          <span>About</span>
+        </a>
+        <a href="{{ site.baseurl }}/contact/" class="quick-link">
+          <i class="fas fa-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- POPULAR PAGES -->
+    <div class="popular-section">
+      <h3>Popular Pages</h3>
+      <ul class="popular-list">
+        <li><a href="{{ site.baseurl }}/recipes/">Browse All Recipes</a></li>
+        <li><a href="{{ site.baseurl }}/shop/">Shop Products</a></li>
+        <li><a href="{{ site.baseurl }}/about/">Learn About Us</a></li>
+        <li><a href="{{ site.baseurl }}/contact/">Get in Touch</a></li>
+      </ul>
+    </div>
+
+    <!-- HOME BUTTON -->
+    <a href="{{ site.baseurl }}/" class="home-button">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+
+  <!-- DECORATIVE ELEMENTS -->
+  <div class="error-decoration">
+    <div class="decoration-item">🥗</div>
+    <div class="decoration-item">🥑</div>
+    <div class="decoration-item">🌾</div>
+  </div>
+</div>
+
+<script>
+  // Site content for search
+  const siteContent = [
+    {
+      title: 'Acai Granola Breakfast Bowl',
+      url: '{{ site.baseurl }}/recipes/acai-granola-breakfast-bowl/',
+      type: 'Recipe',
+      keywords: ['acai', 'breakfast', 'granola', 'bowl', 'smoothie']
+    },
+    {
+      title: 'Buddha Bowl Recipes',
+      url: '{{ site.baseurl }}/recipes/',
+      type: 'Recipes',
+      keywords: ['recipes', 'buddha bowl', 'healthy', 'meals']
+    },
+    {
+      title: 'Shop',
+      url: '{{ site.baseurl }}/shop/',
+      type: 'Shop',
+      keywords: ['shop', 'products', 'coconut bowls', 'accessories', 'ingredients']
+    },
+    {
+      title: 'About Buddha Bowls',
+      url: '{{ site.baseurl }}/about/',
+      type: 'About',
+      keywords: ['about', 'mission', 'eco-friendly', 'sustainable']
+    },
+    {
+      title: 'Contact Us',
+      url: '{{ site.baseurl }}/contact/',
+      type: 'Contact',
+      keywords: ['contact', 'email', 'support', 'help']
+    },
+    {
+      title: 'Premium Coconut Bowl',
+      url: '{{ site.baseurl }}/shop/',
+      type: 'Product',
+      keywords: ['coconut bowl', 'product', 'eco-friendly', 'handcrafted']
+    },
+    {
+      title: 'Organic Ingredients',
+      url: '{{ site.baseurl }}/shop/',
+      type: 'Product',
+      keywords: ['organic', 'quinoa', 'chia seeds', 'honey', 'ingredients']
+    }
+  ];
+
+  function searchSite() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase().trim();
+    const resultsDiv = document.getElementById('searchResults');
+    const resultsList = document.getElementById('resultsList');
+
+    if (searchInput.length === 0) {
+      resultsDiv.style.display = 'none';
+      return;
+    }
+
+    // Search through content
+    const results = siteContent.filter(item => {
+      const titleMatch = item.title.toLowerCase().includes(searchInput);
+      const keywordMatch = item.keywords.some(keyword => 
+        keyword.toLowerCase().includes(searchInput)
+      );
+      return titleMatch || keywordMatch;
+    });
+
+    if (results.length === 0) {
+      resultsList.innerHTML = `
+        <div class="no-results">
+          <p>No results found for "<strong>${searchInput}</strong>"</p>
+          <p class="no-results-hint">Try different keywords or browse our popular pages above.</p>
+        </div>
+      `;
+    } else {
+      resultsList.innerHTML = results.map(result => `
+        <a href="${result.url}" class="result-item">
+          <div class="result-header">
+            <span class="result-title">${result.title}</span>
+            <span class="result-type">${result.type}</span>
+          </div>
+          <p class="result-url">${result.url}</p>
+        </a>
+      `).join('');
+    }
+
+    resultsDiv.style.display = 'block';
+  }
+
+  // Allow Enter key to search
+  document.getElementById('searchInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      searchSite();
+    }
+  });
+
+  // Focus search input on page load
+  window.addEventListener('load', function() {
+    document.getElementById('searchInput').focus();
+  });
+</script>
