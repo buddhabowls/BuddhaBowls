@@ -1,816 +1,802 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spin the Coconut - Buddha Bowls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-  <style>
-    :root {
-      --primary: #0D9488;
-      --secondary: #14B8A6;
-      --accent: #FFD700;
-      --light: #F0FDFA;
-      --white: #FFFFFF;
-      --text: #333;
-      --text-light: #666;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    /* Wheel Trigger Button */
-    .wheel-trigger {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      border: none;
-      border-radius: 50%;
-      color: var(--white);
-      font-size: 2rem;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.4);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-      animation: bounce 2s infinite;
-    }
-
-    .wheel-trigger:hover {
-      transform: scale(1.1);
-      box-shadow: 0 12px 30px rgba(13, 148, 136, 0.6);
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .wheel-trigger-label {
-      position: absolute;
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      white-space: nowrap;
-      right: 100px;
-      top: 50%;
-      transform: translateY(-50%);
-      animation: slideInRight 0.5s ease;
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateX(20px) translateY(-50%);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0) translateY(-50%);
-      }
-    }
-
-    /* Modal */
-    .wheel-modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-      animation: fadeIn 0.3s ease;
-      overflow-y: auto;
-    }
-
-    .wheel-modal-content {
-      background: var(--white);
-      margin: 2% auto;
-      padding: 2rem;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 600px;
-      animation: slideUp 0.3s ease;
-      position: relative;
-    }
-
-    .close-wheel {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: var(--text-light);
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .close-wheel:hover {
-      color: var(--primary);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Email Form */
-    .email-form-section {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .email-form-section h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .email-form-section p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .email-form {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .email-input {
-      flex: 1;
-      padding: 0.8rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .email-input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
-    }
-
-    .spin-btn {
-      padding: 0.8rem 1.5rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .spin-btn:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
-    }
-
-    .spin-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .form-message {
-      padding: 0.8rem;
-      border-radius: 6px;
-      margin-bottom: 1rem;
-      display: none;
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .form-message.error {
-      background: #F8D7DA;
-      color: #721c24;
-      border-left: 4px solid #F5C6CB;
-      display: block;
-    }
-
-    .form-message.success {
-      background: #D4EDDA;
-      color: #155724;
-      border-left: 4px solid #28a745;
-      display: block;
-    }
-
-    /* Wheel Section */
-    .wheel-section {
-      display: none;
-      text-align: center;
-    }
-
-    .wheel-section.active {
-      display: block;
-    }
-
-    .wheel-container {
-      position: relative;
-      width: 300px;
-      height: 300px;
-      margin: 0 auto 2rem;
-    }
-
-    .wheel {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      position: relative;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      transition: transform 0.1s linear;
-    }
-
-    .wheel-segment {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
-    }
-
-    .wheel-segment-inner {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--white);
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .wheel-pointer {
-      position: absolute;
-      top: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-top: 25px solid var(--primary);
-      z-index: 10;
-    }
-
-    .wheel-center {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      background: var(--white);
-      border-radius: 50%;
-      border: 3px solid var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      z-index: 11;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .spin-instruction {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .spin-button {
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .spin-button:hover:not(:disabled) {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
-    }
-
-    .spin-button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    /* Result Section */
-    .result-section {
-      display: none;
-      text-align: center;
-    }
-
-    .result-section.active {
-      display: block;
-    }
-
-    .result-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      animation: bounce 0.6s ease-in-out;
-    }
-
-    .result-title {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .result-description {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    .reward-box {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      border: 2px solid var(--primary);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-
-    .reward-label {
-      color: var(--text-light);
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .reward-code {
-      background: var(--white);
-      border: 2px dashed var(--primary);
-      padding: 1rem;
-      border-radius: 6px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 1rem;
-      font-family: 'Courier New', monospace;
-    }
-
-    .copy-reward {
-      background: var(--accent);
-      color: #333;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
-    }
-
-    .copy-reward:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    .result-actions {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1.5rem;
-    }
-
-    .action-btn {
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .action-btn-primary {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .action-btn-primary:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
-
-    .action-btn-secondary {
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .action-btn-secondary:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .terms {
-      font-size: 0.8rem;
-      color: var(--text-light);
-      margin-top: 1rem;
-    }
-
-    @media (max-width: 768px) {
-      .wheel-trigger {
-        width: 70px;
-        height: 70px;
-        font-size: 1.5rem;
-        bottom: 20px;
-        right: 20px;
-      }
-
-      .wheel-trigger-label {
-        display: none;
-      }
-
-      .wheel-modal-content {
-        width: 95%;
-        padding: 1.5rem;
-      }
-
-      .wheel-container {
-        width: 250px;
-        height: 250px;
-      }
-
-      .email-form {
-        flex-direction: column;
-      }
-
-      .spin-btn {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .result-actions {
-        flex-direction: column;
-      }
-
-      .action-btn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header from theme -->
-
-  <!-- Main Content -->
-  <section class="page-container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
-    <div style="text-align: center; max-width: 600px; padding: 2rem;">
-      <h1 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Welcome to Buddha Bowls</h1>
-      <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-        Discover our delicious, nutrient-packed Buddha bowls made with the finest ingredients. Look for the spinning coconut in the corner to claim your exclusive reward!
-      </p>
-    </div>
-  </section>
-
-  <!-- Wheel Trigger Button -->
-  <button class="wheel-trigger" onclick="openWheel()">
-    🥥
-    <span class="wheel-trigger-label">Spin & Win!</span>
-  </button>
-
-  <!-- Wheel Modal -->
-  <div id="wheelModal" class="wheel-modal">
-    <div class="wheel-modal-content">
-      <button class="close-wheel" onclick="closeWheel()">×</button>
-
-      <!-- Email Form Section -->
-      <div id="emailFormSection" class="email-form-section">
-        <h2>🥥 Spin the Coconut!</h2>
-        <p>Enter your email for a chance to spin and win amazing rewards!</p>
-
-        <div id="formMessage" class="form-message"></div>
-
-        <div class="email-form">
-          <input 
-            type="email" 
-            id="emailInput" 
-            class="email-input" 
-            placeholder="Enter your email..."
-            required
-          >
-          <button class="spin-btn" onclick="submitEmail()">
-            <i class="fas fa-envelope"></i> Spin
-          </button>
-        </div>
-
-        <p style="font-size: 0.8rem; color: var(--text-light);">
-          We'll send you exclusive offers and recipes. Unsubscribe anytime.
-        </p>
-      </div>
-
-      <!-- Wheel Section -->
-      <div id="wheelSection" class="wheel-section">
-        <div class="wheel-container">
-          <div class="wheel-pointer"></div>
-          <div class="wheel" id="wheel"></div>
-          <div class="wheel-center">🎯</div>
-        </div>
-
-        <p class="spin-instruction">Click the button below to spin and reveal your reward!</p>
-        <button class="spin-button" id="spinButton" onclick="spinWheel()">
-          <i class="fas fa-sync-alt"></i> SPIN NOW
+---
+layout: default
+title: Spin the Coconut
+permalink: /quizzes/spin-wheel/
+---
+
+<!-- Main Content -->
+<section class="page-container" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+  <div style="text-align: center; max-width: 600px; padding: 2rem;">
+    <h1 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 1rem;">Welcome to Buddha Bowls</h1>
+    <p style="color: var(--text-light); font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+      Discover our delicious, nutrient-packed Buddha bowls made with the finest ingredients. Look for the spinning coconut in the corner to claim your exclusive reward!
+    </p>
+  </div>
+</section>
+
+<!-- Wheel Trigger Button -->
+<button class="wheel-trigger" onclick="openWheel()">
+  🥥
+  <span class="wheel-trigger-label">Spin & Win!</span>
+</button>
+
+<!-- Wheel Modal -->
+<div id="wheelModal" class="wheel-modal">
+  <div class="wheel-modal-content">
+    <button class="close-wheel" onclick="closeWheel()">×</button>
+
+    <!-- Email Form Section -->
+    <div id="emailFormSection" class="email-form-section">
+      <h2>🥥 Spin the Coconut!</h2>
+      <p>Enter your email for a chance to spin and win amazing rewards!</p>
+
+      <div id="formMessage" class="form-message"></div>
+
+      <div class="email-form">
+        <input 
+          type="email" 
+          id="emailInput" 
+          class="email-input" 
+          placeholder="Enter your email..."
+          required
+        >
+        <button class="spin-btn" onclick="submitEmail()">
+          <i class="fas fa-envelope"></i> Spin
         </button>
       </div>
 
-      <!-- Result Section -->
-      <div id="resultSection" class="result-section">
-        <div class="result-icon" id="resultIcon">🎉</div>
-        <div class="result-title" id="resultTitle">Congratulations!</div>
-        <div class="result-description" id="resultDescription">
-          You've won an amazing reward!
-        </div>
+      <p style="font-size: 0.8rem; color: var(--text-light);">
+        We'll send you exclusive offers and recipes. Unsubscribe anytime.
+      </p>
+    </div>
 
-        <div class="reward-box">
-          <div class="reward-label">YOUR REWARD CODE:</div>
-          <div class="reward-code" id="rewardCode">SPIN2024</div>
-          <button class="copy-reward" onclick="copyRewardCode()">
-            <i class="fas fa-copy"></i> Copy Code
-          </button>
-        </div>
-
-        <div style="background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
-          <p id="rewardDetails" style="color: var(--text-light); margin: 0; font-size: 0.95rem;"></p>
-        </div>
-
-        <div class="result-actions">
-          <button class="action-btn action-btn-primary" onclick="shopNow()">
-            <i class="fas fa-shopping-cart"></i> Shop Now
-          </button>
-          <button class="action-btn action-btn-secondary" onclick="closeWheel()">
-            <i class="fas fa-times"></i> Close
-          </button>
-        </div>
-
-        <p class="terms">
-          Code valid for 30 days. One reward per email address.
-        </p>
+    <!-- Wheel Section -->
+    <div id="wheelSection" class="wheel-section">
+      <div class="wheel-container">
+        <div class="wheel-pointer"></div>
+        <div class="wheel" id="wheel"></div>
+        <div class="wheel-center">🎯</div>
       </div>
+
+      <p class="spin-instruction">Click the button below to spin and reveal your reward!</p>
+      <button class="spin-button" id="spinButton" onclick="spinWheel()">
+        <i class="fas fa-sync-alt"></i> SPIN NOW
+      </button>
+    </div>
+
+    <!-- Result Section -->
+    <div id="resultSection" class="result-section">
+      <div class="result-icon" id="resultIcon">🎉</div>
+      <div class="result-title" id="resultTitle">Congratulations!</div>
+      <div class="result-description" id="resultDescription">
+        You've won an amazing reward!
+      </div>
+
+      <div class="reward-box">
+        <div class="reward-label">YOUR REWARD CODE:</div>
+        <div class="reward-code" id="rewardCode">SPIN2024</div>
+        <button class="copy-reward" onclick="copyRewardCode()">
+          <i class="fas fa-copy"></i> Copy Code
+        </button>
+      </div>
+
+      <div style="background: var(--light); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+        <p id="rewardDetails" style="color: var(--text-light); margin: 0; font-size: 0.95rem;"></p>
+      </div>
+
+      <div class="result-actions">
+        <button class="action-btn action-btn-primary" onclick="shopNow()">
+          <i class="fas fa-shopping-cart"></i> Shop Now
+        </button>
+        <button class="action-btn action-btn-secondary" onclick="closeWheel()">
+          <i class="fas fa-times"></i> Close
+        </button>
+      </div>
+
+      <p class="terms">
+        Code valid for 30 days. One reward per email address.
+      </p>
     </div>
   </div>
+</div>
 
-  <!-- Footer from theme -->
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 
-  <script>
-    // Rewards Configuration
-    const rewards = [
-      {
-        id: 'discount10',
-        title: '10% Off Storewide',
-        icon: '🎁',
-        description: 'Get 10% off your entire purchase!',
-        code: 'SPIN10OFF',
-        details: '10% discount on all Buddha bowls and accessories. Valid for 30 days.'
-      },
-      {
-        id: 'freeshipping',
-        title: 'Free Shipping',
-        icon: '🚚',
-        description: 'Free shipping on your next order!',
-        code: 'FREESHIP',
-        details: 'Free shipping on orders over $25. No minimum purchase required.'
-      },
-      {
-        id: 'coconutspoon',
-        title: 'Free Coconut Spoon',
-        icon: '🥄',
-        description: 'Free coconut spoon with any bowl purchase!',
-        code: 'FREESPOON',
-        details: 'Receive a complimentary hand-carved coconut spoon with your next bowl order.'
-      },
-      {
-        id: 'recipebook',
-        title: 'Free Recipe Booklet',
-        icon: '📖',
-        description: 'Download our exclusive recipe booklet!',
-        code: 'RECIPES25',
-        details: 'Get our 25-page Buddha Bowl Recipe Booklet with 15 delicious recipes.'
-      },
-      {
-        id: 'discount15',
-        title: '15% Off',
-        icon: '⭐',
-        description: 'Unlock 15% off your order!',
-        code: 'SPIN15',
-        details: '15% discount on all products. Perfect for stocking up on your favorites!'
-      },
-      {
-        id: 'bundle',
-        title: 'Free Bundle',
-        icon: '📦',
-        description: 'Free accessory bundle with purchase!',
-        code: 'BUNDLE25',
-        details: 'Get a free bundle (spoon + recipe card) with any bowl purchase over $30.'
-      },
-      {
-        id: 'discount20',
-        title: '20% Off',
-        icon: '🌟',
-        description: 'Wow! You won 20% off!',
-        code: 'SPIN20',
-        details: '20% discount on all Buddha bowls. This is our best offer!'
-      },
-      {
-        id: 'vip',
-        title: 'VIP Member',
-        icon: '👑',
-        description: 'Join our VIP club!',
-        code: 'VIPCLUB',
-        details: 'Exclusive VIP membership with 25% off all future purchases + early access to new products.'
-      }
-    ];
+  /* Wheel Trigger Button */
+  .wheel-trigger {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    animation: bounce 2s infinite;
+  }
 
-    // Game State
-    let gameState = {
-      currentEmail: null,
-      isSpinning: false,
-      selectedReward: null,
-      rotation: 0
-    };
+  .wheel-trigger:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.6);
+  }
 
-    // Open Wheel
-    function openWheel() {
-      document.getElementById('wheelModal').style.display = 'block';
-      if (!document.getElementById('wheel').innerHTML) {
-        initializeWheel();
-      }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .wheel-trigger-label {
+    position: absolute;
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    right: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: slideInRight 0.5s ease;
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px) translateY(-50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) translateY(-50%);
+    }
+  }
+
+  /* Modal */
+  .wheel-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .wheel-modal-content {
+    background: var(--white);
+    margin: 2% auto;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    animation: slideUp 0.3s ease;
+    position: relative;
+  }
+
+  .close-wheel {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .close-wheel:hover {
+    color: var(--primary);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Email Form */
+  .email-form-section {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .email-form-section h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .email-form-section p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .email-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .email-input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .email-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+  }
+
+  .spin-btn {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .spin-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .spin-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .form-message {
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    display: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .form-message.error {
+    background: #F8D7DA;
+    color: #721c24;
+    border-left: 4px solid #F5C6CB;
+    display: block;
+  }
+
+  .form-message.success {
+    background: #D4EDDA;
+    color: #155724;
+    border-left: 4px solid #28a745;
+    display: block;
+  }
+
+  /* Wheel Section */
+  .wheel-section {
+    display: none;
+    text-align: center;
+  }
+
+  .wheel-section.active {
+    display: block;
+  }
+
+  .wheel-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 2rem;
+  }
+
+  .wheel {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s linear;
+  }
+
+  .wheel-segment {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%);
+  }
+
+  .wheel-segment-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .wheel-pointer {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid var(--primary);
+    z-index: 10;
+  }
+
+  .wheel-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 11;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .spin-instruction {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .spin-button {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .spin-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .spin-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Result Section */
+  .result-section {
+    display: none;
+    text-align: center;
+  }
+
+  .result-section.active {
+    display: block;
+  }
+
+  .result-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: bounce 0.6s ease-in-out;
+  }
+
+  .result-title {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-description {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .reward-box {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    border: 2px solid var(--primary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .reward-label {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .reward-code {
+    background: var(--white);
+    border: 2px dashed var(--primary);
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: 'Courier New', monospace;
+  }
+
+  .copy-reward {
+    background: var(--accent);
+    color: #333;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+  }
+
+  .copy-reward:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .result-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+
+  .action-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .action-btn-primary {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .action-btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .action-btn-secondary {
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .action-btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .terms {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .wheel-trigger {
+      width: 70px;
+      height: 70px;
+      font-size: 1.5rem;
+      bottom: 20px;
+      right: 20px;
     }
 
-    // Close Wheel
-    function closeWheel() {
-      document.getElementById('wheelModal').style.display = 'none';
-      resetWheel();
+    .wheel-trigger-label {
+      display: none;
     }
 
-    // Initialize Wheel
-    function initializeWheel() {
-      const wheel = document.getElementById('wheel');
-      const segmentAngle = 360 / rewards.length;
+    .wheel-modal-content {
+      width: 95%;
+      padding: 1.5rem;
+    }
 
-      wheel.innerHTML = rewards.map((reward, index) => {
-        const rotation = index * segmentAngle;
-        const colors = [
-          '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A',
-          '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'
-        ];
-        const color = colors[index % colors.length];
+    .wheel-container {
+      width: 250px;
+      height: 250px;
+    }
 
-        return `
-          <div class="wheel-segment" style="transform: rotate(${rotation}deg);">
-            <div class="wheel-segment-inner" style="background: ${color};">
-              <div style="transform: rotate(${segmentAngle / 2}deg); text-align: center;">
-                <div style="font-size: 1.5rem; margin-bottom: 0.3rem;">${reward.icon}</div>
-                <div style="font-size: 0.7rem; line-height: 1.2;">${reward.title}</div>
-              </div>
+    .email-form {
+      flex-direction: column;
+    }
+
+    .spin-btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .result-actions {
+      flex-direction: column;
+    }
+
+    .action-btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Rewards Configuration
+  const rewards = [
+    {
+      id: 'discount10',
+      title: '10% Off Storewide',
+      icon: '🎁',
+      description: 'Get 10% off your entire purchase!',
+      code: 'SPIN10OFF',
+      details: '10% discount on all Buddha bowls and accessories. Valid for 30 days.'
+    },
+    {
+      id: 'freeshipping',
+      title: 'Free Shipping',
+      icon: '🚚',
+      description: 'Free shipping on your next order!',
+      code: 'FREESHIP',
+      details: 'Free shipping on orders over $25. No minimum purchase required.'
+    },
+    {
+      id: 'coconutspoon',
+      title: 'Free Coconut Spoon',
+      icon: '🥄',
+      description: 'Free coconut spoon with any bowl purchase!',
+      code: 'FREESPOON',
+      details: 'Receive a complimentary hand-carved coconut spoon with your next bowl order.'
+    },
+    {
+      id: 'recipebook',
+      title: 'Free Recipe Booklet',
+      icon: '📖',
+      description: 'Download our exclusive recipe booklet!',
+      code: 'RECIPES25',
+      details: 'Get our 25-page Buddha Bowl Recipe Booklet with 15 delicious recipes.'
+    },
+    {
+      id: 'discount15',
+      title: '15% Off',
+      icon: '⭐',
+      description: 'Unlock 15% off your order!',
+      code: 'SPIN15',
+      details: '15% discount on all products. Perfect for stocking up on your favorites!'
+    },
+    {
+      id: 'bundle',
+      title: 'Free Bundle',
+      icon: '📦',
+      description: 'Free accessory bundle with purchase!',
+      code: 'BUNDLE25',
+      details: 'Get a free bundle (spoon + recipe card) with any bowl purchase over $30.'
+    },
+    {
+      id: 'discount20',
+      title: '20% Off',
+      icon: '🌟',
+      description: 'Wow! You won 20% off!',
+      code: 'SPIN20',
+      details: '20% discount on all Buddha bowls. This is our best offer!'
+    },
+    {
+      id: 'vip',
+      title: 'VIP Member',
+      icon: '👑',
+      description: 'Join our VIP club!',
+      code: 'VIPCLUB',
+      details: 'Exclusive VIP membership with 25% off all future purchases + early access to new products.'
+    }
+  ];
+
+  // Game State
+  let gameState = {
+    currentEmail: null,
+    isSpinning: false,
+    selectedReward: null,
+    rotation: 0
+  };
+
+  // Open Wheel
+  function openWheel() {
+    document.getElementById('wheelModal').style.display = 'block';
+    if (!document.getElementById('wheel').innerHTML) {
+      initializeWheel();
+    }
+  }
+
+  // Close Wheel
+  function closeWheel() {
+    document.getElementById('wheelModal').style.display = 'none';
+    resetWheel();
+  }
+
+  // Initialize Wheel
+  function initializeWheel() {
+    const wheel = document.getElementById('wheel');
+    const segmentAngle = 360 / rewards.length;
+
+    wheel.innerHTML = rewards.map((reward, index) => {
+      const rotation = index * segmentAngle;
+      const colors = [
+        '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A',
+        '#98D8C8', '#F7DC6F', '#BB8FCE', '#85C1E2'
+      ];
+      const color = colors[index % colors.length];
+
+      return `
+        <div class="wheel-segment" style="transform: rotate(${rotation}deg);">
+          <div class="wheel-segment-inner" style="background: ${color};">
+            <div style="transform: rotate(${segmentAngle / 2}deg); text-align: center;">
+              <div style="font-size: 1.5rem; margin-bottom: 0.3rem;">${reward.icon}</div>
+              <div style="font-size: 0.7rem; line-height: 1.2;">${reward.title}</div>
             </div>
           </div>
-        `;
-      }).join('');
+        </div>
+      `;
+    }).join('');
+  }
+
+  // Submit Email
+  function submitEmail() {
+    const email = document.getElementById('emailInput').value;
+    const formMessage = document.getElementById('formMessage');
+
+    if (!email || !email.includes('@')) {
+      formMessage.className = 'form-message error';
+      formMessage.textContent = '❌ Please enter a valid email address';
+      return;
     }
 
-    // Submit Email
-    function submitEmail() {
-      const email = document.getElementById('emailInput').value;
-      const formMessage = document.getElementById('formMessage');
+    gameState.currentEmail = email;
+    formMessage.className = 'form-message success';
+    formMessage.textContent = '✓ Email saved! Ready to spin?';
 
-      if (!email || !email.includes('@')) {
-        formMessage.className = 'form-message error';
-        formMessage.textContent = '❌ Please enter a valid email address';
-        return;
-      }
+    document.getElementById('emailFormSection').style.display = 'none';
+    document.getElementById('wheelSection').classList.add('active');
 
-      gameState.currentEmail = email;
-      formMessage.className = 'form-message success';
-      formMessage.textContent = '✓ Email saved! Ready to spin?';
+    console.log('Email subscribed:', email);
+  }
 
-      // Show wheel section
-      document.getElementById('emailFormSection').style.display = 'none';
-      document.getElementById('wheelSection').classList.add('active');
+  // Spin Wheel
+  function spinWheel() {
+    if (gameState.isSpinning || !gameState.currentEmail) return;
 
-      // Log email subscription
-      console.log('Email subscribed:', email);
-    }
+    gameState.isSpinning = true;
+    document.getElementById('spinButton').disabled = true;
 
-    // Spin Wheel
-    function spinWheel() {
-      if (gameState.isSpinning || !gameState.currentEmail) return;
+    const randomSpin = Math.floor(Math.random() * 360) + 1080;
+    const totalRotation = gameState.rotation + randomSpin;
 
-      gameState.isSpinning = true;
-      document.getElementById('spinButton').disabled = true;
+    const wheel = document.getElementById('wheel');
+    wheel.style.transition = 'transform 4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+    wheel.style.transform = `rotate(${totalRotation}deg)`;
 
-      // Random rotation
-      const randomSpin = Math.floor(Math.random() * 360) + 1080; // At least 3 full rotations
-      const totalRotation = gameState.rotation + randomSpin;
+    gameState.rotation = totalRotation % 360;
 
-      const wheel = document.getElementById('wheel');
-      wheel.style.transition = 'transform 4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-      wheel.style.transform = `rotate(${totalRotation}deg)`;
+    setTimeout(() => {
+      const segmentAngle = 360 / rewards.length;
+      const normalizedRotation = (360 - (gameState.rotation % 360)) % 360;
+      const winningIndex = Math.floor(normalizedRotation / segmentAngle) % rewards.length;
 
-      gameState.rotation = totalRotation % 360;
+      gameState.selectedReward = rewards[winningIndex];
+      showResult();
 
-      // Determine winning reward
-      setTimeout(() => {
-        const segmentAngle = 360 / rewards.length;
-        const normalizedRotation = (360 - (gameState.rotation % 360)) % 360;
-        const winningIndex = Math.floor(normalizedRotation / segmentAngle) % rewards.length;
+      gameState.isSpinning = false;
+    }, 4000);
+  }
 
-        gameState.selectedReward = rewards[winningIndex];
-        showResult();
+  // Show Result
+  function showResult() {
+    const reward = gameState.selectedReward;
 
-        gameState.isSpinning = false;
-      }, 4000);
-    }
+    document.getElementById('wheelSection').classList.remove('active');
+    document.getElementById('resultSection').classList.add('active');
 
-    // Show Result
-    function showResult() {
-      const reward = gameState.selectedReward;
+    document.getElementById('resultIcon').textContent = reward.icon;
+    document.getElementById('resultTitle').textContent = reward.title;
+    document.getElementById('resultDescription').textContent = reward.description;
+    document.getElementById('rewardCode').textContent = reward.code;
+    document.getElementById('rewardDetails').textContent = reward.details;
+  }
 
-      document.getElementById('wheelSection').classList.remove('active');
-      document.getElementById('resultSection').classList.add('active');
+  // Copy Reward Code
+  function copyRewardCode() {
+    const code = document.getElementById('rewardCode').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      alert('Reward code copied to clipboard!');
+    });
+  }
 
-      document.getElementById('resultIcon').textContent = reward.icon;
-      document.getElementById('resultTitle').textContent = reward.title;
-      document.getElementById('resultDescription').textContent = reward.description;
-      document.getElementById('rewardCode').textContent = reward.code;
-      document.getElementById('rewardDetails').textContent = reward.details;
-    }
+  // Shop Now
+  function shopNow() {
+    window.location.href = '{{ site.baseurl }}/shop/';
+  }
 
-    // Copy Reward Code
-    function copyRewardCode() {
-      const code = document.getElementById('rewardCode').textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('Reward code copied to clipboard!');
-      });
-    }
+  // Reset Wheel
+  function resetWheel() {
+    gameState.currentEmail = null;
+    gameState.isSpinning = false;
+    gameState.selectedReward = null;
 
-    // Shop Now
-    function shopNow() {
-      alert(`Great choice! Use code "${gameState.selectedReward.code}" at checkout to claim your reward!`);
+    document.getElementById('emailFormSection').style.display = 'block';
+    document.getElementById('wheelSection').classList.remove('active');
+    document.getElementById('resultSection').classList.remove('active');
+
+    document.getElementById('emailInput').value = '';
+    document.getElementById('formMessage').className = 'form-message';
+    document.getElementById('spinButton').disabled = false;
+
+    const wheel = document.getElementById('wheel');
+    wheel.style.transition = 'none';
+    wheel.style.transform = 'rotate(0deg)';
+    gameState.rotation = 0;
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function(event) {
+    const modal = document.getElementById('wheelModal');
+    if (event.target === modal) {
       closeWheel();
     }
-
-    // Reset Wheel
-    function resetWheel() {
-      gameState.currentEmail = null;
-      gameState.isSpinning = false;
-      gameState.selectedReward = null;
-
-      document.getElementById('emailFormSection').style.display = 'block';
-      document.getElementById('wheelSection').classList.remove('active');
-      document.getElementById('resultSection').classList.remove('active');
-
-      document.getElementById('emailInput').value = '';
-      document.getElementById('formMessage').className = 'form-message';
-      document.getElementById('spinButton').disabled = false;
-
-      const wheel = document.getElementById('wheel');
-      wheel.style.transition = 'none';
-      wheel.style.transform = 'rotate(0deg)';
-      gameState.rotation = 0;
-    }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      const modal = document.getElementById('wheelModal');
-      if (event.target === modal) {
-        closeWheel();
-      }
-    };
-  </script>
-</body>
-</html>
+  };
+</script>
