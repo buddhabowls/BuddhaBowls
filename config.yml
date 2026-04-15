@@ -48,3 +48,5 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+# Error pages
+error_page: 404.html
