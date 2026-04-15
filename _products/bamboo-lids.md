@@ -11,7 +11,7 @@ sale_price: null
 in_stock: false
 stock_quantity: 
 featured: true
-image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
+image: "/bamboo-lids.jpg"
 description: "Spread the practice of mindful food storage with our Bamboo Lids. Preserve your food and your intentions with our Bamboo Lids. These natural covers maintain the freshness of your meals while reminding you of the importance of reducing waste. Join the movement towards eco-friendly and aesthetically pleasing candle packaging with our bamboo lids today! Solid available in regular or wide mouth jar sizes. Straw hole bamboo lid fits regular mouth jars."
 ---
 
