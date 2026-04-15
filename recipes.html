@@ -1,1680 +1,773 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Recipes - Buddha Bowls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --primary: #0D9488;
-      --secondary: #14B8A6;
-      --accent: #FFD700;
-      --light: #F0FDFA;
-      --white: #FFFFFF;
-      --text: #333;
-      --text-light: #666;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* HEADER & NAVIGATION */
-    header {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      padding: 1rem 0;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo-section {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      text-decoration: none;
-      color: var(--white);
-      font-size: 1.5rem;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    .logo-section:hover {
-      transform: scale(1.05);
-    }
-
-    .logo-circle {
-      width: 45px;
-      height: 45px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .logo-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .logo {
-      color: var(--white);
-    }
-
-    nav {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .nav-item {
-      color: var(--white);
-      cursor: pointer;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .nav-item:hover {
-      transform: translateY(-2px);
-      opacity: 0.9;
-    }
-
-    .dropdown {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: var(--white);
-      min-width: 200px;
-      box-shadow: var(--shadow);
-      z-index: 1;
-      border-radius: 12px;
-      overflow: hidden;
-      top: 100%;
-      left: 0;
-      margin-top: 0.5rem;
-    }
-
-    .dropdown-content a {
-      color: var(--text);
-      padding: 1rem 1.5rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: all 0.3s ease;
-      border-left: 4px solid transparent;
-    }
-
-    .dropdown-content a:hover {
-      background-color: var(--light);
-      border-left-color: var(--primary);
-      padding-left: 2rem;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-toggle::after {
-      content: '\f078';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      font-size: 0.75rem;
-      margin-left: 0.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .dropdown:hover .dropdown-toggle::after {
-      transform: rotate(180deg);
-    }
-
-    .cart-icon {
-      position: relative;
-      cursor: pointer;
-      color: var(--white);
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .cart-icon:hover {
-      transform: scale(1.1);
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: var(--accent);
-      color: var(--text);
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      font-weight: bold;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: #675B5B;
-      color: var(--white);
-      padding: 3rem 1rem 1rem;
-      margin-top: 3rem;
-    }
-
-    .footer-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-
-    .footer-section h4 {
-      margin-bottom: 1rem;
-      color: var(--accent);
-    }
-
-    .footer-section p {
-      color: rgba(255, 255, 255, 0.9);
-      line-height: 1.6;
-    }
-
-    .footer-section ul {
-      list-style: none;
-    }
-
-    .footer-section ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .footer-section a {
-      color: rgba(255, 255, 255, 0.9);
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--accent);
-      padding-left: 0.5rem;
-    }
-
-    .footer-bottom {
-      max-width: 1200px;
-      margin: 0 auto;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 2rem;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .footer-bottom .fa-heart {
-      color: #FF0000;
-    }
-
-    /* RECIPES PAGE SPECIFIC */
-    .page-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    .recipes-hero {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 4rem 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .recipes-hero h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .recipes-hero p {
-      font-size: 1.2rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .recipes-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .recipes-controls {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .search-filter-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .search-box {
-      position: relative;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 0.8rem 1rem 0.8rem 2.5rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .search-box input:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
-    }
-
-    .search-box i {
-      position: absolute;
-      left: 0.8rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-light);
-    }
-
-    .sort-box {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .sort-box select {
-      flex: 1;
-      padding: 0.8rem;
-      border: 2px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      background: var(--white);
-    }
-
-    .sort-box select:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    .category-tabs {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .category-tab {
-      padding: 0.7rem 1.5rem;
-      border: 2px solid #ddd;
-      background: var(--white);
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .category-tab:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .category-tab.active {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-
-    .filter-group {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 2px solid #eee;
-    }
-
-    .filter-label {
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.8rem;
-      display: block;
-    }
-
-    .filter-buttons {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 0.5rem 1rem;
-      border: 1px solid #ddd;
-      background: var(--white);
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      background: var(--secondary);
-      color: var(--white);
-      border-color: var(--secondary);
-    }
-
-    .results-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      background: var(--light);
-      border-radius: 8px;
-    }
-
-    .results-count {
-      color: var(--text-light);
-      font-size: 0.95rem;
-    }
-
-    .results-count strong {
-      color: var(--primary);
-    }
-
-    .clear-filters {
-      padding: 0.5rem 1rem;
-      background: var(--white);
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      transition: all 0.3s ease;
-    }
-
-    .clear-filters:hover {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-
-    .recipes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    .recipe-card {
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .recipe-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
-
-    .recipe-image {
-      width: 100%;
-      height: 250px;
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: var(--secondary);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .recipe-badge {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: var(--accent);
-      color: #333;
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .recipe-type-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .recipe-info {
-      padding: 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .recipe-title {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-      font-size: 1.3rem;
-      line-height: 1.4;
-    }
-
-    .recipe-meta {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-
-    .recipe-meta-item {
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-
-    .recipe-meta-item i {
-      color: var(--primary);
-    }
-
-    .recipe-description {
-      color: var(--text-light);
-      font-size: 0.95rem;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-      flex: 1;
-    }
-
-    .recipe-tags {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-
-    .recipe-tag {
-      background: var(--light);
-      color: var(--primary);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .recipe-buttons {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .recipe-btn {
-      flex: 1;
-      padding: 0.7rem;
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      font-size: 0.9rem;
-    }
-
-    .recipe-btn:hover {
-      background: var(--secondary);
-      transform: scale(1.02);
-    }
-
-    .save-btn {
-      padding: 0.7rem 1rem;
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .save-btn:hover,
-    .save-btn.saved {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .no-results {
-      text-align: center;
-      padding: 3rem 2rem;
-      background: var(--white);
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-    }
-
-    .no-results i {
-      font-size: 3rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .no-results h3 {
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .no-results p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-    }
-
-    .featured-recipes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .featured-card {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .featured-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(13, 148, 136, 0.3);
-    }
-
-    .featured-card i {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .featured-card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .featured-card p {
-      opacity: 0.95;
-      margin-bottom: 1rem;
-    }
-
-    .featured-card a {
-      display: inline-block;
-      background: var(--white);
-      color: var(--primary);
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .featured-card a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      animation: fadeIn 0.3s ease;
-      overflow-y: auto;
-    }
-
-    .modal-content {
-      background-color: var(--white);
-      margin: 2% auto;
-      padding: 2rem;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 700px;
-      animation: slideIn 0.3s ease;
-    }
-
-    .close-modal {
-      color: var(--text-light);
-      float: right;
-      font-size: 2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .close-modal:hover {
-      color: var(--primary);
-    }
-
-    .modal-recipe-title {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      margin-top: 1rem;
-    }
-
-    .modal-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-      background: var(--light);
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-meta-item {
-      text-align: center;
-    }
-
-    .modal-meta-label {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      font-weight: 600;
-    }
-
-    .modal-meta-value {
-      font-size: 1.2rem;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
-    .modal-section {
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-section h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-      border-bottom: 2px solid var(--primary);
-      padding-bottom: 0.5rem;
-    }
-
-    .modal-section ul,
-    .modal-section ol {
-      margin-left: 1.5rem;
-    }
-
-    .modal-section li {
-      margin-bottom: 0.5rem;
-      line-height: 1.6;
-      color: var(--text-light);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideIn {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .recipes-hero h1 {
-        font-size: 2rem;
-      }
-
-      .search-filter-row {
-        grid-template-columns: 1fr;
-      }
-
-      .filter-group {
-        grid-template-columns: 1fr;
-      }
-
-      .recipes-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .results-info {
-        flex-direction: column;
-        gap: 1rem;
-        text-align: center;
-      }
-
-      .category-tabs {
-        justify-content: center;
-      }
-
-      nav {
-        display: none;
-      }
-    }
-
-    @media print {
-      .recipes-controls,
-      .recipe-buttons {
-        display: none;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- HEADER -->
-  <header>
-    <div class="header-container">
-      <div class="logo-section">
-        <div class="logo-circle">
-          <img src="/assets/images/logo.png" alt="Buddha Bowls Logo" onerror="this.style.display='none'">
+---
+layout: default
+title: Recipes
+permalink: /recipes/
+---
+
+<!-- HERO SECTION -->
+<section class="recipes-hero">
+  <h1>Delicious Recipes</h1>
+  <p>Explore our collection of nutritious Buddha bowl and smoothie bowl recipes</p>
+</section>
+
+<!-- RECIPES SECTION -->
+<section class="page-container">
+  <div class="recipes-container">
+    <!-- Featured Recipes -->
+    <div style="margin-bottom: 3rem;">
+      <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">Featured Recipes</h2>
+      <div class="featured-recipes">
+        <div class="featured-card">
+          <i class="fas fa-leaf"></i>
+          <h3>Green Goddess Bowl</h3>
+          <p>Packed with leafy greens and superfoods</p>
+          <a href="#" onclick="scrollToRecipe('green-goddess'); return false;">View Recipe</a>
         </div>
-        <div class="logo">Buddha Bowls</div>
-      </div>
-      <nav>
-        <a href="index.html" class="nav-item">Home</a>
-        
-        <div class="dropdown">
-          <a href="shop.html" class="nav-item dropdown-toggle">Shop</a>
-          <div class="dropdown-content">
-            <a href="coconut-bowls.html"><i class="fas fa-bowl-food"></i> Coconut Bowls</a>
-            <a href="accessories.html"><i class="fas fa-utensils"></i> Accessories</a>
-            <a href="market-bags.html"><i class="fas fa-leaf"></i> Market Bags</a>
-            <a href="candles.html"><i class="fas fa-pot-food"></i> Candles</a>
-          </div>
+        <div class="featured-card">
+          <i class="fas fa-ice-cream"></i>
+          <h3>Acai Berry Smoothie</h3>
+          <p>Refreshing and antioxidant-rich</p>
+          <a href="#" onclick="scrollToRecipe('acai-berry'); return false;">View Recipe</a>
         </div>
-
-        <a href="recipes.html" class="nav-item">Recipes</a>
-        <a href="contact.html" class="nav-item">Contact</a>
-      </nav>
-
-      <div class="cart-icon" id="cartIcon" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge" id="cartBadge">0</span>
+        <div class="featured-card">
+          <i class="fas fa-heart"></i>
+          <h3>Tropical Paradise Bowl</h3>
+          <p>Sweet and exotic flavors</p>
+          <a href="#" onclick="scrollToRecipe('tropical-paradise'); return false;">View Recipe</a>
+        </div>
       </div>
     </div>
-  </header>
 
-  <!-- HERO SECTION -->
-  <section class="recipes-hero">
-    <h1>Delicious Recipes</h1>
-    <p>Explore our collection of nutritious Buddha bowl and smoothie bowl recipes</p>
-  </section>
-
-  <!-- RECIPES SECTION -->
-  <section class="page-container">
-    <div class="recipes-container">
-      <!-- Featured Recipes -->
-      <div style="margin-bottom: 3rem;">
-        <h2 style="color: var(--primary); text-align: center; margin-bottom: 2rem;">Featured Recipes</h2>
-        <div class="featured-recipes">
-          <div class="featured-card">
-            <i class="fas fa-leaf"></i>
-            <h3>Green Goddess Bowl</h3>
-            <p>Packed with leafy greens and superfoods</p>
-            <a href="#" onclick="scrollToRecipe('green-goddess'); return false;">View Recipe</a>
-          </div>
-          <div class="featured-card">
-            <i class="fas fa-ice-cream"></i>
-            <h3>Acai Berry Smoothie</h3>
-            <p>Refreshing and antioxidant-rich</p>
-            <a href="#" onclick="scrollToRecipe('acai-berry'); return false;">View Recipe</a>
-          </div>
-          <div class="featured-card">
-            <i class="fas fa-heart"></i>
-            <h3>Tropical Paradise Bowl</h3>
-            <p>Sweet and exotic flavors</p>
-            <a href="#" onclick="scrollToRecipe('tropical-paradise'); return false;">View Recipe</a>
-          </div>
+    <!-- Controls Section -->
+    <div class="recipes-controls">
+      <div class="search-filter-row">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search recipes by name or ingredient..." onkeyup="filterRecipes()">
+        </div>
+        <div class="sort-box">
+          <label for="sortSelect" style="font-weight: 600; color: var(--text); margin-right: 0.5rem;">Sort by:</label>
+          <select id="sortSelect" onchange="sortRecipes()">
+            <option value="featured">Featured</option>
+            <option value="prep-time">Prep Time (Shortest)</option>
+            <option value="rating">Rating (Highest)</option>
+            <option value="newest">Newest</option>
+          </select>
         </div>
       </div>
 
-      <!-- Controls Section -->
-      <div class="recipes-controls">
-        <div class="search-filter-row">
-          <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" id="searchInput" placeholder="Search recipes by name or ingredient..." onkeyup="filterRecipes()">
-          </div>
-          <div class="sort-box">
-            <label for="sortSelect" style="font-weight: 600; color: var(--text); margin-right: 0.5rem;">Sort by:</label>
-            <select id="sortSelect" onchange="sortRecipes()">
-              <option value="featured">Featured</option>
-              <option value="prep-time">Prep Time (Shortest)</option>
-              <option value="rating">Rating (Highest)</option>
-              <option value="newest">Newest</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Category Tabs -->
-        <div class="category-tabs" style="margin-bottom: 1.5rem;">
-          <button class="category-tab active" onclick="filterByType('all')">
-            <i class="fas fa-th"></i> All Recipes
-          </button>
-          <button class="category-tab" onclick="filterByType('buddha-bowl')">
-            <i class="fas fa-bowl-rice"></i> Buddha Bowls
-          </button>
-          <button class="category-tab" onclick="filterByType('smoothie-bowl')">
-            <i class="fas fa-ice-cream"></i> Smoothie Bowls
-          </button>
-          <button class="category-tab" onclick="filterByType('breakfast')">
-            <i class="fas fa-sun"></i> Breakfast
-          </button>
-          <button class="category-tab" onclick="filterByType('lunch')">
-            <i class="fas fa-utensils"></i> Lunch
-          </button>
-          <button class="category-tab" onclick="filterByType('dinner')">
-            <i class="fas fa-moon"></i> Dinner
-          </button>
-        </div>
-
-        <!-- Additional Filters -->
-        <div class="filter-group">
-          <div>
-            <label class="filter-label">
-              <i class="fas fa-fire"></i> Difficulty
-            </label>
-            <div class="filter-buttons">
-              <button class="filter-btn" onclick="toggleFilter('difficulty', 'easy')">Easy</button>
-              <button class="filter-btn" onclick="toggleFilter('difficulty', 'medium')">Medium</button>
-              <button class="filter-btn" onclick="toggleFilter('difficulty', 'hard')">Advanced</button>
-            </div>
-          </div>
-          <div>
-            <label class="filter-label">
-              <i class="fas fa-leaf"></i> Diet
-            </label>
-            <div class="filter-buttons">
-              <button class="filter-btn" onclick="toggleFilter('diet', 'vegan')">Vegan</button>
-              <button class="filter-btn" onclick="toggleFilter('diet', 'vegetarian')">Vegetarian</button>
-              <button class="filter-btn" onclick="toggleFilter('diet', 'gluten-free')">Gluten-Free</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Results Info -->
-      <div class="results-info">
-        <div class="results-count">
-          Showing <strong id="resultCount">0</strong> recipes
-        </div>
-        <button class="clear-filters" onclick="clearAllFilters()">
-          <i class="fas fa-times"></i> Clear Filters
+      <!-- Category Tabs -->
+      <div class="category-tabs" style="margin-bottom: 1.5rem;">
+        <button class="category-tab active" onclick="filterByType('all')">
+          <i class="fas fa-th"></i> All Recipes
+        </button>
+        <button class="category-tab" onclick="filterByType('buddha-bowl')">
+          <i class="fas fa-bowl-rice"></i> Buddha Bowls
+        </button>
+        <button class="category-tab" onclick="filterByType('smoothie-bowl')">
+          <i class="fas fa-ice-cream"></i> Smoothie Bowls
+        </button>
+        <button class="category-tab" onclick="filterByType('breakfast')">
+          <i class="fas fa-sun"></i> Breakfast
+        </button>
+        <button class="category-tab" onclick="filterByType('lunch')">
+          <i class="fas fa-utensils"></i> Lunch
+        </button>
+        <button class="category-tab" onclick="filterByType('dinner')">
+          <i class="fas fa-moon"></i> Dinner
         </button>
       </div>
 
-      <!-- Recipes Grid -->
-      <div class="recipes-grid" id="recipesGrid">
-        <!-- Recipes will be inserted here by JavaScript -->
-      </div>
-
-      <!-- No Results -->
-      <div id="noResults" class="no-results" style="display: none;">
-        <i class="fas fa-search"></i>
-        <h3>No Recipes Found</h3>
-        <p>Try adjusting your search or filters to find more recipes.</p>
-        <button class="clear-filters" onclick="clearAllFilters()">
-          <i class="fas fa-redo"></i> Reset Filters
-        </button>
+      <!-- Additional Filters -->
+      <div class="filter-group">
+        <div>
+          <label class="filter-label">
+            <i class="fas fa-fire"></i> Difficulty
+          </label>
+          <div class="filter-buttons">
+            <button class="filter-btn" onclick="toggleFilter('difficulty', 'easy')">Easy</button>
+            <button class="filter-btn" onclick="toggleFilter('difficulty', 'medium')">Medium</button>
+            <button class="filter-btn" onclick="toggleFilter('difficulty', 'hard')">Advanced</button>
+          </div>
+        </div>
+        <div>
+          <label class="filter-label">
+            <i class="fas fa-leaf"></i> Diet
+          </label>
+          <div class="filter-buttons">
+            <button class="filter-btn" onclick="toggleFilter('diet', 'vegan')">Vegan</button>
+            <button class="filter-btn" onclick="toggleFilter('diet', 'vegetarian')">Vegetarian</button>
+            <button class="filter-btn" onclick="toggleFilter('diet', 'gluten-free')">Gluten-Free</button>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
 
-  <!-- Recipe Modal -->
-  <div id="recipeModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal" onclick="closeRecipeModal()">×</span>
-      <div id="modalRecipeContent"></div>
+    <!-- Results Info -->
+    <div class="results-info">
+      <div class="results-count">
+        Showing <strong id="resultCount">0</strong> recipes
+      </div>
+      <button class="clear-filters" onclick="clearAllFilters()">
+        <i class="fas fa-times"></i> Clear Filters
+      </button>
+    </div>
+
+    <!-- Recipes Grid -->
+    <div class="recipes-grid" id="recipesGrid">
+      <!-- Recipes will be inserted here by JavaScript -->
+    </div>
+
+    <!-- No Results -->
+    <div id="noResults" class="no-results" style="display: none;">
+      <i class="fas fa-search"></i>
+      <h3>No Recipes Found</h3>
+      <p>Try adjusting your search or filters to find more recipes.</p>
+      <button class="clear-filters" onclick="clearAllFilters()">
+        <i class="fas fa-redo"></i> Reset Filters
+      </button>
     </div>
   </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>About Buddha Bowls</h4>
-        <p>Your ultimate destination for healthy recipes and premium eco-friendly kitchen products. We're committed to sustainability and wellness.</p>
-      </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="recipes.html">Recipes</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="faq.html">FAQ</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:joy@buddhabowls.org">Email</a></li>
-          <li><a href="shipping.html">Shipping Info</a></li>
-          <li><a href="returns.html">Returns</a></li>
-          <li><a href="privacy.html">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Follow Us</h4>
-        <ul>
-          <li><a href="https://www.facebook.com/buddhabowlsorg"><i class="fab fa-facebook"></i> Facebook</a></li>
-          <li><a href="https://www.instagram.com/buddhabowlsorg_"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="https://www.pinterest.com/buddhabowlsorg"><i class="fab fa-pinterest"></i> Pinterest</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 Buddha Bowls. All rights reserved. | Designed with <i class="fas fa-heart"></i> for food lovers</p>
-    </div>
-  </footer>
+<!-- Recipe Modal -->
+<div id="recipeModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal" onclick="closeRecipeModal()">×</span>
+    <div id="modalRecipeContent"></div>
+  </div>
+</div>
 
-  <script>
-    // Recipes Data
-    const recipes = [
-      {
-        id: 'green-goddess',
-        name: 'Green Goddess Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'lunch',
-        prepTime: 15,
-        cookTime: 10,
-        servings: 2,
-        difficulty: 'easy',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.9,
-        reviews: 156,
-        icon: '🥗',
-        description: 'Nutrient-packed green bowl with quinoa, spinach, avocado, and creamy green goddess dressing.',
-        tags: ['healthy', 'vegan', 'gluten-free', 'quick'],
-        ingredients: [
-          '1 cup cooked quinoa',
-          '2 cups fresh spinach',
-          '1 ripe avocado, sliced',
-          '1 cucumber, diced',
-          '1 cup shredded carrots',
-          '½ cup chickpeas',
-          '¼ cup pumpkin seeds',
-          'Green goddess dressing'
-        ],
-        instructions: [
-          'Cook quinoa according to package directions.',
-          'Arrange spinach as the base in your bowl.',
-          'Add quinoa, cucumber, carrots, and chickpeas.',
-          'Top with avocado slices and pumpkin seeds.',
-          'Drizzle with green goddess dressing.',
-          'Serve immediately and enjoy!'
-        ]
-      },
-      {
-        id: 'acai-berry',
-        name: 'Acai Berry Smoothie Bowl',
-        type: 'smoothie-bowl',
-        meal: 'breakfast',
-        prepTime: 10,
-        cookTime: 0,
-        servings: 1,
-        difficulty: 'easy',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.8,
-        reviews: 203,
-        icon: '🫐',
-        description: 'Refreshing and antioxidant-rich smoothie bowl topped with granola and fresh berries.',
-        tags: ['breakfast', 'vegan', 'gluten-free', 'quick'],
-        ingredients: [
-          '1 acai packet (frozen)',
-          '½ banana',
-          '½ cup almond milk',
-          '½ cup Greek yogurt',
-          '½ cup mixed berries',
-          '¼ cup granola',
-          '2 tbsp coconut flakes',
-          '1 tbsp honey'
-        ],
-        instructions: [
-          'Blend acai packet, banana, almond milk, and yogurt until smooth.',
-          'Pour into your Buddha bowl.',
-          'Top with mixed berries and granola.',
-          'Add coconut flakes and drizzle with honey.',
-          'Eat with a spoon and enjoy!'
-        ]
-      },
-      {
-        id: 'tropical-paradise',
-        name: 'Tropical Paradise Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'lunch',
-        prepTime: 20,
-        cookTime: 15,
-        servings: 2,
-        difficulty: 'medium',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.7,
-        reviews: 89,
-        icon: '🥥',
-        description: 'Sweet and exotic flavors with mango, pineapple, and coconut rice.',
-        tags: ['tropical', 'vegan', 'gluten-free'],
-        ingredients: [
-          '1 cup coconut rice',
-          '1 cup mango chunks',
-          '1 cup pineapple chunks',
-          '1 cup shredded carrots',
-          '½ cup edamame',
-          '¼ cup toasted coconut',
-          '2 tbsp sesame seeds',
-          'Lime dressing'
-        ],
-        instructions: [
-          'Cook coconut rice according to package directions.',
-          'Arrange rice as the base in your bowl.',
-          'Add mango, pineapple, carrots, and edamame.',
-          'Top with toasted coconut and sesame seeds.',
-          'Drizzle with lime dressing.',
-          'Serve chilled or at room temperature.'
-        ]
-      },
-      {
-        id: 'protein-power',
-        name: 'Protein Power Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'lunch',
-        prepTime: 15,
-        cookTime: 20,
-        servings: 2,
-        difficulty: 'easy',
-        diet: ['vegetarian', 'gluten-free'],
-        rating: 4.9,
-        reviews: 142,
-        icon: '💪',
-        description: 'Packed with protein-rich ingredients to fuel your day.',
-        tags: ['protein', 'vegetarian', 'gluten-free'],
-        ingredients: [
-          '1 cup cooked farro',
-          '1 cup roasted chickpeas',
-          '2 cups roasted vegetables',
-          '1 cup cooked lentils',
-          '½ avocado',
-          '¼ cup hemp seeds',
-          '2 tbsp tahini dressing'
-        ],
-        instructions: [
-          'Cook farro and lentils according to package directions.',
-          'Roast chickpeas and vegetables at 400°F for 20 minutes.',
-          'Arrange farro as the base.',
-          'Add roasted vegetables, chickpeas, and lentils.',
-          'Top with avocado and hemp seeds.',
-          'Drizzle with tahini dressing.'
-        ]
-      },
-      {
-        id: 'mango-lassi',
-        name: 'Mango Lassi Smoothie Bowl',
-        type: 'smoothie-bowl',
-        meal: 'breakfast',
-        prepTime: 10,
-        cookTime: 0,
-        servings: 1,
-        difficulty: 'easy',
-        diet: ['vegetarian', 'gluten-free'],
-        rating: 4.8,
-        reviews: 118,
-        icon: '🥭',
-        description: 'Creamy Indian-inspired smoothie bowl with mango and yogurt.',
-        tags: ['breakfast', 'vegetarian', 'gluten-free', 'quick'],
-        ingredients: [
-          '1 cup frozen mango chunks',
-          '½ cup Greek yogurt',
-          '½ cup coconut milk',
-          '1 tbsp honey',
-          '¼ tsp cardamom',
-          '¼ cup granola',
-          '2 tbsp pistachios',
-          'Coconut flakes'
-        ],
-        instructions: [
-          'Blend mango, yogurt, coconut milk, honey, and cardamom.',
-          'Pour into your bowl.',
-          'Top with granola, pistachios, and coconut flakes.',
-          'Serve immediately.'
-        ]
-      },
-      {
-        id: 'mediterranean',
-        name: 'Mediterranean Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'dinner',
-        prepTime: 20,
-        cookTime: 25,
-        servings: 2,
-        difficulty: 'medium',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.7,
-        reviews: 95,
-        icon: '🫒',
-        description: 'Inspired by Mediterranean flavors with falafel and tahini sauce.',
-        tags: ['mediterranean', 'vegan', 'gluten-free'],
-        ingredients: [
-          '1 cup cooked farro',
-          '8 falafel balls',
-          '1 cup roasted vegetables',
-          '1 cup chickpea salad',
-          '¼ cup kalamata olives',
-          '¼ cup tahini sauce',
-          'Fresh herbs'
-        ],
-        instructions: [
-          'Cook farro according to package directions.',
-          'Bake falafel at 375°F for 20 minutes.',
-          'Roast vegetables at 400°F for 20 minutes.',
-          'Arrange farro as the base.',
-          'Add falafel, roasted vegetables, and chickpea salad.',
-          'Top with olives and drizzle with tahini sauce.'
-        ]
-      },
-      {
-        id: 'peanut-butter',
-        name: 'Peanut Butter Smoothie Bowl',
-        type: 'smoothie-bowl',
-        meal: 'breakfast',
-        prepTime: 10,
-        cookTime: 0,
-        servings: 1,
-        difficulty: 'easy',
-        diet: ['vegetarian', 'gluten-free'],
-        rating: 4.9,
-        reviews: 187,
-        icon: '🥜',
-        description: 'Creamy peanut butter smoothie bowl with chocolate and banana.',
-        tags: ['breakfast', 'vegetarian', 'gluten-free', 'quick'],
-        ingredients: [
-          '1 frozen banana',
-          '2 tbsp peanut butter',
-          '½ cup almond milk',
-          '½ cup Greek yogurt',
-          '1 tbsp cocoa powder',
-          '¼ cup granola',
-          'Chocolate chips',
-          'Banana slices'
-        ],
-        instructions: [
-          'Blend banana, peanut butter, almond milk, yogurt, and cocoa powder.',
-          'Pour into your bowl.',
-          'Top with granola, chocolate chips, and banana slices.',
-          'Serve immediately.'
-        ]
-      },
-      {
-        id: 'asian-fusion',
-        name: 'Asian Fusion Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'lunch',
-        prepTime: 25,
-        cookTime: 15,
-        servings: 2,
-        difficulty: 'medium',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.8,
-        reviews: 76,
-        icon: '🍜',
-        description: 'Delicious blend of Asian flavors with sesame ginger dressing.',
-        tags: ['asian', 'vegan', 'gluten-free'],
-        ingredients: [
-          '1 cup cooked brown rice',
-          '1 cup roasted broccoli',
-          '1 cup shredded cabbage',
-          '½ cup edamame',
-          '¼ cup carrots',
-          '2 tbsp sesame seeds',
-          'Sesame ginger dressing',
-          'Green onions'
-        ],
-        instructions: [
-          'Cook brown rice according to package directions.',
-          'Roast broccoli at 400°F for 15 minutes.',
-          'Arrange rice as the base.',
-          'Add broccoli, cabbage, edamame, and carrots.',
-          'Top with sesame seeds and green onions.',
-          'Drizzle with sesame ginger dressing.'
-        ]
-      },
-      {
-        id: 'berry-bliss',
-        name: 'Berry Bliss Smoothie Bowl',
-        type: 'smoothie-bowl',
-        meal: 'breakfast',
-        prepTime: 10,
-        cookTime: 0,
-        servings: 1,
-        difficulty: 'easy',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.8,
-        reviews: 164,
-        icon: '🫐',
-        description: 'Antioxidant-packed smoothie bowl with mixed berries and granola.',
-        tags: ['breakfast', 'vegan', 'gluten-free', 'quick'],
-        ingredients: [
-          '1 cup frozen mixed berries',
-          '½ banana',
-          '½ cup almond milk',
-          '½ cup coconut yogurt',
-          '¼ cup granola',
-          '2 tbsp chia seeds',
-          'Fresh berries',
-          'Coconut flakes'
-        ],
-        instructions: [
-          'Blend frozen berries, banana, almond milk, and coconut yogurt.',
-          'Pour into your bowl.',
-          'Top with granola, chia seeds, fresh berries, and coconut flakes.',
-          'Serve immediately.'
-        ]
-      },
-      {
-        id: 'indian-spiced',
-        name: 'Indian Spiced Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'dinner',
-        prepTime: 20,
-        cookTime: 30,
-        servings: 2,
-        difficulty: 'medium',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.7,
-        reviews: 82,
-        icon: '🌶️',
-        description: 'Warm spiced bowl with roasted vegetables and chickpeas.',
-        tags: ['indian', 'vegan', 'gluten-free', 'spicy'],
-        ingredients: [
-          '1 cup cooked basmati rice',
-          '1 cup roasted chickpeas',
-          '2 cups roasted vegetables',
-          '½ cup coconut curry sauce',
-          '¼ cup cilantro',
-          '2 tbsp toasted cashews',
-          'Lime wedges'
-        ],
-        instructions: [
-          'Cook basmati rice according to package directions.',
-          'Roast chickpeas and vegetables with Indian spices at 400°F for 25 minutes.',
-          'Arrange rice as the base.',
-          'Add roasted chickpeas and vegetables.',
-          'Drizzle with coconut curry sauce.',
-          'Top with cilantro and cashews. Serve with lime wedges.'
-        ]
-      },
-      {
-        id: 'chocolate-banana',
-        name: 'Chocolate Banana Smoothie Bowl',
-        type: 'smoothie-bowl',
-        meal: 'breakfast',
-        prepTime: 10,
-        cookTime: 0,
-        servings: 1,
-        difficulty: 'easy',
-        diet: ['vegetarian', 'gluten-free'],
-        rating: 4.9,
-        reviews: 201,
-        icon: '🍌',
-        description: 'Decadent chocolate and banana smoothie bowl perfect for dessert.',
-        tags: ['breakfast', 'vegetarian', 'gluten-free', 'quick'],
-        ingredients: [
-          '2 frozen bananas',
-          '1 tbsp cocoa powder',
-          '½ cup almond milk',
-          '½ cup Greek yogurt',
-          '1 tbsp honey',
-          '¼ cup granola',
-          'Chocolate chips',
-          'Banana slices'
-        ],
-        instructions: [
-          'Blend frozen bananas, cocoa powder, almond milk, yogurt, and honey.',
-          'Pour into your bowl.',
-          'Top with granola, chocolate chips, and banana slices.',
-          'Serve immediately.'
-        ]
-      },
-      {
-        id: 'rainbow-veggie',
-        name: 'Rainbow Veggie Buddha Bowl',
-        type: 'buddha-bowl',
-        meal: 'lunch',
-        prepTime: 25,
-        cookTime: 20,
-        servings: 2,
-        difficulty: 'easy',
-        diet: ['vegan', 'gluten-free'],
-        rating: 4.8,
-        reviews: 127,
-        icon: '🌈',
-        description: 'Colorful bowl packed with rainbow vegetables and quinoa.',
-        tags: ['healthy', 'vegan', 'gluten-free', 'colorful'],
-        ingredients: [
-          '1 cup cooked quinoa',
-          '1 cup roasted red peppers',
-          '1 cup roasted purple cabbage',
-          '½ cup roasted carrots',
-          '½ cup roasted broccoli',
-          '¼ cup pumpkin seeds',
-          'Tahini dressing'
-        ],
-        instructions: [
-          'Cook quinoa according to package directions.',
-          'Roast all vegetables at 400°F for 20 minutes.',
-          'Arrange quinoa as the base.',
-          'Add all roasted vegetables.',
-          'Top with pumpkin seeds.',
-          'Drizzle with tahini dressing.'
-        ]
-      }
-    ];
+<script>
+  // Recipes Data
+  const recipes = [
+    {
+      id: 'green-goddess',
+      name: 'Green Goddess Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'lunch',
+      prepTime: 15,
+      cookTime: 10,
+      servings: 2,
+      difficulty: 'easy',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.9,
+      reviews: 156,
+      icon: '🥗',
+      description: 'Nutrient-packed green bowl with quinoa, spinach, avocado, and creamy green goddess dressing.',
+      tags: ['healthy', 'vegan', 'gluten-free', 'quick'],
+      ingredients: [
+        '1 cup cooked quinoa',
+        '2 cups fresh spinach',
+        '1 ripe avocado, sliced',
+        '1 cucumber, diced',
+        '1 cup shredded carrots',
+        '½ cup chickpeas',
+        '¼ cup pumpkin seeds',
+        'Green goddess dressing'
+      ],
+      instructions: [
+        'Cook quinoa according to package directions.',
+        'Arrange spinach as the base in your bowl.',
+        'Add quinoa, cucumber, carrots, and chickpeas.',
+        'Top with avocado slices and pumpkin seeds.',
+        'Drizzle with green goddess dressing.',
+        'Serve immediately and enjoy!'
+      ]
+    },
+    {
+      id: 'acai-berry',
+      name: 'Acai Berry Smoothie Bowl',
+      type: 'smoothie-bowl',
+      meal: 'breakfast',
+      prepTime: 10,
+      cookTime: 0,
+      servings: 1,
+      difficulty: 'easy',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.8,
+      reviews: 203,
+      icon: '🫐',
+      description: 'Refreshing and antioxidant-rich smoothie bowl topped with granola and fresh berries.',
+      tags: ['breakfast', 'vegan', 'gluten-free', 'quick'],
+      ingredients: [
+        '1 acai packet (frozen)',
+        '½ banana',
+        '½ cup almond milk',
+        '½ cup Greek yogurt',
+        '½ cup mixed berries',
+        '¼ cup granola',
+        '2 tbsp coconut flakes',
+        '1 tbsp honey'
+      ],
+      instructions: [
+        'Blend acai packet, banana, almond milk, and yogurt until smooth.',
+        'Pour into your Buddha bowl.',
+        'Top with mixed berries and granola.',
+        'Add coconut flakes and drizzle with honey.',
+        'Eat with a spoon and enjoy!'
+      ]
+    },
+    {
+      id: 'tropical-paradise',
+      name: 'Tropical Paradise Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'lunch',
+      prepTime: 20,
+      cookTime: 15,
+      servings: 2,
+      difficulty: 'medium',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.7,
+      reviews: 89,
+      icon: '🥥',
+      description: 'Sweet and exotic flavors with mango, pineapple, and coconut rice.',
+      tags: ['tropical', 'vegan', 'gluten-free'],
+      ingredients: [
+        '1 cup coconut rice',
+        '1 cup mango chunks',
+        '1 cup pineapple chunks',
+        '1 cup shredded carrots',
+        '½ cup edamame',
+        '¼ cup toasted coconut',
+        '2 tbsp sesame seeds',
+        'Lime dressing'
+      ],
+      instructions: [
+        'Cook coconut rice according to package directions.',
+        'Arrange rice as the base in your bowl.',
+        'Add mango, pineapple, carrots, and edamame.',
+        'Top with toasted coconut and sesame seeds.',
+        'Drizzle with lime dressing.',
+        'Serve chilled or at room temperature.'
+      ]
+    },
+    {
+      id: 'protein-power',
+      name: 'Protein Power Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'lunch',
+      prepTime: 15,
+      cookTime: 20,
+      servings: 2,
+      difficulty: 'easy',
+      diet: ['vegetarian', 'gluten-free'],
+      rating: 4.9,
+      reviews: 142,
+      icon: '💪',
+      description: 'Packed with protein-rich ingredients to fuel your day.',
+      tags: ['protein', 'vegetarian', 'gluten-free'],
+      ingredients: [
+        '1 cup cooked farro',
+        '1 cup roasted chickpeas',
+        '2 cups roasted vegetables',
+        '1 cup cooked lentils',
+        '½ avocado',
+        '¼ cup hemp seeds',
+        '2 tbsp tahini dressing'
+      ],
+      instructions: [
+        'Cook farro and lentils according to package directions.',
+        'Roast chickpeas and vegetables at 400°F for 20 minutes.',
+        'Arrange farro as the base.',
+        'Add roasted vegetables, chickpeas, and lentils.',
+        'Top with avocado and hemp seeds.',
+        'Drizzle with tahini dressing.'
+      ]
+    },
+    {
+      id: 'mango-lassi',
+      name: 'Mango Lassi Smoothie Bowl',
+      type: 'smoothie-bowl',
+      meal: 'breakfast',
+      prepTime: 10,
+      cookTime: 0,
+      servings: 1,
+      difficulty: 'easy',
+      diet: ['vegetarian', 'gluten-free'],
+      rating: 4.8,
+      reviews: 118,
+      icon: '🥭',
+      description: 'Creamy Indian-inspired smoothie bowl with mango and yogurt.',
+      tags: ['breakfast', 'vegetarian', 'gluten-free', 'quick'],
+      ingredients: [
+        '1 cup frozen mango chunks',
+        '½ cup Greek yogurt',
+        '½ cup coconut milk',
+        '1 tbsp honey',
+        '¼ tsp cardamom',
+        '¼ cup granola',
+        '2 tbsp pistachios',
+        'Coconut flakes'
+      ],
+      instructions: [
+        'Blend mango, yogurt, coconut milk, honey, and cardamom.',
+        'Pour into your bowl.',
+        'Top with granola, pistachios, and coconut flakes.',
+        'Serve immediately.'
+      ]
+    },
+    {
+      id: 'mediterranean',
+      name: 'Mediterranean Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'dinner',
+      prepTime: 20,
+      cookTime: 25,
+      servings: 2,
+      difficulty: 'medium',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.7,
+      reviews: 95,
+      icon: '🫒',
+      description: 'Inspired by Mediterranean flavors with falafel and tahini sauce.',
+      tags: ['mediterranean', 'vegan', 'gluten-free'],
+      ingredients: [
+        '1 cup cooked farro',
+        '8 falafel balls',
+        '1 cup roasted vegetables',
+        '1 cup chickpea salad',
+        '¼ cup kalamata olives',
+        '¼ cup tahini sauce',
+        'Fresh herbs'
+      ],
+      instructions: [
+        'Cook farro according to package directions.',
+        'Bake falafel at 375°F for 20 minutes.',
+        'Roast vegetables at 400°F for 20 minutes.',
+        'Arrange farro as the base.',
+        'Add falafel, roasted vegetables, and chickpea salad.',
+        'Top with olives and drizzle with tahini sauce.'
+      ]
+    },
+    {
+      id: 'peanut-butter',
+      name: 'Peanut Butter Smoothie Bowl',
+      type: 'smoothie-bowl',
+      meal: 'breakfast',
+      prepTime: 10,
+      cookTime: 0,
+      servings: 1,
+      difficulty: 'easy',
+      diet: ['vegetarian', 'gluten-free'],
+      rating: 4.9,
+      reviews: 187,
+      icon: '🥜',
+      description: 'Creamy peanut butter smoothie bowl with chocolate and banana.',
+      tags: ['breakfast', 'vegetarian', 'gluten-free', 'quick'],
+      ingredients: [
+        '1 frozen banana',
+        '2 tbsp peanut butter',
+        '½ cup almond milk',
+        '½ cup Greek yogurt',
+        '1 tbsp cocoa powder',
+        '¼ cup granola',
+        'Chocolate chips',
+        'Banana slices'
+      ],
+      instructions: [
+        'Blend banana, peanut butter, almond milk, yogurt, and cocoa powder.',
+        'Pour into your bowl.',
+        'Top with granola, chocolate chips, and banana slices.',
+        'Serve immediately.'
+      ]
+    },
+    {
+      id: 'asian-fusion',
+      name: 'Asian Fusion Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'lunch',
+      prepTime: 25,
+      cookTime: 15,
+      servings: 2,
+      difficulty: 'medium',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.8,
+      reviews: 76,
+      icon: '🍜',
+      description: 'Delicious blend of Asian flavors with sesame ginger dressing.',
+      tags: ['asian', 'vegan', 'gluten-free'],
+      ingredients: [
+        '1 cup cooked brown rice',
+        '1 cup roasted broccoli',
+        '1 cup shredded cabbage',
+        '½ cup edamame',
+        '¼ cup carrots',
+        '2 tbsp sesame seeds',
+        'Sesame ginger dressing',
+        'Green onions'
+      ],
+      instructions: [
+        'Cook brown rice according to package directions.',
+        'Roast broccoli at 400°F for 15 minutes.',
+        'Arrange rice as the base.',
+        'Add broccoli, cabbage, edamame, and carrots.',
+        'Top with sesame seeds and green onions.',
+        'Drizzle with sesame ginger dressing.'
+      ]
+    },
+    {
+      id: 'berry-bliss',
+      name: 'Berry Bliss Smoothie Bowl',
+      type: 'smoothie-bowl',
+      meal: 'breakfast',
+      prepTime: 10,
+      cookTime: 0,
+      servings: 1,
+      difficulty: 'easy',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.8,
+      reviews: 164,
+      icon: '🫐',
+      description: 'Antioxidant-packed smoothie bowl with mixed berries and granola.',
+      tags: ['breakfast', 'vegan', 'gluten-free', 'quick'],
+      ingredients: [
+        '1 cup frozen mixed berries',
+        '½ banana',
+        '½ cup almond milk',
+        '½ cup coconut yogurt',
+        '¼ cup granola',
+        '2 tbsp chia seeds',
+        'Fresh berries',
+        'Coconut flakes'
+      ],
+      instructions: [
+        'Blend frozen berries, banana, almond milk, and coconut yogurt.',
+        'Pour into your bowl.',
+        'Top with granola, chia seeds, fresh berries, and coconut flakes.',
+        'Serve immediately.'
+      ]
+    },
+    {
+      id: 'indian-spiced',
+      name: 'Indian Spiced Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'dinner',
+      prepTime: 20,
+      cookTime: 30,
+      servings: 2,
+      difficulty: 'medium',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.7,
+      reviews: 82,
+      icon: '🌶️',
+      description: 'Warm spiced bowl with roasted vegetables and chickpeas.',
+      tags: ['indian', 'vegan', 'gluten-free', 'spicy'],
+      ingredients: [
+        '1 cup cooked basmati rice',
+        '1 cup roasted chickpeas',
+        '2 cups roasted vegetables',
+        '½ cup coconut curry sauce',
+        '¼ cup cilantro',
+        '2 tbsp toasted cashews',
+        'Lime wedges'
+      ],
+      instructions: [
+        'Cook basmati rice according to package directions.',
+        'Roast chickpeas and vegetables with Indian spices at 400°F for 25 minutes.',
+        'Arrange rice as the base.',
+        'Add roasted chickpeas and vegetables.',
+        'Drizzle with coconut curry sauce.',
+        'Top with cilantro and cashews. Serve with lime wedges.'
+      ]
+    },
+    {
+      id: 'chocolate-banana',
+      name: 'Chocolate Banana Smoothie Bowl',
+      type: 'smoothie-bowl',
+      meal: 'breakfast',
+      prepTime: 10,
+      cookTime: 0,
+      servings: 1,
+      difficulty: 'easy',
+      diet: ['vegetarian', 'gluten-free'],
+      rating: 4.9,
+      reviews: 201,
+      icon: '🍌',
+      description: 'Decadent chocolate and banana smoothie bowl perfect for dessert.',
+      tags: ['breakfast', 'vegetarian', 'gluten-free', 'quick'],
+      ingredients: [
+        '2 frozen bananas',
+        '1 tbsp cocoa powder',
+        '½ cup almond milk',
+        '½ cup Greek yogurt',
+        '1 tbsp honey',
+        '¼ cup granola',
+        'Chocolate chips',
+        'Banana slices'
+      ],
+      instructions: [
+        'Blend frozen bananas, cocoa powder, almond milk, yogurt, and honey.',
+        'Pour into your bowl.',
+        'Top with granola, chocolate chips, and banana slices.',
+        'Serve immediately.'
+      ]
+    },
+    {
+      id: 'rainbow-veggie',
+      name: 'Rainbow Veggie Buddha Bowl',
+      type: 'buddha-bowl',
+      meal: 'lunch',
+      prepTime: 25,
+      cookTime: 20,
+      servings: 2,
+      difficulty: 'easy',
+      diet: ['vegan', 'gluten-free'],
+      rating: 4.8,
+      reviews: 127,
+      icon: '🌈',
+      description: 'Colorful bowl packed with rainbow vegetables and quinoa.',
+      tags: ['healthy', 'vegan', 'gluten-free', 'colorful'],
+      ingredients: [
+        '1 cup cooked quinoa',
+        '1 cup roasted red peppers',
+        '1 cup roasted purple cabbage',
+        '½ cup roasted carrots',
+        '½ cup roasted broccoli',
+        '¼ cup pumpkin seeds',
+        'Tahini dressing'
+      ],
+      instructions: [
+        'Cook quinoa according to package directions.',
+        'Roast all vegetables at 400°F for 20 minutes.',
+        'Arrange quinoa as the base.',
+        'Add all roasted vegetables.',
+        'Top with pumpkin seeds.',
+        'Drizzle with tahini dressing.'
+      ]
+    }
+  ];
 
-    let filteredRecipes = [...recipes];
-    let activeFilters = {
-      type: 'all',
-      difficulty: [],
-      diet: []
-    };
+  let filteredRecipes = [...recipes];
+  let activeFilters = {
+    type: 'all',
+    difficulty: [],
+    diet: []
+  };
 
-    function init() {
-      displayRecipes(recipes);
+  function init() {
+    displayRecipes(recipes);
+  }
+
+  function displayRecipes(recipesToDisplay) {
+    const grid = document.getElementById('recipesGrid');
+    const noResults = document.getElementById('noResults');
+    const resultCount = document.getElementById('resultCount');
+
+    if (recipesToDisplay.length === 0) {
+      grid.style.display = 'none';
+      noResults.style.display = 'block';
+      resultCount.textContent = '0';
+      return;
     }
 
-    function displayRecipes(recipesToDisplay) {
-      const grid = document.getElementById('recipesGrid');
-      const noResults = document.getElementById('noResults');
-      const resultCount = document.getElementById('resultCount');
+    grid.style.display = 'grid';
+    noResults.style.display = 'none';
+    resultCount.textContent = recipesToDisplay.length;
 
-      if (recipesToDisplay.length === 0) {
-        grid.style.display = 'none';
-        noResults.style.display = 'block';
-        resultCount.textContent = '0';
-        return;
-      }
-
-      grid.style.display = 'grid';
-      noResults.style.display = 'none';
-      resultCount.textContent = recipesToDisplay.length;
-
-      grid.innerHTML = recipesToDisplay.map(recipe => `
-        <div class="recipe-card" data-name="${recipe.name.toLowerCase()}" data-ingredients="${recipe.ingredients.join(' ').toLowerCase()}">
-          <div class="recipe-image">
-            <span>${recipe.icon}</span>
-            <span class="recipe-type-badge">
-              <i class="fas ${recipe.type === 'buddha-bowl' ? 'fa-bowl-rice' : 'fa-ice-cream'}"></i>
-              ${recipe.type === 'buddha-bowl' ? 'Buddha Bowl' : 'Smoothie Bowl'}
-            </span>
-            <span class="recipe-badge">${recipe.difficulty.charAt(0).toUpperCase() + recipe.difficulty.slice(1)}</span>
+    grid.innerHTML = recipesToDisplay.map(recipe => `
+      <div class="recipe-card" data-name="${recipe.name.toLowerCase()}" data-ingredients="${recipe.ingredients.join(' ').toLowerCase()}">
+        <div class="recipe-image">
+          <span>${recipe.icon}</span>
+          <span class="recipe-type-badge">
+            <i class="fas ${recipe.type === 'buddha-bowl' ? 'fa-bowl-rice' : 'fa-ice-cream'}"></i>
+            ${recipe.type === 'buddha-bowl' ? 'Buddha Bowl' : 'Smoothie Bowl'}
+          </span>
+          <span class="recipe-badge">${recipe.difficulty.charAt(0).toUpperCase() + recipe.difficulty.slice(1)}</span>
+        </div>
+        <div class="recipe-info">
+          <h3 class="recipe-title">${recipe.name}</h3>
+          <div class="recipe-meta">
+            <div class="recipe-meta-item">
+              <i class="fas fa-clock"></i>
+              <span>${recipe.prepTime + recipe.cookTime} min</span>
+            </div>
+            <div class="recipe-meta-item">
+              <i class="fas fa-users"></i>
+              <span>${recipe.servings} servings</span>
+            </div>
+            <div class="recipe-meta-item">
+              <i class="fas fa-star"></i>
+              <span>${recipe.rating} (${recipe.reviews})</span>
+            </div>
           </div>
-          <div class="recipe-info">
-            <h3 class="recipe-title">${recipe.name}</h3>
-            <div class="recipe-meta">
-              <div class="recipe-meta-item">
-                <i class="fas fa-clock"></i>
-                <span>${recipe.prepTime + recipe.cookTime} min</span>
-              </div>
-              <div class="recipe-meta-item">
-                <i class="fas fa-users"></i>
-                <span>${recipe.servings} servings</span>
-              </div>
-              <div class="recipe-meta-item">
-                <i class="fas fa-star"></i>
-                <span>${recipe.rating} (${recipe.reviews})</span>
-              </div>
-            </div>
-            <p class="recipe-description">${recipe.description}</p>
-            <div class="recipe-tags">
-              ${recipe.tags.map(tag => `<span class="recipe-tag">${tag}</span>`).join('')}
-            </div>
-            <div class="recipe-buttons">
-              <button class="recipe-btn" onclick="openRecipeModal('${recipe.id}')">
-                <i class="fas fa-book"></i> View Recipe
-              </button>
-              <button class="save-btn" onclick="saveRecipe(this, '${recipe.name}')">
-                <i class="fas fa-bookmark"></i>
-              </button>
-            </div>
+          <p class="recipe-description">${recipe.description}</p>
+          <div class="recipe-tags">
+            ${recipe.tags.map(tag => `<span class="recipe-tag">${tag}</span>`).join('')}
+          </div>
+          <div class="recipe-buttons">
+            <button class="recipe-btn" onclick="openRecipeModal('${recipe.id}')">
+              <i class="fas fa-book"></i> View Recipe
+            </button>
+            <button class="save-btn" onclick="saveRecipe(this, '${recipe.name}')">
+              <i class="fas fa-bookmark"></i>
+            </button>
           </div>
         </div>
-      `).join('');
+      </div>
+    `).join('');
+  }
+
+  function filterByType(type) {
+    activeFilters.type = type;
+    
+    document.querySelectorAll('.category-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    event.target.closest('.category-tab').classList.add('active');
+
+    filterRecipes();
+  }
+
+  function toggleFilter(filterType, value) {
+    const index = activeFilters[filterType].indexOf(value);
+    if (index > -1) {
+      activeFilters[filterType].splice(index, 1);
+    } else {
+      activeFilters[filterType].push(value);
     }
 
-    function filterByType(type) {
-      activeFilters.type = type;
-      
-      document.querySelectorAll('.category-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      event.target.closest('.category-tab').classList.add('active');
+    event.target.classList.toggle('active');
+    filterRecipes();
+  }
 
-      filterRecipes();
+  function filterRecipes() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+
+    filteredRecipes = recipes.filter(recipe => {
+      const matchesType = activeFilters.type === 'all' || recipe.type === activeFilters.type || recipe.meal === activeFilters.type;
+      const matchesSearch = recipe.name.toLowerCase().includes(searchTerm) || 
+                           recipe.description.toLowerCase().includes(searchTerm) ||
+                           recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm));
+      const matchesDifficulty = activeFilters.difficulty.length === 0 || activeFilters.difficulty.includes(recipe.difficulty);
+      const matchesDiet = activeFilters.diet.length === 0 || activeFilters.diet.some(d => recipe.diet.includes(d));
+
+      return matchesType && matchesSearch && matchesDifficulty && matchesDiet;
+    });
+
+    displayRecipes(filteredRecipes);
+  }
+
+  function sortRecipes() {
+    const sortValue = document.getElementById('sortSelect').value;
+    let sorted = [...filteredRecipes];
+
+    switch(sortValue) {
+      case 'prep-time':
+        sorted.sort((a, b) => (a.prepTime + a.cookTime) - (b.prepTime + b.cookTime));
+        break;
+      case 'rating':
+        sorted.sort((a, b) => b.rating - a.rating);
+        break;
+      case 'newest':
+        sorted.sort((a, b) => b.id.localeCompare(a.id));
+        break;
+      case 'featured':
+      default:
+        sorted = [...filteredRecipes];
     }
 
-    function toggleFilter(filterType, value) {
-      const index = activeFilters[filterType].indexOf(value);
-      if (index > -1) {
-        activeFilters[filterType].splice(index, 1);
-      } else {
-        activeFilters[filterType].push(value);
-      }
+    displayRecipes(sorted);
+  }
 
-      event.target.classList.toggle('active');
-      filterRecipes();
-    }
+  function clearAllFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('sortSelect').value = 'featured';
+    activeFilters = { type: 'all', difficulty: [], diet: [] };
+    
+    document.querySelectorAll('.category-tab').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    document.querySelector('.category-tab').classList.add('active');
 
-    function filterRecipes() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
 
-      filteredRecipes = recipes.filter(recipe => {
-        const matchesType = activeFilters.type === 'all' || recipe.type === activeFilters.type || recipe.meal === activeFilters.type;
-        const matchesSearch = recipe.name.toLowerCase().includes(searchTerm) || 
-                             recipe.description.toLowerCase().includes(searchTerm) ||
-                             recipe.ingredients.some(ing => ing.toLowerCase().includes(searchTerm));
-        const matchesDifficulty = activeFilters.difficulty.length === 0 || activeFilters.difficulty.includes(recipe.difficulty);
-        const matchesDiet = activeFilters.diet.length === 0 || activeFilters.diet.some(d => recipe.diet.includes(d));
+    displayRecipes(recipes);
+  }
 
-        return matchesType && matchesSearch && matchesDifficulty && matchesDiet;
-      });
+  function openRecipeModal(recipeId) {
+    const recipe = recipes.find(r => r.id === recipeId);
+    if (!recipe) return;
 
-      displayRecipes(filteredRecipes);
-    }
+    const modal = document.getElementById('recipeModal');
+    const content = document.getElementById('modalRecipeContent');
 
-    function sortRecipes() {
-      const sortValue = document.getElementById('sortSelect').value;
-      let sorted = [...filteredRecipes];
+    content.innerHTML = `
+      <h2 class="modal-recipe-title">${recipe.name}</h2>
+      <div class="modal-meta">
+        <div class="modal-meta-item">
+          <div class="modal-meta-label">Prep Time</div>
+          <div class="modal-meta-value">${recipe.prepTime} min</div>
+        </div>
+        <div class="modal-meta-item">
+          <div class="modal-meta-label">Cook Time</div>
+          <div class="modal-meta-value">${recipe.cookTime} min</div>
+        </div>
+        <div class="modal-meta-item">
+          <div class="modal-meta-label">Servings</div>
+          <div class="modal-meta-value">${recipe.servings}</div>
+        </div>
+        <div class="modal-meta-item">
+          <div class="modal-meta-label">Rating</div>
+          <div class="modal-meta-value">${recipe.rating}/5</div>
+        </div>
+      </div>
 
-      switch(sortValue) {
-        case 'prep-time':
-          sorted.sort((a, b) => (a.prepTime + a.cookTime) - (b.prepTime + b.cookTime));
-          break;
-        case 'rating':
-          sorted.sort((a, b) => b.rating - a.rating);
-          break;
-        case 'newest':
-          sorted.sort((a, b) => b.id.localeCompare(a.id));
-          break;
-        case 'featured':
-        default:
-          sorted = [...filteredRecipes];
-      }
+      <div class="modal-section">
+        <h3><i class="fas fa-list"></i> Ingredients</h3>
+        <ul>
+          ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+        </ul>
+      </div>
 
-      displayRecipes(sorted);
-    }
+      <div class="modal-section">
+        <h3><i class="fas fa-utensils"></i> Instructions</h3>
+        <ol>
+          ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+        </ol>
+      </div>
 
-    function clearAllFilters() {
-      document.getElementById('searchInput').value = '';
-      document.getElementById('sortSelect').value = 'featured';
-      activeFilters = { type: 'all', difficulty: [], diet: [] };
-      
-      document.querySelectorAll('.category-tab').forEach(tab => {
-        tab.classList.remove('active');
-      });
-      document.querySelector('.category-tab').classList.add('active');
+      <div style="display: flex; gap: 1rem; margin-top: 2rem;">
+        <button class="recipe-btn" style="flex: 1;" onclick="alert('Recipe saved to your favorites!')">
+          <i class="fas fa-bookmark"></i> Save Recipe
+        </button>
+        <button class="recipe-btn" style="flex: 1;" onclick="alert('Recipe shared!')">
+          <i class="fas fa-share"></i> Share
+        </button>
+      </div>
+    `;
 
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-      });
+    modal.style.display = 'block';
+  }
 
-      displayRecipes(recipes);
-    }
+  function closeRecipeModal() {
+    document.getElementById('recipeModal').style.display = 'none';
+  }
 
-    function openRecipeModal(recipeId) {
+  function saveRecipe(button, recipeName) {
+    button.classList.toggle('saved');
+    const isSaved = button.classList.contains('saved');
+    button.innerHTML = isSaved ? '<i class="fas fa-bookmark"></i>' : '<i class="fas fa-bookmark"></i>';
+  }
+
+  function scrollToRecipe(recipeId) {
+    filterByType('all');
+    setTimeout(() => {
       const recipe = recipes.find(r => r.id === recipeId);
-      if (!recipe) return;
-
-      const modal = document.getElementById('recipeModal');
-      const content = document.getElementById('modalRecipeContent');
-
-      content.innerHTML = `
-        <h2 class="modal-recipe-title">${recipe.name}</h2>
-        <div class="modal-meta">
-          <div class="modal-meta-item">
-            <div class="modal-meta-label">Prep Time</div>
-            <div class="modal-meta-value">${recipe.prepTime} min</div>
-          </div>
-          <div class="modal-meta-item">
-            <div class="modal-meta-label">Cook Time</div>
-            <div class="modal-meta-value">${recipe.cookTime} min</div>
-          </div>
-          <div class="modal-meta-item">
-            <div class="modal-meta-label">Servings</div>
-            <div class="modal-meta-value">${recipe.servings}</div>
-          </div>
-          <div class="modal-meta-item">
-            <div class="modal-meta-label">Rating</div>
-            <div class="modal-meta-value">${recipe.rating}/5</div>
-          </div>
-        </div>
-
-        <div class="modal-section">
-          <h3><i class="fas fa-list"></i> Ingredients</h3>
-          <ul>
-            ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
-          </ul>
-        </div>
-
-        <div class="modal-section">
-          <h3><i class="fas fa-utensils"></i> Instructions</h3>
-          <ol>
-            ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
-          </ol>
-        </div>
-
-        <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-          <button class="recipe-btn" style="flex: 1;" onclick="alert('Recipe saved to your favorites!')">
-            <i class="fas fa-bookmark"></i> Save Recipe
-          </button>
-          <button class="recipe-btn" style="flex: 1;" onclick="alert('Recipe shared!')">
-            <i class="fas fa-share"></i> Share
-          </button>
-        </div>
-      `;
-
-      modal.style.display = 'block';
-    }
-
-    function closeRecipeModal() {
-      document.getElementById('recipeModal').style.display = 'none';
-    }
-
-    function saveRecipe(button, recipeName) {
-      button.classList.toggle('saved');
-      const isSaved = button.classList.contains('saved');
-      button.innerHTML = isSaved ? '<i class="fas fa-bookmark"></i>' : '<i class="fas fa-bookmark"></i>';
-    }
-
-    function scrollToRecipe(recipeId) {
-      filterByType('all');
-      setTimeout(() => {
-        const recipe = recipes.find(r => r.id === recipeId);
-        if (recipe) {
-          openRecipeModal(recipeId);
-        }
-      }, 100);
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById('recipeModal');
-      if (event.target == modal) {
-        modal.style.display = 'none';
+      if (recipe) {
+        openRecipeModal(recipeId);
       }
-    }
+    }, 100);
+  }
 
-    function toggleCart() {
-      alert('Cart functionality coming soon!');
+  window.onclick = function(event) {
+    const modal = document.getElementById('recipeModal');
+    if (event.target == modal) {
+      modal.style.display = 'none';
     }
+  }
 
-    window.addEventListener('load', init);
-  </script>
-</body>
-</html>
+  window.addEventListener('load', init);
+</script>
