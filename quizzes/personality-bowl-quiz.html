@@ -1,1031 +1,1026 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build Your Dream Bowl - Personality Quiz - Buddha Bowls</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/theme.css">
-  <style>
-    :root {
-      --primary: #0D9488;
-      --secondary: #14B8A6;
-      --accent: #FFD700;
-      --light: #F0FDFA;
-      --white: #FFFFFF;
-      --text: #333;
-      --text-light: #666;
-      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .quiz-hero {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 3rem 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .quiz-hero h1 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .quiz-hero p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .quiz-container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Start Screen */
-    .start-screen {
-      background: var(--white);
-      padding: 3rem 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .start-screen h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .start-screen p {
-      color: var(--text-light);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-    }
-
-    .start-button {
-      padding: 1.2rem 2.5rem;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-      color: var(--white);
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .start-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
-    }
-
-    /* Quiz Screen */
-    .quiz-screen {
-      display: none;
-    }
-
-    .quiz-screen.active {
-      display: block;
-    }
-
-    .progress-section {
-      background: var(--white);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .progress-bar {
-      background: #eee;
-      height: 8px;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-      height: 100%;
-      transition: width 0.3s ease;
-    }
-
-    .progress-info {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-    }
-
-    .question-container {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .question-text {
-      color: var(--primary);
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-    }
-
-    .option-card {
-      padding: 1.5rem;
-      border: 2px solid #ddd;
-      background: var(--white);
-      border-radius: 12px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .option-card:hover {
-      border-color: var(--primary);
-      background: var(--light);
-      transform: translateY(-5px);
-    }
-
-    .option-card.selected {
-      background: var(--primary);
-      color: var(--white);
-      border-color: var(--primary);
-    }
-
-    .option-icon {
-      font-size: 2.5rem;
-    }
-
-    .option-name {
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .option-desc {
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    .quiz-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 2rem;
-    }
-
-    .quiz-btn {
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-next {
-      background: var(--primary);
-      color: var(--white);
-      flex: 1;
-    }
-
-    .btn-next:hover:not(:disabled) {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
-
-    .btn-next:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .btn-back {
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .btn-back:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    /* Bowl Preview */
-    .bowl-preview {
-      background: var(--light);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-
-    .bowl-preview h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .bowl-visual {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .bowl-ingredients {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-
-    .ingredient-tag {
-      background: var(--primary);
-      color: var(--white);
-      padding: 0.4rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    /* Result Screen */
-    .result-screen {
-      display: none;
-    }
-
-    .result-screen.active {
-      display: block;
-    }
-
-    .result-container {
-      background: var(--white);
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .result-header {
-      margin-bottom: 2rem;
-    }
-
-    .result-icon {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    .result-title {
-      color: var(--primary);
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .result-subtitle {
-      color: var(--text-light);
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .bowl-showcase {
-      background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-      padding: 2rem;
-      border-radius: 12px;
-      margin-bottom: 1.5rem;
-    }
-
-    .bowl-showcase-icon {
-      font-size: 5rem;
-      margin-bottom: 1rem;
-    }
-
-    .bowl-showcase-ingredients {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-    }
-
-    .result-description {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      color: var(--text-light);
-      line-height: 1.8;
-      font-size: 0.95rem;
-      text-align: left;
-    }
-
-    .personality-traits {
-      background: #F0F8FF;
-      border-left: 4px solid #2196F3;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    .personality-traits h3 {
-      color: #1565C0;
-      margin-bottom: 1rem;
-    }
-
-    .traits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .trait-item {
-      background: var(--white);
-      padding: 1rem;
-      border-radius: 6px;
-      border-left: 3px solid #2196F3;
-    }
-
-    .trait-item strong {
-      color: #1565C0;
-    }
-
-    .trait-item p {
-      color: var(--text-light);
-      font-size: 0.85rem;
-      margin: 0.5rem 0 0 0;
-    }
-
-    .compatibility-section {
-      background: #FFF3CD;
-      border-left: 4px solid var(--accent);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-      text-align: left;
-    }
-
-    .compatibility-section h3 {
-      color: #856404;
-      margin-bottom: 1rem;
-    }
-
-    .compatibility-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: 1rem;
-    }
-
-    .compatibility-item {
-      background: var(--white);
-      padding: 1rem;
-      border-radius: 6px;
-      text-align: center;
-      border-top: 3px solid var(--accent);
-    }
-
-    .compatibility-item strong {
-      color: #856404;
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
-    .compatibility-item p {
-      color: var(--text-light);
-      font-size: 0.85rem;
-      margin: 0;
-    }
-
-    .share-section {
-      background: var(--light);
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 1.5rem;
-    }
-
-    .share-section h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .share-buttons {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 1rem;
-    }
-
-    .share-btn {
-      padding: 0.8rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.9rem;
-    }
-
-    .share-btn i {
-      font-size: 1.5rem;
-    }
-
-    .share-btn-facebook {
-      background: #1877F2;
-      color: var(--white);
-    }
-
-    .share-btn-facebook:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
-    }
-
-    .share-btn-twitter {
-      background: #1DA1F2;
-      color: var(--white);
-    }
-
-    .share-btn-twitter:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
-    }
-
-    .share-btn-pinterest {
-      background: #E60023;
-      color: var(--white);
-    }
-
-    .share-btn-pinterest:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
-    }
-
-    .share-btn-copy {
-      background: var(--accent);
-      color: #333;
-    }
-
-    .share-btn-copy:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
-    }
-
-    .result-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .result-btn {
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 8px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .result-btn-primary {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    .result-btn-primary:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-    }
-
-    .result-btn-secondary {
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .result-btn-secondary:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @media (max-width: 768px) {
-      .quiz-hero h1 {
-        font-size: 2rem;
-      }
-
-      .question-text {
-        font-size: 1.3rem;
-      }
-
-      .options-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .traits-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .share-buttons {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .result-buttons {
-        flex-direction: column;
-      }
-
-      .result-btn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Header from theme -->
-
-  <!-- HERO SECTION -->
-  <section class="quiz-hero">
-    <h1>🥗 Build Your Dream Bowl</h1>
-    <p>Create your perfect bowl and discover what it reveals about your personality!</p>
-  </section>
-
-  <!-- QUIZ SECTION -->
-  <section class="page-container">
-    <div class="quiz-container">
-      <!-- Start Screen -->
-      <div id="startScreen" class="start-screen">
-        <h2>Ready to Build?</h2>
-        <p>
-          Make choices about your ideal Buddha bowl ingredients, and we'll reveal what your bowl says about your personality! From your base grain to your favorite toppings, every choice tells a story about who you are.
-        </p>
-        <button class="start-button" onclick="startQuiz()">
-          <i class="fas fa-play"></i> Start Building
+---
+layout: default
+title: Build Your Dream Bowl
+permalink: /quizzes/personality-bowl-quiz/
+---
+
+<!-- HERO SECTION -->
+<section class="quiz-hero">
+  <h1>🥗 Build Your Dream Bowl</h1>
+  <p>Create your perfect bowl and discover what it reveals about your personality!</p>
+</section>
+
+<!-- QUIZ SECTION -->
+<section class="page-container">
+  <div class="quiz-container">
+    <!-- Start Screen -->
+    <div id="startScreen" class="start-screen">
+      <h2>Ready to Build?</h2>
+      <p>
+        Make choices about your ideal Buddha bowl ingredients, and we'll reveal what your bowl says about your personality! From your base grain to your favorite toppings, every choice tells a story about who you are.
+      </p>
+      <button class="start-button" onclick="startQuiz()">
+        <i class="fas fa-play"></i> Start Building
+      </button>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="quiz-screen">
+      <div class="progress-section">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-info">
+          <span id="questionProgress">Question 1 of 6</span>
+        </div>
+      </div>
+
+      <div class="question-container">
+        <div class="question-text" id="questionText">Loading question...</div>
+        <div class="options-grid" id="optionsGrid"></div>
+      </div>
+
+      <div class="bowl-preview">
+        <h3>Your Bowl So Far:</h3>
+        <div class="bowl-visual">🥗</div>
+        <div class="bowl-ingredients" id="bowlIngredients"></div>
+      </div>
+
+      <div class="quiz-buttons">
+        <button class="quiz-btn btn-back" onclick="previousQuestion()" id="backBtn" style="display: none;">
+          <i class="fas fa-arrow-left"></i> Back
+        </button>
+        <button class="quiz-btn btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
+          <i class="fas fa-arrow-right"></i> Next
         </button>
       </div>
+    </div>
 
-      <!-- Quiz Screen -->
-      <div id="quizScreen" class="quiz-screen">
-        <div class="progress-section">
-          <div class="progress-bar">
-            <div class="progress-fill" id="progressFill"></div>
-          </div>
-          <div class="progress-info">
-            <span id="questionProgress">Question 1 of 6</span>
-          </div>
+    <!-- Result Screen -->
+    <div id="resultScreen" class="result-screen">
+      <div class="result-container">
+        <div class="result-header">
+          <span class="result-icon" id="resultIcon">🌟</span>
+          <h2 class="result-title" id="resultTitle">The Adventurer</h2>
+          <p class="result-subtitle" id="resultSubtitle">You're bold, curious, and always ready for new experiences!</p>
         </div>
 
-        <div class="question-container">
-          <div class="question-text" id="questionText">Loading question...</div>
-          <div class="options-grid" id="optionsGrid"></div>
+        <div class="bowl-showcase">
+          <div class="bowl-showcase-icon" id="bowlShowcaseIcon">🥗</div>
+          <div class="bowl-showcase-ingredients" id="bowlShowcaseIngredients"></div>
         </div>
 
-        <div class="bowl-preview">
-          <h3>Your Bowl So Far:</h3>
-          <div class="bowl-visual">🥗</div>
-          <div class="bowl-ingredients" id="bowlIngredients"></div>
+        <div class="result-description" id="resultDescription">
+          Loading your personality profile...
         </div>
 
-        <div class="quiz-buttons">
-          <button class="quiz-btn btn-back" onclick="previousQuestion()" id="backBtn" style="display: none;">
-            <i class="fas fa-arrow-left"></i> Back
-          </button>
-          <button class="quiz-btn btn-next" id="nextBtn" onclick="nextQuestion()" disabled>
-            <i class="fas fa-arrow-right"></i> Next
-          </button>
+        <div class="personality-traits">
+          <h3>Your Personality Traits:</h3>
+          <div class="traits-grid" id="traitsGrid"></div>
         </div>
-      </div>
 
-      <!-- Result Screen -->
-      <div id="resultScreen" class="result-screen">
-        <div class="result-container">
-          <div class="result-header">
-            <span class="result-icon" id="resultIcon">🌟</span>
-            <h2 class="result-title" id="resultTitle">The Adventurer</h2>
-            <p class="result-subtitle" id="resultSubtitle">You're bold, curious, and always ready for new experiences!</p>
-          </div>
+        <div class="compatibility-section">
+          <h3>🎯 Compatible Personalities:</h3>
+          <div class="compatibility-grid" id="compatibilityGrid"></div>
+        </div>
 
-          <div class="bowl-showcase">
-            <div class="bowl-showcase-icon" id="bowlShowcaseIcon">🥗</div>
-            <div class="bowl-showcase-ingredients" id="bowlShowcaseIngredients"></div>
-          </div>
-
-          <div class="result-description" id="resultDescription">
-            Loading your personality profile...
-          </div>
-
-          <div class="personality-traits">
-            <h3>Your Personality Traits:</h3>
-            <div class="traits-grid" id="traitsGrid"></div>
-          </div>
-
-          <div class="compatibility-section">
-            <h3>🎯 Compatible Personalities:</h3>
-            <div class="compatibility-grid" id="compatibilityGrid"></div>
-          </div>
-
-          <div class="share-section">
-            <h3>Share Your Bowl Personality!</h3>
-            <div class="share-buttons">
-              <button class="share-btn share-btn-facebook" onclick="shareToFacebook()">
-                <i class="fab fa-facebook"></i> Facebook
-              </button>
-              <button class="share-btn share-btn-twitter" onclick="shareToTwitter()">
-                <i class="fab fa-twitter"></i> Twitter
-              </button>
-              <button class="share-btn share-btn-pinterest" onclick="shareToPinterest()">
-                <i class="fab fa-pinterest"></i> Pinterest
-              </button>
-              <button class="share-btn share-btn-copy" onclick="copyToClipboard()">
-                <i class="fas fa-copy"></i> Copy Link
-              </button>
-            </div>
-          </div>
-
-          <div class="result-buttons">
-            <button class="result-btn result-btn-primary" onclick="orderBowl()">
-              <i class="fas fa-shopping-cart"></i> Order Your Bowl
+        <div class="share-section">
+          <h3>Share Your Bowl Personality!</h3>
+          <div class="share-buttons">
+            <button class="share-btn share-btn-facebook" onclick="shareToFacebook()">
+              <i class="fab fa-facebook"></i> Facebook
             </button>
-            <button class="result-btn result-btn-secondary" onclick="retakeQuiz()">
-              <i class="fas fa-redo"></i> Build Again
+            <button class="share-btn share-btn-twitter" onclick="shareToTwitter()">
+              <i class="fab fa-twitter"></i> Twitter
+            </button>
+            <button class="share-btn share-btn-pinterest" onclick="shareToPinterest()">
+              <i class="fab fa-pinterest"></i> Pinterest
+            </button>
+            <button class="share-btn share-btn-copy" onclick="copyToClipboard()">
+              <i class="fas fa-copy"></i> Copy Link
             </button>
           </div>
+        </div>
+
+        <div class="result-buttons">
+          <button class="result-btn result-btn-primary" onclick="orderBowl()">
+            <i class="fas fa-shopping-cart"></i> Order Your Bowl
+          </button>
+          <button class="result-btn result-btn-secondary" onclick="retakeQuiz()">
+            <i class="fas fa-redo"></i> Build Again
+          </button>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer from theme -->
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
 
-  <script>
-    // Personality Types
-    const personalityTypes = {
-      'adventurer': {
-        title: 'The Adventurer',
-        icon: '🌍',
-        subtitle: 'You\'re bold, curious, and always ready for new experiences!',
-        description: 'You\'re the type who loves trying new things and exploring different flavors and combinations. Your adventurous spirit extends beyond the kitchen—you\'re always seeking new experiences and aren\'t afraid to take risks. Your bowl reflects your willingness to mix unexpected ingredients and create something unique. People are drawn to your enthusiasm and your ability to make even ordinary moments feel exciting.',
-        traits: [
-          { name: 'Bold', desc: 'Not afraid to try new things' },
-          { name: 'Curious', desc: 'Always exploring and learning' },
-          { name: 'Creative', desc: 'Unique flavor combinations' },
-          { name: 'Spontaneous', desc: 'Go with the flow attitude' }
-        ],
-        compatible: [
-          { name: 'The Nurturer', desc: 'Balances your spontaneity' },
-          { name: 'The Visionary', desc: 'Shares your big dreams' },
-          { name: 'The Social Butterfly', desc: 'Matches your energy' }
-        ]
-      },
-      'nurturer': {
-        title: 'The Nurturer',
-        icon: '❤️',
-        subtitle: 'You care deeply and always put others first!',
-        description: 'You\'re thoughtful, compassionate, and genuinely interested in the well-being of those around you. Your bowl choices reflect your desire to create something nourishing and wholesome. You\'re the friend who remembers everyone\'s preferences and dietary needs. Your natural empathy makes you a wonderful listener, and people feel valued in your presence. You find joy in taking care of others and creating warm, welcoming spaces.',
-        traits: [
-          { name: 'Compassionate', desc: 'Deeply caring nature' },
-          { name: 'Thoughtful', desc: 'Considers others\' needs' },
-          { name: 'Reliable', desc: 'Always there when needed' },
-          { name: 'Generous', desc: 'Gives freely of yourself' }
-        ],
-        compatible: [
-          { name: 'The Adventurer', desc: 'Brings excitement to your life' },
-          { name: 'The Visionary', desc: 'Shares your values' },
-          { name: 'The Minimalist', desc: 'Appreciates your care' }
-        ]
-      },
-      'visionary': {
-        title: 'The Visionary',
-        icon: '✨',
-        subtitle: 'You dream big and inspire others with your goals!',
-        description: 'You\'re ambitious, forward-thinking, and always planning your next big move. Your bowl reflects your intentional approach to life—every ingredient serves a purpose. You see the bigger picture and aren\'t content with the status quo. You inspire those around you with your passion and determination. Your strategic mindset helps you achieve your goals, and you naturally become a leader that others look up to.',
-        traits: [
-          { name: 'Ambitious', desc: 'Driven to achieve goals' },
-          { name: 'Strategic', desc: 'Plans ahead carefully' },
-          { name: 'Inspiring', desc: 'Motivates others' },
-          { name: 'Purposeful', desc: 'Everything has meaning' }
-        ],
-        compatible: [
-          { name: 'The Nurturer', desc: 'Supports your dreams' },
-          { name: 'The Minimalist', desc: 'Shares your focus' },
-          { name: 'The Social Butterfly', desc: 'Helps you network' }
-        ]
-      },
-      'minimalist': {
-        title: 'The Minimalist',
-        icon: '🎯',
-        subtitle: 'You value simplicity and intentional living!',
-        description: 'You believe in quality over quantity and prefer a curated, simple approach to life. Your bowl is a perfect reflection of this—clean, purposeful, and without unnecessary extras. You appreciate the beauty in simplicity and find peace in order and clarity. Your focused nature helps you achieve what matters most, and you inspire others with your ability to cut through the noise and find what\'s truly important.',
-        traits: [
-          { name: 'Focused', desc: 'Knows what matters' },
-          { name: 'Intentional', desc: 'Purposeful choices' },
-          { name: 'Calm', desc: 'Peaceful presence' },
-          { name: 'Organized', desc: 'Appreciates order' }
-        ],
-        compatible: [
-          { name: 'The Visionary', desc: 'Shares your focus' },
-          { name: 'The Nurturer', desc: 'Brings warmth' },
-          { name: 'The Wellness Warrior', desc: 'Aligned values' }
-        ]
-      },
-      'social-butterfly': {
-        title: 'The Social Butterfly',
-        icon: '🦋',
-        subtitle: 'You thrive on connection and bringing people together!',
-        description: 'You\'re outgoing, friendly, and energized by social interaction. Your bowl reflects your inclusive nature—a mix of flavors that work beautifully together. You\'re the one who naturally brings people together and makes everyone feel welcome. Your infectious enthusiasm and genuine interest in others make you a magnet for friendship. You find joy in sharing experiences and creating memories with those around you.',
-        traits: [
-          { name: 'Outgoing', desc: 'Loves social connection' },
-          { name: 'Friendly', desc: 'Warm and welcoming' },
-          { name: 'Energetic', desc: 'Brings positive vibes' },
-          { name: 'Inclusive', desc: 'Everyone belongs' }
-        ],
-        compatible: [
-          { name: 'The Adventurer', desc: 'Matches your energy' },
-          { name: 'The Visionary', desc: 'Helps you network' },
-          { name: 'The Nurturer', desc: 'Creates community' }
-        ]
-      },
-      'wellness-warrior': {
-        title: 'The Wellness Warrior',
-        icon: '💪',
-        subtitle: 'You\'re dedicated to health and personal growth!',
-        description: 'You\'re disciplined, health-conscious, and committed to being your best self. Your bowl choices reflect your dedication to nutrition and wellness. You\'re not just about physical health—you care about mental and emotional well-being too. Your strong commitment to self-improvement inspires those around you. You understand that taking care of yourself is an act of self-love, and you lead by example.',
-        traits: [
-          { name: 'Disciplined', desc: 'Committed to goals' },
-          { name: 'Health-focused', desc: 'Prioritizes wellness' },
-          { name: 'Motivated', desc: 'Driven to improve' },
-          { name: 'Balanced', desc: 'Holistic approach' }
-        ],
-        compatible: [
-          { name: 'The Minimalist', desc: 'Aligned values' },
-          { name: 'The Visionary', desc: 'Shares your goals' },
-          { name: 'The Nurturer', desc: 'Supports growth' }
-        ]
-      }
+  .quiz-hero {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .quiz-hero h1 {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .quiz-hero p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .quiz-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .start-screen {
+    background: var(--white);
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .start-screen h2 {
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .start-screen p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .start-button {
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .quiz-screen {
+    display: none;
+  }
+
+  .quiz-screen.active {
+    display: block;
+  }
+
+  .progress-section {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+
+  .progress-bar {
+    background: #eee;
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    height: 100%;
+    transition: width 0.3s ease;
+  }
+
+  .progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  .question-container {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+  }
+
+  .question-text {
+    color: var(--primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .option-card {
+    padding: 1.5rem;
+    border: 2px solid #ddd;
+    background: var(--white);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .option-card:hover {
+    border-color: var(--primary);
+    background: var(--light);
+    transform: translateY(-5px);
+  }
+
+  .option-card.selected {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+  }
+
+  .option-icon {
+    font-size: 2.5rem;
+  }
+
+  .option-name {
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .quiz-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .quiz-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-next {
+    background: var(--primary);
+    color: var(--white);
+    flex: 1;
+  }
+
+  .btn-next:hover:not(:disabled) {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .btn-next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-back {
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .btn-back:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .bowl-preview {
+    background: var(--light);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .bowl-preview h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .bowl-visual {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .bowl-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .ingredient-tag {
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .result-screen {
+    display: none;
+  }
+
+  .result-screen.active {
+    display: block;
+  }
+
+  .result-container {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .result-header {
+    margin-bottom: 2rem;
+  }
+
+  .result-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .result-title {
+    color: var(--primary);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bowl-showcase {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .bowl-showcase-icon {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+  }
+
+  .bowl-showcase-ingredients {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .result-description {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .personality-traits {
+    background: #F0F8FF;
+    border-left: 4px solid #2196F3;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .personality-traits h3 {
+    color: #1565C0;
+    margin-bottom: 1rem;
+  }
+
+  .traits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .trait-item {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 3px solid #2196F3;
+  }
+
+  .trait-item strong {
+    color: #1565C0;
+  }
+
+  .trait-item p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .compatibility-section {
+    background: #FFF3CD;
+    border-left: 4px solid var(--accent);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+
+  .compatibility-section h3 {
+    color: #856404;
+    margin-bottom: 1rem;
+  }
+
+  .compatibility-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .compatibility-item {
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    border-top: 3px solid var(--accent);
+  }
+
+  .compatibility-item strong {
+    color: #856404;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .compatibility-item p {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+
+  .share-section {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-section h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .share-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .share-btn {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .share-btn i {
+    font-size: 1.5rem;
+  }
+
+  .share-btn-facebook {
+    background: #1877F2;
+    color: var(--white);
+  }
+
+  .share-btn-facebook:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
+  }
+
+  .share-btn-twitter {
+    background: #1DA1F2;
+    color: var(--white);
+  }
+
+  .share-btn-twitter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 161, 242, 0.3);
+  }
+
+  .share-btn-pinterest {
+    background: #E60023;
+    color: var(--white);
+  }
+
+  .share-btn-pinterest:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(230, 0, 35, 0.3);
+  }
+
+  .share-btn-copy {
+    background: var(--accent);
+    color: #333;
+  }
+
+  .share-btn-copy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  }
+
+  .result-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .result-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .result-btn-primary {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  .result-btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+  }
+
+  .result-btn-secondary {
+    background: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .result-btn-secondary:hover {
+    background: var(--primary);
+    color: var(--white);
+  }
+
+  @media (max-width: 768px) {
+    .quiz-hero h1 {
+      font-size: 2rem;
+    }
+
+    .question-text {
+      font-size: 1.3rem;
+    }
+
+    .options-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .traits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .share-buttons {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-buttons {
+      flex-direction: column;
+    }
+
+    .result-btn {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .quiz-hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .quiz-container {
+      padding: 0 1rem;
+    }
+
+    .start-screen {
+      padding: 1.5rem;
+    }
+
+    .question-container {
+      padding: 1rem;
+    }
+
+    .result-container {
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  // Personality Types
+  const personalityTypes = {
+    'adventurer': {
+      title: 'The Adventurer',
+      icon: '🌍',
+      subtitle: 'You\'re bold, curious, and always ready for new experiences!',
+      description: 'You\'re the type who loves trying new things and exploring different flavors and combinations. Your adventurous spirit extends beyond the kitchen—you\'re always seeking new experiences and aren\'t afraid to take risks. Your bowl reflects your willingness to mix unexpected ingredients and create something unique. People are drawn to your enthusiasm and your ability to make even ordinary moments feel exciting.',
+      traits: [
+        { name: 'Bold', desc: 'Not afraid to try new things' },
+        { name: 'Curious', desc: 'Always exploring and learning' },
+        { name: 'Creative', desc: 'Unique flavor combinations' },
+        { name: 'Spontaneous', desc: 'Go with the flow attitude' }
+      ],
+      compatible: [
+        { name: 'The Nurturer', desc: 'Balances your spontaneity' },
+        { name: 'The Visionary', desc: 'Shares your big dreams' },
+        { name: 'The Social Butterfly', desc: 'Matches your energy' }
+      ]
+    },
+    'nurturer': {
+      title: 'The Nurturer',
+      icon: '❤️',
+      subtitle: 'You care deeply and always put others first!',
+      description: 'You\'re thoughtful, compassionate, and genuinely interested in the well-being of those around you. Your bowl choices reflect your desire to create something nourishing and wholesome. You\'re the friend who remembers everyone\'s preferences and dietary needs. Your natural empathy makes you a wonderful listener, and people feel valued in your presence. You find joy in taking care of others and creating warm, welcoming spaces.',
+      traits: [
+        { name: 'Compassionate', desc: 'Deeply caring nature' },
+        { name: 'Thoughtful', desc: 'Considers others\' needs' },
+        { name: 'Reliable', desc: 'Always there when needed' },
+        { name: 'Generous', desc: 'Gives freely of yourself' }
+      ],
+      compatible: [
+        { name: 'The Adventurer', desc: 'Brings excitement to your life' },
+        { name: 'The Visionary', desc: 'Shares your values' },
+        { name: 'The Minimalist', desc: 'Appreciates your care' }
+      ]
+    },
+    'visionary': {
+      title: 'The Visionary',
+      icon: '✨',
+      subtitle: 'You dream big and inspire others with your goals!',
+      description: 'You\'re ambitious, forward-thinking, and always planning your next big move. Your bowl reflects your intentional approach to life—every ingredient serves a purpose. You see the bigger picture and aren\'t content with the status quo. You inspire those around you with your passion and determination. Your strategic mindset helps you achieve your goals, and you naturally become a leader that others look up to.',
+      traits: [
+        { name: 'Ambitious', desc: 'Driven to achieve goals' },
+        { name: 'Strategic', desc: 'Plans ahead carefully' },
+        { name: 'Inspiring', desc: 'Motivates others' },
+        { name: 'Purposeful', desc: 'Everything has meaning' }
+      ],
+      compatible: [
+        { name: 'The Nurturer', desc: 'Supports your dreams' },
+        { name: 'The Minimalist', desc: 'Shares your focus' },
+        { name: 'The Social Butterfly', desc: 'Helps you network' }
+      ]
+    },
+    'minimalist': {
+      title: 'The Minimalist',
+      icon: '🎯',
+      subtitle: 'You value simplicity and intentional living!',
+      description: 'You believe in quality over quantity and prefer a curated, simple approach to life. Your bowl is a perfect reflection of this—clean, purposeful, and without unnecessary extras. You appreciate the beauty in simplicity and find peace in order and clarity. Your focused nature helps you achieve what matters most, and you inspire others with your ability to cut through the noise and find what\'s truly important.',
+      traits: [
+        { name: 'Focused', desc: 'Knows what matters' },
+        { name: 'Intentional', desc: 'Purposeful choices' },
+        { name: 'Calm', desc: 'Peaceful presence' },
+        { name: 'Organized', desc: 'Appreciates order' }
+      ],
+      compatible: [
+        { name: 'The Visionary', desc: 'Shares your focus' },
+        { name: 'The Nurturer', desc: 'Brings warmth' },
+        { name: 'The Wellness Warrior', desc: 'Aligned values' }
+      ]
+    },
+    'social-butterfly': {
+      title: 'The Social Butterfly',
+      icon: '🦋',
+      subtitle: 'You thrive on connection and bringing people together!',
+      description: 'You\'re outgoing, friendly, and energized by social interaction. Your bowl reflects your inclusive nature—a mix of flavors that work beautifully together. You\'re the one who naturally brings people together and makes everyone feel welcome. Your infectious enthusiasm and genuine interest in others make you a magnet for friendship. You find joy in sharing experiences and creating memories with those around you.',
+      traits: [
+        { name: 'Outgoing', desc: 'Loves social connection' },
+        { name: 'Friendly', desc: 'Warm and welcoming' },
+        { name: 'Energetic', desc: 'Brings positive vibes' },
+        { name: 'Inclusive', desc: 'Everyone belongs' }
+      ],
+      compatible: [
+        { name: 'The Adventurer', desc: 'Matches your energy' },
+        { name: 'The Visionary', desc: 'Helps you network' },
+        { name: 'The Nurturer', desc: 'Creates community' }
+      ]
+    },
+    'wellness-warrior': {
+      title: 'The Wellness Warrior',
+      icon: '💪',
+      subtitle: 'You\'re dedicated to health and personal growth!',
+      description: 'You\'re disciplined, health-conscious, and committed to being your best self. Your bowl choices reflect your dedication to nutrition and wellness. You\'re not just about physical health—you care about mental and emotional well-being too. Your strong commitment to self-improvement inspires those around you. You understand that taking care of yourself is an act of self-love, and you lead by example.',
+      traits: [
+        { name: 'Disciplined', desc: 'Committed to goals' },
+        { name: 'Health-focused', desc: 'Prioritizes wellness' },
+        { name: 'Motivated', desc: 'Driven to improve' },
+        { name: 'Balanced', desc: 'Holistic approach' }
+      ],
+      compatible: [
+        { name: 'The Minimalist', desc: 'Aligned values' },
+        { name: 'The Visionary', desc: 'Shares your goals' },
+        { name: 'The Nurturer', desc: 'Supports growth' }
+      ]
+    }
+  };
+
+  // Quiz Questions
+  const quizQuestions = [
+    {
+      question: 'What\'s your ideal base grain?',
+      options: [
+        { name: 'Quinoa', icon: '🌾', personality: 'visionary' },
+        { name: 'Brown Rice', icon: '🍚', personality: 'wellness-warrior' },
+        { name: 'Farro', icon: '🌾', personality: 'adventurer' },
+        { name: 'Couscous', icon: '🌾', personality: 'minimalist' }
+      ]
+    },
+    {
+      question: 'Pick your favorite protein!',
+      options: [
+        { name: 'Chickpeas', icon: '🫘', personality: 'nurturer' },
+        { name: 'Tofu', icon: '🟫', personality: 'wellness-warrior' },
+        { name: 'Tempeh', icon: '🟫', personality: 'adventurer' },
+        { name: 'Lentils', icon: '🫘', personality: 'minimalist' }
+      ]
+    },
+    {
+      question: 'What\'s your vegetable of choice?',
+      options: [
+        { name: 'Spinach', icon: '🥬', personality: 'wellness-warrior' },
+        { name: 'Roasted Broccoli', icon: '🥦', personality: 'visionary' },
+        { name: 'Rainbow Mix', icon: '🌈', personality: 'social-butterfly' },
+        { name: 'Kale', icon: '🥬', personality: 'minimalist' }
+      ]
+    },
+    {
+      question: 'How do you feel about toppings?',
+      options: [
+        { name: 'More is more!', icon: '✨', personality: 'adventurer' },
+        { name: 'Carefully chosen few', icon: '🎯', personality: 'minimalist' },
+        { name: 'Healthy & nutritious', icon: '💪', personality: 'wellness-warrior' },
+        { name: 'Whatever makes others happy', icon: '❤️', personality: 'nurturer' }
+      ]
+    },
+    {
+      question: 'Pick your dressing style!',
+      options: [
+        { name: 'Bold & Spicy', icon: '🌶️', personality: 'adventurer' },
+        { name: 'Light & Simple', icon: '🍋', personality: 'minimalist' },
+        { name: 'Creamy & Rich', icon: '🥑', personality: 'nurturer' },
+        { name: 'Nutrient-Dense', icon: '🌱', personality: 'wellness-warrior' }
+      ]
+    },
+    {
+      question: 'When do you eat your bowl?',
+      options: [
+        { name: 'Whenever I feel like it', icon: '🎉', personality: 'social-butterfly' },
+        { name: 'Planned meal prep', icon: '📅', personality: 'visionary' },
+        { name: 'Whenever I\'m hungry', icon: '⏰', personality: 'adventurer' },
+        { name: 'At specific times', icon: '⏱️', personality: 'minimalist' }
+      ]
+    }
+  ];
+
+  // Game State
+  let quizState = {
+    currentQuestion: 0,
+    answers: [],
+    selectedOptions: [],
+    personalityScores: {}
+  };
+
+  // Start Quiz
+  function startQuiz() {
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('quizScreen').classList.add('active');
+    quizState.currentQuestion = 0;
+    quizState.answers = [];
+    quizState.selectedOptions = [];
+    quizState.personalityScores = {
+      'adventurer': 0,
+      'nurturer': 0,
+      'visionary': 0,
+      'minimalist': 0,
+      'social-butterfly': 0,
+      'wellness-warrior': 0
     };
+    loadQuestion();
+  }
 
-    // Quiz Questions
-    const quizQuestions = [
-      {
-        question: 'What\'s your ideal base grain?',
-        options: [
-          { name: 'Quinoa', icon: '🌾', personality: 'visionary' },
-          { name: 'Brown Rice', icon: '🍚', personality: 'wellness-warrior' },
-          { name: 'Farro', icon: '🌾', personality: 'adventurer' },
-          { name: 'Couscous', icon: '🌾', personality: 'minimalist' }
-        ]
-      },
-      {
-        question: 'Pick your favorite protein!',
-        options: [
-          { name: 'Chickpeas', icon: '🫘', personality: 'nurturer' },
-          { name: 'Tofu', icon: '🟫', personality: 'wellness-warrior' },
-          { name: 'Tempeh', icon: '🟫', personality: 'adventurer' },
-          { name: 'Lentils', icon: '🫘', personality: 'minimalist' }
-        ]
-      },
-      {
-        question: 'What\'s your vegetable of choice?',
-        options: [
-          { name: 'Spinach', icon: '🥬', personality: 'wellness-warrior' },
-          { name: 'Roasted Broccoli', icon: '🥦', personality: 'visionary' },
-          { name: 'Rainbow Mix', icon: '🌈', personality: 'social-butterfly' },
-          { name: 'Kale', icon: '🥬', personality: 'minimalist' }
-        ]
-      },
-      {
-        question: 'How do you feel about toppings?',
-        options: [
-          { name: 'More is more!', icon: '✨', personality: 'adventurer' },
-          { name: 'Carefully chosen few', icon: '🎯', personality: 'minimalist' },
-          { name: 'Healthy & nutritious', icon: '💪', personality: 'wellness-warrior' },
-          { name: 'Whatever makes others happy', icon: '❤️', personality: 'nurturer' }
-        ]
-      },
-      {
-        question: 'Pick your dressing style!',
-        options: [
-          { name: 'Bold & Spicy', icon: '🌶️', personality: 'adventurer' },
-          { name: 'Light & Simple', icon: '🍋', personality: 'minimalist' },
-          { name: 'Creamy & Rich', icon: '🥑', personality: 'nurturer' },
-          { name: 'Nutrient-Dense', icon: '🌱', personality: 'wellness-warrior' }
-        ]
-      },
-      {
-        question: 'When do you eat your bowl?',
-        options: [
-          { name: 'Whenever I feel like it', icon: '🎉', personality: 'social-butterfly' },
-          { name: 'Planned meal prep', icon: '📅', personality: 'visionary' },
-          { name: 'Whenever I\'m hungry', icon: '⏰', personality: 'adventurer' },
-          { name: 'At specific times', icon: '⏱️', personality: 'minimalist' }
-        ]
-      }
-    ];
+  // Load Question
+  function loadQuestion() {
+    const question = quizQuestions[quizState.currentQuestion];
+    const progress = ((quizState.currentQuestion + 1) / quizQuestions.length) * 100;
 
-    // Game State
-    let quizState = {
-      currentQuestion: 0,
-      answers: [],
-      selectedOptions: [],
-      personalityScores: {}
-    };
+    document.getElementById('progressFill').style.width = progress + '%';
+    document.getElementById('questionProgress').textContent = `Question ${quizState.currentQuestion + 1} of ${quizQuestions.length}`;
+    document.getElementById('questionText').textContent = question.question;
 
-    // Start Quiz
-    function startQuiz() {
-      document.getElementById('startScreen').style.display = 'none';
-      document.getElementById('quizScreen').classList.add('active');
-      quizState.currentQuestion = 0;
-      quizState.answers = [];
-      quizState.selectedOptions = [];
-      quizState.personalityScores = {
-        'adventurer': 0,
-        'nurturer': 0,
-        'visionary': 0,
-        'minimalist': 0,
-        'social-butterfly': 0,
-        'wellness-warrior': 0
-      };
+    const optionsHtml = question.options.map((option, index) => `
+      <button class="option-card" onclick="selectOption(${index})">
+        <div class="option-icon">${option.icon}</div>
+        <div class="option-name">${option.name}</div>
+      </button>
+    `).join('');
+
+    document.getElementById('optionsGrid').innerHTML = optionsHtml;
+    document.getElementById('nextBtn').disabled = true;
+    document.getElementById('backBtn').style.display = quizState.currentQuestion > 0 ? 'block' : 'none';
+
+    updateBowlPreview();
+  }
+
+  // Select Option
+  function selectOption(index) {
+    const question = quizQuestions[quizState.currentQuestion];
+    const option = question.options[index];
+
+    quizState.answers[quizState.currentQuestion] = option.name;
+    quizState.selectedOptions[quizState.currentQuestion] = option;
+    quizState.personalityScores[option.personality]++;
+
+    document.querySelectorAll('.option-card').forEach((card, i) => {
+      card.classList.toggle('selected', i === index);
+    });
+
+    document.getElementById('nextBtn').disabled = false;
+    updateBowlPreview();
+  }
+
+  // Update Bowl Preview
+  function updateBowlPreview() {
+    const ingredients = quizState.selectedOptions
+      .filter(opt => opt)
+      .map(opt => `<span class="ingredient-tag">${opt.icon} ${opt.name}</span>`)
+      .join('');
+    
+    document.getElementById('bowlIngredients').innerHTML = ingredients || '<span style="color: var(--text-light);">Your bowl is building...</span>';
+  }
+
+  // Next Question
+  function nextQuestion() {
+    if (quizState.currentQuestion < quizQuestions.length - 1) {
+      quizState.currentQuestion++;
+      loadQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  // Previous Question
+  function previousQuestion() {
+    if (quizState.currentQuestion > 0) {
+      quizState.currentQuestion--;
       loadQuestion();
     }
+  }
 
-    // Load Question
-    function loadQuestion() {
-      const question = quizQuestions[quizState.currentQuestion];
-      const progress = ((quizState.currentQuestion + 1) / quizQuestions.length) * 100;
-
-      document.getElementById('progressFill').style.width = progress + '%';
-      document.getElementById('questionProgress').textContent = `Question ${quizState.currentQuestion + 1} of ${quizQuestions.length}`;
-      document.getElementById('questionText').textContent = question.question;
-
-      const optionsHtml = question.options.map((option, index) => `
-        <button class="option-card" onclick="selectOption(${index})">
-          <div class="option-icon">${option.icon}</div>
-          <div class="option-name">${option.name}</div>
-        </button>
-      `).join('');
-
-      document.getElementById('optionsGrid').innerHTML = optionsHtml;
-      document.getElementById('nextBtn').disabled = true;
-      document.getElementById('backBtn').style.display = quizState.currentQuestion > 0 ? 'block' : 'none';
-
-      updateBowlPreview();
-    }
-
-    // Select Option
-    function selectOption(index) {
-      const question = quizQuestions[quizState.currentQuestion];
-      const option = question.options[index];
-
-      quizState.answers[quizState.currentQuestion] = option.name;
-      quizState.selectedOptions[quizState.currentQuestion] = option;
-      quizState.personalityScores[option.personality]++;
-
-      document.querySelectorAll('.option-card').forEach((card, i) => {
-        card.classList.toggle('selected', i === index);
-      });
-
-      document.getElementById('nextBtn').disabled = false;
-      updateBowlPreview();
-    }
-
-    // Update Bowl Preview
-    function updateBowlPreview() {
-      const ingredients = quizState.selectedOptions
-        .filter(opt => opt)
-        .map(opt => `<span class="ingredient-tag">${opt.icon} ${opt.name}</span>`)
-        .join('');
-      
-      document.getElementById('bowlIngredients').innerHTML = ingredients || '<span style="color: var(--text-light);">Your bowl is building...</span>';
-    }
-
-    // Next Question
-    function nextQuestion() {
-      if (quizState.currentQuestion < quizQuestions.length - 1) {
-        quizState.currentQuestion++;
-        loadQuestion();
-      } else {
-        showResult();
+  // Show Result
+  function showResult() {
+    let maxScore = 0;
+    let resultPersonality = 'adventurer';
+    
+    for (const [personality, score] of Object.entries(quizState.personalityScores)) {
+      if (score > maxScore) {
+        maxScore = score;
+        resultPersonality = personality;
       }
     }
 
-    // Previous Question
-    function previousQuestion() {
-      if (quizState.currentQuestion > 0) {
-        quizState.currentQuestion--;
-        loadQuestion();
-      }
-    }
+    const result = personalityTypes[resultPersonality];
 
-    // Show Result
-    function showResult() {
-      // Find highest personality score
-      let maxScore = 0;
-      let resultPersonality = 'adventurer';
-      
-      for (const [personality, score] of Object.entries(quizState.personalityScores)) {
-        if (score > maxScore) {
-          maxScore = score;
-          resultPersonality = personality;
-        }
-      }
+    document.getElementById('quizScreen').classList.remove('active');
+    document.getElementById('resultScreen').classList.add('active');
 
-      const result = personalityTypes[resultPersonality];
+    document.getElementById('resultIcon').textContent = result.icon;
+    document.getElementById('resultTitle').textContent = result.title;
+    document.getElementById('resultSubtitle').textContent = result.subtitle;
+    document.getElementById('resultDescription').textContent = result.description;
 
-      document.getElementById('quizScreen').classList.remove('active');
-      document.getElementById('resultScreen').classList.add('active');
+    document.getElementById('bowlShowcaseIcon').textContent = result.icon;
+    const showcaseIngredients = quizState.selectedOptions
+      .filter(opt => opt)
+      .map(opt => `<span class="ingredient-tag">${opt.icon} ${opt.name}</span>`)
+      .join('');
+    document.getElementById('bowlShowcaseIngredients').innerHTML = showcaseIngredients;
 
-      document.getElementById('resultIcon').textContent = result.icon;
-      document.getElementById('resultTitle').textContent = result.title;
-      document.getElementById('resultSubtitle').textContent = result.subtitle;
-      document.getElementById('resultDescription').textContent = result.description;
+    const traitsHtml = result.traits.map(trait => `
+      <div class="trait-item">
+        <strong>${trait.name}</strong>
+        <p>${trait.desc}</p>
+      </div>
+    `).join('');
+    document.getElementById('traitsGrid').innerHTML = traitsHtml;
 
-      // Bowl showcase
-      document.getElementById('bowlShowcaseIcon').textContent = result.icon;
-      const showcaseIngredients = quizState.selectedOptions
-        .filter(opt => opt)
-        .map(opt => `<span class="ingredient-tag">${opt.icon} ${opt.name}</span>`)
-        .join('');
-      document.getElementById('bowlShowcaseIngredients').innerHTML = showcaseIngredients;
+    const compatibilityHtml = result.compatible.map(compat => `
+      <div class="compatibility-item">
+        <strong>${compat.name}</strong>
+        <p>${compat.desc}</p>
+      </div>
+    `).join('');
+    document.getElementById('compatibilityGrid').innerHTML = compatibilityHtml;
+  }
 
-      // Traits
-      const traitsHtml = result.traits.map(trait => `
-        <div class="trait-item">
-          <strong>${trait.name}</strong>
-          <p>${trait.desc}</p>
-        </div>
-      `).join('');
-      document.getElementById('traitsGrid').innerHTML = traitsHtml;
+  // Share Functions
+  function shareToFacebook() {
+    const title = document.getElementById('resultTitle').textContent;
+    const text = `I'm a ${title}! Build your dream bowl and discover your personality at Buddha Bowls!`;
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`, '_blank');
+  }
 
-      // Compatibility
-      const compatibilityHtml = result.compatible.map(compat => `
-        <div class="compatibility-item">
-          <strong>${compat.name}</strong>
-          <p>${compat.desc}</p>
-        </div>
-      `).join('');
-      document.getElementById('compatibilityGrid').innerHTML = compatibilityHtml;
-    }
+  function shareToTwitter() {
+    const title = document.getElementById('resultTitle').textContent;
+    const text = `I just discovered I'm a ${title}! 🥗 Build your dream bowl and find out your personality type at Buddha Bowls!`;
+    window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+  }
 
-    // Share Functions
-    function shareToFacebook() {
-      const title = document.getElementById('resultTitle').textContent;
-      const text = `I'm a ${title}! Build your dream bowl and discover your personality at Buddha Bowls!`;
-      window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`, '_blank');
-    }
+  function shareToPinterest() {
+    const title = document.getElementById('resultTitle').textContent;
+    const description = `Discover your personality by building your dream bowl! I'm a ${title}!`;
+    window.open(`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&description=${encodeURIComponent(description)}`, '_blank');
+  }
 
-    function shareToTwitter() {
-      const title = document.getElementById('resultTitle').textContent;
-      const text = `I just discovered I'm a ${title}! 🥗 Build your dream bowl and find out your personality type at Buddha Bowls!`;
-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
-    }
+  function copyToClipboard() {
+    const title = document.getElementById('resultTitle').textContent;
+    const text = `I'm a ${title}! Build your dream bowl and discover your personality: ${window.location.href}`;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Link copied to clipboard!');
+    });
+  }
 
-    function shareToPinterest() {
-      const title = document.getElementById('resultTitle').textContent;
-      const description = `Discover your personality by building your dream bowl! I'm a ${title}!`;
-      window.open(`https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(window.location.href)}&description=${encodeURIComponent(description)}`, '_blank');
-    }
+  // Order Bowl
+  function orderBowl() {
+    window.location.href = '{{ site.baseurl }}/shop/';
+  }
 
-    function copyToClipboard() {
-      const title = document.getElementById('resultTitle').textContent;
-      const text = `I'm a ${title}! Build your dream bowl and discover your personality: ${window.location.href}`;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Link copied to clipboard!');
-      });
-    }
-
-    // Order Bowl
-    function orderBowl() {
-      alert('Redirecting to order your bowl...');
-    }
-
-    // Retake Quiz
-    function retakeQuiz() {
-      document.getElementById('resultScreen').classList.remove('active');
-      document.getElementById('startScreen').style.display = 'block';
-    }
-  </script>
-</body>
-</html>
+  // Retake Quiz
+  function retakeQuiz() {
+    document.getElementById('resultScreen').classList.remove('active');
+    document.getElementById('startScreen').style.display = 'block';
+  }
+</script>
