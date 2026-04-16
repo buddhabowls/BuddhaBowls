@@ -1,0 +1,1065 @@
+---
+layout: default
+title: Buddha Bowl Maker
+permalink: /buddha-bowl-maker/
+---
+
+<!-- HERO SECTION -->
+<section class="maker-hero">
+  <h1>🥗 Buddha Bowl Maker</h1>
+  <p>Create your perfect Buddha bowl! Mix and match grains, proteins, veggies, and dressings to build a nutritious meal just for you.</p>
+  <div class="hero-cta">
+    <i class="fas fa-leaf"></i>
+    <span>Build Your Perfect Bowl</span>
+  </div>
+</section>
+
+<!-- MAKER SECTION -->
+<section class="page-container">
+  <div class="maker-container">
+    <div class="maker-layout">
+      <!-- Left Panel - Ingredient Selection -->
+      <div class="ingredient-panel">
+        <h2>
+          <i class="fas fa-hand-holding-heart"></i> Build Your Bowl
+        </h2>
+
+        <!-- Grains -->
+        <div class="ingredient-category">
+          <div class="category-title">
+            <i class="fas fa-wheat"></i> Grains (Pick 1)
+          </div>
+          <div class="ingredient-grid">
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'quinoa')">
+              <span class="ingredient-icon">🌾</span>
+              <span>Quinoa</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'brown-rice')">
+              <span class="ingredient-icon">🍚</span>
+              <span>Brown Rice</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'farro')">
+              <span class="ingredient-icon">🌾</span>
+              <span>Farro</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'millet')">
+              <span class="ingredient-icon">🌾</span>
+              <span>Millet</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'couscous')">
+              <span class="ingredient-icon">🌾</span>
+              <span>Couscous</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'wild-rice')">
+              <span class="ingredient-icon">🍚</span>
+              <span>Wild Rice</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Proteins -->
+        <div class="ingredient-category">
+          <div class="category-title">
+            <i class="fas fa-drumstick-bite"></i> Proteins (Pick 1-2)
+          </div>
+          <div class="ingredient-grid">
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'chickpeas')">
+              <span class="ingredient-icon">🫘</span>
+              <span>Chickpeas</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'lentils')">
+              <span class="ingredient-icon">🫘</span>
+              <span>Lentils</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'black-beans')">
+              <span class="ingredient-icon">🫘</span>
+              <span>Black Beans</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'tofu')">
+              <span class="ingredient-icon">🟫</span>
+              <span>Tofu</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'tempeh')">
+              <span class="ingredient-icon">🟫</span>
+              <span>Tempeh</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'edamame')">
+              <span class="ingredient-icon">🫛</span>
+              <span>Edamame</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Vegetables -->
+        <div class="ingredient-category">
+          <div class="category-title">
+            <i class="fas fa-leaf"></i> Vegetables (Pick 3-4)
+          </div>
+          <div class="ingredient-grid">
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'spinach')">
+              <span class="ingredient-icon">🥬</span>
+              <span>Spinach</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'kale')">
+              <span class="ingredient-icon">🥬</span>
+              <span>Kale</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'broccoli')">
+              <span class="ingredient-icon">🥦</span>
+              <span>Broccoli</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'carrots')">
+              <span class="ingredient-icon">🥕</span>
+              <span>Carrots</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'bell-peppers')">
+              <span class="ingredient-icon">🫑</span>
+              <span>Bell Peppers</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'cucumber')">
+              <span class="ingredient-icon">🥒</span>
+              <span>Cucumber</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'tomatoes')">
+              <span class="ingredient-icon">🍅</span>
+              <span>Tomatoes</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'cabbage')">
+              <span class="ingredient-icon">🥬</span>
+              <span>Cabbage</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'beets')">
+              <span class="ingredient-icon">🍠</span>
+              <span>Beets</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'sweet-potato')">
+              <span class="ingredient-icon">🍠</span>
+              <span>Sweet Potato</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Healthy Fats -->
+        <div class="ingredient-category">
+          <div class="category-title">
+            <i class="fas fa-droplet"></i> Healthy Fats (Pick 1-2)
+          </div>
+          <div class="ingredient-grid">
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'avocado')">
+              <span class="ingredient-icon">🥑</span>
+              <span>Avocado</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'nuts')">
+              <span class="ingredient-icon">🌰</span>
+              <span>Mixed Nuts</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'seeds')">
+              <span class="ingredient-icon">🌱</span>
+              <span>Seeds</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'tahini')">
+              <span class="ingredient-icon">🟤</span>
+              <span>Tahini</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'olive-oil')">
+              <span class="ingredient-icon">🫒</span>
+              <span>Olive Oil</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'coconut-oil')">
+              <span class="ingredient-icon">🥥</span>
+              <span>Coconut Oil</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dressings -->
+        <div class="ingredient-category">
+          <div class="category-title">
+            <i class="fas fa-bottle-water"></i> Dressings (Pick 1)
+          </div>
+          <div class="ingredient-grid">
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'tahini-dressing')">
+              <span class="ingredient-icon">🟤</span>
+              <span>Tahini</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'lemon-vinaigrette')">
+              <span class="ingredient-icon">🍋</span>
+              <span>Lemon Vinaigrette</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'ginger-dressing')">
+              <span class="ingredient-icon">🌶️</span>
+              <span>Ginger Dressing</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'peanut-sauce')">
+              <span class="ingredient-icon">🥜</span>
+              <span>Peanut Sauce</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'curry-dressing')">
+              <span class="ingredient-icon">🌶️</span>
+              <span>Curry Dressing</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'balsamic')">
+              <span class="ingredient-icon">🍶</span>
+              <span>Balsamic</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dietary Preferences -->
+        <div class="ingredient-category">
+          <div class="category-title">
+            <i class="fas fa-leaf"></i> Dietary (Optional)
+          </div>
+          <div class="ingredient-grid">
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'vegan')">
+              <span class="ingredient-icon">🌱</span>
+              <span>Vegan</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'gluten-free')">
+              <span class="ingredient-icon">🚫</span>
+              <span>Gluten-Free</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'high-protein')">
+              <span class="ingredient-icon">💪</span>
+              <span>High Protein</span>
+            </button>
+            <button class="ingredient-btn" onclick="toggleIngredient(this, 'low-carb')">
+              <span class="ingredient-icon">🥬</span>
+              <span>Low Carb</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Selected Ingredients -->
+        <div class="selected-ingredients">
+          <h3>Your Bowl</h3>
+          <div class="selected-list" id="selectedList">
+            <p style="color: var(--text-light); font-size: 0.9rem;">No ingredients selected yet</p>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+          <button class="btn-generate" id="generateBtn" onclick="generateRecipe()" disabled>
+            <i class="fas fa-wand-magic-sparkles"></i> Create Bowl
+          </button>
+          <button class="btn-clear" onclick="clearSelection()">
+            <i class="fas fa-redo"></i> Clear
+          </button>
+        </div>
+      </div>
+
+      <!-- Right Panel - Recipe Display -->
+      <div class="recipe-panel" id="recipePanel">
+        <div class="recipe-empty">
+          <i class="fas fa-bowl-rice"></i>
+          <p>Select your ingredients and click "Create Bowl" to build your perfect Buddha bowl!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --success: #4CAF50;
+  }
+
+  /* Hero Section */
+  .maker-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .maker-hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .maker-hero p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.95;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  /* Container */
+  .maker-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .maker-layout {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Ingredient Panel */
+  .ingredient-panel {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    height: fit-content;
+    position: sticky;
+    top: 20px;
+  }
+
+  .ingredient-panel h2 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Ingredient Category */
+  .ingredient-category {
+    margin-bottom: 2rem;
+  }
+
+  .category-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+
+  .ingredient-btn {
+    background: var(--light);
+    border: 2px solid transparent;
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .ingredient-btn:hover {
+    border-color: var(--primary);
+    background: #E0F2F1;
+  }
+
+  .ingredient-btn.selected {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+  }
+
+  .ingredient-icon {
+    font-size: 1.5rem;
+  }
+
+  /* Selected Ingredients */
+  .selected-ingredients {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+  }
+
+  .selected-ingredients h3 {
+    color: var(--primary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .selected-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .selected-tag {
+    background: var(--white);
+    color: var(--primary);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .selected-tag button {
+    background: none;
+    border: none;
+    color: var(--primary);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0;
+    margin-left: 0.3rem;
+    transition: all 0.2s ease;
+  }
+
+  .selected-tag button:hover {
+    transform: scale(1.2);
+  }
+
+  /* Action Buttons */
+  .action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .btn-generate {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-generate:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .btn-generate:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .btn-clear {
+    background: #F3F4F6;
+    color: var(--text);
+    border: 2px solid #E5E7EB;
+    padding: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .btn-clear:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  /* Recipe Panel */
+  .recipe-panel {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recipe-empty {
+    text-align: center;
+    color: var(--text-light);
+  }
+
+  .recipe-empty i {
+    font-size: 4rem;
+    color: var(--light);
+    margin-bottom: 1rem;
+  }
+
+  .recipe-empty p {
+    font-size: 1.1rem;
+  }
+
+  /* Generated Recipe */
+  .generated-recipe {
+    width: 100%;
+  }
+
+  .recipe-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--light);
+    padding-bottom: 1.5rem;
+  }
+
+  .recipe-title {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .recipe-tagline {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Recipe Meta */
+  .recipe-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: 8px;
+  }
+
+  .meta-item {
+    text-align: center;
+  }
+
+  .meta-label {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .meta-value {
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  /* Nutrition Info */
+  .nutrition-info {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .nutrition-info h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .nutrition-item {
+    text-align: center;
+    background: var(--white);
+    padding: 1rem;
+    border-radius: 6px;
+  }
+
+  .nutrition-label {
+    color: var(--text-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .nutrition-value {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* Recipe Section */
+  .recipe-section {
+    margin-bottom: 2rem;
+  }
+
+  .recipe-section h3 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .recipe-section ul,
+  .recipe-section ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  .recipe-section li {
+    padding: 0.6rem 0 0.6rem 1.8rem;
+    position: relative;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  .recipe-section i {
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+  }
+
+  /* Tips Section */
+  .tips-section {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+  }
+
+  .tips-section h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+  }
+
+  .tips-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .tips-section li {
+    padding: 0.5rem 0 0.5rem 1.8rem;
+    position: relative;
+    color: var(--text-light);
+  }
+
+  .tips-section li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+  }
+
+  /* Recipe Actions */
+  .recipe-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--light);
+  }
+
+  .recipe-action-btn {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--primary);
+    background: var(--white);
+    color: var(--primary);
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .recipe-action-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+
+  .recipe-action-btn.secondary {
+    border-color: #E5E7EB;
+    color: var(--text);
+  }
+
+  .recipe-action-btn.secondary:hover {
+    background: var(--light);
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .maker-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .ingredient-panel {
+      position: static;
+    }
+
+    .ingredient-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .recipe-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .nutrition-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .maker-hero h1 {
+      font-size: 2rem;
+    }
+
+    .ingredient-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .recipe-meta {
+      grid-template-columns: 1fr;
+    }
+
+    .ingredient-panel {
+      padding: 1.5rem;
+    }
+
+    .recipe-panel {
+      padding: 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  // Ingredient Data
+  const ingredientData = {
+    // Grains
+    'quinoa': { name: 'Quinoa', category: 'grain', calories: 120 },
+    'brown-rice': { name: 'Brown Rice', category: 'grain', calories: 110 },
+    'farro': { name: 'Farro', category: 'grain', calories: 100 },
+    'millet': { name: 'Millet', category: 'grain', calories: 95 },
+    'couscous': { name: 'Couscous', category: 'grain', calories: 110 },
+    'wild-rice': { name: 'Wild Rice', category: 'grain', calories: 85 },
+    // Proteins
+    'chickpeas': { name: 'Chickpeas', category: 'protein', calories: 135 },
+    'lentils': { name: 'Lentils', category: 'protein', calories: 115 },
+    'black-beans': { name: 'Black Beans', category: 'protein', calories: 110 },
+    'tofu': { name: 'Tofu', category: 'protein', calories: 95 },
+    'tempeh': { name: 'Tempeh', category: 'protein', calories: 120 },
+    'edamame': { name: 'Edamame', category: 'protein', calories: 100 },
+    // Vegetables
+    'spinach': { name: 'Spinach', category: 'vegetable', calories: 10 },
+    'kale': { name: 'Kale', category: 'vegetable', calories: 15 },
+    'broccoli': { name: 'Broccoli', category: 'vegetable', calories: 30 },
+    'carrots': { name: 'Carrots', category: 'vegetable', calories: 25 },
+    'bell-peppers': { name: 'Bell Peppers', category: 'vegetable', calories: 20 },
+    'cucumber': { name: 'Cucumber', category: 'vegetable', calories: 10 },
+    'tomatoes': { name: 'Tomatoes', category: 'vegetable', calories: 15 },
+    'cabbage': { name: 'Cabbage', category: 'vegetable', calories: 15 },
+    'beets': { name: 'Beets', category: 'vegetable', calories: 35 },
+    'sweet-potato': { name: 'Sweet Potato', category: 'vegetable', calories: 40 },
+    // Healthy Fats
+    'avocado': { name: 'Avocado', category: 'fat', calories: 120 },
+    'nuts': { name: 'Mixed Nuts', category: 'fat', calories: 180 },
+    'seeds': { name: 'Seeds', category: 'fat', calories: 160 },
+    'tahini': { name: 'Tahini', category: 'fat', calories: 170 },
+    'olive-oil': { name: 'Olive Oil', category: 'fat', calories: 120 },
+    'coconut-oil': { name: 'Coconut Oil', category: 'fat', calories: 120 },
+    // Dressings
+    'tahini-dressing': { name: 'Tahini Dressing', category: 'dressing', calories: 50 },
+    'lemon-vinaigrette': { name: 'Lemon Vinaigrette', category: 'dressing', calories: 40 },
+    'ginger-dressing': { name: 'Ginger Dressing', category: 'dressing', calories: 35 },
+    'peanut-sauce': { name: 'Peanut Sauce', category: 'dressing', calories: 80 },
+    'curry-dressing': { name: 'Curry Dressing', category: 'dressing', calories: 45 },
+    'balsamic': { name: 'Balsamic Vinaigrette', category: 'dressing', calories: 30 },
+    // Dietary
+    'vegan': { name: 'Vegan', category: 'dietary', calories: 0 },
+    'gluten-free': { name: 'Gluten-Free', category: 'dietary', calories: 0 },
+    'high-protein': { name: 'High Protein', category: 'dietary', calories: 0 },
+    'low-carb': { name: 'Low Carb', category: 'dietary', calories: 0 }
+  };
+
+  let selectedIngredients = [];
+
+  // Toggle Ingredient
+  function toggleIngredient(button, ingredientId) {
+    button.classList.toggle('selected');
+    
+    if (selectedIngredients.includes(ingredientId)) {
+      selectedIngredients = selectedIngredients.filter(id => id !== ingredientId);
+    } else {
+      selectedIngredients.push(ingredientId);
+    }
+
+    updateSelectedDisplay();
+    updateGenerateButton();
+  }
+
+  // Update Selected Display
+  function updateSelectedDisplay() {
+    const list = document.getElementById('selectedList');
+    
+    if (selectedIngredients.length === 0) {
+      list.innerHTML = '<p style="color: var(--text-light); font-size: 0.9rem;">No ingredients selected yet</p>';
+      return;
+    }
+
+    list.innerHTML = selectedIngredients.map(id => `
+      <span class="selected-tag">
+        ${ingredientData[id].name}
+        <button onclick="removeIngredient('${id}')">×</button>
+      </span>
+    `).join('');
+  }
+
+  // Remove Ingredient
+  function removeIngredient(ingredientId) {
+    const button = document.querySelector(`button[onclick="toggleIngredient(this, '${ingredientId}')"]`);
+    if (button) {
+      button.classList.remove('selected');
+    }
+    selectedIngredients = selectedIngredients.filter(id => id !== ingredientId);
+    updateSelectedDisplay();
+    updateGenerateButton();
+  }
+
+  // Update Generate Button
+  function updateGenerateButton() {
+    const btn = document.getElementById('generateBtn');
+    const hasGrain = selectedIngredients.some(id => ingredientData[id].category === 'grain');
+    const hasProtein = selectedIngredients.some(id => ingredientData[id].category === 'protein');
+    const hasVegetable = selectedIngredients.some(id => ingredientData[id].category === 'vegetable');
+    const hasDressing = selectedIngredients.some(id => ingredientData[id].category === 'dressing');
+    
+    btn.disabled = !(hasGrain && hasProtein && hasVegetable && hasDressing);
+  }
+
+  // Clear Selection
+  function clearSelection() {
+    selectedIngredients = [];
+    document.querySelectorAll('.ingredient-btn').forEach(btn => {
+      btn.classList.remove('selected');
+    });
+    updateSelectedDisplay();
+    updateGenerateButton();
+  }
+
+  // Generate Recipe
+  function generateRecipe() {
+    const grains = selectedIngredients.filter(id => ingredientData[id].category === 'grain');
+    const proteins = selectedIngredients.filter(id => ingredientData[id].category === 'protein');
+    const vegetables = selectedIngredients.filter(id => ingredientData[id].category === 'vegetable');
+    const fats = selectedIngredients.filter(id => ingredientData[id].category === 'fat');
+    const dressings = selectedIngredients.filter(id => ingredientData[id].category === 'dressing');
+    const dietary = selectedIngredients.filter(id => ingredientData[id].category === 'dietary');
+
+    if (!grains.length || !proteins.length || !vegetables.length || !dressings.length) {
+      alert('Please select at least one grain, protein, vegetable, and dressing!');
+      return;
+    }
+
+    const recipe = createCustomBowl(grains, proteins, vegetables, fats, dressings, dietary);
+    displayRecipe(recipe);
+  }
+
+  // Create Custom Bowl
+  function createCustomBowl(grains, proteins, vegetables, fats, dressings, dietary) {
+    const grainName = ingredientData[grains[0]].name;
+    const proteinNames = proteins.map(p => ingredientData[p].name).join(' & ');
+    const vegNames = vegetables.slice(0, 2).map(v => ingredientData[v].name).join(' & ');
+
+    const recipeName = `${grainName} Buddha Bowl with ${proteinNames}`;
+    const dietaryTags = dietary.map(d => ingredientData[d].name);
+
+    // Calculate calories
+    let totalCalories = 0;
+    selectedIngredients.forEach(id => {
+      totalCalories += ingredientData[id].calories;
+    });
+
+    // Build ingredients list
+    let ingredients = [];
+    ingredients.push(`1 cup cooked ${grainName.toLowerCase()}`);
+    proteins.forEach(p => {
+      ingredients.push(`½ cup ${ingredientData[p].name.toLowerCase()}`);
+    });
+    vegetables.forEach(v => {
+      ingredients.push(`½ cup ${ingredientData[v].name.toLowerCase()}`);
+    });
+    fats.forEach(f => {
+      ingredients.push(`¼ cup ${ingredientData[f].name.toLowerCase()}`);
+    });
+    dressings.forEach(d => {
+      ingredients.push(`2 tbsp ${ingredientData[d].name.toLowerCase()}`);
+    });
+
+    // Build instructions
+    const instructions = [
+      `Cook ${grainName.toLowerCase()} according to package directions and let cool slightly.`,
+      `Arrange ${grainName.toLowerCase()} as the base in your Buddha bowl.`,
+      `Add ${proteinNames.toLowerCase()} and arrange vegetables around the bowl.`,
+      fats.length > 0 ? `Top with ${fats.map(f => ingredientData[f].name.toLowerCase()).join(', ')}.` : 'Arrange all ingredients in sections.',
+      `Drizzle with ${dressings.map(d => ingredientData[d].name.toLowerCase()).join(' and ')}.`,
+      'Toss together before eating or enjoy layered. Serve at room temperature or chilled.'
+    ];
+
+    // Build tips
+    let tips = [];
+    if (dietary.includes('vegan')) tips.push('This bowl is 100% plant-based and vegan-friendly');
+    if (dietary.includes('high-protein')) tips.push('This bowl provides excellent protein for muscle recovery');
+    if (dietary.includes('gluten-free')) tips.push('Make sure your grain is certified gluten-free');
+    if (dietary.includes('low-carb')) tips.push('Consider using cauliflower rice instead of grain for lower carbs');
+    tips.push('Prep ingredients ahead of time for quick weekday meals');
+    tips.push('Mix and match vegetables based on what\'s in season');
+    tips.push('Make a batch of dressing to use throughout the week');
+
+    return {
+      name: recipeName,
+      tagline: `A nourishing bowl with ${vegNames} and more`,
+      servings: 1,
+      prepTime: 15,
+      cookTime: 20,
+      totalCalories: totalCalories,
+      protein: proteins.length > 0 ? '15-20g' : '0g',
+      fiber: '8-12g',
+      ingredients: ingredients,
+      instructions: instructions,
+      tips: tips,
+      dietary: dietaryTags
+    };
+  }
+
+  // Display Recipe
+  function displayRecipe(recipe) {
+    const panel = document.getElementById('recipePanel');
+    
+    const dietaryTags = recipe.dietary.length > 0 ? `<div style="margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">${recipe.dietary.map(tag => `<span style="background: var(--light); color: var(--primary); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">${tag}</span>`).join('')}</div>` : '';
+
+    panel.innerHTML = `
+      <div class="generated-recipe">
+        <div class="recipe-header">
+          <div class="recipe-title">🥗 ${recipe.name}</div>
+          <div class="recipe-tagline">${recipe.tagline}</div>
+          ${dietaryTags}
+        </div>
+
+        <div class="recipe-meta">
+          <div class="meta-item">
+            <div class="meta-label">Prep + Cook</div>
+            <div class="meta-value">${recipe.prepTime + recipe.cookTime} min</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Servings</div>
+            <div class="meta-value">${recipe.servings}</div>
+          </div>
+          <div class="meta-item">
+            <div class="meta-label">Calories</div>
+            <div class="meta-value">${recipe.totalCalories}</div>
+          </div>
+        </div>
+
+        <div class="nutrition-info">
+          <h4><i class="fas fa-heartbeat"></i> Nutrition (per serving)</h4>
+          <div class="nutrition-grid">
+            <div class="nutrition-item">
+              <div class="nutrition-label">Protein</div>
+              <div class="nutrition-value">${recipe.protein}</div>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-label">Fiber</div>
+              <div class="nutrition-value">${recipe.fiber}</div>
+            </div>
+            <div class="nutrition-item">
+              <div class="nutrition-label">Calories</div>
+              <div class="nutrition-value">${recipe.totalCalories}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-section">
+          <h3><i class="fas fa-list"></i> Ingredients</h3>
+          <ul>
+            ${recipe.ingredients.map(ing => `<li><i class="fas fa-check"></i> ${ing}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="recipe-section">
+          <h3><i class="fas fa-utensils"></i> Instructions</h3>
+          <ol>
+            ${recipe.instructions.map(inst => `<li>${inst}</li>`).join('')}
+          </ol>
+        </div>
+
+        <div class="tips-section">
+          <h4>💡 Pro Tips</h4>
+          <ul>
+            ${recipe.tips.map(tip => `<li>${tip}</li>`).join('')}
+          </ul>
+        </div>
+
+        <div class="recipe-actions">
+          <button class="recipe-action-btn" onclick="printRecipe()">
+            <i class="fas fa-print"></i> Print
+          </button>
+          <button class="recipe-action-btn secondary" onclick="shareRecipe('${recipe.name}')">
+            <i class="fas fa-share"></i> Share
+          </button>
+          <button class="recipe-action-btn secondary" onclick="saveRecipe('${recipe.name}')">
+            <i class="fas fa-bookmark"></i> Save
+          </button>
+        </div>
+      </div>
+    `;
+
+    // Scroll to recipe
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // Print Recipe
+  function printRecipe() {
+    window.print();
+  }
+
+  // Share Recipe
+  function shareRecipe(recipeName) {
+    alert(`Share "${recipeName}" with your friends!\n\nYou can copy the recipe and send it via email or social media.`);
+  }
+
+  // Save Recipe
+  function saveRecipe(recipeName) {
+    alert(`"${recipeName}" has been saved to your favorites!`);
+  }
+
+  // Initialize
+  updateGenerateButton();
+</script>
