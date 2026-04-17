@@ -1,0 +1,27 @@
+name: Compress Images
+on:
+  pull_request:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+      - '**.avif'
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build:
+    name: calibreapp/image-actions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Compress Images
+        uses: calibreapp/image-actions@main
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          # Optional: Adjust compression quality (0-100)
+          jpegQuality: "80"
+          pngQuality: "80"
+          webpQuality: "80"
