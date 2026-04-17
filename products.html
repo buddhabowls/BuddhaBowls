@@ -65,199 +65,665 @@ permalink: /products/
 </section>
 
 <script>
-  // Product Data
+  // Product Data - Mapped from sitemap URLs
   const products = [
     {
       id: 1,
-      name: 'Classic Coconut Bowl',
+      name: 'Wholesale Coconut Bowls',
       category: 'bowls',
       price: 24.99,
       originalPrice: null,
       rating: 4.8,
       reviews: 124,
-      description: 'Our signature handcrafted coconut bowl, perfect for any Buddha bowl creation.',
-      fullDescription: 'Our Classic Coconut Bowl is handcrafted from 100% natural, sustainably sourced coconut shells. Each bowl is unique and eco-friendly, perfect for serving smoothie bowls, salads, and more.',
+      description: 'Bulk coconut bowls perfect for wholesale and resale.',
+      url: '{{ site.url }}/BuddhaBowls/product/wholesale-coconut-bowls/',
       image: '🥥',
       badge: null,
-      popular: true,
-      sizes: ['Single', 'Set of 2', 'Set of 4'],
-      features: ['100% Natural', 'Eco-Friendly', 'Handcrafted', 'Food-Safe', 'Dishwasher Safe']
+      popular: true
     },
     {
       id: 2,
-      name: 'Deluxe Coconut Bowl Set',
+      name: 'Wholesale Bamboo Toothbrushes',
+      category: 'accessories',
+      price: 14.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 89,
+      description: 'Eco-friendly bamboo toothbrushes in bulk.',
+      url: '{{ site.url }}/BuddhaBowls/product/wholesale-bamboo-toothbrushes/',
+      image: '🪥',
+      badge: 'WHOLESALE',
+      popular: false
+    },
+    {
+      id: 3,
+      name: 'Unicorn Coconut Bowls Bundle',
       category: 'sets',
       price: 44.99,
       originalPrice: 54.99,
       rating: 4.9,
-      reviews: 89,
-      description: 'Set of 2 premium coconut bowls with matching spoons and carrying case.',
-      fullDescription: 'Complete set with 2 premium coconut bowls, 4 bamboo spoons, and a beautiful carrying case. Perfect for gifts or personal use.',
-      image: '🎁',
-      badge: 'SALE',
-      popular: true,
-      sizes: ['Set of 2'],
-      features: ['2 Bowls', '4 Spoons', 'Carrying Case', 'Gift Ready']
-    },
-    {
-      id: 3,
-      name: 'Eco Coconut Bowl Bundle',
-      category: 'sets',
-      price: 79.99,
-      originalPrice: 99.99,
-      rating: 4.7,
       reviews: 56,
-      description: 'Complete bundle with 4 bowls, spoons, and canvas drawstring bag.',
-      fullDescription: 'The ultimate bundle for coconut bowl enthusiasts. Includes 4 handcrafted bowls, 8 bamboo spoons, and a durable canvas bag.',
-      image: '📦',
+      description: 'Magical unicorn-themed coconut bowl bundle.',
+      url: '{{ site.url }}/BuddhaBowls/product/unicorn-coconut-bowls-bundle/',
+      image: '🦄',
       badge: 'SALE',
-      popular: false,
-      sizes: ['Bundle of 4'],
-      features: ['4 Bowls', '8 Spoons', 'Canvas Bag', 'Best Value']
+      popular: true
     },
     {
       id: 4,
-      name: 'Bamboo Spoon Set',
+      name: 'Mason Jar Tumblers',
       category: 'accessories',
       price: 12.99,
       originalPrice: null,
       rating: 4.6,
       reviews: 42,
-      description: 'Set of 4 eco-friendly bamboo spoons perfect for your Buddha bowls.',
-      fullDescription: 'Beautiful set of 4 bamboo spoons made from sustainable bamboo. Durable, lightweight, and perfect for any bowl.',
-      image: '🥄',
-      badge: 'NEW',
-      popular: false,
-      sizes: ['Set of 4', 'Set of 8'],
-      features: ['Sustainable Bamboo', 'Eco-Friendly', 'Lightweight', 'Dishwasher Safe']
+      description: 'Reusable mason jar tumblers with lids.',
+      url: '{{ site.url }}/BuddhaBowls/product/mason-jar-tumblers/',
+      image: '🥤',
+      badge: null,
+      popular: false
     },
     {
       id: 5,
-      name: 'Canvas Carrying Bag',
+      name: 'Palm Tree Spoons',
       category: 'accessories',
-      price: 19.99,
+      price: 9.99,
       originalPrice: null,
       rating: 4.5,
       reviews: 31,
-      description: 'Durable canvas bag with drawstring for easy transport of your bowls.',
-      fullDescription: 'High-quality canvas bag with drawstring closure. Perfect for carrying your coconut bowls and accessories.',
-      image: '🎒',
+      description: 'Tropical palm tree shaped wooden spoons.',
+      url: '{{ site.url }}/BuddhaBowls/product/palm-tree-spoons/',
+      image: '🌴',
       badge: null,
-      popular: false,
-      sizes: ['One Size'],
-      features: ['Durable Canvas', 'Drawstring Closure', 'Eco-Friendly']
+      popular: false
     },
     {
       id: 6,
-      name: 'Coconut Bowl Gift Pack',
-      category: 'gifts',
-      price: 59.99,
-      originalPrice: 71.99,
-      rating: 4.9,
+      name: 'Reusable Mesh Shopping Bags',
+      category: 'accessories',
+      price: 7.99,
+      originalPrice: null,
+      rating: 4.8,
       reviews: 78,
-      description: 'Perfect gift set with 2 bowls, spoons, and beautiful gift packaging.',
-      fullDescription: 'Beautifully packaged gift set perfect for any occasion. Includes 2 bowls, 4 spoons, and premium gift wrapping.',
-      image: '🎀',
-      badge: 'GIFT',
-      popular: true,
-      sizes: ['Gift Set'],
-      features: ['2 Bowls', '4 Spoons', 'Gift Wrapped', 'Perfect Gift']
+      description: 'Eco-friendly mesh bags for shopping.',
+      url: '{{ site.url }}/BuddhaBowls/product/reusable-mesh-shopping-bags/',
+      image: '🛍️',
+      badge: null,
+      popular: true
     },
     {
       id: 7,
-      name: 'Premium Coconut Bowl',
-      category: 'bowls',
+      name: 'Bulk Mesh Market Bags 50ct',
+      category: 'accessories',
       price: 34.99,
       originalPrice: null,
-      rating: 4.8,
+      rating: 4.7,
       reviews: 95,
-      description: 'Handcrafted premium coconut bowl with extra thick walls for durability.',
-      fullDescription: 'Our premium grade coconut bowl with extra thick walls for maximum durability and longevity.',
-      image: '🥥',
-      badge: 'BESTSELLER',
-      popular: true,
-      sizes: ['Single', 'Set of 2'],
-      features: ['Premium Grade', 'Extra Thick', 'Durable', 'Food-Safe']
+      description: 'Bulk pack of 50 mesh market bags.',
+      url: '{{ site.url }}/BuddhaBowls/product/bulk-mesh-market-bags-50ct/',
+      image: '📦',
+      badge: 'BULK',
+      popular: false
     },
     {
       id: 8,
-      name: 'Wooden Spoon Set',
+      name: 'Bamboo Toothbrush Travel Case',
       category: 'accessories',
-      price: 16.99,
+      price: 8.99,
       originalPrice: null,
-      rating: 4.7,
+      rating: 4.6,
       reviews: 38,
-      description: 'Set of 4 handcrafted wooden spoons with natural finish.',
-      fullDescription: 'Beautiful handcrafted wooden spoons with natural finish. Perfect alternative to bamboo.',
-      image: '🪵',
+      description: 'Portable travel case for bamboo toothbrushes.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-toothbrush-travel-case/',
+      image: '✈️',
       badge: 'NEW',
-      popular: false,
-      sizes: ['Set of 4'],
-      features: ['Handcrafted', 'Natural Finish', 'Durable Wood']
+      popular: false
     },
     {
       id: 9,
-      name: 'Coconut Bowl Starter Pack',
+      name: 'Coconut Shell Bowl Set',
       category: 'sets',
-      price: 49.99,
-      originalPrice: 59.99,
-      rating: 4.8,
+      price: 39.99,
+      originalPrice: 49.99,
+      rating: 4.9,
       reviews: 67,
-      description: 'Everything you need to get started with 2 bowls and 4 spoons.',
-      fullDescription: 'Perfect starter pack with 2 coconut bowls and 4 bamboo spoons to get you started.',
-      image: '⭐',
+      description: 'Complete set with multiple coconut bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-shell-bowl-set/',
+      image: '🥥',
       badge: 'SALE',
-      popular: true,
-      sizes: ['Starter Pack'],
-      features: ['2 Bowls', '4 Spoons', 'Great Value']
+      popular: true
     },
     {
       id: 10,
-      name: 'Luxury Gift Set',
+      name: 'Gift Card',
       category: 'gifts',
-      price: 99.99,
-      originalPrice: 119.99,
+      price: 25.00,
+      originalPrice: null,
       rating: 5.0,
       reviews: 45,
-      description: 'Premium gift set with 4 bowls, spoons, bag, and recipe book.',
-      fullDescription: 'Our most luxurious gift set featuring 4 premium bowls, 8 spoons, canvas bag, and exclusive recipe book.',
-      image: '👑',
-      badge: 'LUXURY',
-      popular: false,
-      sizes: ['Luxury Set'],
-      features: ['4 Bowls', '8 Spoons', 'Canvas Bag', 'Recipe Book']
+      description: 'Perfect gift for any occasion.',
+      url: '{{ site.url }}/BuddhaBowls/product/gift-card/',
+      image: '🎁',
+      badge: 'GIFT',
+      popular: false
     },
     {
       id: 11,
-      name: 'Coconut Bowl Duo',
-      category: 'sets',
-      price: 39.99,
+      name: 'Stainless Steel Straws',
+      category: 'accessories',
+      price: 11.99,
       originalPrice: null,
-      rating: 4.6,
+      rating: 4.8,
       reviews: 52,
-      description: 'Pack of 2 classic coconut bowls at a great value.',
-      fullDescription: 'Two classic coconut bowls at an excellent value price.',
-      image: '🥥',
+      description: 'Durable stainless steel reusable straws.',
+      url: '{{ site.url }}/BuddhaBowls/product/stainless-steel-straws/',
+      image: '🥤',
       badge: null,
-      popular: false,
-      sizes: ['Set of 2'],
-      features: ['2 Bowls', 'Great Value']
+      popular: true
     },
     {
       id: 12,
-      name: 'Eco-Friendly Spoon Set',
+      name: 'Bamboo Straws Wholesale',
       category: 'accessories',
       price: 19.99,
       originalPrice: 24.99,
       rating: 4.7,
       reviews: 29,
-      description: 'Set of 6 biodegradable spoons made from sustainable materials.',
-      fullDescription: 'Set of 6 eco-friendly spoons made from sustainable, biodegradable materials.',
+      description: 'Wholesale bamboo straws in bulk.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-straws-wholesale/',
+      image: '🌱',
+      badge: 'WHOLESALE',
+      popular: false
+    },
+    {
+      id: 13,
+      name: 'Wooden Utensil Bundle',
+      category: 'sets',
+      price: 29.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 41,
+      description: 'Complete bundle of wooden utensils.',
+      url: '{{ site.url }}/BuddhaBowls/product/wooden-utensil-bundle/',
+      image: '🍴',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 14,
+      name: 'Coconut Shell Candle',
+      category: 'gifts',
+      price: 16.99,
+      originalPrice: null,
+      rating: 4.9,
+      reviews: 73,
+      description: 'Scented candle in natural coconut shell.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-shell-candle/',
+      image: '🕯️',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 15,
+      name: 'Coconut Bowls',
+      category: 'bowls',
+      price: 22.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 124,
+      description: 'Classic handcrafted coconut bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-bowls/',
+      image: '🥥',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 16,
+      name: 'Coconut Bowl Utensils',
+      category: 'accessories',
+      price: 13.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 56,
+      description: 'Utensil set designed for coconut bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-bowl-utensils/',
+      image: '🥄',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 17,
+      name: 'Bamboo Straws',
+      category: 'accessories',
+      price: 10.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 89,
+      description: 'Eco-friendly bamboo drinking straws.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-straws/',
+      image: '🌱',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 18,
+      name: 'Bamboo Lids',
+      category: 'accessories',
+      price: 8.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 38,
+      description: 'Bamboo lids for various containers.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-lids/',
+      image: '🎀',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 19,
+      name: 'Bamboo Lid Wholesale',
+      category: 'accessories',
+      price: 19.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 42,
+      description: 'Wholesale bamboo lids in bulk.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-lid-wholesale/',
+      image: '📦',
+      badge: 'WHOLESALE',
+      popular: false
+    },
+    {
+      id: 20,
+      name: 'Bamboo Toothpick Holder',
+      category: 'accessories',
+      price: 6.99,
+      originalPrice: null,
+      rating: 4.5,
+      reviews: 25,
+      description: 'Decorative bamboo toothpick holder.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-toothpick-holder/',
+      image: '🎋',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 21,
+      name: 'Bamboo Toothpick Holders',
+      category: 'accessories',
+      price: 14.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 31,
+      description: 'Set of bamboo toothpick holders.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-toothpick-holders/',
+      image: '🎋',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 22,
+      name: 'Wholesale Wooden Utensils',
+      category: 'accessories',
+      price: 24.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 48,
+      description: 'Bulk wooden utensils for wholesale.',
+      url: '{{ site.url }}/BuddhaBowls/product/wholesale-wooden-utensils/',
+      image: '🍴',
+      badge: 'WHOLESALE',
+      popular: false
+    },
+    {
+      id: 23,
+      name: 'Reusable Tea Infusers',
+      category: 'accessories',
+      price: 9.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 64,
+      description: 'Stainless steel reusable tea infusers.',
+      url: '{{ site.url }}/BuddhaBowls/product/reusable-tea-infusers/',
+      image: '☕',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 24,
+      name: 'Bamboo Scrub Brushes',
+      category: 'accessories',
+      price: 7.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 35,
+      description: 'Natural bamboo scrub brushes.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-scrub-brushes/',
+      image: '🧹',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 25,
+      name: 'Bamboo Toothbrush Sets',
+      category: 'sets',
+      price: 19.99,
+      originalPrice: 24.99,
+      rating: 4.8,
+      reviews: 71,
+      description: 'Complete set of bamboo toothbrushes.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-toothbrush-sets/',
+      image: '🪥',
+      badge: 'SALE',
+      popular: true
+    },
+    {
+      id: 26,
+      name: 'Bamboo Soap Trays',
+      category: 'accessories',
+      price: 8.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 44,
+      description: 'Natural bamboo soap trays.',
+      url: '{{ site.url }}/BuddhaBowls/product/bamboo-soap-trays/',
+      image: '🧼',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 27,
+      name: 'Eat The Rainbow Bundle',
+      category: 'sets',
+      price: 49.99,
+      originalPrice: 59.99,
+      rating: 4.9,
+      reviews: 82,
+      description: 'Colorful bundle for rainbow bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/eat-the-rainbow-bundle/',
+      image: '🌈',
+      badge: 'SALE',
+      popular: true
+    },
+    {
+      id: 28,
+      name: 'Buddha Bowls Starter Set',
+      category: 'sets',
+      price: 34.99,
+      originalPrice: 44.99,
+      rating: 4.8,
+      reviews: 59,
+      description: 'Perfect starter set for Buddha bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/buddha-bowls-starter-set/',
+      image: '⭐',
+      badge: 'SALE',
+      popular: true
+    },
+    {
+      id: 29,
+      name: 'Bulk Straw Cleaning Brushes',
+      category: 'accessories',
+      price: 12.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 28,
+      description: 'Bulk pack of straw cleaning brushes.',
+      url: '{{ site.url }}/BuddhaBowls/product/bulk-straw-cleaning-brushes/',
+      image: '🧹',
+      badge: 'BULK',
+      popular: false
+    },
+    {
+      id: 30,
+      name: 'Coconut Bowl Bag',
+      category: 'accessories',
+      price: 14.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 51,
+      description: 'Protective carrying bag for coconut bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-bowl-bag/',
+      image: '🎒',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 31,
+      name: 'Pink Pitaya Powder',
+      category: 'gifts',
+      price: 18.99,
+      originalPrice: null,
+      rating: 4.9,
+      reviews: 76,
+      description: 'Natural pink pitaya powder for smoothies.',
+      url: '{{ site.url }}/BuddhaBowls/product/pink-pitaya-powder/',
+      image: '💗',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 32,
+      name: 'Wooden Cups',
+      category: 'accessories',
+      price: 11.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 33,
+      description: 'Eco-friendly wooden drinking cups.',
+      url: '{{ site.url }}/BuddhaBowls/product/wooden-cups/',
+      image: '🥤',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 33,
+      name: 'Honey Dippers',
+      category: 'accessories',
+      price: 6.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 29,
+      description: 'Wooden honey dippers.',
+      url: '{{ site.url }}/BuddhaBowls/product/honey-dippers/',
+      image: '🍯',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 34,
+      name: 'Rainbow Smoothie Spoon',
+      category: 'accessories',
+      price: 7.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 47,
+      description: 'Colorful rainbow smoothie spoon.',
+      url: '{{ site.url }}/BuddhaBowls/product/rainbow-smoothie-spoon/',
+      image: '🌈',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 35,
+      name: 'Market Bags',
+      category: 'accessories',
+      price: 9.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 40,
+      description: 'Reusable market shopping bags.',
+      url: '{{ site.url }}/BuddhaBowls/product/market-bags/',
+      image: '🛍️',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 36,
+      name: 'Mermaid Tail Mold',
+      category: 'gifts',
+      price: 16.99,
+      originalPrice: null,
+      rating: 4.9,
+      reviews: 68,
+      description: 'Magical mermaid tail silicone mold.',
+      url: '{{ site.url }}/BuddhaBowls/product/mermaid-tail-mold/',
+      image: '🧜‍♀️',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 37,
+      name: 'Soap Bags',
+      category: 'accessories',
+      price: 5.99,
+      originalPrice: null,
+      rating: 4.5,
+      reviews: 22,
+      description: 'Mesh bags for soap bars.',
+      url: '{{ site.url }}/BuddhaBowls/product/soap-bags/',
+      image: '🧼',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 38,
+      name: 'Coconut Bowl Zero Waste Set',
+      category: 'sets',
+      price: 54.99,
+      originalPrice: 69.99,
+      rating: 4.9,
+      reviews: 85,
+      description: 'Complete zero waste coconut bowl set.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-bowl-zero-waste-set/',
       image: '♻️',
       badge: 'SALE',
-      popular: false,
-      sizes: ['Set of 6'],
-      features: ['Biodegradable', 'Sustainable', 'Eco-Friendly']
+      popular: true
+    },
+    {
+      id: 39,
+      name: 'Chopsticks',
+      category: 'accessories',
+      price: 8.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 36,
+      description: 'Bamboo chopsticks set.',
+      url: '{{ site.url }}/BuddhaBowls/product/chopsticks/',
+      image: '🥢',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 40,
+      name: 'Rainbow Market Bags',
+      category: 'accessories',
+      price: 11.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 53,
+      description: 'Colorful rainbow mesh market bags.',
+      url: '{{ site.url }}/BuddhaBowls/product/rainbow-market-bags/',
+      image: '🌈',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 41,
+      name: 'Rose Gold Tea Infuser',
+      category: 'accessories',
+      price: 12.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 61,
+      description: 'Elegant rose gold tea infuser.',
+      url: '{{ site.url }}/BuddhaBowls/product/rose-gold-tea-infuser/',
+      image: '✨',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 42,
+      name: 'Coconut Bowl Subscription',
+      category: 'gifts',
+      price: 29.99,
+      originalPrice: null,
+      rating: 4.9,
+      reviews: 91,
+      description: 'Monthly coconut bowl subscription box.',
+      url: '{{ site.url }}/BuddhaBowls/product/coconut-bowl-subscription/',
+      image: '📮',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 43,
+      name: 'Unicorn Horn Mold',
+      category: 'gifts',
+      price: 14.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 72,
+      description: 'Magical unicorn horn silicone mold.',
+      url: '{{ site.url }}/BuddhaBowls/product/unicorn-horn-mold/',
+      image: '🦄',
+      badge: null,
+      popular: true
+    },
+    {
+      id: 44,
+      name: 'Jumbo Coconut Bowls',
+      category: 'bowls',
+      price: 32.99,
+      originalPrice: null,
+      rating: 4.8,
+      reviews: 58,
+      description: 'Extra large jumbo coconut bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/jumbo-coconut-bowls/',
+      image: '🥥',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 45,
+      name: 'Waffles Reusable Mold',
+      category: 'gifts',
+      price: 19.99,
+      originalPrice: null,
+      rating: 4.7,
+      reviews: 44,
+      description: 'Reusable waffle silicone mold.',
+      url: '{{ site.url }}/BuddhaBowls/product/waffles-reusable-mold/',
+      image: '🧇',
+      badge: null,
+      popular: false
+    },
+    {
+      id: 46,
+      name: 'Custom Coconut Bowls',
+      category: 'bowls',
+      price: 39.99,
+      originalPrice: null,
+      rating: 4.9,
+      reviews: 67,
+      description: 'Personalized custom coconut bowls.',
+      url: '{{ site.url }}/BuddhaBowls/product/custom-coconut-bowls/',
+      image: '🥥',
+      badge: 'CUSTOM',
+      popular: true
+    },
+    {
+      id: 47,
+      name: 'Square Soap Mold',
+      category: 'gifts',
+      price: 13.99,
+      originalPrice: null,
+      rating: 4.6,
+      reviews: 35,
+      description: 'Square silicone soap mold.',
+      url: '{{ site.url }}/BuddhaBowls/product/square-soap-mold/',
+      image: '🧼',
+      badge: null,
+      popular: false
     }
   ];
 
@@ -309,9 +775,9 @@ permalink: /products/
               ${product.originalPrice ? `<span class="product-price-original">$${product.originalPrice.toFixed(2)}</span>` : ''}
               $${product.price.toFixed(2)}
             </div>
-            <button class="product-btn" onclick="addToCart('${product.name}', ${product.price})">
-              <i class="fas fa-shopping-cart"></i> Add
-            </button>
+            <a href="${product.url}" class="product-btn">
+              <i class="fas fa-external-link-alt"></i> View
+            </a>
           </div>
         </div>
       </div>
@@ -370,56 +836,6 @@ permalink: /products/
 
     displayProducts(sorted);
   }
-
-  // Add to Cart
-  function addToCart(productName, price) {
-    const notification = document.createElement('div');
-    notification.style.cssText = `
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      background: linear-gradient(135deg, #0D9488, #14B8A6);
-      color: white;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      z-index: 3000;
-      animation: slideIn 0.3s ease;
-    `;
-    notification.textContent = 'Added "' + productName + '" to cart!';
-    document.body.appendChild(notification);
-
-    setTimeout(() => {
-      notification.style.animation = 'slideOut 0.3s ease';
-      setTimeout(() => notification.remove(), 300);
-    }, 2000);
-  }
-
-  // Add animations
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes slideIn {
-      from {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-      to {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-    @keyframes slideOut {
-      from {
-        transform: translateX(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(400px);
-        opacity: 0;
-      }
-    }
-  `;
-  document.head.appendChild(style);
 
   // Initialize on page load
   window.addEventListener('load', init);
