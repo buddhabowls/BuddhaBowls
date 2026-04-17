@@ -1,0 +1,819 @@
+---
+layout: default
+title: "Coconut Bowl Utensils (4)"
+product_id: coconut-bowl-utensils
+date: 2026-04-15
+permalink: /product/coconut-bowl-utensils/
+categories: ["Utensils", "Accessories", "Coconut Products"]
+tags: ["utensils", "coconut", "eco-friendly", "set"]
+price: 8.99
+sale_price: null
+in_stock: true
+stock_quantity: 87
+featured: false
+image: "https://buddhabowls.org/wp-content/uploads/2024/09/ebony-knife.jpg"
+---
+
+<!-- HERO SECTION -->
+<section class="product-hero">
+  <div class="product-hero-content">
+    <h1>Coconut Bowl Utensils (4-Piece Set)</h1>
+    <p>Complete your sustainable dining experience</p>
+    <div class="product-badges">
+      <span class="badge eco"><i class="fas fa-leaf"></i> 100% Natural</span>
+      <span class="badge set"><i class="fas fa-box"></i> Complete Set</span>
+      <span class="badge handcrafted"><i class="fas fa-hammer"></i> Handcrafted</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT CONTENT -->
+<section class="page-container">
+  <div class="product-container">
+    <!-- Product Gallery -->
+    <section class="product-gallery">
+      <div class="main-image">
+        <img src="https://buddhabowls.org/wp-content/uploads/2024/09/ebony-knife.jpg" alt="Coconut Bowl Utensils Set" loading="lazy">
+      </div>
+      <div class="gallery-thumbs">
+        <img src="https://buddhabowls.org/wp-content/uploads/2024/09/ebony-knife.jpg" alt="Utensil Set" class="thumb active" loading="lazy">
+        <img src="https://buddhabowls.org/wp-content/uploads/2024/09/ebony-knife.jpg" alt="Individual Utensils" class="thumb" loading="lazy">
+        <img src="https://buddhabowls.org/wp-content/uploads/2024/09/ebony-knife.jpg" alt="In Use" class="thumb" loading="lazy">
+      </div>
+    </section>
+
+    <!-- Product Info -->
+    <section class="product-info">
+      <div class="product-header">
+        <h2>Coconut Bowl Utensils (4-Piece Set)</h2>
+        <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <span>(127 reviews)</span>
+        </div>
+      </div>
+
+      <div class="product-description">
+        <p>
+          Complete your sustainable dining with our handcrafted Coconut Bowl Utensils. This 4-piece set includes everything you need to enjoy your meals in style. Made from 100% natural coconut wood, these utensils are eco-friendly, durable, and beautifully designed.
+        </p>
+      </div>
+
+      <!-- Price & Availability -->
+      <div class="product-pricing">
+        <div class="price-section">
+          <span class="price">$8.99</span>
+          <span class="availability in-stock">
+            <i class="fas fa-check-circle"></i> In Stock (87 available)
+          </span>
+        </div>
+      </div>
+
+      <!-- What's Included -->
+      <div class="whats-included">
+        <h4 style="color: #0D9488; margin-bottom: 0.8rem;">What's Included:</h4>
+        <div class="included-items">
+          <div class="included-item">
+            <i class="fas fa-spoon"></i>
+            <span>1 Spoon</span>
+          </div>
+          <div class="included-item">
+            <i class="fas fa-utensils"></i>
+            <span>1 Fork</span>
+          </div>
+          <div class="included-item">
+            <i class="fas fa-knife"></i>
+            <span>1 Knife</span>
+          </div>
+          <div class="included-item">
+            <i class="fas fa-utensils"></i>
+            <span>1 Serving Spoon</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Options -->
+      <div class="product-options">
+        <div class="option-group">
+          <label for="quantity">Quantity *</label>
+          <div class="quantity-selector">
+            <button onclick="decreaseQuantity()">−</button>
+            <input type="number" id="quantity" value="1" min="1" max="20">
+            <button onclick="increaseQuantity()">+</button>
+          </div>
+          <small>Each set includes 4 utensils</small>
+        </div>
+      </div>
+
+      <!-- Purchase Button -->
+      <div class="product-actions">
+        <button class="btn-purchase" onclick="handlePurchase()">
+          <i class="fas fa-shopping-cart"></i> Buy Now
+        </button>
+        <button class="btn-wishlist" title="Add to Wishlist">
+          <i class="fas fa-heart"></i>
+        </button>
+      </div>
+
+      <!-- PayPal Placeholder -->
+      <div class="paypal-placeholder">
+        <p><small>PayPal payment button will be added here</small></p>
+      </div>
+
+      <!-- Product Meta -->
+      <div class="product-meta">
+        <div class="meta-item">
+          <i class="fas fa-leaf"></i>
+          <div>
+            <strong>100% Natural</strong>
+            <p>Coconut wood</p>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-hammer"></i>
+          <div>
+            <strong>Handcrafted</strong>
+            <p>Artisan quality</p>
+          </div>
+        </div>
+        <div class="meta-item">
+          <i class="fas fa-box"></i>
+          <div>
+            <strong>Complete Set</strong>
+            <p>4 utensils</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- What's Included Section -->
+  <section class="bundle-contents">
+    <h2>Complete 4-Piece Utensil Set</h2>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-icon">
+          <i class="fas fa-spoon"></i>
+        </div>
+        <h3>Dinner Spoon</h3>
+        <p>Perfect for soups, yogurt, and desserts. Smooth, ergonomic design for comfortable use.</p>
+      </div>
+
+      <div class="item-card">
+        <div class="item-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3>Dinner Fork</h3>
+        <p>Ideal for salads, pasta, and main courses. Sturdy tines for reliable food handling.</p>
+      </div>
+
+      <div class="item-card">
+        <div class="item-icon">
+          <i class="fas fa-knife"></i>
+        </div>
+        <h3>Dinner Knife</h3>
+        <p>Smooth edge for cutting softer foods. Elegant design complements any table setting.</p>
+      </div>
+
+      <div class="item-card">
+        <div class="item-icon">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <h3>Serving Spoon</h3>
+        <p>Larger spoon for serving portions. Perfect for family-style dining and sharing meals.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="bundle-contents">
+    <h2>Why Choose Coconut Bowl Utensils?</h2>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <h3>100% Natural Material</h3>
+        <p>Handcrafted from sustainable coconut wood with zero synthetic materials</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fas fa-hammer"></i>
+        </div>
+        <h3>Artisan Handcrafted</h3>
+        <p>Each utensil is individually crafted with care and attention to detail</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fas fa-box"></i>
+        </div>
+        <h3>Complete Set</h3>
+        <p>Four essential utensils in one convenient package for everyday dining</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fas fa-sparkles"></i>
+        </div>
+        <h3>Beautiful Design</h3>
+        <p>Natural wood grain patterns make each set unique and visually appealing</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fas fa-dumbbell"></i>
+        </div>
+        <h3>Durable & Long-Lasting</h3>
+        <p>Built to last with proper care, providing years of reliable use</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon">
+          <i class="fas fa-globe"></i>
+        </div>
+        <h3>Eco-Friendly Choice</h3>
+        <p>Support sustainability with utensils made from renewable resources</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perfect For Section -->
+  <section class="bundle-contents">
+    <h2>Perfect For Every Occasion</h2>
+    <div class="use-case-grid">
+      <div class="use-case-card">
+        <div class="use-case-icon">
+          <i class="fas fa-home"></i>
+        </div>
+        <h3>Everyday Dining</h3>
+        <p>Perfect for daily meals at home. Beautiful enough for special occasions too.</p>
+      </div>
+
+      <div class="use-case-card">
+        <div class="use-case-icon">
+          <i class="fas fa-gift"></i>
+        </div>
+        <h3>Thoughtful Gifts</h3>
+        <p>Ideal gift for eco-conscious friends and family who appreciate sustainable living.</p>
+      </div>
+
+      <div class="use-case-card">
+        <div class="use-case-icon">
+          <i class="fas fa-bowl-rice"></i>
+        </div>
+        <h3>Coconut Bowl Companion</h3>
+        <p>Perfect complement to our coconut bowls for a complete sustainable dining set.</p>
+      </div>
+
+      <div class="use-case-card">
+        <div class="use-case-icon">
+          <i class="fas fa-suitcase"></i>
+        </div>
+        <h3>Travel & Picnics</h3>
+        <p>Lightweight and portable. Great for outdoor dining and travel adventures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Details Tabs -->
+  <section class="product-details-section">
+    <div class="tabs-container">
+      <div class="tab-buttons">
+        <button class="tab-btn active" onclick="switchTab('description')">
+          <i class="fas fa-info-circle"></i> Description
+        </button>
+        <button class="tab-btn" onclick="switchTab('features')">
+          <i class="fas fa-check-circle"></i> Features
+        </button>
+        <button class="tab-btn" onclick="switchTab('specifications')">
+          <i class="fas fa-ruler"></i> Specifications
+        </button>
+        <button class="tab-btn" onclick="switchTab('care')">
+          <i class="fas fa-heart"></i> Care Guide
+        </button>
+      </div>
+
+      <!-- Description Tab -->
+      <div class="tab-content active" id="description">
+        <h3>Complete Your Sustainable Dining</h3>
+        <p>
+          Our Coconut Bowl Utensils are the perfect complement to a sustainable lifestyle. This 4-piece set includes everything you need for a complete dining experience, all handcrafted from 100% natural coconut wood.
+        </p>
+        <h4>What's Included:</h4>
+        <ul>
+          <li>1 Dinner Spoon - Perfect for soups, yogurt, and desserts</li>
+          <li>1 Dinner Fork - Ideal for salads, pasta, and main courses</li>
+          <li>1 Dinner Knife - Smooth edge for cutting softer foods</li>
+          <li>1 Serving Spoon - Larger spoon for serving portions</li>
+        </ul>
+        <h4>Why Coconut Wood Utensils?</h4>
+        <ul>
+          <li>100% natural and sustainably sourced</li>
+          <li>Handcrafted with attention to detail</li>
+          <li>Durable and long-lasting with proper care</li>
+          <li>Beautiful natural wood grain patterns</li>
+          <li>Eco-friendly alternative to plastic utensils</li>
+          <li>Perfect for everyday use and special occasions</li>
+          <li>Great gift for eco-conscious individuals</li>
+        </ul>
+      </div>
+
+      <!-- Features Tab -->
+      <div class="tab-content" id="features">
+        <h3>Key Features</h3>
+        <div class="features-grid">
+          <div class="feature-item">
+            <i class="fas fa-leaf"></i>
+            <h4>100% Natural</h4>
+            <p>Coconut wood</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-hammer"></i>
+            <h4>Handcrafted</h4>
+            <p>Artisan quality</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-box"></i>
+            <h4>4-Piece Set</h4>
+            <p>Complete utensils</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-sparkles"></i>
+            <h4>Unique Design</h4>
+            <p>Natural grain patterns</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-dumbbell"></i>
+            <h4>Durable</h4>
+            <p>Long-lasting quality</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-globe"></i>
+            <h4>Eco-Friendly</h4>
+            <p>Sustainable choice</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Specifications Tab -->
+      <div class="tab-content" id="specifications">
+        <h3>Product Specifications</h3>
+        <div class="bundle-comparison">
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Set Contents</strong></div>
+            <div class="comparison-essentials">4 utensils (spoon, fork, knife, serving spoon)</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Material</strong></div>
+            <div class="comparison-essentials">100% Natural Coconut Wood</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Spoon Length</strong></div>
+            <div class="comparison-essentials">Approximately 7.5 inches (19 cm)</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Fork Length</strong></div>
+            <div class="comparison-essentials">Approximately 7.5 inches (19 cm)</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Knife Length</strong></div>
+            <div class="comparison-essentials">Approximately 7.5 inches (19 cm)</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Serving Spoon Length</strong></div>
+            <div class="comparison-essentials">Approximately 8.5 inches (21.5 cm)</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Weight</strong></div>
+            <div class="comparison-essentials">Lightweight—approximately 2 oz per set</div>
+          </div>
+          <div class="comparison-row">
+            <div class="comparison-label"><strong>Food-Safe</strong></div>
+            <div class="comparison-essentials">Yes, 100% food-safe</div>
+          </div>
+          <div class="comparison-row total">
+            <div class="comparison-label"><strong>Care</strong></div>
+            <div class="comparison-essentials"><strong>Hand wash recommended</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Care Guide Tab -->
+      <div class="tab-content" id="care">
+        <h3>Care & Maintenance</h3>
+        <div class="care-section">
+          <h4><i class="fas fa-soap"></i> Cleaning</h4>
+          <ul>
+            <li>Hand wash immediately after use with warm soapy water</li>
+            <li>Use a soft cloth or sponge to gently clean</li>
+            <li>Rinse thoroughly to remove all soap residue</li>
+            <li>Pat dry with a clean towel immediately</li>
+            <li>Do not soak for extended periods</li>
+            <li>Not recommended for dishwasher</li>
+          </ul>
+        </div>
+
+        <div class="care-section">
+          <h4><i class="fas fa-oil-can"></i> Maintenance</h4>
+          <ul>
+            <li>Occasionally apply food-safe mineral oil</li>
+            <li>This helps maintain the natural luster of the wood</li>
+            <li>Apply oil every 2-3 months or as needed</li>
+            <li>Wipe excess oil with a soft cloth</li>
+            <li>Store in a cool, dry place</li>
+          </ul>
+        </div>
+
+        <div class="care-section">
+          <h4><i class="fas fa-exclamation-circle"></i> Important Notes</h4>
+          <ul>
+            <li>Avoid prolonged soaking in water</li>
+            <li>Do not expose to extreme heat</li>
+            <li>Do not use in the dishwasher</li>
+            <li>Keep away from extended moisture exposure</li>
+            <li>With proper care, will last for many years</li>
+          </ul>
+        </div>
+
+        <div class="care-section">
+          <h4><i class="fas fa-home"></i> Storage Tips</h4>
+          <ul>
+            <li>Store in a cool, dry place</li>
+            <li>Keep in a drawer or utensil holder</li>
+            <li>Display in a decorative container for easy access</li>
+            <li>Avoid storing near heat sources</li>
+            <li>Perfect for both storage and display</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="related-products">
+    <h2>Complete Your Sustainable Dining Set</h2>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-image">
+          <img src="https://buddhabowls.org/wp-content/uploads/2025/12/shop-products.jpg" alt="Coconut Bowl Zero Waste Set" loading="lazy">
+        </div>
+        <h3>Coconut Bowl Zero Waste Set</h3>
+        <p>Complete bundle with bowls</p>
+        <div class="related-price">$59.99</div>
+        <button class="btn-small">View Product</button>
+      </div>
+
+      <div class="related-card">
+        <div class="related-image">
+          <img src="https://buddhabowls.org/wp-content/uploads/2024/11/product-pics-1.webp" alt="Buddha Bowls Starter Set" loading="lazy">
+        </div>
+        <h3>Buddha Bowls Starter Set</h3>
+        <p>Complete dining bundle</p>
+        <div class="related-price">$39.99</div>
+        <button class="btn-small">View Product</button>
+      </div>
+
+      <div class="related-card">
+        <div class="related-image">
+          <img src="https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg" alt="Bamboo Lids" loading="lazy">
+        </div>
+        <h3>Bamboo Lids</h3>
+        <p>Sustainable storage</p>
+        <div class="related-price">$14.99</div>
+        <button class="btn-small">View Product</button>
+      </div>
+
+      <div class="related-card">
+        <div class="related-image">
+          <img src="https://buddhabowls.org/wp-content/uploads/chopsticks-icon.png" alt="Coconut Chopsticks" loading="lazy">
+        </div>
+        <h3>Coconut Palm Chopsticks</h3>
+        <p>Eco-friendly dining</p>
+        <div class="related-price">$2.99</div>
+        <button class="btn-small">View Product</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="reviews-section">
+    <h2>Customer Reviews</h2>
+    <div class="reviews-container">
+      <div class="review-item">
+        <div class="review-header">
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="review-info">
+            <strong>Beautiful and functional!</strong>
+            <p>By Sarah M. - Verified Purchase</p>
+          </div>
+        </div>
+        <p>These utensils are gorgeous! The natural wood grain is beautiful and each piece feels well-made. They're comfortable to use and I love knowing they're eco-friendly. Perfect addition to my sustainable kitchen!</p>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="review-info">
+            <strong>Perfect gift for eco-lovers</strong>
+            <p>By James T. - Verified Purchase</p>
+          </div>
+        </div>
+        <p>Got these as a gift and absolutely love them! The quality is excellent and they're so nice to use. The set includes everything you need. Great value for the price and a wonderful sustainable choice!</p>
+      </div>
+
+      <div class="review-item">
+        <div class="review-header">
+          <div class="review-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <div class="review-info">
+            <strong>Great quality and value</strong>
+            <p>By Emily R. - Verified Purchase</p>
+          </div>
+        </div>
+        <p>Love these utensils! They're well-made and beautiful. The only note is they need hand washing, but that's worth it for such a quality product. Highly recommend for anyone wanting to reduce plastic!</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --success: #4CAF50;
+  }
+
+  /* Hero Section */
+  .product-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
+
+  .product-badges {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Product Container */
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Product Gallery */
+  .product-gallery { display: flex; flex-direction: column; gap: 1rem; }
+  .main-image { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; background: var(--light); }
+  .main-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .gallery-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .thumb { height: 80px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; object-fit: cover; }
+  .thumb:hover, .thumb.active { border-color: var(--primary); }
+
+  /* Product Info */
+  .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
+
+  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
+  .product-rating i { font-size: 0.9rem; }
+
+  .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
+  .product-description p { margin: 0; }
+
+  /* Pricing */
+  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
+  .price-section { display: flex; justify-content: space-between; align-items: center; }
+
+  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
+
+  /* What's Included */
+  .whats-included { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+  .included-items { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .included-item { display: flex; align-items: center; gap: 0.6rem; color: var(--text); font-size: 0.95rem; }
+  .included-item i { font-size: 1.2rem; color: var(--primary); }
+
+  /* Product Options */
+  .product-options { display: grid; gap: 1rem; }
+  .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .option-group label { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+
+  .quantity-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .quantity-selector button { width: 36px; height: 36px; border: 2px solid var(--light); background: var(--white); border-radius: 6px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
+  .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
+  .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
+  .option-group small { color: var(--text-light); font-size: 0.8rem; }
+
+  /* Product Actions */
+  .product-actions { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem; }
+  .btn-purchase { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); border: none; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+  .btn-purchase:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3); }
+
+  .btn-wishlist { width: 44px; height: 44px; border: 2px solid var(--light); background: var(--white); border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: var(--primary); }
+  .btn-wishlist:hover { border-color: var(--primary); background: var(--light); }
+
+  /* PayPal Placeholder */
+  .paypal-placeholder { background: var(--light); padding: 1.2rem; border-radius: 8px; text-align: center; border: 2px dashed var(--primary); }
+  .paypal-placeholder p { color: var(--text-light); margin: 0; font-size: 0.9rem; }
+
+  /* Product Meta */
+  .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
+  .meta-item { display: flex; gap: 0.8rem; }
+  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
+  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
+  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+
+  /* Bundle Contents */
+  .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .bundle-contents h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
+
+  /* Items Grid */
+  .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .item-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .item-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .item-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .item-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Why Choose Grid */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .why-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .why-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .why-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .why-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Use Case Grid */
+  .use-case-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .use-case-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .use-case-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .use-case-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .use-case-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Tabs */
+  .product-details-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .tabs-container { display: flex; flex-direction: column; }
+  .tab-buttons { display: flex; gap: 0.8rem; border-bottom: 2px solid var(--light); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab-btn { background: none; border: none; padding: 0.8rem 1.2rem; color: var(--text-light); font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.4rem; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 0.95rem; }
+  .tab-btn:hover { color: var(--primary); }
+  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
+  .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
+  .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .tab-content li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.95rem; }
+  .tab-content li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  /* Bundle Comparison */
+  .bundle-comparison { border: 1px solid var(--light); border-radius: 8px; overflow: hidden; }
+  .comparison-row { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--light); padding: 1rem; }
+  .comparison-row:last-child { border-bottom: none; }
+  .comparison-row:nth-child(even) { background: var(--light); }
+  .comparison-row.total { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); font-weight: 700; }
+  .comparison-label { color: var(--text); }
+  .comparison-essentials { text-align: left; color: var(--text-light); }
+
+  /* Features Grid */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .feature-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; text-align: center; }
+  .feature-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+  .feature-item h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
+  .feature-item p { color: var(--text-light); font-size: 0.8rem; margin: 0; }
+
+  /* Care Sections */
+  .care-section { margin-bottom: 1.5rem; }
+  .care-section h4 { color: var(--primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+
+  /* Related Products */
+  .related-products { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .related-products h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
+  .related-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; }
+  .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .related-image { width: 100%; height: 140px; overflow: hidden; background: var(--white); }
+  .related-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .related-card:hover .related-image img { transform: scale(1.05); }
+  .related-card h3 { color: var(--primary); padding: 0.8rem 0.8rem 0; margin: 0; font-size: 0.95rem; }
+  .related-card p { color: var(--text-light); padding: 0 0.8rem; font-size: 0.8rem; margin: 0.2rem 0; }
+  .related-price { color: var(--primary); font-weight: 700; font-size: 1rem; padding: 0.4rem 0.8rem; }
+  .btn-small { width: calc(100% - 1.6rem); margin: 0 0.8rem 0.8rem; padding: 0.6rem; background: var(--primary); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
+  .btn-small:hover { background: var(--secondary); }
+
+  /* Reviews */
+  .reviews-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); }
+  .reviews-section h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .reviews-container { display: grid; gap: 1rem; }
+  .review-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
+  .review-header { display: flex; gap: 0.8rem; margin-bottom: 0.8rem; }
+  .review-rating { display: flex; gap: 0.2rem; color: var(--accent); font-size: 0.8rem; white-space: nowrap; }
+  .review-info strong { color: var(--primary); display: block; font-size: 0.9rem; }
+  .review-info p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+  .review-item p { color: var(--text-light); line-height: 1.6; margin: 0; font-size: 0.9rem; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .product-container { grid-template-columns: 1fr; }
+    .product-meta { grid-template-columns: 1fr; }
+    .tab-buttons { flex-direction: column; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .use-case-grid { grid-template-columns: repeat(2, 1fr); }
+    .included-items { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 768px) {
+    .product-hero h1 { font-size: 1.8rem; }
+    .product-badges { flex-direction: column; align-items: center; }
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .use-case-grid { grid-template-columns: 1fr; }
+    .items-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<script>
+  function switchTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    document.getElementById(tabName).classList.add('active');
+    event.target.closest('.tab-btn').classList.add('active');
+  }
+
+  function increaseQuantity() {
+    const input = document.getElementById('quantity');
+    const max = input.getAttribute('max');
+    input.value = Math.min(parseInt(input.value) + 1, parseInt(max));
+  }
+
+  function decreaseQuantity() {
+    const input = document.getElementById('quantity');
+    const min = input.getAttribute('min');
+    input.value = Math.max(parseInt(input.value) - 1, parseInt(min));
+  }
+
+  function handlePurchase() {
+    const quantity = document.getElementById('quantity').value;
+    console.log(`Purchase initiated: ${quantity} Coconut Bowl Utensil set(s)`);
+  }
+</script>
