@@ -99,7 +99,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
           <i class="fas fa-shopping-cart"></i> Add to Cart
         </button>
         <button class="btn-wishlist">
-          <i class="fas fa-heart"></i> Add to Wishlist
+          <i class="fas fa-heart"></i>
         </button>
       </div>
 
@@ -307,44 +307,44 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   <!-- Related Products -->
   <section class="related-products">
     <h2>You Might Also Like</h2>
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-image">
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-image">
           <img src="https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg" alt="Bamboo Straws">
         </div>
         <h3>Bamboo Straws</h3>
         <p>Eco-friendly reusable straws</p>
-        <div class="product-price">$12.99</div>
+        <div class="related-price">$12.99</div>
         <button class="btn-small">View Product</button>
       </div>
 
-      <div class="product-card">
-        <div class="product-image">
+      <div class="related-card">
+        <div class="related-image">
           <img src="https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg" alt="Bamboo Utensils">
         </div>
         <h3>Bamboo Utensils</h3>
         <p>Sustainable dining essentials</p>
-        <div class="product-price">$14.99</div>
+        <div class="related-price">$14.99</div>
         <button class="btn-small">View Product</button>
       </div>
 
-      <div class="product-card">
-        <div class="product-image">
+      <div class="related-card">
+        <div class="related-image">
           <img src="https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg" alt="Coconut Bowls">
         </div>
         <h3>Coconut Bowls</h3>
         <p>Natural food storage solutions</p>
-        <div class="product-price">$16.99</div>
+        <div class="related-price">$16.99</div>
         <button class="btn-small">View Product</button>
       </div>
 
-      <div class="product-card">
-        <div class="product-image">
+      <div class="related-card">
+        <div class="related-image">
           <img src="https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg" alt="Bamboo Cutting Board">
         </div>
         <h3>Bamboo Cutting Board</h3>
         <p>Durable and sustainable kitchen tool</p>
-        <div class="product-price">$19.99</div>
+        <div class="related-price">$19.99</div>
         <button class="btn-small">View Product</button>
       </div>
     </div>
@@ -485,25 +485,25 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .product-hero {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: var(--white);
-    padding: 4rem 2rem;
+    padding: 3rem 2rem;
     text-align: center;
     margin-bottom: 2rem;
   }
 
   .product-hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
 
   .product-hero p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
     opacity: 0.95;
   }
 
   .product-badges {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     justify-content: center;
     flex-wrap: wrap;
   }
@@ -511,20 +511,20 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .badge {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    padding: 0.6rem 1.2rem;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   /* Product Container */
   .product-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
     margin-bottom: 3rem;
     background: var(--white);
     padding: 2rem;
@@ -541,7 +541,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .main-image {
     width: 100%;
-    aspect-ratio: 1;
+    height: 350px;
     border-radius: 8px;
     overflow: hidden;
     background: var(--light);
@@ -556,11 +556,11 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .gallery-thumbs {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .thumb {
-    aspect-ratio: 1;
+    height: 80px;
     border-radius: 6px;
     cursor: pointer;
     border: 2px solid transparent;
@@ -577,38 +577,42 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .product-info {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .product-header h2 {
     color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
   }
 
   .product-rating {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     color: var(--accent);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .product-rating i {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .product-description {
     color: var(--text-light);
-    line-height: 1.8;
+    line-height: 1.7;
     border-bottom: 1px solid var(--light);
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.2rem;
+  }
+
+  .product-description p {
+    margin: 0;
   }
 
   /* Pricing */
   .product-pricing {
     background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-    padding: 1.5rem;
+    padding: 1.2rem;
     border-radius: 8px;
   }
 
@@ -619,18 +623,19 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   }
 
   .price {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
     color: var(--primary);
   }
 
   .availability {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 20px;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
+    font-size: 0.9rem;
   }
 
   .availability.in-stock {
@@ -638,34 +643,30 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     color: var(--success);
   }
 
-  .availability.out-of-stock {
-    background: rgba(244, 67, 54, 0.2);
-    color: #F44336;
-  }
-
   /* Product Options */
   .product-options {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .option-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
 
   .option-group label {
     color: var(--primary);
     font-weight: 600;
+    font-size: 0.95rem;
   }
 
   .option-group select,
   .option-group input {
-    padding: 0.8rem;
+    padding: 0.7rem;
     border: 2px solid var(--light);
     border-radius: 6px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
   }
 
@@ -678,13 +679,13 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .quantity-selector {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.4rem;
     align-items: center;
   }
 
   .quantity-selector button {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border: 2px solid var(--light);
     background: var(--white);
     border-radius: 6px;
@@ -707,17 +708,17 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .product-actions {
     display: grid;
     grid-template-columns: 1fr auto;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .btn-add-to-cart {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: var(--white);
     border: none;
-    padding: 1rem 2rem;
+    padding: 0.9rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
@@ -728,17 +729,17 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .btn-add-to-cart:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.3);
+    box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3);
   }
 
   .btn-wishlist {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border: 2px solid var(--light);
     background: var(--white);
     border-radius: 8px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
@@ -756,17 +757,17 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
     border-top: 1px solid var(--light);
   }
 
   .meta-item {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .meta-item i {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--primary);
     flex-shrink: 0;
   }
@@ -774,11 +775,12 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .meta-item strong {
     color: var(--primary);
     display: block;
+    font-size: 0.9rem;
   }
 
   .meta-item p {
     color: var(--text-light);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin: 0.2rem 0 0;
   }
 
@@ -791,32 +793,28 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     margin-bottom: 2rem;
   }
 
-  .tabs-container {
-    display: flex;
-    flex-direction: column;
-  }
-
   .tab-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     border-bottom: 2px solid var(--light);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
   }
 
   .tab-btn {
     background: none;
     border: none;
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1.2rem;
     color: var(--text-light);
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     border-bottom: 3px solid transparent;
     margin-bottom: -2px;
+    font-size: 0.95rem;
   }
 
   .tab-btn:hover {
@@ -838,32 +836,34 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .tab-content h3 {
     color: var(--primary);
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
   }
 
   .tab-content h4 {
     color: var(--primary);
-    margin-top: 1.5rem;
-    margin-bottom: 0.8rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+    font-size: 1rem;
   }
 
   .tab-content p {
     color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
   }
 
   .tab-content ul {
     list-style: none;
     padding: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   .tab-content li {
-    padding: 0.5rem 0 0.5rem 1.8rem;
+    padding: 0.4rem 0 0.4rem 1.5rem;
     position: relative;
     color: var(--text-light);
+    font-size: 0.95rem;
   }
 
   .tab-content li::before {
@@ -877,32 +877,33 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   /* Features Grid */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
   .feature-item {
     background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 8px;
     text-align: center;
   }
 
   .feature-item i {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-bottom: 0.8rem;
-  }
-
-  .feature-item h4 {
+    font-size: 1.6rem;
     color: var(--primary);
     margin-bottom: 0.5rem;
   }
 
+  .feature-item h4 {
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+  }
+
   .feature-item p {
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     margin: 0;
   }
 
@@ -917,9 +918,9 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .spec-row {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 180px 1fr;
     border-bottom: 1px solid var(--light);
-    padding: 1rem;
+    padding: 0.8rem;
   }
 
   .spec-row:last-child {
@@ -933,15 +934,17 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .spec-label {
     color: var(--primary);
     font-weight: 600;
+    font-size: 0.9rem;
   }
 
   .spec-value {
     color: var(--text-light);
+    font-size: 0.9rem;
   }
 
   /* Care Section */
   .care-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .care-section h4 {
@@ -949,7 +952,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   /* Related Products */
@@ -963,76 +966,78 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .related-products h2 {
     color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   }
 
-  .products-grid {
+  .related-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.2rem;
   }
 
-  .product-card {
+  .related-card {
     background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
   }
 
-  .product-card:hover {
-    transform: translateY(-5px);
+  .related-card:hover {
+    transform: translateY(-4px);
     box-shadow: var(--shadow);
   }
 
-  .product-image {
+  .related-image {
     width: 100%;
-    aspect-ratio: 1;
+    height: 140px;
     overflow: hidden;
     background: var(--white);
   }
 
-  .product-image img {
+  .related-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
 
-  .product-card:hover .product-image img {
+  .related-card:hover .related-image img {
     transform: scale(1.05);
   }
 
-  .product-card h3 {
+  .related-card h3 {
     color: var(--primary);
-    padding: 1rem 1rem 0;
+    padding: 0.8rem 0.8rem 0;
     margin: 0;
+    font-size: 0.95rem;
   }
 
-  .product-card p {
+  .related-card p {
     color: var(--text-light);
-    padding: 0 1rem;
-    font-size: 0.9rem;
-    margin: 0.3rem 0;
+    padding: 0 0.8rem;
+    font-size: 0.8rem;
+    margin: 0.2rem 0;
   }
 
-  .product-price {
+  .related-price {
     color: var(--primary);
     font-weight: 700;
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .btn-small {
-    width: calc(100% - 2rem);
-    margin: 0 1rem 1rem;
-    padding: 0.8rem;
+    width: calc(100% - 1.6rem);
+    margin: 0 0.8rem 0.8rem;
+    padding: 0.6rem;
     background: var(--primary);
     color: var(--white);
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.85rem;
     transition: all 0.3s ease;
   }
 
@@ -1051,43 +1056,44 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .reviews-section h2 {
     color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   }
 
   .reviews-container {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   .review-item {
     background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-    padding: 1.5rem;
+    padding: 1.2rem;
     border-radius: 8px;
   }
 
   .review-header {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
   }
 
   .review-rating {
     display: flex;
     gap: 0.2rem;
     color: var(--accent);
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     white-space: nowrap;
   }
 
   .review-info strong {
     color: var(--primary);
     display: block;
+    font-size: 0.9rem;
   }
 
   .review-info p {
     color: var(--text-light);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     margin: 0.2rem 0 0;
   }
 
@@ -1095,6 +1101,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     color: var(--text-light);
     line-height: 1.6;
     margin: 0;
+    font-size: 0.9rem;
   }
 
   /* FAQ Section */
@@ -1107,13 +1114,13 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .faq-section h2 {
     color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
   }
 
   .faq-items {
     display: grid;
-    gap: 1rem;
+    gap: 0.8rem;
   }
 
   .faq-item {
@@ -1128,7 +1135,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   }
 
   .faq-question {
-    padding: 1.5rem;
+    padding: 1rem;
     background: var(--light);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1141,10 +1148,11 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .faq-question h4 {
     color: var(--primary);
     margin: 0;
+    font-size: 0.95rem;
   }
 
   .faq-answer {
-    padding: 1.5rem;
+    padding: 1rem;
     background: var(--white);
     display: none;
   }
@@ -1155,8 +1163,9 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .faq-answer p {
     color: var(--text-light);
-    line-height: 1.8;
+    line-height: 1.7;
     margin: 0;
+    font-size: 0.9rem;
   }
 
   /* Responsive */
@@ -1184,7 +1193,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   @media (max-width: 768px) {
     .product-hero h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
     }
 
     .product-badges {
@@ -1192,7 +1201,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
       align-items: center;
     }
 
-    .products-grid {
+    .related-grid {
       grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1204,20 +1213,15 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
 <script>
   function switchTab(tabName) {
-    // Hide all tabs
     document.querySelectorAll('.tab-content').forEach(tab => {
       tab.classList.remove('active');
     });
 
-    // Remove active class from all buttons
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.classList.remove('active');
     });
 
-    // Show selected tab
     document.getElementById(tabName).classList.add('active');
-
-    // Add active class to clicked button
     event.target.closest('.tab-btn').classList.add('active');
   }
 
@@ -1243,7 +1247,6 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     alert(`Added ${quantity} ${type} to cart!`);
   }
 
-  // FAQ Toggle
   document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', function() {
       const item = this.closest('.faq-item');
