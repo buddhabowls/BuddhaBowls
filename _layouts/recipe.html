@@ -16,26 +16,27 @@
   </section>
 
   <div class="page-container">
-    
-   <article class="recipe-content">
+    <article class="recipe-content">
 
+  <!-- META CARDS -->
   <div class="recipe-meta">
-    {% if page.servings %}
-      <div class="meta-item"><strong>Servings:</strong> {{ page.servings }}</div>
-    {% endif %}
-    {% if page.prepTime %}
-      <div class="meta-item"><strong>Prep:</strong> {{ page.prepTime }}</div>
-    {% endif %}
-    {% if page.totalTime %}
-      <div class="meta-item"><strong>Total:</strong> {{ page.totalTime }}</div>
-    {% endif %}
-    {% if page.course %}
-      <div class="meta-item"><strong>Course:</strong> {{ page.course }}</div>
-    {% endif %}
+    {% if page.servings %}<div class="meta-item">👥 {{ page.servings }}</div>{% endif %}
+    {% if page.prepTime %}<div class="meta-item">⏱ Prep: {{ page.prepTime }}</div>{% endif %}
+    {% if page.totalTime %}<div class="meta-item">⌛ Total: {{ page.totalTime }}</div>{% endif %}
+    {% if page.calories %}<div class="meta-item">🔥 {{ page.calories }} cal</div>{% endif %}
   </div>
 
-  <div class="recipe-body">
+  <!-- MAIN CONTENT -->
+  <div class="recipe-grid">
     {{ content }}
+  </div>
+
+  <!-- NUTRITION -->
+  <div class="nutrition-grid">
+    {% if page.protein %}<div>Protein: {{ page.protein }}</div>{% endif %}
+    {% if page.carbs %}<div>Carbs: {{ page.carbs }}</div>{% endif %}
+    {% if page.fat %}<div>Fat: {{ page.fat }}</div>{% endif %}
+    {% if page.fiber %}<div>Fiber: {{ page.fiber }}</div>{% endif %}
   </div>
 
 </article>
