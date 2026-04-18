@@ -2,57 +2,96 @@
 layout: default
 ---
 
-<div class="recipe-wrapper">
+<article class="recipe-wrapper">
 
-  <!-- HEADER -->
-  <div class="recipe-header-card">
+  <!-- HERO / HEADER -->
+  <header class="recipe-header-card">
     <h1 class="recipe-title">{{ page.title }}</h1>
+    <p class="recipe-description">{{ page.description }}</p>
 
     <div class="recipe-meta">
       <span>🍽 {{ page.servings }} servings</span>
       <span>⏱ {{ page.totalTime }}</span>
       <span>🔥 {{ page.calories }} cal</span>
+      <span>🥗 {{ page.course }}</span>
+      <span>🌎 {{ page.cuisine }}</span>
     </div>
-  </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="recipe-single">
+    {% if page.dietary %}
+    <div class="recipe-tags">
+      {% assign tags = page.dietary | split: "," %}
+      {% for tag in tags %}
+        <span class="tag">{{ tag | strip }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </header>
 
-    <!-- INGREDIENTS -->
-    <section class="recipe-section">
-      <h2>Ingredients</h2>
-      <ul class="ingredients">
-        {% for item in page.ingredients %}
-          <li class="ingredient-item">{{ item }}</li>
-        {% endfor %}
-      </ul>
-    </section>
+  <!-- MINDFUL MOMENT -->
+  {% if page.mindful_moment %}
+  <section class="recipe-section highlight">
+    <h2>🧘 Mindful Moment</h2>
+    <p>{{ page.mindful_moment }}</p>
+  </section>
+  {% endif %}
 
-    <!-- INSTRUCTIONS -->
-    <section class="recipe-section">
-      <h2>Instructions</h2>
-      <ol class="instructions">
-        {% for step in page.instructions %}
-          <li>{{ step }}</li>
-        {% endfor %}
-      </ol>
-    </section>
+  <!-- INGREDIENTS -->
+  <section class="recipe-section">
+    <h2>Ingredients</h2>
+    <ul class="ingredients">
+      {% for item in page.ingredients %}
+        <li class="ingredient-item">{{ item }}</li>
+      {% endfor %}
+    </ul>
+  </section>
 
-    <!-- NUTRITION -->
-    <section class="recipe-section nutrition">
-      <h2>Nutrition</h2>
-      <div class="nutrition-grid">
-        <div><strong>Calories:</strong> {{ page.calories }}</div>
-        <div><strong>Protein:</strong> {{ page.protein }}g</div>
-        <div><strong>Carbs:</strong> {{ page.carbs }}g</div>
-        <div><strong>Fat:</strong> {{ page.fat }}g</div>
-      </div>
-    </section>
+  <!-- INSTRUCTIONS -->
+  <section class="recipe-section">
+    <h2>Instructions</h2>
+    <ol class="instructions">
+      {% for step in page.instructions %}
+        <li>{{ step }}</li>
+      {% endfor %}
+    </ol>
+  </section>
 
-  </div>
+  <!-- TIPS -->
+  {% if page.tips %}
+  <section class="recipe-section tips">
+    <h2>💡 Tips</h2>
+    <p>{{ page.tips }}</p>
+  </section>
+  {% endif %}
 
+  <!-- HEALTH BENEFITS -->
+  {% if page.health_benefits %}
+  <section class="recipe-section benefits">
+    <h2>💚 Health Benefits</h2>
+    <ul>
+      {% for benefit in page.health_benefits %}
+        <li>{{ benefit }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  <!-- NUTRITION -->
+  <section class="recipe-section nutrition">
+    <h2>Nutrition</h2>
+    <div class="nutrition-grid">
+      <div><strong>Calories:</strong> {{ page.calories }}</div>
+      <div><strong>Protein:</strong> {{ page.protein }}g</div>
+      <div><strong>Carbs:</strong> {{ page.carbs }}g</div>
+      <div><strong>Fat:</strong> {{ page.fat }}g</div>
+      <div><strong>Fiber:</strong> {{ page.fiber }}g</div>
+      <div><strong>Sugar:</strong> {{ page.sugar }}g</div>
+      <div><strong>Sodium:</strong> {{ page.sodium }}mg</div>
+    </div>
+  </section>
+
+  <!-- PRINT -->
   <div class="print-section">
     <button onclick="window.print()" class="print-btn">Print Recipe</button>
   </div>
 
-</div>
+</article>
