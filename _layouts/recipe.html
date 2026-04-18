@@ -16,9 +16,30 @@
   </section>
 
   <div class="page-container">
-    <article>
-      {{ content }}
-    </article>
+    
+   <article class="recipe-content">
+
+  <div class="recipe-meta">
+    {% if page.servings %}
+      <div class="meta-item"><strong>Servings:</strong> {{ page.servings }}</div>
+    {% endif %}
+    {% if page.prepTime %}
+      <div class="meta-item"><strong>Prep:</strong> {{ page.prepTime }}</div>
+    {% endif %}
+    {% if page.totalTime %}
+      <div class="meta-item"><strong>Total:</strong> {{ page.totalTime }}</div>
+    {% endif %}
+    {% if page.course %}
+      <div class="meta-item"><strong>Course:</strong> {{ page.course }}</div>
+    {% endif %}
+  </div>
+
+  <div class="recipe-body">
+    {{ content }}
+  </div>
+
+</article>
+
   </div>
   
  {% include email-signup.html %}
