@@ -1,67 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
+---
+layout: default
+---
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
-</head>
-
-<body>
-
-{% include header.html %}
-
-<div class="page-container">
-
-<article class="recipe-wrapper">
+<div class="recipe-wrapper">
 
   <!-- HEADER -->
   <div class="recipe-header-card">
     <h1 class="recipe-title">{{ page.title }}</h1>
 
     <div class="recipe-meta">
-      {% if page.servings %}<div><i class="fas fa-users"></i> {{ page.servings }}</div>{% endif %}
-      {% if page.prepTime %}<div><i class="fas fa-clock"></i> {{ page.prepTime }}</div>{% endif %}
-      {% if page.totalTime %}<div><i class="fas fa-hourglass"></i> {{ page.totalTime }}</div>{% endif %}
-      {% if page.calories %}<div><i class="fas fa-fire"></i> {{ page.calories }} cal</div>{% endif %}
+      <span>🍽 {{ page.servings }} servings</span>
+      <span>⏱ {{ page.totalTime }}</span>
+      <span>🔥 {{ page.calories }} cal</span>
     </div>
   </div>
 
-  <!-- FULL CONTENT (NO SPLIT) -->
-  <div class="recipe-content">
-    {{ content }}
+  <!-- MAIN CONTENT -->
+  <div class="recipe-single">
+
+    <!-- INGREDIENTS -->
+    <section class="recipe-section">
+      <h2>Ingredients</h2>
+      <ul class="ingredients">
+        {% for item in page.ingredients %}
+          <li class="ingredient-item">{{ item }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- INSTRUCTIONS -->
+    <section class="recipe-section">
+      <h2>Instructions</h2>
+      <ol class="instructions">
+        {% for step in page.instructions %}
+          <li>{{ step }}</li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <!-- NUTRITION -->
+    <section class="recipe-section nutrition">
+      <h2>Nutrition</h2>
+      <div class="nutrition-grid">
+        <div><strong>Calories:</strong> {{ page.calories }}</div>
+        <div><strong>Protein:</strong> {{ page.protein }}g</div>
+        <div><strong>Carbs:</strong> {{ page.carbs }}g</div>
+        <div><strong>Fat:</strong> {{ page.fat }}g</div>
+      </div>
+    </section>
+
   </div>
 
-  <!-- PRINT -->
   <div class="print-section">
-    <button onclick="window.print()" class="print-btn">
-      <i class="fas fa-print"></i> Print Recipe
-    </button>
+    <button onclick="window.print()" class="print-btn">Print Recipe</button>
   </div>
-
-</article>
 
 </div>
-
-{% include email-signup.html %}
-{% include footer.html %}
-
-<script>
-/* ingredient checkboxes */
-document.querySelectorAll(".recipe-content li").forEach(item => {
-  if (item.parentElement.previousElementSibling &&
-      item.parentElement.previousElementSibling.textContent.includes("Ingredients")) {
-
-    item.classList.add("ingredient-item");
-
-    item.addEventListener("click", () => {
-      item.classList.toggle("checked");
-    });
-  }
-});
-</script>
-
-</body>
-</html>
