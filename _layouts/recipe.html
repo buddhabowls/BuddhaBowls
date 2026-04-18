@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - Buddha Bowls</title>
+  <title>{{ page.title }}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
@@ -16,30 +16,48 @@
   </section>
 
   <div class="page-container">
-    <article class="recipe-content">
+<article class="recipe-wrapper">
 
-  <!-- META CARDS -->
-  <div class="recipe-meta">
-    {% if page.servings %}<div class="meta-item">👥 {{ page.servings }}</div>{% endif %}
-    {% if page.prepTime %}<div class="meta-item">⏱ Prep: {{ page.prepTime }}</div>{% endif %}
-    {% if page.totalTime %}<div class="meta-item">⌛ Total: {{ page.totalTime }}</div>{% endif %}
-    {% if page.calories %}<div class="meta-item">🔥 {{ page.calories }} cal</div>{% endif %}
+  <!-- TITLE + META -->
+  <div class="recipe-header-card">
+    <h1 class="recipe-title">{{ page.title }}</h1>
+
+    <div class="recipe-meta">
+      {% if page.servings %}<div><i class="fas fa-users"></i> {{ page.servings }}</div>{% endif %}
+      {% if page.prepTime %}<div><i class="fas fa-clock"></i> {{ page.prepTime }}</div>{% endif %}
+      {% if page.totalTime %}<div><i class="fas fa-hourglass"></i> {{ page.totalTime }}</div>{% endif %}
+      {% if page.calories %}<div><i class="fas fa-fire"></i> {{ page.calories }} cal</div>{% endif %}
+    </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <div class="recipe-grid">
-    {{ content }}
+  <!-- MAIN GRID -->
+  <div class="recipe-layout">
+
+    <!-- LEFT: INGREDIENTS -->
+    <div class="recipe-card">
+      <h2><i class="fas fa-list"></i> Ingredients</h2>
+      <ul class="ingredients">
+        {{ content | split: '## 👩‍🍳 Instructions' | first }}
+      </ul>
+    </div>
+
+    <!-- RIGHT: INSTRUCTIONS -->
+    <div class="recipe-card">
+      <h2><i class="fas fa-tasks"></i> Instructions</h2>
+      {{ content | split: '## 👩‍🍳 Instructions' | last }}
+    </div>
+
   </div>
 
-  <!-- NUTRITION -->
-  <div class="nutrition-grid">
-    {% if page.protein %}<div>Protein: {{ page.protein }}</div>{% endif %}
-    {% if page.carbs %}<div>Carbs: {{ page.carbs }}</div>{% endif %}
-    {% if page.fat %}<div>Fat: {{ page.fat }}</div>{% endif %}
-    {% if page.fiber %}<div>Fiber: {{ page.fiber }}</div>{% endif %}
+  <!-- PRINT BUTTON -->
+  <div class="print-section">
+    <button onclick="window.print()" class="print-btn">
+      <i class="fas fa-print"></i> Print Recipe
+    </button>
   </div>
 
 </article>
+
 
   </div>
   
