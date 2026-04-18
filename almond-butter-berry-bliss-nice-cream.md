@@ -17,25 +17,25 @@ sodium: 15mg
 dietary: vegetarian, gluten-free
 ---
 
-## 🧘 Mindful Moment
+## Mindful Moment
 > Experience the burst of flavors with almond butter berry bliss nice cream. As you enjoy this refreshing treat, take a moment to appreciate the vibrant colors and the health benefits of berries.
 
-## 💚 Health Benefits
+## Health Benefits
 - Berries are packed with vitamins and antioxidants
 - almond butter adds protein and healthy fats.
 
-## 🥗 Ingredients
+## Ingredients
 - 3 ripe bananas
 - 2 tbsp almond butter
 - 1 cup mixed berries
 - 1 tsp honey
 
-## 👩‍🍳 Instructions
+## Instructions
 1. Slice bananas and freeze them overnight.
 2. Place frozen bananas in a blender.
 3. Add almond butter, mixed berries, and honey.
 4. Blend until smooth.
 5. Serve immediately or freeze for a firmer texture.
 
-## 💡 Tips
+## Tips
 - Blend almond butter with a splash of almond milk for easier mixing.
