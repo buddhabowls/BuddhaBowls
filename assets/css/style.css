@@ -107,3 +107,32 @@
     grid-template-columns: 1fr;
   }
 }
+@media print {
+
+  header, footer, .print-section, .email-signup-section {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+
+  .recipe-wrapper {
+    max-width: 100%;
+  }
+
+  .recipe-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .recipe-header-card {
+    background: none;
+    color: black;
+  }
+
+  .ingredients li::before {
+    display: none;
+  }
+
+}
