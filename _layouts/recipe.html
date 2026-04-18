@@ -225,7 +225,7 @@ layout: default
         {% endif %}
       </div>
 
-      <!-- Share & Bookmark -->
+      <!-- Recipe Actions -->
       <div class="recipe-actions">
         <button class="action-btn bookmark-btn" onclick="toggleBookmark(this)">
           <i class="far fa-bookmark"></i> Save Recipe
@@ -259,6 +259,48 @@ layout: default
     </div>
   </div>
 </div>
+
+<!-- JSON-LD Schema for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "{{ page.title }}",
+  "description": "{{ page.description }}",
+  "image": [
+    "{{ site.url }}/images/recipe-placeholder.jpg"
+  ],
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.title }}"
+  },
+  "prepTime": "PT{{ page.prepTime }}",
+  "cookTime": "PT{{ page.cookTime }}",
+  "totalTime": "PT{{ page.totalTime }}",
+  "recipeYield": "{{ page.servings }} servings",
+  "recipeCategory": "{{ page.course }}",
+  "recipeCuisine": "{{ page.cuisine }}",
+  "recipeIngredient": [
+    {% for ingredient in page.ingredients %}"{{ ingredient }}"{% unless forloop.last %},{% endunless %}{% endfor %}
+  ],
+  "recipeInstructions": [
+    {% for instruction in page.instructions %}{
+      "@type": "HowToStep",
+      "text": "{{ instruction }}"
+    }{% unless forloop.last %},{% endunless %}{% endfor %}
+  ],
+  "nutrition": {
+    "@type": "NutritionInformation",
+    "calories": "{{ page.calories }} calories",
+    "carbohydrateContent": "{{ page.carbs }}g",
+    "proteinContent": "{{ page.protein }}g",
+    "fatContent": "{{ page.fat }}g",
+    "fiberContent": "{{ page.fiber }}g",
+    "sugarContent": "{{ page.sugar }}g",
+    "sodiumContent": "{{ page.sodium }}mg"
+  }
+}
+</script>
 
 <style>
   /* Recipe Container */
