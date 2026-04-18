@@ -1,39 +1,42 @@
 ---
 layout: recipe
-title: Almond Butter Coconut Nice Cream
-description: Tropical coconut paired with almond butter for a refreshing and creamy treat.
+title: "Almond Butter Coconut Nice Cream"
+description: "Tropical coconut paired with almond butter for a refreshing and creamy treat."
+mindful_moment: "Transport yourself to a tropical paradise with almond butter coconut nice cream. This recipe invites you to enjoy the creamy texture and the sweetness of coconut, reminding you to take a break and relax."
+permalink: /almond-butter-coconut-nice-cream/
+
 servings: 2
-prepTime: 10 mins
-cookTime: 0 mins
-totalTime: 10 mins
+prepTime: "10 mins"
+cookTime: "0 mins"
+totalTime: "10 mins"
+
+course: "Dessert"
+cuisine: "American"
+
 calories: 255
-protein: 2.7g
-carbs: 39.0g
-fat: 12.1g
-fiber: 6.6g
-sugar: 19.8g
-sodium: 20mg
-dietary: vegetarian, gluten-free
+protein: 2.7
+carbs: 39.0
+fat: 12.1
+fiber: 6.6
+sugar: 19.8
+sodium: 20
+
+dietary: "vegetarian, gluten-free"
+tips: "Freeze individual portions for easy access."
+
+ingredients:
+  - 3 ripe bananas
+  - 2 tbsp almond butter
+  - 1/4 cup shredded coconut
+
+instructions:
+  - Slice bananas and freeze them overnight.
+  - Place frozen bananas in a blender.
+  - Add almond butter and shredded coconut.
+  - Blend until smooth.
+  - Serve immediately or freeze for a firmer texture.
+
+health_benefits:
+  - Coconut offers healthy fats and fiber
+  - almond butter adds protein.
 ---
-
-## 🧘 Mindful Moment
-> Transport yourself to a tropical paradise with almond butter coconut nice cream. This recipe invites you to enjoy the creamy texture and the sweetness of coconut, reminding you to take a break and relax.
-
-## 💚 Health Benefits
-- Coconut offers healthy fats and fiber
-- almond butter adds protein.
-
-## 🥗 Ingredients
-- 3 ripe bananas
-- 2 tbsp almond butter
-- 1/4 cup shredded coconut
-
-## 👩‍🍳 Instructions
-1. Slice bananas and freeze them overnight.
-2. Place frozen bananas in a blender.
-3. Add almond butter and shredded coconut.
-4. Blend until smooth.
-5. Serve immediately or freeze for a firmer texture.
-
-## 💡 Tips
-- Freeze individual portions for easy access.

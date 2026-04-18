@@ -1,41 +1,44 @@
 ---
 layout: recipe
-title: Almond Butter Cranberry Nice Cream
-description: A festive treat that combines almond butter with tart cranberries, perfect for the holiday season or any time of year.
+title: "Almond Butter Cranberry Nice Cream"
+description: "A festive treat that combines almond butter with tart cranberries, perfect for the holiday season or any time of year."
+mindful_moment: "Enjoy the tartness of cranberries paired with rich almond butter in this delightful nice cream. It’s a reminder to appreciate the balance of flavors in life."
+permalink: /almond-butter-cranberry-nice-cream/
+
 servings: 2
-prepTime: 10 mins
-cookTime: 0 mins
-totalTime: 10 mins
+prepTime: "10 mins"
+cookTime: "0 mins"
+totalTime: "10 mins"
+
+course: "Dessert"
+cuisine: "American"
+
 calories: 209
-protein: 2.6g
-carbs: 48.9g
-fat: 2.5g
-fiber: 6.9g
-sugar: 26.4g
-sodium: 15mg
-dietary: vegetarian, gluten-free
+protein: 2.6
+carbs: 48.9
+fat: 2.5
+fiber: 6.9
+sugar: 26.4
+sodium: 15
+
+dietary: "vegetarian, gluten-free"
+tips: "Add oats for a heartier nice cream."
+
+ingredients:
+  - 3 ripe bananas
+  - 2 tbsp almond butter
+  - 1 cup fresh cranberries
+  - 1 tbsp orange juice
+
+instructions:
+  - Slice bananas and freeze them overnight.
+  - Place frozen bananas in a blender.
+  - Add almond butter and orange juice.
+  - Blend until smooth.
+  - Stir in fresh cranberries.
+  - Serve immediately or freeze for a firmer texture.
+
+health_benefits:
+  - Almonds: good for cholesterol
+  - Cranberries: support urinary health, high in antioxidants.
 ---
-
-## 🧘 Mindful Moment
-> Enjoy the tartness of cranberries paired with rich almond butter in this delightful nice cream. It’s a reminder to appreciate the balance of flavors in life.
-
-## 💚 Health Benefits
-- Almonds: good for cholesterol
-- Cranberries: support urinary health, high in antioxidants.
-
-## 🥗 Ingredients
-- 3 ripe bananas
-- 2 tbsp almond butter
-- 1 cup fresh cranberries
-- 1 tbsp orange juice
-
-## 👩‍🍳 Instructions
-1. Slice bananas and freeze them overnight.
-2. Place frozen bananas in a blender.
-3. Add almond butter and orange juice.
-4. Blend until smooth.
-5. Stir in fresh cranberries.
-6. Serve immediately or freeze for a firmer texture.
-
-## 💡 Tips
-- Add oats for a heartier nice cream.

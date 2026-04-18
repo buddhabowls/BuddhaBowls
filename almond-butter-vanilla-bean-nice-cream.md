@@ -1,39 +1,42 @@
 ---
 layout: recipe
-title: Almond Butter Vanilla Bean Nice Cream
-description: Classic vanilla flavor enhanced with creamy almond butter for a smooth texture.
+title: "Almond Butter Vanilla Bean Nice Cream"
+description: "Classic vanilla flavor enhanced with creamy almond butter for a smooth texture."
+mindful_moment: "Delight in the classic taste of almond butter vanilla bean nice cream. This recipe encourages mindfulness, allowing you to focus on the subtle notes of vanilla and the creaminess of almond butter."
+permalink: /almond-butter-vanilla-bean-nice-cream/
+
 servings: 2
-prepTime: 10 mins
-cookTime: 0 mins
-totalTime: 10 mins
+prepTime: "10 mins"
+cookTime: "0 mins"
+totalTime: "10 mins"
+
+course: "Dessert"
+cuisine: "American"
+
 calories: 293
-protein: 1.7g
-carbs: 40.9g
-fat: 2.2g
-fiber: 3.9g
-sugar: 24.4g
-sodium: 18mg
-dietary: vegetarian, gluten-free, high-protein, high-fiber
+protein: 1.7
+carbs: 40.9
+fat: 2.2
+fiber: 3.9
+sugar: 24.4
+sodium: 18
+
+dietary: "vegetarian, gluten-free, high-protein, high-fiber"
+tips: "Create layered nice cream with different flavors."
+
+ingredients:
+  - 3 ripe bananas
+  - 2 tbsp almond butter
+  - seeds from 1 vanilla bean
+
+instructions:
+  - Slice bananas and freeze them overnight.
+  - Place frozen bananas in a blender.
+  - Add almond butter and vanilla bean seeds.
+  - Blend until smooth.
+  - Serve immediately or freeze for a firmer texture.
+
+health_benefits:
+  - Vanilla has antioxidant properties
+  - almond butter is a good source of vitamin E.
 ---
-
-## 🧘 Mindful Moment
-> Delight in the classic taste of almond butter vanilla bean nice cream. This recipe encourages mindfulness, allowing you to focus on the subtle notes of vanilla and the creaminess of almond butter.
-
-## 💚 Health Benefits
-- Vanilla has antioxidant properties
-- almond butter is a good source of vitamin E.
-
-## 🥗 Ingredients
-- 3 ripe bananas
-- 2 tbsp almond butter
-- seeds from 1 vanilla bean
-
-## 👩‍🍳 Instructions
-1. Slice bananas and freeze them overnight.
-2. Place frozen bananas in a blender.
-3. Add almond butter and vanilla bean seeds.
-4. Blend until smooth.
-5. Serve immediately or freeze for a firmer texture.
-
-## 💡 Tips
-- Create layered nice cream with different flavors.
