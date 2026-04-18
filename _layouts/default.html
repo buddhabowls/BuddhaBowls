@@ -6,6 +6,29 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <!-- Basic SEO Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="{{ page.description | truncate: 160 }}">
+<meta name="keywords" content="{{ page.course }}, {{ page.cuisine }}, {{ page.dietary }}">
+<meta name="author" content="{{ site.title }}">
+
+<!-- Open Graph (Social Media) -->
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/images/recipe-placeholder.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+<meta name="twitter:image" content="{{ site.url }}/images/recipe-placeholder.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
 </head>
 <body>
   {% include header.html %}
