@@ -4,21 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 </head>
-<body>
-  {% include header.html %}
-  
-  <section class="recipe-hero">
-    <h1>{{ page.title }}</h1>
-    <p>{{ page.description }}</p>
-  </section>
 
-  <div class="page-container">
+<body>
+
+{% include header.html %}
+
+<div class="page-container">
+
 <article class="recipe-wrapper">
 
-  <!-- TITLE + META -->
+  <!-- HEADER -->
   <div class="recipe-header-card">
     <h1 class="recipe-title">{{ page.title }}</h1>
 
@@ -30,26 +29,28 @@
     </div>
   </div>
 
-  <!-- MAIN GRID -->
+  <!-- GRID -->
   <div class="recipe-layout">
 
-    <!-- LEFT: INGREDIENTS -->
+    <!-- INGREDIENTS -->
     <div class="recipe-card">
       <h2><i class="fas fa-list"></i> Ingredients</h2>
       <ul class="ingredients">
-        {{ content | split: '## 👩‍🍳 Instructions' | first }}
+        {{ content | split: '## Instructions' | first }}
       </ul>
     </div>
 
-    <!-- RIGHT: INSTRUCTIONS -->
+    <!-- INSTRUCTIONS -->
     <div class="recipe-card">
       <h2><i class="fas fa-tasks"></i> Instructions</h2>
-      {{ content | split: '## 👩‍🍳 Instructions' | last }}
+      <div class="instructions">
+        {{ content | split: '## Instructions' | last }}
+      </div>
     </div>
 
   </div>
 
-  <!-- PRINT BUTTON -->
+  <!-- PRINT -->
   <div class="print-section">
     <button onclick="window.print()" class="print-btn">
       <i class="fas fa-print"></i> Print Recipe
@@ -58,21 +59,16 @@
 
 </article>
 
+</div>
 
-  </div>
-  
- {% include email-signup.html %}
-  {% include footer.html %}
-  
-  <!-- Scripts -->
-  <script src="{{ site.baseurl }}/assets/js/ingredients-checkbox.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/email-signup.js"></script> 
-  <script>
-document.querySelectorAll("h2").forEach(h => {
-  if (h.textContent.includes("Ingredients")) {
-    const list = h.nextElementSibling;
-    if (list) list.classList.add("ingredients");
-  }
+{% include email-signup.html %}
+{% include footer.html %}
+
+<script>
+document.querySelectorAll(".ingredients li").forEach(item => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("checked");
+  });
 });
 </script>
 
