@@ -59,3 +59,10 @@ observer.observe(document.body, {
   childList: true,
   subtree: true
 });
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".ingredients li").forEach(item => {
+    item.addEventListener("click", () => {
+      item.classList.toggle("checked");
+    });
+  });
+});
