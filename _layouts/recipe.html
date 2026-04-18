@@ -78,21 +78,27 @@ layout: default
       </section>
       {% endif %}
 
-      <!-- Health Benefits -->
+      <!-- Health Benefits - FIXED -->
       {% if page.health_benefits %}
       <section class="benefits-section">
         <h2><i class="fas fa-leaf"></i> Health Benefits</h2>
-        <ul class="benefits-list">
+        <div class="benefits-list">
           {% for benefit in page.health_benefits %}
-            <li class="benefit-item">{{ benefit }}</li>
+            <div class="benefit-item">
+              <span class="benefit-icon">✓</span>
+              <span class="benefit-text">{{ benefit }}</span>
+            </div>
           {% endfor %}
-        </ul>
+        </div>
       </section>
       {% endif %}
 
       <!-- Ingredients -->
       <section class="ingredients-section">
-        <h2><i class="fas fa-list"></i> Ingredients</h2>
+        <div class="section-header">
+          <h2><i class="fas fa-list"></i> Ingredients</h2>
+          <button class="clear-ingredients-btn" onclick="clearAllIngredients()">Clear All</button>
+        </div>
         <ul class="ingredients-list">
           {% for ingredient in page.ingredients %}
             <li class="ingredient-item">
@@ -130,9 +136,28 @@ layout: default
     <!-- Right Column: Nutrition & Summary -->
     <aside class="recipe-sidebar">
       
+      <!-- Quick Stats Card -->
+      <div class="quick-stats-card">
+        <h3><i class="fas fa-chart-pie"></i> Quick Stats</h3>
+        <div class="stats-highlight">
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-value">{{ page.calories }}</span>
+            <span class="stat-highlight-label">Calories</span>
+          </div>
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-value">{{ page.protein }}g</span>
+            <span class="stat-highlight-label">Protein</span>
+          </div>
+          <div class="stat-highlight-item">
+            <span class="stat-highlight-value">{{ page.carbs }}g</span>
+            <span class="stat-highlight-label">Carbs</span>
+          </div>
+        </div>
+      </div>
+
       <!-- Nutrition Card -->
       <div class="nutrition-card">
-        <h3><i class="fas fa-apple-alt"></i> Nutrition Facts</h3>
+        <h3><i class="fas fa-apple-alt"></i> Full Nutrition</h3>
         <div class="nutrition-per-serving">Per Serving</div>
         
         <div class="nutrition-grid">
@@ -169,7 +194,7 @@ layout: default
 
       <!-- Recipe Info Card -->
       <div class="recipe-info-card">
-        <h3><i class="fas fa-info-circle"></i> Recipe Info</h3>
+        <h3><i class="fas fa-info-circle"></i> Recipe Details</h3>
         
         {% if page.course %}
         <div class="info-item">
@@ -200,11 +225,38 @@ layout: default
         {% endif %}
       </div>
 
-      <!-- Print Button -->
-      <button class="print-btn" onclick="window.print()">
-        <i class="fas fa-print"></i> Print Recipe
-      </button>
+      <!-- Share & Bookmark -->
+      <div class="recipe-actions">
+        <button class="action-btn bookmark-btn" onclick="toggleBookmark(this)">
+          <i class="far fa-bookmark"></i> Save Recipe
+        </button>
+        <button class="action-btn share-btn" onclick="shareRecipe()">
+          <i class="fas fa-share-alt"></i> Share
+        </button>
+      </div>
     </aside>
+  </div>
+
+  <!-- Difficulty & Rating Section -->
+  <div class="recipe-footer-section">
+    <div class="difficulty-card">
+      <h4>Difficulty Level</h4>
+      <div class="difficulty-meter">
+        <div class="difficulty-bar easy"></div>
+        <span class="difficulty-label">Easy</span>
+      </div>
+    </div>
+    <div class="rating-card">
+      <h4>Recipe Rating</h4>
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </div>
+      <span class="rating-text">4.5/5 (128 reviews)</span>
+    </div>
   </div>
 </div>
 
@@ -260,6 +312,12 @@ layout: default
     padding: 1rem;
     border-radius: 8px;
     border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+  }
+
+  .meta-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.15);
   }
 
   .meta-card i {
@@ -299,6 +357,7 @@ layout: default
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 600;
+    animation: slideIn 0.3s ease;
   }
 
   .course-tag {
@@ -333,6 +392,23 @@ layout: default
     justify-content: center;
     font-size: 6rem;
     box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   /* Content Grid */
@@ -363,6 +439,38 @@ layout: default
     font-size: 1.3rem;
   }
 
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
+  }
+
+  .section-header h2 {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .clear-ingredients-btn {
+    padding: 0.4rem 0.8rem;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+  }
+
+  .clear-ingredients-btn:hover {
+    background: var(--light);
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+
   /* Mindful Section */
   .mindful-section {
     background: linear-gradient(135deg, #f0fdfa 0%, #e0f7f5 100%);
@@ -380,7 +488,7 @@ layout: default
     padding: 0;
   }
 
-  /* Benefits Section */
+  /* Benefits Section - FIXED */
   .benefits-section {
     background: #f1f8e9;
     padding: 2rem;
@@ -389,31 +497,44 @@ layout: default
   }
 
   .benefits-list {
-    list-style: none;
-    padding: 0;
-  }
-
-  .benefit-item {
-    padding: 0.8rem 0;
-    color: var(--text);
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.8rem;
   }
 
-  .benefit-item::before {
-    content: '✓';
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .benefit-item:hover {
+    background: white;
+    transform: translateX(5px);
+  }
+
+  .benefit-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     background: #8bc34a;
     color: white;
     border-radius: 50%;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1rem;
     flex-shrink: 0;
+  }
+
+  .benefit-text {
+    color: var(--text);
+    line-height: 1.6;
+    flex: 1;
   }
 
   /* Ingredients Section */
@@ -531,6 +652,48 @@ layout: default
     gap: 2rem;
   }
 
+  /* Quick Stats Card */
+  .quick-stats-card {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
+  }
+
+  .quick-stats-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .stats-highlight {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .stat-highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stat-highlight-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-highlight-label {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+  }
+
   /* Nutrition Card */
   .nutrition-card,
   .recipe-info-card {
@@ -573,6 +736,12 @@ layout: default
     background: var(--light);
     border-radius: 8px;
     text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .nutrition-item:hover {
+    transform: translateY(-2px);
+    background: #e0f7f5;
   }
 
   .nutrition-value {
@@ -612,12 +781,16 @@ layout: default
     font-weight: 600;
   }
 
-  /* Print Button */
-  .print-btn {
+  /* Recipe Actions */
+  .recipe-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .action-btn {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
     border: none;
     border-radius: 8px;
     font-weight: 600;
@@ -630,9 +803,96 @@ layout: default
     font-size: 1rem;
   }
 
-  .print-btn:hover {
+  .bookmark-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+  }
+
+  .bookmark-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .bookmark-btn.bookmarked {
+    background: #ffc107;
+    color: #333;
+  }
+
+  .share-btn {
+    background: white;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+  }
+
+  .share-btn:hover {
+    background: var(--light);
+  }
+
+  /* Footer Section */
+  .recipe-footer-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    margin-top: 3rem;
+  }
+
+  .difficulty-card,
+  .rating-card {
+    text-align: center;
+  }
+
+  .difficulty-card h4,
+  .rating-card h4 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .difficulty-meter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .difficulty-bar {
+    flex: 1;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .difficulty-bar.easy {
+    background: linear-gradient(90deg, #8bc34a, #8bc34a);
+  }
+
+  .difficulty-bar.medium {
+    background: linear-gradient(90deg, #ffc107, #ffc107);
+  }
+
+  .difficulty-bar.hard {
+    background: linear-gradient(90deg, #f44336, #f44336);
+  }
+
+  .difficulty-label {
+    color: var(--primary);
+    font-weight: 600;
+    min-width: 60px;
+  }
+
+  .stars {
+    font-size: 1.5rem;
+    color: #ffc107;
+    margin-bottom: 0.5rem;
+  }
+
+  .rating-text {
+    color: var(--text-light);
+    font-size: 0.9rem;
   }
 
   /* Responsive */
@@ -659,9 +919,17 @@ layout: default
       grid-template-columns: repeat(3, 1fr);
     }
 
+    .stats-highlight {
+      grid-template-columns: 1fr;
+    }
+
     .meta-card {
       flex-direction: column;
       text-align: center;
+    }
+
+    .recipe-footer-section {
+      grid-template-columns: 1fr;
     }
   }
 
@@ -685,20 +953,13 @@ layout: default
     section h2 {
       font-size: 1.2rem;
     }
-  }
 
-  /* Print Styles */
-  @media print {
-    .recipe-sidebar {
-      break-inside: avoid;
+    .stats-highlight {
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .print-btn {
-      display: none;
-    }
-
-    section {
-      page-break-inside: avoid;
+    .nutrition-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -715,4 +976,35 @@ layout: default
       }
     });
   });
+
+  // Clear all ingredients
+  function clearAllIngredients() {
+    document.querySelectorAll('.ingredient-checkbox').forEach(checkbox => {
+      checkbox.checked = false;
+      checkbox.closest('.ingredient-item').classList.remove('checked');
+    });
+  }
+
+  // Bookmark functionality
+  function toggleBookmark(btn) {
+    btn.classList.toggle('bookmarked');
+    if (btn.classList.contains('bookmarked')) {
+      btn.innerHTML = '<i class="fas fa-bookmark"></i> Saved!';
+    } else {
+      btn.innerHTML = '<i class="far fa-bookmark"></i> Save Recipe';
+    }
+  }
+
+  // Share functionality
+  function shareRecipe() {
+    if (navigator.share) {
+      navigator.share({
+        title: document.querySelector('.recipe-title').textContent,
+        text: document.querySelector('.recipe-description').textContent,
+        url: window.location.href
+      });
+    } else {
+      alert('Share this recipe: ' + window.location.href);
+    }
+  }
 </script>
