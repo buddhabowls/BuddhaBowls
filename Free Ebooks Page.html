@@ -1,0 +1,283 @@
+---
+layout: default
+title: Free eBooks
+permalink: /ebooks/
+---
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light-bg: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .ebooks-hero {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: 60px 20px;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .ebooks-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .ebooks-hero p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .ebooks-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+  }
+
+  .ebooks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .ebook-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--primary);
+  }
+
+  .ebook-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .ebook-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .ebook-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 10px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ebook-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    line-height: 1.5;
+  }
+
+  .ebook-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+
+  .ebook-pages {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .download-btn {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .download-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+  }
+
+  .download-btn:active {
+    transform: scale(0.98);
+  }
+
+  .download-icon {
+    font-size: 1.1rem;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+  }
+
+  .empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .ebooks-hero h1 {
+      font-size: 2rem;
+    }
+
+    .ebooks-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ebook-card {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .ebooks-hero {
+      padding: 40px 15px;
+    }
+
+    .ebooks-hero h1 {
+      font-size: 1.5rem;
+    }
+
+    .ebooks-hero p {
+      font-size: 0.95rem;
+    }
+
+    .ebook-title {
+      font-size: 1.1rem;
+    }
+  }
+</style>
+
+<div class="ebooks-hero">
+  <h1>📚 Free eBooks</h1>
+  <p>Download our collection of free eBooks to deepen your knowledge about Buddha bowls, nutrition, and plant-based wellness.</p>
+</div>
+
+<div class="ebooks-container">
+  <div class="ebooks-grid">
+    <!-- Book 1 -->
+    <div class="ebook-card">
+      <div class="ebook-icon">📖</div>
+      <h3 class="ebook-title">Book 1</h3>
+      <p class="ebook-description">Add your book description here. Tell readers what they'll learn from this eBook.</p>
+      <div class="ebook-meta">
+        <span class="ebook-pages">📄 Pages</span>
+        <span>PDF</span>
+      </div>
+      <a href="{{ site.baseurl }}/assets/ebooks/book-1.pdf" class="download-btn" download>
+        <span class="download-icon">⬇️</span>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Book 2 -->
+    <div class="ebook-card">
+      <div class="ebook-icon">📖</div>
+      <h3 class="ebook-title">Book 2</h3>
+      <p class="ebook-description">Add your book description here. Tell readers what they'll learn from this eBook.</p>
+      <div class="ebook-meta">
+        <span class="ebook-pages">📄 Pages</span>
+        <span>PDF</span>
+      </div>
+      <a href="{{ site.baseurl }}/assets/ebooks/book-2.pdf" class="download-btn" download>
+        <span class="download-icon">⬇️</span>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Book 3 -->
+    <div class="ebook-card">
+      <div class="ebook-icon">📖</div>
+      <h3 class="ebook-title">Book 3</h3>
+      <p class="ebook-description">Add your book description here. Tell readers what they'll learn from this eBook.</p>
+      <div class="ebook-meta">
+        <span class="ebook-pages">📄 Pages</span>
+        <span>PDF</span>
+      </div>
+      <a href="{{ site.baseurl }}/assets/ebooks/book-3.pdf" class="download-btn" download>
+        <span class="download-icon">⬇️</span>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Book 4 -->
+    <div class="ebook-card">
+      <div class="ebook-icon">📖</div>
+      <h3 class="ebook-title">Book 4</h3>
+      <p class="ebook-description">Add your book description here. Tell readers what they'll learn from this eBook.</p>
+      <div class="ebook-meta">
+        <span class="ebook-pages">📄 Pages</span>
+        <span>PDF</span>
+      </div>
+      <a href="{{ site.baseurl }}/assets/ebooks/book-4.pdf" class="download-btn" download>
+        <span class="download-icon">⬇️</span>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="ebook-card">
+      <div class="ebook-icon">📖</div>
+      <h3 class="ebook-title">Book 5</h3>
+      <p class="ebook-description">Add your book description here. Tell readers what they'll learn from this eBook.</p>
+      <div class="ebook-meta">
+        <span class="ebook-pages">📄 Pages</span>
+        <span>PDF</span>
+      </div>
+      <a href="{{ site.baseurl }}/assets/ebooks/book-5.pdf" class="download-btn" download>
+        <span class="download-icon">⬇️</span>
+        Download PDF
+      </a>
+    </div>
+
+    <!-- Book 6 -->
+    <div class="ebook-card">
+      <div class="ebook-icon">📖</div>
+      <h3 class="ebook-title">Book 6</h3>
+      <p class="ebook-description">Add your book description here. Tell readers what they'll learn from this eBook.</p>
+      <div class="ebook-meta">
+        <span class="ebook-pages">📄 Pages</span>
+        <span>PDF</span>
+      </div>
+      <a href="{{ site.baseurl }}/assets/ebooks/book-6.pdf" class="download-btn" download>
+        <span class="download-icon">⬇️</span>
+        Download PDF
+      </a>
+    </div>
+  </div>
+</div>
