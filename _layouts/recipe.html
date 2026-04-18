@@ -48,6 +48,15 @@
   
   <!-- Scripts -->
   <script src="{{ site.baseurl }}/assets/js/ingredients-checkbox.js"></script>
-  <script src="{{ site.baseurl }}/assets/js/email-signup.js"></script>  
+  <script src="{{ site.baseurl }}/assets/js/email-signup.js"></script> 
+  <script>
+document.querySelectorAll("h2").forEach(h => {
+  if (h.textContent.includes("Ingredients")) {
+    const list = h.nextElementSibling;
+    if (list) list.classList.add("ingredients");
+  }
+});
+</script>
+
 </body>
 </html>
