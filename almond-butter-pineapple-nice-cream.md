@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Pineapple Nice Cream"
-description: "Tropical pineapple blended with almond butter for a refreshing and creamy treat."
-mindful_moment: "Transport yourself to a tropical getaway with almond butter pineapple nice cream. Let the sweetness of pineapple remind you of the joy of adventure and exploration."
+title: Almond Butter Pineapple Nice Cream
+description: Tropical pineapple blended with almond butter for a refreshing and creamy treat.
+mindful_moment: Transport yourself to a tropical getaway with almond butter pineapple nice cream. Let the sweetness of pineapple remind you of the joy of adventure and exploration.
 permalink: /almond-butter-pineapple-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Pineapple Nice Cream
+health_benefits_intro: Pineapple contains bromelain for digestion; almond butter provides healthy fats.
+summary: Tropical pineapple blended with almond butter for a refreshing and creamy treat.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 211
 protein: 2.0
@@ -21,8 +25,8 @@ fiber: 6.8
 sugar: 30.0
 sodium: 15
 
-dietary: "vegetarian, gluten-free"
-tips: "Add a splash of coffee for a mocha flavor."
+dietary: vegetarian, gluten-free
+tips: Add a splash of coffee for a mocha flavor.
 
 ingredients:
   - 3 ripe bananas

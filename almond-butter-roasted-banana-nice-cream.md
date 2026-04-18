@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Roasted Banana Nice Cream"
-description: "This nice cream features roasted bananas blended with almond butter for a warm, sweet, and creamy dessert."
-mindful_moment: "Delight in the warm, caramelized flavors of roasted bananas blended with almond butter. This nice cream is a comforting treat that encourages mindfulness."
+title: Almond Butter Roasted Banana Nice Cream
+description: This nice cream features roasted bananas blended with almond butter for a warm, sweet, and creamy dessert.
+mindful_moment: Delight in the warm, caramelized flavors of roasted bananas blended with almond butter. This nice cream is a comforting treat that encourages mindfulness.
 permalink: /almond-butter-roasted-banana-nice-cream/
 
-servings: 2
-prepTime: "20 mins"
-cookTime: "45 mins"
-totalTime: "65 mins"
+recipe_name: Almond Butter Roasted Banana Nice Cream
+health_benefits_intro: "Almonds: heart-healthy; Bananas: high in potassium, good for energy."
+summary: This nice cream features roasted bananas blended with almond butter for a warm, sweet, and creamy dessert.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 20 mins
+cookTime: 45 mins
+totalTime: 65 mins
+
+course: Dessert
+cuisine: American
 
 calories: 162
 protein: 1.8
@@ -21,8 +25,8 @@ fiber: 4.3
 sugar: 19.8
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Blend with ice for a thicker, frosty texture."
+dietary: vegetarian, gluten-free
+tips: Blend with ice for a thicker, frosty texture.
 
 ingredients:
   - 3 ripe bananas
@@ -37,6 +41,6 @@ instructions:
   - Serve immediately or freeze for a firmer texture.
 
 health_benefits:
-  - Almonds: heart-healthy
-  - Bananas: high in potassium, good for energy.
+  - "Almonds: heart-healthy"
+  - "Bananas: high in potassium, good for energy."
 ---

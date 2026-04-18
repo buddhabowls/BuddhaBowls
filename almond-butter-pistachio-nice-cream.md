@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Pistachio Nice Cream"
-description: "A nutty and creamy dessert blending almond butter with pistachios for a unique flavor and crunchy texture."
-mindful_moment: "Delight in the nutty crunch of pistachios combined with smooth almond butter. This nice cream is a treat that encourages you to savor each bite mindfully."
+title: Almond Butter Pistachio Nice Cream
+description: A nutty and creamy dessert blending almond butter with pistachios for a unique flavor and crunchy texture.
+mindful_moment: Delight in the nutty crunch of pistachios combined with smooth almond butter. This nice cream is a treat that encourages you to savor each bite mindfully.
 permalink: /almond-butter-pistachio-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Pistachio Nice Cream
+health_benefits_intro: "Almonds: promotes heart health; Pistachios: high in protein, good for eye health."
+summary: A nutty and creamy dessert blending almond butter with pistachios for a unique flavor and crunchy texture.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 149
 protein: 1.7
@@ -21,8 +25,8 @@ fiber: 3.9
 sugar: 18.0
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Mix in some dried fruits for chewiness."
+dietary: vegetarian, gluten-free
+tips: Mix in some dried fruits for chewiness.
 
 ingredients:
   - 3 ripe bananas
@@ -37,6 +41,6 @@ instructions:
   - Serve immediately or freeze for a firmer texture.
 
 health_benefits:
-  - Almonds: promotes heart health
-  - Pistachios: high in protein, good for eye health.
+  - "Almonds: promotes heart health"
+  - "Pistachios: high in protein, good for eye health."
 ---

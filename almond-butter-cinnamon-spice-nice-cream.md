@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Cinnamon Spice Nice Cream"
-description: "Warm cinnamon spice mixed with almond butter for a cozy dessert."
-mindful_moment: "Embrace the warmth of cinnamon in this delightful treat. As you indulge, reflect on the comforting memories associated with spices and how they can enhance your daily life."
+title: Almond Butter Cinnamon Spice Nice Cream
+description: Warm cinnamon spice mixed with almond butter for a cozy dessert.
+mindful_moment: Embrace the warmth of cinnamon in this delightful treat. As you indulge, reflect on the comforting memories associated with spices and how they can enhance your daily life.
 permalink: /almond-butter-cinnamon-spice-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Cinnamon Spice Nice Cream
+health_benefits_intro: Cinnamon helps regulate blood sugar; almond butter provides protein and healthy fats.
+summary: Warm cinnamon spice mixed with almond butter for a cozy dessert.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 152
 protein: 1.7
@@ -21,8 +25,8 @@ fiber: 4.6
 sugar: 18.0
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Top with granola for a crunchy texture."
+dietary: vegetarian, gluten-free
+tips: Top with granola for a crunchy texture.
 
 ingredients:
   - 3 ripe bananas

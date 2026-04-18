@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Pear Nice Cream"
-description: "This nice cream blends almond butter with ripe pears for a naturally sweet and creamy dessert that’s both nutritious and delicious."
-mindful_moment: "Savor the sweet and juicy flavors of pear in this creamy almond butter nice cream. Each bite encourages you to slow down and appreciate the simple pleasures of life."
+title: Almond Butter Pear Nice Cream
+description: This nice cream blends almond butter with ripe pears for a naturally sweet and creamy dessert that’s both nutritious and delicious.
+mindful_moment: Savor the sweet and juicy flavors of pear in this creamy almond butter nice cream. Each bite encourages you to slow down and appreciate the simple pleasures of life.
 permalink: /almond-butter-pear-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Pear Nice Cream
+health_benefits_intro: "Almonds: good for skin; Pear: high in fiber, supports digestion."
+summary: This nice cream blends almond butter with ripe pears for a naturally sweet and creamy dessert that’s both nutritious and delicious.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 246
 protein: 8.1
@@ -21,8 +25,8 @@ fiber: 10.0
 sugar: 24.8
 sodium: 20
 
-dietary: "vegetarian, gluten-free"
-tips: "Use a variety of berries for a colorful presentation."
+dietary: vegetarian, gluten-free
+tips: Use a variety of berries for a colorful presentation.
 
 ingredients:
   - 3 ripe bananas
@@ -37,6 +41,6 @@ instructions:
   - Serve immediately or freeze for a firmer texture.
 
 health_benefits:
-  - Almonds: good for skin
-  - Pear: high in fiber, supports digestion.
+  - "Almonds: good for skin"
+  - "Pear: high in fiber, supports digestion."
 ---

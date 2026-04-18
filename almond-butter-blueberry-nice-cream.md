@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Blueberry Nice Cream"
-description: "Sweet blueberries combined with almond butter for a deliciously creamy dessert."
-mindful_moment: "Delight in the sweet and tangy flavors of blueberries with almond butter. Take a moment to appreciate the health benefits of blueberries and the joy they bring."
+title: Almond Butter Blueberry Nice Cream
+description: Sweet blueberries combined with almond butter for a deliciously creamy dessert.
+mindful_moment: Delight in the sweet and tangy flavors of blueberries with almond butter. Take a moment to appreciate the health benefits of blueberries and the joy they bring.
 permalink: /almond-butter-blueberry-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Blueberry Nice Cream
+health_benefits_intro: Blueberries are rich in antioxidants; almond butter provides healthy fats.
+summary: Sweet blueberries combined with almond butter for a deliciously creamy dessert.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 217
 protein: 2.5
@@ -21,8 +25,8 @@ fiber: 6.8
 sugar: 30.0
 sodium: 15
 
-dietary: "vegetarian, gluten-free"
-tips: "Experiment with different nut butters for variety."
+dietary: vegetarian, gluten-free
+tips: Experiment with different nut butters for variety.
 
 ingredients:
   - 3 ripe bananas

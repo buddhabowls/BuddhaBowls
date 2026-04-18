@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Green Tea Nice Cream"
-description: "A refreshing and unique dessert that pairs almond butter with green tea for a creamy and antioxidant-rich treat."
-mindful_moment: "Experience the calming benefits of green tea in this creamy almond butter nice cream. It’s a serene treat that encourages you to be present."
+title: Almond Butter Green Tea Nice Cream
+description: A refreshing and unique dessert that pairs almond butter with green tea for a creamy and antioxidant-rich treat.
+mindful_moment: Experience the calming benefits of green tea in this creamy almond butter nice cream. It’s a serene treat that encourages you to be present.
 permalink: /almond-butter-green-tea-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Green Tea Nice Cream
+health_benefits_intro: "Almonds: promotes heart health; Green Tea: boosts metabolism, rich in antioxidants."
+summary: A refreshing and unique dessert that pairs almond butter with green tea for a creamy and antioxidant-rich treat.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 149
 protein: 1.7
@@ -21,8 +25,8 @@ fiber: 3.9
 sugar: 18.0
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Try using different flavors of almond butter, like honey or chocolate."
+dietary: vegetarian, gluten-free
+tips: Try using different flavors of almond butter, like honey or chocolate.
 
 ingredients:
   - 3 ripe bananas
@@ -37,6 +41,6 @@ instructions:
   - Serve immediately or freeze for a firmer texture.
 
 health_benefits:
-  - Almonds: promotes heart health
-  - Green Tea: boosts metabolism, rich in antioxidants.
+  - "Almonds: promotes heart health"
+  - "Green Tea: boosts metabolism, rich in antioxidants."
 ---

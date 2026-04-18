@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Tahini Nice Cream"
-description: "A unique blend of almond butter and tahini, creating a nutty flavor and creamy texture that’s both delicious and nutritious."
-mindful_moment: "Explore the unique combination of almond butter and tahini in this creamy nice cream. It’s a delightful way to practice mindfulness with its rich flavors."
+title: Almond Butter Tahini Nice Cream
+description: A unique blend of almond butter and tahini, creating a nutty flavor and creamy texture that’s both delicious and nutritious.
+mindful_moment: Explore the unique combination of almond butter and tahini in this creamy nice cream. It’s a delightful way to practice mindfulness with its rich flavors.
 permalink: /almond-butter-tahini-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Tahini Nice Cream
+health_benefits_intro: "Almonds: supports brain health; Tahini: high in calcium, good for bone health."
+summary: A unique blend of almond butter and tahini, creating a nutty flavor and creamy texture that’s both delicious and nutritious.
 
-course: "Dessert"
-cuisine: "Middle Eastern"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: Middle Eastern
 
 calories: 193
 protein: 2.9
@@ -21,8 +25,8 @@ fiber: 4.6
 sugar: 18.0
 sodium: 22
 
-dietary: "vegetarian, gluten-free"
-tips: "Make a sundae with your nice cream and your favorite toppings."
+dietary: vegetarian, gluten-free
+tips: Make a sundae with your nice cream and your favorite toppings.
 
 ingredients:
   - 3 ripe bananas
@@ -37,6 +41,6 @@ instructions:
   - Serve immediately or freeze for a firmer texture.
 
 health_benefits:
-  - Almonds: supports brain health
-  - Tahini: high in calcium, good for bone health.
+  - "Almonds: supports brain health"
+  - "Tahini: high in calcium, good for bone health."
 ---

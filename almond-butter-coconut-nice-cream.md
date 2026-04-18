@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Coconut Nice Cream"
-description: "Tropical coconut paired with almond butter for a refreshing and creamy treat."
-mindful_moment: "Transport yourself to a tropical paradise with almond butter coconut nice cream. This recipe invites you to enjoy the creamy texture and the sweetness of coconut, reminding you to take a break and relax."
+title: Almond Butter Coconut Nice Cream
+description: Tropical coconut paired with almond butter for a refreshing and creamy treat.
+mindful_moment: Transport yourself to a tropical paradise with almond butter coconut nice cream. This recipe invites you to enjoy the creamy texture and the sweetness of coconut, reminding you to take a break and relax.
 permalink: /almond-butter-coconut-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Coconut Nice Cream
+health_benefits_intro: Coconut offers healthy fats and fiber; almond butter adds protein.
+summary: Tropical coconut paired with almond butter for a refreshing and creamy treat.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 255
 protein: 2.7
@@ -21,8 +25,8 @@ fiber: 6.6
 sugar: 19.8
 sodium: 20
 
-dietary: "vegetarian, gluten-free"
-tips: "Freeze individual portions for easy access."
+dietary: vegetarian, gluten-free
+tips: Freeze individual portions for easy access.
 
 ingredients:
   - 3 ripe bananas

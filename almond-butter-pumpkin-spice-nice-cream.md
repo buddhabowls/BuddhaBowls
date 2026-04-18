@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Pumpkin Spice Nice Cream"
-description: "Seasonal pumpkin spice flavors blended with almond butter for a fall favorite."
-mindful_moment: "Celebrate the flavors of fall with almond butter pumpkin spice nice cream. Let the warm spices remind you of the beauty of change and the importance of embracing new seasons in life."
+title: Almond Butter Pumpkin Spice Nice Cream
+description: Seasonal pumpkin spice flavors blended with almond butter for a fall favorite.
+mindful_moment: Celebrate the flavors of fall with almond butter pumpkin spice nice cream. Let the warm spices remind you of the beauty of change and the importance of embracing new seasons in life.
 permalink: /almond-butter-pumpkin-spice-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Pumpkin Spice Nice Cream
+health_benefits_intro: Pumpkin is high in vitamins A and C; almond butter provides healthy fats.
+summary: Seasonal pumpkin spice flavors blended with almond butter for a fall favorite.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 157
 protein: 2.0
@@ -21,8 +25,8 @@ fiber: 4.1
 sugar: 18.9
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Use a hand mixer for smaller batches."
+dietary: vegetarian, gluten-free
+tips: Use a hand mixer for smaller batches.
 
 ingredients:
   - 3 ripe bananas

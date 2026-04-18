@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Caramel Swirl Nice Cream"
-description: "Decadent caramel swirls mixed with almond butter for an indulgent dessert."
-mindful_moment: "Indulge in the rich, decadent flavors of caramel swirl nice cream. As you enjoy this treat, take a moment to reflect on the sweetness of life and the importance of balance."
+title: Almond Butter Caramel Swirl Nice Cream
+description: Decadent caramel swirls mixed with almond butter for an indulgent dessert.
+mindful_moment: Indulge in the rich, decadent flavors of caramel swirl nice cream. As you enjoy this treat, take a moment to reflect on the sweetness of life and the importance of balance.
 permalink: /almond-butter-caramel-swirl-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Caramel Swirl Nice Cream
+health_benefits_intro: Caramel adds sweetness; almond butter provides protein and healthy fats.
+summary: Decadent caramel swirls mixed with almond butter for an indulgent dessert.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 149
 protein: 1.7
@@ -21,8 +25,8 @@ fiber: 3.9
 sugar: 18.0
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Use a high-speed blender for the smoothest consistency."
+dietary: vegetarian, gluten-free
+tips: Use a high-speed blender for the smoothest consistency.
 
 ingredients:
   - 3 ripe bananas

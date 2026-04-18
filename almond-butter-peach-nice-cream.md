@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Peach Nice Cream"
-description: "Sweet peaches blended with almond butter for a fruity and creamy delight."
-mindful_moment: "Enjoy the juicy sweetness of peaches blended with almond butter. This recipe encourages you to savor the moment, appreciating the fleeting nature of summer fruits."
+title: Almond Butter Peach Nice Cream
+description: Sweet peaches blended with almond butter for a fruity and creamy delight.
+mindful_moment: Enjoy the juicy sweetness of peaches blended with almond butter. This recipe encourages you to savor the moment, appreciating the fleeting nature of summer fruits.
 permalink: /almond-butter-peach-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Peach Nice Cream
+health_benefits_intro: Peaches are rich in vitamins and antioxidants; almond butter adds creaminess.
+summary: Sweet peaches blended with almond butter for a fruity and creamy delight.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 246
 protein: 8.1
@@ -21,8 +25,8 @@ fiber: 10.0
 sugar: 24.8
 sodium: 20
 
-dietary: "vegetarian, gluten-free"
-tips: "Incorporate fresh herbs like mint for a refreshing twist."
+dietary: vegetarian, gluten-free
+tips: Incorporate fresh herbs like mint for a refreshing twist.
 
 ingredients:
   - 3 ripe bananas

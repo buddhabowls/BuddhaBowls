@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Fig Nice Cream"
-description: "Sweet figs blended with almond butter for a unique and flavorful nice cream."
-mindful_moment: "Savor the unique flavors of figs paired with almond butter. This recipe encourages you to appreciate the diversity of nature's offerings and the stories they tell."
+title: Almond Butter Fig Nice Cream
+description: Sweet figs blended with almond butter for a unique and flavorful nice cream.
+mindful_moment: Savor the unique flavors of figs paired with almond butter. This recipe encourages you to appreciate the diversity of nature's offerings and the stories they tell.
 permalink: /almond-butter-fig-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Fig Nice Cream
+health_benefits_intro: Figs are high in fiber and antioxidants; almond butter adds protein.
+summary: Sweet figs blended with almond butter for a unique and flavorful nice cream.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 149
 protein: 1.7
@@ -21,8 +25,8 @@ fiber: 3.9
 sugar: 18.0
 sodium: 14
 
-dietary: "vegetarian, gluten-free"
-tips: "Blend in some spinach for a nutrient boost without altering flavor."
+dietary: vegetarian, gluten-free
+tips: Blend in some spinach for a nutrient boost without altering flavor.
 
 ingredients:
   - 3 ripe bananas

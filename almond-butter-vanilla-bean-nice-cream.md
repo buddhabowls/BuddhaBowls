@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Vanilla Bean Nice Cream"
-description: "Classic vanilla flavor enhanced with creamy almond butter for a smooth texture."
-mindful_moment: "Delight in the classic taste of almond butter vanilla bean nice cream. This recipe encourages mindfulness, allowing you to focus on the subtle notes of vanilla and the creaminess of almond butter."
+title: Almond Butter Vanilla Bean Nice Cream
+description: Classic vanilla flavor enhanced with creamy almond butter for a smooth texture.
+mindful_moment: Delight in the classic taste of almond butter vanilla bean nice cream. This recipe encourages mindfulness, allowing you to focus on the subtle notes of vanilla and the creaminess of almond butter.
 permalink: /almond-butter-vanilla-bean-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Vanilla Bean Nice Cream
+health_benefits_intro: Vanilla has antioxidant properties; almond butter is a good source of vitamin E.
+summary: Classic vanilla flavor enhanced with creamy almond butter for a smooth texture.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 293
 protein: 1.7
@@ -21,8 +25,8 @@ fiber: 3.9
 sugar: 24.4
 sodium: 18
 
-dietary: "vegetarian, gluten-free, high-protein, high-fiber"
-tips: "Create layered nice cream with different flavors."
+dietary: vegetarian, gluten-free, high-protein, high-fiber
+tips: Create layered nice cream with different flavors.
 
 ingredients:
   - 3 ripe bananas

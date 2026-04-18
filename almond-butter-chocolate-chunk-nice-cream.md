@@ -1,17 +1,21 @@
 ---
 layout: recipe
-title: "Almond Butter Chocolate Chunk Nice Cream"
-description: "Rich and indulgent nice cream with chunks of dark chocolate and almond butter."
-mindful_moment: "Treat yourself to a delightful blend of almond butter and chocolate. This recipe invites you to pause and enjoy the moment, reflecting on the joy that chocolate brings to your life."
+title: Almond Butter Chocolate Chunk Nice Cream
+description: Rich and indulgent nice cream with chunks of dark chocolate and almond butter.
+mindful_moment: Treat yourself to a delightful blend of almond butter and chocolate. This recipe invites you to pause and enjoy the moment, reflecting on the joy that chocolate brings to your life.
 permalink: /almond-butter-chocolate-chunk-nice-cream/
 
-servings: 2
-prepTime: "10 mins"
-cookTime: "0 mins"
-totalTime: "10 mins"
+recipe_name: Almond Butter Chocolate Chunk Nice Cream
+health_benefits_intro: Almond butter offers healthy fats; dark chocolate is high in antioxidants.
+summary: Rich and indulgent nice cream with chunks of dark chocolate and almond butter.
 
-course: "Dessert"
-cuisine: "American"
+servings: 2
+prepTime: 10 mins
+cookTime: 0 mins
+totalTime: 10 mins
+
+course: Dessert
+cuisine: American
 
 calories: 320
 protein: 3.1
@@ -21,8 +25,8 @@ fiber: 6.0
 sugar: 32.7
 sodium: 21
 
-dietary: "vegetarian, gluten-free"
-tips: "Mix in your favorite fruits for added nutrition."
+dietary: vegetarian, gluten-free
+tips: Mix in your favorite fruits for added nutrition.
 
 ingredients:
   - 3 ripe bananas
