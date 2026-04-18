@@ -1,6 +1,7 @@
 ---
 layout: recipe
 title: Almond Butter Berry Bliss Nice Cream
+permalink: almond-butter-berry-bliss-nice-cream/
 description: A refreshing blend of mixed berries and almond butter, perfect for summer.
 servings: 2
 prepTime: 10 mins
