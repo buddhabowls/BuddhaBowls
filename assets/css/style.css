@@ -319,3 +319,79 @@
     padding-left: 0;
   }
 }
+/* SINGLE COLUMN RECIPE */
+
+.recipe-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  line-height: 1.7;
+}
+
+/* HEADINGS */
+.recipe-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+/* INGREDIENT CHECKBOXES */
+.ingredient-item {
+  list-style: none;
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+}
+
+.ingredient-item::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 6px;
+  background: white;
+}
+
+.ingredient-item.checked {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.ingredient-item.checked::before {
+  content: '✓';
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+/* LIST SPACING */
+.recipe-content ul,
+.recipe-content ol {
+  margin-left: 1.5rem;
+}
+
+/* PRINT */
+@media print {
+
+  header,
+  footer,
+  .print-section,
+  .email-signup-section {
+    display: none !important;
+  }
+
+  .recipe-content {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+}
