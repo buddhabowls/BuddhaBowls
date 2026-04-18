@@ -2,96 +2,717 @@
 layout: default
 ---
 
-<article class="recipe-wrapper">
+<div class="recipe-container">
+  <!-- Recipe Header Hero -->
+  <div class="recipe-hero-section">
+    <div class="recipe-hero-content">
+      <h1 class="recipe-title">{{ page.title }}</h1>
+      <p class="recipe-description">{{ page.description }}</p>
+      
+      <!-- Recipe Meta Info -->
+      <div class="recipe-meta-grid">
+        <div class="meta-card">
+          <i class="fas fa-users"></i>
+          <div class="meta-info">
+            <span class="meta-label">Servings</span>
+            <span class="meta-value">{{ page.servings }}</span>
+          </div>
+        </div>
+        
+        <div class="meta-card">
+          <i class="fas fa-clock"></i>
+          <div class="meta-info">
+            <span class="meta-label">Prep Time</span>
+            <span class="meta-value">{{ page.prepTime }}</span>
+          </div>
+        </div>
+        
+        <div class="meta-card">
+          <i class="fas fa-fire"></i>
+          <div class="meta-info">
+            <span class="meta-label">Cook Time</span>
+            <span class="meta-value">{{ page.cookTime }}</span>
+          </div>
+        </div>
+        
+        <div class="meta-card">
+          <i class="fas fa-hourglass-end"></i>
+          <div class="meta-info">
+            <span class="meta-label">Total Time</span>
+            <span class="meta-value">{{ page.totalTime }}</span>
+          </div>
+        </div>
+      </div>
 
-  <!-- HERO / HEADER -->
-  <header class="recipe-header-card">
-    <h1 class="recipe-title">{{ page.title }}</h1>
-    <p class="recipe-description">{{ page.description }}</p>
-
-    <div class="recipe-meta">
-      <span>🍽 {{ page.servings }} servings</span>
-      <span>⏱ {{ page.totalTime }}</span>
-      <span>🔥 {{ page.calories }} cal</span>
-      <span>🥗 {{ page.course }}</span>
-      <span>🌎 {{ page.cuisine }}</span>
+      <!-- Recipe Tags -->
+      <div class="recipe-tags-section">
+        {% if page.course %}
+          <span class="recipe-tag course-tag">{{ page.course }}</span>
+        {% endif %}
+        {% if page.cuisine %}
+          <span class="recipe-tag cuisine-tag">{{ page.cuisine }}</span>
+        {% endif %}
+        {% if page.dietary %}
+          <span class="recipe-tag dietary-tag">{{ page.dietary }}</span>
+        {% endif %}
+      </div>
     </div>
-
-    {% if page.dietary %}
-    <div class="recipe-tags">
-      {% assign tags = page.dietary | split: "," %}
-      {% for tag in tags %}
-        <span class="tag">{{ tag | strip }}</span>
-      {% endfor %}
+    
+    <div class="recipe-hero-image">
+      <div class="recipe-image-placeholder">🍽️</div>
     </div>
-    {% endif %}
-  </header>
-
-  <!-- MINDFUL MOMENT -->
-  {% if page.mindful_moment %}
-  <section class="recipe-section highlight">
-    <h2>🧘 Mindful Moment</h2>
-    <p>{{ page.mindful_moment }}</p>
-  </section>
-  {% endif %}
-
-  <!-- INGREDIENTS -->
-  <section class="recipe-section">
-    <h2>Ingredients</h2>
-    <ul class="ingredients">
-      {% for item in page.ingredients %}
-        <li class="ingredient-item">{{ item }}</li>
-      {% endfor %}
-    </ul>
-  </section>
-
-  <!-- INSTRUCTIONS -->
-  <section class="recipe-section">
-    <h2>Instructions</h2>
-    <ol class="instructions">
-      {% for step in page.instructions %}
-        <li>{{ step }}</li>
-      {% endfor %}
-    </ol>
-  </section>
-
-  <!-- TIPS -->
-  {% if page.tips %}
-  <section class="recipe-section tips">
-    <h2>💡 Tips</h2>
-    <p>{{ page.tips }}</p>
-  </section>
-  {% endif %}
-
-  <!-- HEALTH BENEFITS -->
-  {% if page.health_benefits %}
-  <section class="recipe-section benefits">
-    <h2>💚 Health Benefits</h2>
-    <ul>
-      {% for benefit in page.health_benefits %}
-        <li>{{ benefit }}</li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
-  <!-- NUTRITION -->
-  <section class="recipe-section nutrition">
-    <h2>Nutrition</h2>
-    <div class="nutrition-grid">
-      <div><strong>Calories:</strong> {{ page.calories }}</div>
-      <div><strong>Protein:</strong> {{ page.protein }}g</div>
-      <div><strong>Carbs:</strong> {{ page.carbs }}g</div>
-      <div><strong>Fat:</strong> {{ page.fat }}g</div>
-      <div><strong>Fiber:</strong> {{ page.fiber }}g</div>
-      <div><strong>Sugar:</strong> {{ page.sugar }}g</div>
-      <div><strong>Sodium:</strong> {{ page.sodium }}mg</div>
-    </div>
-  </section>
-
-  <!-- PRINT -->
-  <div class="print-section">
-    <button onclick="window.print()" class="print-btn">Print Recipe</button>
   </div>
 
-</article>
+  <!-- Main Content Grid -->
+  <div class="recipe-content-grid">
+    <!-- Left Column: Ingredients & Instructions -->
+    <div class="recipe-main-content">
+      
+      <!-- Mindful Moment -->
+      {% if page.mindful_moment %}
+      <section class="mindful-section">
+        <h2><i class="fas fa-spa"></i> Mindful Moment</h2>
+        <blockquote class="mindful-quote">
+          {{ page.mindful_moment }}
+        </blockquote>
+      </section>
+      {% endif %}
+
+      <!-- Health Benefits -->
+      {% if page.health_benefits %}
+      <section class="benefits-section">
+        <h2><i class="fas fa-leaf"></i> Health Benefits</h2>
+        <ul class="benefits-list">
+          {% for benefit in page.health_benefits %}
+            <li class="benefit-item">{{ benefit }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+      {% endif %}
+
+      <!-- Ingredients -->
+      <section class="ingredients-section">
+        <h2><i class="fas fa-list"></i> Ingredients</h2>
+        <ul class="ingredients-list">
+          {% for ingredient in page.ingredients %}
+            <li class="ingredient-item">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="ingredient-text">{{ ingredient }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      <!-- Instructions -->
+      <section class="instructions-section">
+        <h2><i class="fas fa-tasks"></i> Instructions</h2>
+        <ol class="instructions-list">
+          {% for instruction in page.instructions %}
+            <li class="instruction-item">
+              <span class="instruction-number">{{ forloop.index }}</span>
+              <span class="instruction-text">{{ instruction }}</span>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+
+      <!-- Tips -->
+      {% if page.tips %}
+      <section class="tips-section">
+        <h2><i class="fas fa-lightbulb"></i> Chef's Tips</h2>
+        <div class="tips-content">
+          <p>{{ page.tips }}</p>
+        </div>
+      </section>
+      {% endif %}
+    </div>
+
+    <!-- Right Column: Nutrition & Summary -->
+    <aside class="recipe-sidebar">
+      
+      <!-- Nutrition Card -->
+      <div class="nutrition-card">
+        <h3><i class="fas fa-apple-alt"></i> Nutrition Facts</h3>
+        <div class="nutrition-per-serving">Per Serving</div>
+        
+        <div class="nutrition-grid">
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.calories }}</span>
+            <span class="nutrition-label">Calories</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.protein }}g</span>
+            <span class="nutrition-label">Protein</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.carbs }}g</span>
+            <span class="nutrition-label">Carbs</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.fat }}g</span>
+            <span class="nutrition-label">Fat</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.fiber }}g</span>
+            <span class="nutrition-label">Fiber</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.sugar }}g</span>
+            <span class="nutrition-label">Sugar</span>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-value">{{ page.sodium }}mg</span>
+            <span class="nutrition-label">Sodium</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recipe Info Card -->
+      <div class="recipe-info-card">
+        <h3><i class="fas fa-info-circle"></i> Recipe Info</h3>
+        
+        {% if page.course %}
+        <div class="info-item">
+          <span class="info-label">Course</span>
+          <span class="info-value">{{ page.course }}</span>
+        </div>
+        {% endif %}
+        
+        {% if page.cuisine %}
+        <div class="info-item">
+          <span class="info-label">Cuisine</span>
+          <span class="info-value">{{ page.cuisine }}</span>
+        </div>
+        {% endif %}
+        
+        {% if page.servings %}
+        <div class="info-item">
+          <span class="info-label">Servings</span>
+          <span class="info-value">{{ page.servings }}</span>
+        </div>
+        {% endif %}
+        
+        {% if page.dietary %}
+        <div class="info-item">
+          <span class="info-label">Dietary</span>
+          <span class="info-value">{{ page.dietary }}</span>
+        </div>
+        {% endif %}
+      </div>
+
+      <!-- Print Button -->
+      <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> Print Recipe
+      </button>
+    </aside>
+  </div>
+</div>
+
+<style>
+  /* Recipe Container */
+  .recipe-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Hero Section */
+  .recipe-hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: center;
+  }
+
+  .recipe-hero-content {
+    padding: 2rem;
+  }
+
+  .recipe-title {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .recipe-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  /* Meta Grid */
+  .recipe-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .meta-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+  }
+
+  .meta-card i {
+    font-size: 1.5rem;
+    color: var(--primary);
+    min-width: 30px;
+  }
+
+  .meta-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .meta-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .meta-value {
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* Tags Section */
+  .recipe-tags-section {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .recipe-tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .course-tag {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    color: #1565c0;
+  }
+
+  .cuisine-tag {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    color: #6a1b9a;
+  }
+
+  .dietary-tag {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    color: #2e7d32;
+  }
+
+  /* Hero Image */
+  .recipe-hero-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .recipe-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--light) 0%, #e0f7f5 100%);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.15);
+  }
+
+  /* Content Grid */
+  .recipe-content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 2.5rem;
+  }
+
+  section h2 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
+  }
+
+  section h2 i {
+    font-size: 1.3rem;
+  }
+
+  /* Mindful Section */
+  .mindful-section {
+    background: linear-gradient(135deg, #f0fdfa 0%, #e0f7f5 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+  }
+
+  .mindful-quote {
+    font-size: 1.1rem;
+    color: var(--text);
+    font-style: italic;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    background: #f1f8e9;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #8bc34a;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .benefit-item {
+    padding: 0.8rem 0;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .benefit-item::before {
+    content: '✓';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #8bc34a;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  /* Ingredients Section */
+  .ingredients-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .ingredients-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ingredient-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .ingredient-item:hover {
+    background: var(--light);
+  }
+
+  .ingredient-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .ingredient-text {
+    color: var(--text);
+    flex: 1;
+  }
+
+  .ingredient-item.checked .ingredient-text {
+    opacity: 0.6;
+    text-decoration: line-through;
+    color: var(--text-light);
+  }
+
+  /* Instructions Section */
+  .instructions-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+  }
+
+  .instructions-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .instruction-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .instruction-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .instruction-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .instruction-text {
+    color: var(--text);
+    line-height: 1.8;
+    padding-top: 0.5rem;
+  }
+
+  /* Tips Section */
+  .tips-section {
+    background: #fff8e1;
+    padding: 2rem;
+    border-radius: 12px;
+    border-left: 4px solid #ffc107;
+  }
+
+  .tips-content p {
+    color: var(--text);
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* Sidebar */
+  .recipe-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Nutrition Card */
+  .nutrition-card,
+  .recipe-info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .nutrition-card h3,
+  .recipe-info-card h3 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nutrition-per-serving {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .nutrition-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .nutrition-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: var(--light);
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .nutrition-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .nutrition-label {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* Recipe Info Card */
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .info-item:last-child {
+    border-bottom: none;
+  }
+
+  .info-label {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.9rem;
+  }
+
+  .info-value {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  /* Print Button */
+  .print-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+
+  .print-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .recipe-hero-section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .recipe-content-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .recipe-title {
+      font-size: 2rem;
+    }
+
+    .recipe-meta-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nutrition-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .meta-card {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .recipe-container {
+      padding: 1rem;
+    }
+
+    .recipe-title {
+      font-size: 1.5rem;
+    }
+
+    .recipe-hero-content {
+      padding: 1rem;
+    }
+
+    .nutrition-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    section h2 {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Print Styles */
+  @media print {
+    .recipe-sidebar {
+      break-inside: avoid;
+    }
+
+    .print-btn {
+      display: none;
+    }
+
+    section {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+
+<script>
+  // Ingredient checkbox functionality
+  document.querySelectorAll('.ingredient-checkbox').forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+      const item = this.closest('.ingredient-item');
+      if (this.checked) {
+        item.classList.add('checked');
+      } else {
+        item.classList.remove('checked');
+      }
+    });
+  });
+</script>
