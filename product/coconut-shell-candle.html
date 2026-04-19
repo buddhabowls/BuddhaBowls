@@ -56,67 +56,17 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/coconut-shell-candle.
         </div>
       </div>
 
-      <div class="product-description">
-        <p>
-          Looking for a unique and eco-friendly way to create a cozy ambiance in your living space? These coconut shell candles are crafted from discarded coconut shells, making them the perfect embodiment of sustainable living. With up to 45 hours of burn time and natural tropical scents, they're the ideal way to bring warmth and nature into your home.
-        </p>
-      </div>
-
-      <!-- Price & Availability -->
-      <div class="product-pricing">
-        <div class="price-section">
-          <span class="price">$9.99</span>
-          <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock
-          </span>
-        </div>
-      </div>
-
-      <!-- Product Options -->
-      <div class="product-options">
-        <div class="option-group">
-          <label for="scent">Scent Selection *</label>
-          <div class="scent-selector">
-            <label class="scent-option">
-              <input type="radio" name="scent" value="coconut-woods" checked>
-              <span class="scent-label">
-                <strong>Coconut Woods</strong>
-                <small>Warm, creamy coconut with earthy woods</small>
-              </span>
-            </label>
-            <label class="scent-option">
-              <input type="radio" name="scent" value="sea-breeze">
-              <span class="scent-label">
-                <strong>Sea Breeze</strong>
-                <small>Fresh ocean air with tropical fruits</small>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="option-group">
-          <label for="quantity">Quantity *</label>
-          <div class="quantity-selector">
-            <button onclick="decreaseQuantity()">−</button>
-            <input type="number" id="quantity" value="1" min="1" max="30">
-            <button onclick="increaseQuantity()">+</button>
-          </div>
-        </div>
-      </div>
-
       <!-- Purchase Button (PayPal Ready) -->
-<div>
-  <style>.pp-NL6NHFYARPHZ6{text-align:center;border:none;border-radius:1.5rem;min-width:11.625rem;padding:0 2rem;height:2.625rem;font-weight:bold;background-color:#FFD140;color:#000000;font-family:"Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.25rem;cursor:pointer;}</style>
-  <form action="https://www.paypal.com/ncp/payment/NL6NHFYARPHZ6" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
-    <input class="pp-NL6NHFYARPHZ6" type="submit" value="Buy Now" />
-    <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
-    <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
-  </form>
-</div>
         <button class="btn-wishlist" title="Add to Wishlist">
           <i class="fas fa-heart"></i>
         </button>
-      </div>
+      <div id="paypal-container-NL6NHFYARPHZ6"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "NL6NHFYARPHZ6",
+  }).render("#paypal-container-NL6NHFYARPHZ6")
+</script>
+  </div>
 
       <!-- Product Meta -->
       <div class="product-meta">
