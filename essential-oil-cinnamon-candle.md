@@ -3,7 +3,7 @@ layout: candle
 title: Essential Oil Cinnamon Candle
 description: A warm and inviting candle that creates a cozy atmosphere.
 featured_image: /images/essential-oil-cinnamon-candle.jpg
-permalink: /candles/essential-oil-cinnamon-candle/
+permalink: /essential-oil-cinnamon-candle/
 
 candle_name: Essential Oil Cinnamon Candle
 summary: A warm and inviting candle that creates a cozy atmosphere.
