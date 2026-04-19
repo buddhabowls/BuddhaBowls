@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<div class="candle-container">
+  {% if page.featured_image %}
+  <div class="featured-image">
+    <img src="{{ page.featured_image | prepend: site.baseurl }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <h1>{{ page.title }}</h1>
+  <p class="description">{{ page.description }}</p>
+
+  <div class="materials-section">
+    <h2>Materials Needed</h2>
+    <div class="materials-list">
+      {% for material in page.materials %}
+      <div class="material-item">
+        <input type="checkbox" id="material_{{ forloop.index }}">
+        <label for="material_{{ forloop.index }}">{{ material }}</label>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="instructions-section">
+    <h2>Instructions</h2>
+    <ol class="instructions-list">
+      {% for instruction in page.instructions %}
+      <li>{{ instruction }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  {{ content }}
+</div>
