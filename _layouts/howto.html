@@ -1,0 +1,172 @@
+---
+layout: default
+---
+
+<article class="post howto-post">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+      <span class="howto-type">How-To Guide</span>
+      {% if page.difficulty %}<span class="difficulty">Difficulty: {{ page.difficulty }}</span>{% endif %}
+      {% if page.timeRequired %}<span class="time">Time Required: {{ page.timeRequired }}</span>{% endif %}
+    </p>
+  </header>
+
+  <div class="post-content howto-content">
+    {% if page.description %}
+    <div class="howto-description">
+      {{ page.description }}
+    </div>
+    {% endif %}
+
+    {% if page.summary %}
+    <div class="howto-summary">
+      <h2>Overview</h2>
+      {{ page.summary }}
+    </div>
+    {% endif %}
+
+    {% if page.tools_needed %}
+    <section class="tools-section">
+      <h2>Tools & Materials Needed</h2>
+      <ul class="tools-list">
+        {% for tool in page.tools_needed %}
+        <li>{{ tool }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if page.ingredients %}
+    <section class="ingredients-section">
+      <h2>Materials & Supplies</h2>
+      <ul class="ingredients-list">
+        {% for ingredient in page.ingredients %}
+        <li>{{ ingredient }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if page.instructions %}
+    <section class="instructions-section">
+      <h2>Step-by-Step Instructions</h2>
+      <ol class="instructions-list">
+        {% for instruction in page.instructions %}
+        <li>{{ instruction }}</li>
+        {% endfor %}
+      </ol>
+    </section>
+    {% endif %}
+
+    {% if page.tips %}
+    <section class="tips-section">
+      <h2>Tips & Tricks</h2>
+      <div class="tips-content">
+        {{ page.tips }}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if page.health_benefits %}
+    <section class="benefits-section">
+      <h2>Benefits</h2>
+      <ul class="benefits-list">
+        {% for benefit in page.health_benefits %}
+        <li>{{ benefit }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {% if page.mindful_moment %}
+    <section class="mindful-section">
+      <h2>Mindful Moment</h2>
+      <p class="mindful-text">{{ page.mindful_moment }}</p>
+    </section>
+    {% endif %}
+  </div>
+
+  <footer class="post-footer">
+    {% if page.updated %}
+    <p class="updated-date">Last updated: {{ page.updated }}</p>
+    {% endif %}
+  </footer>
+</article>
+
+<style>
+  .howto-post {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .howto-post .post-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .howto-type {
+    background: #e8f4f8;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    color: #0066cc;
+  }
+
+  .difficulty, .time {
+    font-size: 0.95em;
+    color: #666;
+  }
+
+  .howto-content section {
+    margin: 30px 0;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 4px solid #0066cc;
+    border-radius: 4px;
+  }
+
+  .howto-content h2 {
+    margin-top: 0;
+    color: #0066cc;
+    font-size: 1.5em;
+  }
+
+  .instructions-list {
+    list-style: decimal;
+    padding-left: 20px;
+  }
+
+  .instructions-list li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+
+  .tools-list, .ingredients-list, .benefits-list {
+    list-style: disc;
+    padding-left: 20px;
+  }
+
+  .tools-list li, .ingredients-list li, .benefits-list li {
+    margin-bottom: 8px;
+  }
+
+  .mindful-section {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+  }
+
+  .mindful-text {
+    font-style: italic;
+    color: #856404;
+  }
+
+  .tips-content {
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+</style>
