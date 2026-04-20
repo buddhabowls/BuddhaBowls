@@ -20,6 +20,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 <!-- HERO SECTION -->
 <section class="product-hero">
   <div class="product-hero-content">
+    <h1>Bamboo Lids</h1>
     <p>Sustainable, stylish food storage solutions</p>
     <div class="product-badges">
       <span class="badge eco"><i class="fas fa-leaf"></i> Eco-Friendly</span>
@@ -104,14 +105,16 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
       <!-- Description Tab -->
       <div class="tab-content active" id="description">
         <div class="description-header">
-          <h1>Bamboo Lids</h1>
-          <div class="product-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>(24 reviews)</span>
+          <div>
+            <h2>Product Overview</h2>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span>(24 reviews)</span>
+            </div>
           </div>
         </div>
 
@@ -455,6 +458,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     margin-bottom: 2rem;
   }
 
+  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
 
   .product-badges {
@@ -583,18 +587,15 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   .tab-content.active { display: block; }
 
   .description-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--light);
   }
 
-  .description-header h1 {
+  .description-header h2 {
     color: var(--primary);
-    font-size: 2rem;
-    margin: 0;
+    font-size: 1.5rem;
+    margin: 0 0 0.5rem 0;
   }
 
   .product-rating {
@@ -723,17 +724,11 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   }
 
   @media (max-width: 768px) {
+    .product-hero h1 { font-size: 1.8rem; }
     .product-hero p { font-size: 1rem; }
     .product-badges { flex-direction: column; align-items: center; }
     .related-grid { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .description-header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .description-header h1 {
-      font-size: 1.5rem;
-    }
   }
 </style>
 
