@@ -20,7 +20,6 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 <!-- HERO SECTION -->
 <section class="product-hero">
   <div class="product-hero-content">
-    <h1>Bamboo Lids</h1>
     <p>Sustainable, stylish food storage solutions</p>
     <div class="product-badges">
       <span class="badge eco"><i class="fas fa-leaf"></i> Eco-Friendly</span>
@@ -47,9 +46,6 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
     <!-- Product Info -->
     <section class="product-info">
-      <div class="product-header">      
-      </div>
-
       <!-- PayPal Button -->
       <div class="paypal-container">
         <div id="paypal-container-ZY2Z42XVQKMLW"></div>
@@ -59,6 +55,8 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
           }).render("#paypal-container-ZY2Z42XVQKMLW")
         </script>
       </div>
+    </section>
+  </div>
 
   <!-- Shipping & Guarantees Section -->
   <section class="shipping-guarantees">
@@ -105,6 +103,18 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
       <!-- Description Tab -->
       <div class="tab-content active" id="description">
+        <div class="description-header">
+          <h1>Bamboo Lids</h1>
+          <div class="product-rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+            <span>(24 reviews)</span>
+          </div>
+        </div>
+
         <h3>Product Description</h3>
         <p>
           Introducing our beautiful bamboo lids, perfect for adding a touch of natural elegance to your food storage. Made from sustainable bamboo, these lids are not only stylish but also environmentally friendly.
@@ -445,7 +455,6 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     margin-bottom: 2rem;
   }
 
-  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
   .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
 
   .product-badges {
@@ -490,75 +499,12 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   /* Product Info */
   .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
-  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
-
-  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
-  .product-rating i { font-size: 0.9rem; }
 
   /* PayPal Container */
   .paypal-container {
     background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
     padding: 1.2rem;
     border-radius: 8px;
-  }
-
-  /* Product Meta */
-  .product-meta {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    padding: 1.2rem;
-    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-    border-radius: 8px;
-  }
-
-  .meta-item { display: flex; gap: 0.8rem; }
-  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
-  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
-  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
-
-  /* Reviews Highlight */
-  .reviews-highlight {
-    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-    padding: 1.2rem;
-    border-radius: 8px;
-  }
-
-  .reviews-highlight h4 {
-    color: var(--primary);
-    margin-bottom: 1rem;
-    font-size: 1rem;
-  }
-
-  .review-highlights {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .review-highlight-item {
-    background: var(--white);
-    padding: 0.8rem;
-    border-radius: 6px;
-    border-left: 3px solid var(--primary);
-  }
-
-  .review-stars {
-    display: flex;
-    gap: 0.2rem;
-    color: var(--accent);
-    font-size: 0.75rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .review-highlight-item p {
-    margin: 0.3rem 0;
-    font-size: 0.85rem;
-    color: var(--text);
-  }
-
-  .review-author {
-    color: var(--text-light);
-    font-size: 0.75rem !important;
   }
 
   /* Shipping & Guarantees */
@@ -635,7 +581,33 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 
   .tab-content { display: none; }
   .tab-content.active { display: block; }
-  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
+
+  .description-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--light);
+  }
+
+  .description-header h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--accent);
+    font-size: 0.85rem;
+  }
+
+  .product-rating i { font-size: 0.9rem; }
+
+  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; margin-top: 0; }
   .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
   .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
   .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
@@ -746,16 +718,22 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
   /* Responsive */
   @media (max-width: 1024px) {
     .product-container { grid-template-columns: 1fr; }
-    .product-meta { grid-template-columns: 1fr; }
     .shipping-guarantees { grid-template-columns: 1fr; }
     .tab-buttons { flex-direction: column; }
   }
 
   @media (max-width: 768px) {
-    .product-hero h1 { font-size: 1.8rem; }
+    .product-hero p { font-size: 1rem; }
     .product-badges { flex-direction: column; align-items: center; }
     .related-grid { grid-template-columns: repeat(2, 1fr); }
     .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .description-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .description-header h1 {
+      font-size: 1.5rem;
+    }
   }
 </style>
 
