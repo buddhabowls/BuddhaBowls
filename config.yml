@@ -54,7 +54,7 @@ error_page: 404.html
 collections:
   products:
     output: true
-    permalink: /products/:slug/
+    permalink: /product/:slug/
 
 collections:
   quizzes:
