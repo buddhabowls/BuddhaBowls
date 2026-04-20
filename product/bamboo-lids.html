@@ -12,7 +12,9 @@ stock_quantity: 15
 featured: true
 image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
 ---
-
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAEkwd3d3zwNAWv8qoU6rGDwtBtZJtbutUrv8F5bVTdET9-r-wEFbUJw9Vn8AqQyjd1j2WcjrgkoztisU&components=hosted-buttons&enable-funding=venmo&currency=USD">
+</script>
 <!-- HERO SECTION -->
 <section class="product-hero">
   <div class="product-hero-content">
@@ -22,6 +24,14 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
       <span class="badge eco"><i class="fas fa-leaf"></i> Eco-Friendly</span>
       <span class="badge handmade"><i class="fas fa-hammer"></i> Handcrafted</span>
       <span class="badge natural"><i class="fas fa-tree"></i> 100% Natural</span>
+       <div class="product-rating">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
+          <span>(24 reviews)</span>
+        </div>
     </div>
   </div>
 </section>
@@ -44,63 +54,12 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-lids-1.jpg"
     <!-- Product Info -->
     <section class="product-info">
       <div class="product-header">
-        <h2>Bamboo Lids</h2>
-        <div class="product-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-          <span>(24 reviews)</span>
-        </div>
-      </div>
-
-      <div class="product-description">
-        <p>
-          Preserve your food and your intentions with our Bamboo Lids. These natural covers maintain the freshness of your meals while reminding you of the importance of reducing waste. Join the movement towards eco-friendly and aesthetically pleasing food storage with our bamboo lids today!
-        </p>
-      </div>
-
-      <!-- Price & Availability -->
-      <div class="product-pricing">
-        <div class="price-section">
-          <span class="price">$24.99</span>
-          <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock
-          </span>
-        </div>
-      </div>
-
-      <!-- Product Options -->
-      <div class="product-options">
-        <div class="option-group">
-          <label for="lid-type">Lid Type *</label>
-          <select id="lid-type" name="lid-type">
-            <option value="">Select a type</option>
-            <option value="solid-regular">Solid - Regular Mouth (70mm)</option>
-            <option value="solid-wide">Solid - Wide Mouth (86mm)</option>
-            <option value="straw-hole">With Straw Hole - Regular Mouth (70mm)</option>
-          </select>
-        </div>
-
-        <div class="option-group">
-          <label for="quantity">Quantity *</label>
-          <div class="quantity-selector">
-            <button onclick="decreaseQuantity()">−</button>
-            <input type="number" id="quantity" value="1" min="1" max="15">
-            <button onclick="increaseQuantity()">+</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Add to Cart -->
-      <div class="product-actions">
-        <button class="btn-add-to-cart" onclick="addToCart()">
-          <i class="fas fa-shopping-cart"></i> Add to Cart
-        </button>
-        <button class="btn-wishlist">
-          <i class="fas fa-heart"></i>
-        </button>
+       <div id="paypal-container-ZY2Z42XVQKMLW"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "ZY2Z42XVQKMLW",
+  }).render("#paypal-container-ZY2Z42XVQKMLW")
+</script>
       </div>
 
       <!-- Product Meta -->
