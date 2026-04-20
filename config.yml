@@ -1,7 +1,7 @@
 title: Buddha Bowls
 description: Premium handcrafted coconut bowls and healthy recipes
-url: "https://buddhabowls.github.io"
-baseurl: "/buddhabowls"
+url: "https://buddhabowls.org"
+baseurl: ""
 theme: minima
 
 # Collections
