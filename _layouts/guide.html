@@ -1,0 +1,247 @@
+---
+This file should be saved as: _layouts/guide.html
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  <style>
+    .guide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .guide-header {
+      background: linear-gradient(135deg, #0D9488 0%, #14B8A6 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 12px;
+      margin-bottom: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(13, 148, 136, 0.2);
+    }
+
+    .guide-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .guide-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      opacity: 0.95;
+    }
+
+    .guide-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .guide-content {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+    }
+
+    .guide-content h2 {
+      color: #0D9488;
+      font-size: 1.8rem;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      border-bottom: 3px solid #14B8A6;
+      padding-bottom: 0.5rem;
+    }
+
+    .guide-content h2:first-child {
+      margin-top: 0;
+    }
+
+    .guide-content h3 {
+      color: #14B8A6;
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .guide-content p {
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .guide-content ul,
+    .guide-content ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .guide-content li {
+      color: #333;
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .guide-content a {
+      color: #0D9488;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .guide-content a:hover {
+      color: #14B8A6;
+      text-decoration: underline;
+    }
+
+    .guide-content strong {
+      color: #0D9488;
+      font-weight: 600;
+    }
+
+    .guide-content em {
+      color: #14B8A6;
+      font-style: italic;
+    }
+
+    .guide-highlight {
+      background: #F0FDFA;
+      border-left: 4px solid #0D9488;
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin: 1.5rem 0;
+    }
+
+    .guide-highlight p {
+      margin: 0;
+    }
+
+    .guide-tags {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .guide-tag {
+      display: inline-block;
+      background: #E0F7F5;
+      color: #0D9488;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .guide-tag:hover {
+      background: #0D9488;
+      color: white;
+    }
+
+    .guide-footer {
+      background: linear-gradient(135deg, #F0FDFA 0%, #E0F7F5 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid #0D9488;
+      margin-bottom: 2rem;
+    }
+
+    .guide-footer p {
+      color: #333;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .guide-footer strong {
+      color: #0D9488;
+    }
+
+    @media (max-width: 768px) {
+      .guide-container {
+        padding: 1rem;
+      }
+
+      .guide-header {
+        padding: 2rem 1rem;
+      }
+
+      .guide-header h1 {
+        font-size: 1.8rem;
+      }
+
+      .guide-meta {
+        gap: 1rem;
+      }
+
+      .guide-content {
+        padding: 1.5rem;
+      }
+
+      .guide-content h2 {
+        font-size: 1.5rem;
+      }
+
+      .guide-content h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  {% include header.html %}
+
+  <main class="guide-container">
+    <div class="guide-header">
+      <h1>{{ page.title }}</h1>
+      <div class="guide-meta">
+        <div class="guide-meta-item">
+          📅 {{ page.date | date: "%B %d, %Y" }}
+        </div>
+        {% if page.categories %}
+          <div class="guide-meta-item">
+            📁 {{ page.categories | join: ", " }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="guide-content">
+      {{ content }}
+    </div>
+
+    {% if page.tags %}
+      <div class="guide-tags">
+        {% for tag in page.tags %}
+          <span class="guide-tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="guide-footer">
+      <p><strong>💡 Tip:</strong> Share this guide with friends and family who might find it helpful!</p>
+    </div>
+  </main>
+
+  {% include email-signup.html %}
+  {% include footer.html %}
+
+  <script src="{{ site.baseurl }}/assets/js/ingredients-checkbox.js"></script>
+  <script src="{{ site.baseurl }}/assets/js/email-signup.js"></script>
+</body>
+</html>
