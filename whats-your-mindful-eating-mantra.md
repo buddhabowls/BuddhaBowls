@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Mindful Eating Mantra?"
 date: 2026-04-22
-permalink: /what-s-your-mindful-eating-mantra/
+permalink: /whats-your-mindful-eating-mantra/
 excerpt: ""
 categories: []
 tags: []
