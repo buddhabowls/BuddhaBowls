@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Sustainable Eating Path?"
 date: 2026-04-22
-permalink: /what-s-your-sustainable-eating-path/
+permalink: /whats-your-sustainable-eating-path/
 excerpt: ""
 categories: []
 tags: []
