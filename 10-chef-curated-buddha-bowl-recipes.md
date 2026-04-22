@@ -8,10 +8,7 @@ categories: []
 tags: []
 ---
 
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/nourish-buddha-bowl)
-### 11. Nourishing Buddha Bowl
+### 1. Nourishing Buddha Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -52,7 +49,7 @@ tags: []
 
 - Fiber: 10g
 
-### 12. BBQ Tempeh Bowl
+### 2. BBQ Tempeh Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -91,7 +88,7 @@ tags: []
 
 - Fiber: 8g
 
-### 13. Breakfast Buddha Bowl
+### 3. Breakfast Buddha Bowl
 
 **Servings:** 2
 **Total Time:** 15 minutes
@@ -128,7 +125,7 @@ tags: []
 
 - Fiber: 10g
 
-### 14. Pesto Zucchini Noodle Bowl
+### 4. Pesto Zucchini Noodle Bowl
 
 **Servings:** 2
 **Total Time:** 20 minutes
@@ -165,7 +162,7 @@ tags: []
 
 - Fiber: 5g
 
-### 15. Falafel Power Bowl
+### 5. Falafel Power Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -204,7 +201,7 @@ tags: []
 
 - Fiber: 12g
 
-### 16. Southeast Asian Rice Bowl
+### 6. Southeast Asian Rice Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -245,7 +242,7 @@ tags: []
 
 - Fiber: 5g
 
-### 17. Roasted Cauliflower Bowl
+### 7. Roasted Cauliflower Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -284,7 +281,7 @@ tags: []
 
 - Fiber: 10g
 
-### 18. Chili Lime Shrimp Bowl
+### 8. Chili Lime Shrimp Bowl
 
 **Servings:** 2
 **Total Time:** 25 minutes
@@ -327,7 +324,7 @@ tags: []
 
 - Fiber: 6g
 
-### 19. Vegan Taco Bowl
+### 9. Vegan Taco Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -368,7 +365,7 @@ tags: []
 
 - Fiber: 12g
 
-### 20. Coconut Curry Bowl
+### 10. Coconut Curry Bowl
 
 **Servings:** 2
 **Total Time:** 30 minutes
@@ -404,41 +401,6 @@ tags: []
 - Fat: 20g
 
 - Fiber: 5g
-
- 
- 
- 
- 
- 
- 
- 
- 
- ## Nourish Buddha Bowl
-
- 
- 
- 
- 
- 
- 
- [Print Recipe](https://buddhabowls.org/wprm_print/nourish-buddha-bowl)
- [Pin Recipe](https://www.pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fbuddhabowls.org%2Fnourish-buddha-bowl%2F&media=https%3A%2F%2Fbuddhabowls.org%2Fwp-content%2Fuploads%2FRaw-Buddha-Bowls-3.jpg&description=Nourish+Buddha+Bowl&is_video=false)
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
- Ingredients
-
- Method
  
  
  ### Ingredients 
