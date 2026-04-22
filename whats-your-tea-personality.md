@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Tea Personality?"
 date: 2026-04-22
-permalink: /what-s-your-tea-personality/
+permalink: /whats-your-tea-personality/
 excerpt: ""
 categories: []
 tags: []
