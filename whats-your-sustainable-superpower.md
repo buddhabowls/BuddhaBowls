@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Sustainable Superpower?"
 date: 2026-04-22
-permalink: /what-s-your-sustainable-superpower/
+permalink: /whats-your-sustainable-superpower/
 excerpt: ""
 categories: []
 tags: []
