@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Ideal Tea Type?"
 date: 2026-04-22
-permalink: /what-s-your-ideal-tea-type/
+permalink: /whats-your-ideal-tea-type/
 excerpt: ""
 categories: []
 tags: []
