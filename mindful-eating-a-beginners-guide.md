@@ -2,7 +2,7 @@
 layout: guide
 title: "Mindful Eating: A Beginner’s Guide"
 date: 2026-04-22
-permalink: /mindful-eating-a-beginner-s-guide/
+permalink: /mindful-eating-a-beginners-guide/
 excerpt: ""
 categories: []
 tags: []
