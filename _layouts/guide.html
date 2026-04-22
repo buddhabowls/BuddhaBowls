@@ -209,16 +209,6 @@ This file should be saved as: _layouts/guide.html
   <main class="guide-container">
     <div class="guide-header">
       <h1>{{ page.title }}</h1>
-      <div class="guide-meta">
-        <div class="guide-meta-item">
-          📅 {{ page.date | date: "%B %d, %Y" }}
-        </div>
-        {% if page.categories %}
-          <div class="guide-meta-item">
-            📁 {{ page.categories | join: ", " }}
-          </div>
-        {% endif %}
-      </div>
     </div>
 
     <div class="guide-content">
