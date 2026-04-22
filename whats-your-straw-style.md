@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Straw Style?"
 date: 2026-04-22
-permalink: /what-s-your-straw-style/
+permalink: /whats-your-straw-style/
 excerpt: ""
 categories: []
 tags: []
