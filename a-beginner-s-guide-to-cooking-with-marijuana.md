@@ -2,7 +2,7 @@
 layout: guide
 title: "A Beginner’s Guide to Cooking with Marijuana"
 date: 2026-04-22
-permalink: /a-beginner-s-guide-to-cooking-with-marijuana/
+permalink: /a-beginners-guide-to-cooking-with-marijuana/
 excerpt: ""
 categories: []
 tags: []
