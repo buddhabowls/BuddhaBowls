@@ -2,7 +2,7 @@
 layout: guide
 title: "10 Fun Facts About Straws You Didn’t Know"
 date: 2026-04-22
-permalink: /10-fun-facts-about-straws-you-didn-t-know/
+permalink: /10-fun-facts-about-straws-you-didnt-know/
 excerpt: ""
 categories: []
 tags: []
