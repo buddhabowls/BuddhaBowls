@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Eco-Karma Score?"
 date: 2026-04-22
-permalink: /what-s-your-eco-karma-score/
+permalink: /whats-your-eco-karma-score/
 excerpt: ""
 categories: []
 tags: []
