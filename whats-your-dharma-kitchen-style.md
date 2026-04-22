@@ -2,7 +2,7 @@
 layout: guide
 title: "What’s Your Dharma Kitchen Style?"
 date: 2026-04-22
-permalink: /what-s-your-dharma-kitchen-style/
+permalink: /whats-your-dharma-kitchen-style/
 excerpt: ""
 categories: []
 tags: []
