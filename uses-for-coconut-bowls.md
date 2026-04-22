@@ -1,5 +1,5 @@
 ---
-layout: custom
+layout: default
 title: "Uses For Coconut Bowls"
 date: 2026-04-22
 permalink: /uses-for-coconut-bowls/
