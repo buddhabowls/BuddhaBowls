@@ -2,7 +2,7 @@
 layout: guide
 title: "The Lazy Person’s Guide to Buddhism"
 date: 2026-04-22
-permalink: /the-lazy-person-s-guide-to-buddhism/
+permalink: /the-lazy-persons-guide-to-buddhism/
 excerpt: ""
 categories: []
 tags: []
