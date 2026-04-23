@@ -1,7 +1,18 @@
 ---
 layout: default
 ---
+<!-- Load PayPal Cart Script Once -->
+{% unless page.cart_loaded %}
+  <script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="G5NUAJ4Q7TFGA"></script>
+{% endunless %}
 
+<article class="product-page">
+  <!-- Your existing product content -->
+  
+  <!-- Add this where you want the Add to Cart button -->
+  {% include paypal-add-to-cart.html button_id="A5R674N5K4N76" %}
+  
+</article>
 <article class="product-page">
   <div class="product-hero">
     {% if page.image %}
