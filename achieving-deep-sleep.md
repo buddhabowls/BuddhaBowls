@@ -73,5 +73,5 @@ Achieving deep sleep doesn’t have to be a stressful quest—it can be as simpl
 So go forth, my sleepy comrade! Conquer the night with laughter and determination. And if all else fails… well, there’s always coffee in the morning. Sweet dreams!
 
 <div style="width: 50%; margin: 0 auto; text-align: center;">
-  <img src="achieving-deep-sleep.png" alt="Description of photo" style="width: 100%; height: auto; border-radius: 8px;">
+  <img src="wp-content/uploads/achieving-deep-sleep.png" alt="Description of photo" style="width: 100%; height: auto; border-radius: 8px;">
 </div>
