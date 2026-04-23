@@ -2,7 +2,7 @@
 layout: default
 title: "Bamboo Soap Trays (2pk)"
 product_id: bamboo-soap-trays
-date: 2026-04-15
+date: 2026-04-23
 permalink: /product/bamboo-soap-trays
 categories: ["Accessories", "Bamboo Products"]
 tags: ["soap", "tray", "bamboo", "eco-friendly"]
@@ -12,6 +12,7 @@ in_stock: true
 stock_quantity: 68
 featured: false
 image: "https://buddhabowls.org/wp-content/uploads/Bamboo-Soap-Trays.png"
+paypal_button_id: ZY8Y5QAZGZMHQ
 ---
 
 <!-- HERO SECTION -->
@@ -67,7 +68,7 @@ image: "https://buddhabowls.org/wp-content/uploads/Bamboo-Soap-Trays.png"
         <div class="price-section">
           <span class="price">$16.99</span>
           <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock
+            <i class="fas fa-check-circle"></i> In Stock (68 available)
           </span>
         </div>
       </div>
@@ -84,19 +85,34 @@ image: "https://buddhabowls.org/wp-content/uploads/Bamboo-Soap-Trays.png"
         </div>
       </div>
 
-      <!-- Purchase Button -->
-      <div class="product-actions">
-        <button class="btn-purchase" onclick="handlePurchase()">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <button class="btn-wishlist" title="Add to Wishlist">
-          <i class="fas fa-heart"></i>
-        </button>
-      </div>
-
-      <!-- PayPal Placeholder -->
-      <div class="paypal-placeholder">
-        <p><small>PayPal payment button will be added here</small></p>
+      <!-- PayPal Add to Cart Button -->
+      <div class="paypal-add-to-cart-wrapper">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="{{ page.paypal_button_id }}" />
+          <table>
+            <tr>
+              <td>
+                <input type="hidden" name="on0" value="Wood Finish"/>
+                Wood Finish
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <select name="os0">
+                  <option value="Light">
+                    Light
+                  </option>
+                  <option value="Dark">
+                    Dark
+                  </option>
+                </select>
+              </td>
+            </tr>
+          </table>
+          <input type="hidden" name="currency_code" value="USD" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
+        </form>
       </div>
 
       <!-- Product Meta -->
@@ -439,6 +455,242 @@ image: "https://buddhabowls.org/wp-content/uploads/Bamboo-Soap-Trays.png"
     </div>
   </section>
 </section>
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --success: #4CAF50;
+  }
+
+  /* Hero Section */
+  .product-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
+
+  .product-badges {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Product Container */
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Product Gallery */
+  .product-gallery { display: flex; flex-direction: column; gap: 1rem; }
+  .main-image { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; background: var(--light); display: flex; align-items: center; justify-content: center; }
+  .main-image img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; }
+
+  .gallery-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .thumb { height: 80px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; object-fit: contain; background: var(--light); display: flex; align-items: center; justify-content: center; padding: 0.5rem; }
+  .thumb:hover, .thumb.active { border-color: var(--primary); }
+
+  /* Product Info */
+  .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
+
+  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
+  .product-rating i { font-size: 0.9rem; }
+
+  .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
+  .product-description p { margin: 0; }
+
+  /* Pricing */
+  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
+  .price-section { display: flex; justify-content: space-between; align-items: center; }
+
+  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
+
+  /* Product Options */
+  .product-options { display: grid; gap: 1rem; }
+  .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .option-group label { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+
+  .quantity-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .quantity-selector button { width: 36px; height: 36px; border: 2px solid var(--light); background: var(--white); border-radius: 6px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
+  .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
+  .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
+
+  /* PayPal Add to Cart */
+  .paypal-add-to-cart-wrapper {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .paypal-add-to-cart-wrapper form {
+    display: inline-block;
+  }
+
+  .paypal-add-to-cart-wrapper table {
+    margin-bottom: 1rem;
+    display: inline-block;
+    text-align: left;
+  }
+
+  .paypal-add-to-cart-wrapper td {
+    padding: 0.5rem;
+    color: var(--text);
+    font-size: 0.9rem;
+  }
+
+  .paypal-add-to-cart-wrapper select {
+    padding: 0.5rem;
+    border: 1px solid var(--light);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background: var(--white);
+    color: var(--text);
+  }
+
+  .paypal-add-to-cart-wrapper input[type="image"] {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .paypal-add-to-cart-wrapper input[type="image"]:hover {
+    transform: scale(1.05);
+  }
+
+  /* Product Meta */
+  .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
+  .meta-item { display: flex; gap: 0.8rem; }
+  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
+  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
+  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+
+  /* Features Section */
+  .features-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .features-section h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
+
+  .features-showcase { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .feature-showcase-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; }
+
+  .feature-showcase-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .feature-showcase-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .feature-showcase-card ul { list-style: none; padding: 0; margin: 0; }
+  .feature-showcase-card li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.85rem; }
+  .feature-showcase-card li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  /* Tabs */
+  .product-details-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .tabs-container { display: flex; flex-direction: column; }
+  .tab-buttons { display: flex; gap: 0.8rem; border-bottom: 2px solid var(--light); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab-btn { background: none; border: none; padding: 0.8rem 1.2rem; color: var(--text-light); font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.4rem; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 0.95rem; }
+  .tab-btn:hover { color: var(--primary); }
+  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
+  .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
+  .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .tab-content li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.95rem; }
+  .tab-content li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  /* Features Grid */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .feature-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; text-align: center; }
+  .feature-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+  .feature-item h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
+  .feature-item p { color: var(--text-light); font-size: 0.8rem; margin: 0; }
+
+  /* Specs Table */
+  .specs-table { display: grid; gap: 0; border: 1px solid var(--light); border-radius: 8px; overflow: hidden; }
+  .spec-row { display: grid; grid-template-columns: 180px 1fr; border-bottom: 1px solid var(--light); padding: 0.8rem; }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row:nth-child(even) { background: var(--light); }
+  .spec-label { color: var(--primary); font-weight: 600; font-size: 0.9rem; }
+  .spec-value { color: var(--text-light); font-size: 0.9rem; }
+
+  /* Care Sections */
+  .care-section { margin-bottom: 1.5rem; }
+  .care-section h4 { color: var(--primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+
+  /* Related Products */
+  .related-products { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .related-products h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
+  .related-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; }
+  .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .related-image { width: 100%; height: 140px; overflow: hidden; background: var(--white); display: flex; align-items: center; justify-content: center; }
+  .related-image img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; }
+  .related-card:hover .related-image img { transform: scale(1.05); }
+  .related-card h3 { color: var(--primary); padding: 0.8rem 0.8rem 0; margin: 0; font-size: 0.95rem; }
+  .related-card p { color: var(--text-light); padding: 0 0.8rem; font-size: 0.8rem; margin: 0.2rem 0; }
+  .related-price { color: var(--primary); font-weight: 700; font-size: 1rem; padding: 0.4rem 0.8rem; }
+  .btn-small { width: calc(100% - 1.6rem); margin: 0 0.8rem 0.8rem; padding: 0.6rem; background: var(--primary); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
+  .btn-small:hover { background: var(--secondary); }
+
+  /* Reviews */
+  .reviews-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); }
+  .reviews-section h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
+  .reviews-container { display: grid; gap: 1rem; }
+  .review-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
+  .review-header { display: flex; gap: 0.8rem; margin-bottom: 0.8rem; }
+  .review-rating { display: flex; gap: 0.2rem; color: var(--accent); font-size: 0.8rem; white-space: nowrap; }
+  .review-info strong { color: var(--primary); display: block; font-size: 0.9rem; }
+  .review-info p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+  .review-item p { color: var(--text-light); line-height: 1.6; margin: 0; font-size: 0.9rem; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .product-container { grid-template-columns: 1fr; }
+    .product-meta { grid-template-columns: 1fr; }
+    .tab-buttons { flex-direction: column; }
+    .specs-table { grid-template-columns: 1fr; }
+    .spec-row { grid-template-columns: 1fr; }
+    .features-showcase { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .product-hero h1 { font-size: 1.8rem; }
+    .product-badges { flex-direction: column; align-items: center; }
+    .related-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .features-showcase { grid-template-columns: 1fr; }
+  }
+</style>
 
 <script>
   function switchTab(tabName) {
