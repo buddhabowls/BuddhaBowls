@@ -1,0 +1,16 @@
+<!-- Add to Cart Button for Products -->
+<div class="paypal-add-to-cart-wrapper">
+  <paypal-add-to-cart-button data-id="{{ include.button_id }}"></paypal-add-to-cart-button>
+</div>
+
+<script>
+  if (typeof cartPaypal !== 'undefined') {
+    cartPaypal.AddToCart({ id: "{{ include.button_id }}" })
+  }
+</script>
+
+<style>
+  .paypal-add-to-cart-wrapper {
+    margin: 1rem 0;
+  }
+</style>
