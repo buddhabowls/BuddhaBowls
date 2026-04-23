@@ -1,0 +1,18 @@
+categories:
+  - name: "How-To Guides"
+    icon: "📚"
+    color: "#0D9488"
+    guides:
+      - title: "Test Guide 1"
+        url: "/test-1"
+      - title: "Test Guide 2"
+        url: "/test-2"
+  
+  - name: "Recipes"
+    icon: "🧼"
+    color: "#0D9488"
+    guides:
+      - title: "Recipe 1"
+        url: "/recipe-1"
+      - title: "Recipe 2"
+        url: "/recipe-2"
