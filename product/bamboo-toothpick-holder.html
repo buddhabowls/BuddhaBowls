@@ -2,7 +2,7 @@
 layout: default
 title: "Bamboo Toothpick Holders"
 product_id: bamboo-toothpick-holder
-date: 2026-04-15
+date: 2026-04-23
 permalink: /product/bamboo-toothpick-holder/
 categories: ["Bamboo Products", "Accessories"]
 tags: ["toothpick", "holder", "bamboo", "eco-friendly"]
@@ -12,7 +12,10 @@ in_stock: true
 stock_quantity: 203
 featured: false
 image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpeg"
+paypal_button_id: 3UEQLCYBRDCAN
 ---
+
+<script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="G5NUAJ4Q7TFGA"></script>
 
 <!-- HERO SECTION -->
 <section class="product-hero">
@@ -62,16 +65,6 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
         </p>
       </div>
 
-      <!-- Price & Availability -->
-      <div class="product-pricing">
-        <div class="price-section">
-          <span class="price">$8.99</span>
-          <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock
-          </span>
-        </div>
-      </div>
-
       <!-- Product Options -->
       <div class="product-options">
         <div class="option-group">
@@ -111,47 +104,42 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
         </div>
       </div>
 
-      <!-- Purchase Button -->
-      <div class="product-actions">
-        <button class="btn-purchase" onclick="handlePurchase()">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <button class="btn-wishlist" title="Add to Wishlist">
-          <i class="fas fa-heart"></i>
-        </button>
-      </div>
-
-      <!-- PayPal Placeholder -->
-      <div class="paypal-placeholder">
-        <p><small>PayPal payment button will be added here</small></p>
-      </div>
-
-      <!-- Product Meta -->
-      <div class="product-meta">
-        <div class="meta-item">
-          <i class="fas fa-leaf"></i>
-          <div>
-            <strong>100% Eco-Friendly</strong>
-            <p>Sustainable bamboo</p>
-          </div>
-        </div>
-        <div class="meta-item">
-          <i class="fas fa-sparkles"></i>
-          <div>
-            <strong>Elegant Design</strong>
-            <p>Multiple styles</p>
-          </div>
-        </div>
-        <div class="meta-item">
-          <i class="fas fa-dumbbell"></i>
-          <div>
-            <strong>Durable</strong>
-            <p>Long-lasting quality</p>
-          </div>
-        </div>
+      <!-- PayPal Add to Cart Button -->
+      <div class="paypal-add-to-cart-wrapper">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="{{ page.paypal_button_id }}" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
+        </form>
       </div>
     </section>
   </div>
+
+  <!-- Shipping & Guarantees Section -->
+  <section class="shipping-guarantees">
+    <div class="guarantee-item">
+      <i class="fas fa-truck"></i>
+      <div>
+        <strong>Free Shipping</strong>
+        <p>On orders over $50</p>
+      </div>
+    </div>
+    <div class="guarantee-item">
+      <i class="fas fa-shield-alt"></i>
+      <div>
+        <strong>30-Day Guarantee</strong>
+        <p>Full refund if not satisfied</p>
+      </div>
+    </div>
+    <div class="guarantee-item">
+      <i class="fas fa-undo"></i>
+      <div>
+        <strong>Easy Returns</strong>
+        <p>Hassle-free returns</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Design Options Section -->
   <section class="bundle-contents">
@@ -709,18 +697,6 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
   .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
   .product-description p { margin: 0; }
 
-  /* Pricing */
-  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
-  .price-section { display: flex; justify-content: space-between; align-items: center; }
-
-  .price-info { display: flex; align-items: center; gap: 0.8rem; }
-  .price-original { font-size: 1.2rem; color: var(--text-light); text-decoration: line-through; }
-  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
-  .price-discount { background: #F44336; color: var(--white); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
-
-  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
-  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
-
   /* Product Options */
   .product-options { display: grid; gap: 1rem; }
   .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
@@ -739,24 +715,62 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
   .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
   .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
 
-  /* Product Actions */
-  .product-actions { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem; }
-  .btn-purchase { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); border: none; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-  .btn-purchase:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3); }
+  /* PayPal Add to Cart */
+  .paypal-add-to-cart-wrapper {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
 
-  .btn-wishlist { width: 44px; height: 44px; border: 2px solid var(--light); background: var(--white); border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: var(--primary); }
-  .btn-wishlist:hover { border-color: var(--primary); background: var(--light); }
+  .paypal-add-to-cart-wrapper form {
+    display: inline-block;
+  }
 
-  /* PayPal Placeholder */
-  .paypal-placeholder { background: var(--light); padding: 1.2rem; border-radius: 8px; text-align: center; border: 2px dashed var(--primary); }
-  .paypal-placeholder p { color: var(--text-light); margin: 0; font-size: 0.9rem; }
+  .paypal-add-to-cart-wrapper input[type="image"] {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
 
-  /* Product Meta */
-  .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
-  .meta-item { display: flex; gap: 0.8rem; }
-  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
-  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
-  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+  .paypal-add-to-cart-wrapper input[type="image"]:hover {
+    transform: scale(1.05);
+  }
+
+  /* Shipping & Guarantees */
+  .shipping-guarantees {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .guarantee-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .guarantee-item i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .guarantee-item strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .guarantee-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
 
   /* Bundle Contents */
   .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
@@ -769,7 +783,6 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
 
   .bundle-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; position: relative; }
   .bundle-header h3 { color: var(--primary); margin: 0; font-size: 1.3rem; }
-  .bundle-price { color: var(--primary); font-weight: 700; font-size: 1.5rem; }
   .bundle-badge { background: var(--primary); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; position: absolute; top: -10px; right: 0; }
 
   .bundle-items { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
@@ -858,7 +871,7 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
   /* Responsive */
   @media (max-width: 1024px) {
     .product-container { grid-template-columns: 1fr; }
-    .product-meta { grid-template-columns: 1fr; }
+    .shipping-guarantees { grid-template-columns: 1fr; }
     .tab-buttons { flex-direction: column; }
     .bundles-grid { grid-template-columns: 1fr; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
@@ -899,11 +912,5 @@ image: "https://buddhabowls.org/wp-content/uploads/bamboo-toothpick-holder-2.jpe
     const input = document.getElementById('quantity');
     const min = input.getAttribute('min');
     input.value = Math.max(parseInt(input.value) - 1, parseInt(min));
-  }
-
-  function handlePurchase() {
-    const quantity = document.getElementById('quantity').value;
-    const design = document.querySelector('input[name="design"]:checked').value;
-    console.log(`Purchase initiated: ${quantity} Bamboo Toothpick Holder(s) in ${design} design`);
   }
 </script>
