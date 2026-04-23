@@ -2,8 +2,8 @@
 layout: default
 title: "Bamboo Toothbrushes (10pk)"
 product_id: bamboo-toothbrushes-10pk
-date: 2026-04-15
-permalink: /product/bamboo-toothbrushes-10pk/
+date: 2026-04-23
+permalink: /product/bamboo-toothbrush-sets/
 categories: ["Accessories", "Bamboo Products"]
 tags: ["toothbrush", "eco-friendly", "bulk"]
 price: 29.99
@@ -12,6 +12,7 @@ in_stock: false
 stock_quantity: 0
 featured: false
 image: "https://buddhabowls.org/wp-content/uploads/2024/11/toothbrush30-1.jpg"
+paypal_button_id: 7BMY6JQRD9RZ8
 ---
 
 <!-- HERO SECTION -->
@@ -81,7 +82,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/toothbrush30-1.jpg"
             <input type="number" id="quantity" value="1" min="1" max="5" disabled>
             <button onclick="increaseQuantity()" disabled>+</button>
           </div>
-          <small style="color: var(--text-light);">Currently out of stock</small>
+          <small>Currently out of stock</small>
         </div>
       </div>
 
@@ -702,10 +703,5 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/toothbrush30-1.jpg"
   function notifyMe() {
     alert('We will notify you when this product is back in stock!');
     console.log('Notification request submitted');
-  }
-
-  function handlePurchase() {
-    const quantity = document.getElementById('quantity').value;
-    console.log(`Purchase initiated: ${quantity} units`);
   }
 </script>
