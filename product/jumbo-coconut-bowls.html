@@ -2,7 +2,7 @@
 layout: default
 title: "Jumbo Coconut Bowls"
 product_id: jumbo-coconut-bowls
-date: 2026-04-15
+date: 2026-04-23
 permalink: /product/jumbo-coconut-bowls/
 categories: ["Coconut Bowls", "Tableware"]
 tags: ["jumbo", "coconut bowls", "eco-friendly", "sustainable"]
@@ -12,6 +12,7 @@ in_stock: true
 stock_quantity: 64
 featured: true
 image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
+paypal_button_id: PHTQVZU5J63X2
 ---
 
 <!-- HERO SECTION -->
@@ -102,21 +103,35 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
           </div>
           <small>Each bowl is unique with its own size, shape, and pattern</small>
         </div>
+
+        <div class="option-group">
+          <label for="engraving">Engraving *</label>
+          <select id="engraving" name="engraving" style="padding: 0.8rem; border: 2px solid #F0FDFA; border-radius: 6px; font-size: 1rem; color: #0D9488;">
+            <option value="None - No Engraving">None - No Engraving</option>
+            <option value="Tropical Vibes">Tropical Vibes</option>
+            <option value="Buddha Bowls">Buddha Bowls</option>
+            <option value="Plant Based">Plant Based</option>
+          </select>
+        </div>
       </div>
 
-      <!-- Purchase Button -->
-      <div class="product-actions">
-        <button class="btn-purchase" onclick="handlePurchase()">
-          <i class="fas fa-shopping-cart"></i> Buy Now
-        </button>
-        <button class="btn-wishlist" title="Add to Wishlist">
-          <i class="fas fa-heart"></i>
-        </button>
-      </div>
-
-      <!-- PayPal Placeholder -->
-      <div class="paypal-placeholder">
-        <p><small>PayPal payment button will be added here</small></p>
+      <!-- PayPal Add to Cart Button -->
+      <div class="paypal-add-to-cart-wrapper">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="paypal">
+          <table style="display: none;">
+            <tr><td><input type="hidden" name="on0" value="Engraving">Engraving</td></tr>
+            <tr><td><select name="os0">
+              <option value="None - No Engraving">None - No Engraving</option>
+              <option value="Tropical Vibes">Tropical Vibes</option>
+              <option value="Buddha Bowls">Buddha Bowls</option>
+              <option value="Plant Based">Plant Based</option>
+            </select></td></tr>
+          </table>
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
+          <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+          <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" />
+          <input type="hidden" name="cmd" value="_s-xclick" />
+        </form>
       </div>
 
       <!-- Product Meta -->
@@ -145,6 +160,31 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
       </div>
     </section>
   </div>
+
+  <!-- Shipping & Guarantees Section -->
+  <section class="shipping-guarantees">
+    <div class="guarantee-item">
+      <i class="fas fa-truck"></i>
+      <div>
+        <strong>Free Shipping</strong>
+        <p>On orders over $50</p>
+      </div>
+    </div>
+    <div class="guarantee-item">
+      <i class="fas fa-shield-alt"></i>
+      <div>
+        <strong>30-Day Guarantee</strong>
+        <p>Full refund if not satisfied</p>
+      </div>
+    </div>
+    <div class="guarantee-item">
+      <i class="fas fa-undo"></i>
+      <div>
+        <strong>Easy Returns</strong>
+        <p>Hassle-free returns</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Why Jumbo Section -->
   <section class="bundle-contents">
@@ -635,7 +675,6 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
   /* Pricing */
   .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
   .price-section { display: flex; justify-content: space-between; align-items: center; }
-
   .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
   .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
   .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
@@ -660,17 +699,26 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
   .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
   .option-group small { color: var(--text-light); font-size: 0.8rem; }
 
-  /* Product Actions */
-  .product-actions { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem; }
-  .btn-purchase { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); border: none; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-  .btn-purchase:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3); }
+  /* PayPal Add to Cart */
+  .paypal-add-to-cart-wrapper {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
 
-  .btn-wishlist { width: 44px; height: 44px; border: 2px solid var(--light); background: var(--white); border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: var(--primary); }
-  .btn-wishlist:hover { border-color: var(--primary); background: var(--light); }
+  .paypal-add-to-cart-wrapper form {
+    display: inline-block;
+  }
 
-  /* PayPal Placeholder */
-  .paypal-placeholder { background: var(--light); padding: 1.2rem; border-radius: 8px; text-align: center; border: 2px dashed var(--primary); }
-  .paypal-placeholder p { color: var(--text-light); margin: 0; font-size: 0.9rem; }
+  .paypal-add-to-cart-wrapper input[type="image"] {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .paypal-add-to-cart-wrapper input[type="image"]:hover {
+    transform: scale(1.05);
+  }
 
   /* Product Meta */
   .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
@@ -678,6 +726,42 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
   .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
   .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
   .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+
+  /* Shipping & Guarantees */
+  .shipping-guarantees {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  .guarantee-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .guarantee-item i {
+    font-size: 1.8rem;
+    color: var(--primary);
+    flex-shrink: 0;
+  }
+
+  .guarantee-item strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .guarantee-item p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin: 0;
+  }
 
   /* Bundle Contents */
   .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
@@ -772,6 +856,7 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
   @media (max-width: 1024px) {
     .product-container { grid-template-columns: 1fr; }
     .product-meta { grid-template-columns: 1fr; }
+    .shipping-guarantees { grid-template-columns: 1fr; }
     .tab-buttons { flex-direction: column; }
     .why-grid { grid-template-columns: repeat(2, 1fr); }
     .use-case-grid { grid-template-columns: repeat(2, 1fr); }
@@ -814,10 +899,5 @@ image: "https://buddhabowls.org/wp-content/uploads/jumbo-coconut-bowl.png"
     const input = document.getElementById('quantity');
     const min = input.getAttribute('min');
     input.value = Math.max(parseInt(input.value) - 1, parseInt(min));
-  }
-
-  function handlePurchase() {
-    const quantity = document.getElementById('quantity').value;
-    console.log(`Purchase initiated: ${quantity} Jumbo Coconut Bowl(s)`);
   }
 </script>
