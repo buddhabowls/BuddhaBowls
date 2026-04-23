@@ -1,0 +1,10 @@
+products:
+  - name: Bamboo Lids
+    id: bamboo-lids
+    button_id: A5R674N5K4N76
+    price: 14.99
+    
+  - name: Bamboo Straws
+    id: bamboo-straws
+    button_id: YOUR_BUTTON_ID_HERE
+    price: 12.99
