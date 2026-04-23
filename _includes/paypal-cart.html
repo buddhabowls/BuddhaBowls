@@ -1,0 +1,23 @@
+<!-- PayPal Cart Script (Load Once) -->
+<script src="https://www.paypalobjects.com/ncp/cart/cart.js" data-merchant-id="G5NUAJ4Q7TFGA"></script>
+
+<!-- View Cart Button -->
+<div class="paypal-view-cart">
+  <paypal-cart-button data-id="pp-view-cart"></paypal-cart-button>
+</div>
+
+<script>
+  if (typeof cartPaypal !== 'undefined') {
+    cartPaypal.Cart({ id: "pp-view-cart" })
+  }
+</script>
+
+<style>
+  .paypal-view-cart {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: linear-gradient(135deg, #F0FDFA 0%, #E8F5F3 100%);
+    border-radius: 8px;
+    text-align: center;
+  }
+</style>
