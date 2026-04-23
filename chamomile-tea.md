@@ -43,4 +43,6 @@ Chamomile tea is also gentle on the stomach, making it an excellent choice for t
 
 In conclusion, chamomile tea offers a myriad of benefits that can enhance both physical and mental health. From promoting relaxation to supporting digestion and immune function, this gentle herbal infusion is a versatile addition to any wellness routine. So why not brew yourself a cup of chamomile tea today and experience its soothing effects for yourself?
 
-How To Make Chamomile Tea
+<div style="width: 50%; margin: 0 auto; text-align: center;">
+  <img src="{{site.url}}/wp-content/uploads/chamomile-tea.png" alt="Description of photo" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
