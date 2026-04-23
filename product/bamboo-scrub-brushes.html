@@ -2,7 +2,7 @@
 layout: default
 title: "Bamboo Scrub Brushes"
 product_id: bamboo-scrub-brushes
-date: 2026-04-15
+date: 2026-04-23
 permalink: /product/bamboo-scrub-brushes/
 categories: ["Bamboo Products", "Kitchen Cleaning"]
 tags: ["scrub", "brush", "eco-friendly", "sustainable"]
@@ -12,6 +12,7 @@ in_stock: false
 stock_quantity: 0
 featured: true
 image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-scrub-brush.png"
+paypal_button_id: 9XSPL6DQKKHT2
 ---
 
 <!-- HERO SECTION -->
@@ -557,6 +558,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-scrub-brush.pn
     --text-light: #666;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     --success: #4CAF50;
+    --danger: #F44336;
   }
 
   /* Hero Section */
@@ -625,14 +627,10 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-scrub-brush.pn
   .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
   .price-section { display: flex; justify-content: space-between; align-items: center; }
 
-  .price-info { display: flex; align-items: center; gap: 0.8rem; }
-  .price-original { font-size: 1.2rem; color: var(--text-light); text-decoration: line-through; }
   .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
-  .price-discount { background: #F44336; color: var(--white); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
-
   .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
   .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
-  .availability.out-of-stock { background: rgba(244, 67, 54, 0.2); color: #F44336; }
+  .availability.out-of-stock { background: rgba(244, 67, 54, 0.2); color: var(--danger); }
 
   /* Product Options */
   .product-options { display: grid; gap: 1rem; }
@@ -686,10 +684,9 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-scrub-brush.pn
 
   .bundle-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; position: relative; }
   .bundle-header h3 { color: var(--primary); margin: 0; font-size: 1.3rem; }
-  .bundle-price { color: var(--primary); font-weight: 700; font-size: 1.5rem; }
   .bundle-badge { background: var(--primary); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; position: absolute; top: -10px; right: 0; }
 
-  .bundle-items { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
+  .bundle-items { display: grid; gap: 1rem; }
   .bundle-item { display: flex; gap: 0.8rem; }
   .bundle-item i { color: var(--primary); font-weight: bold; margin-top: 0.2rem; }
   .bundle-item h4 { color: var(--primary); margin: 0 0 0.2rem 0; font-size: 0.95rem; }
@@ -812,10 +809,5 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/bamboo-scrub-brush.pn
   function notifyMe() {
     alert('We will notify you when this product is back in stock!');
     console.log('Notification request submitted');
-  }
-
-  function handlePurchase() {
-    const quantity = document.getElementById('quantity').value;
-    console.log(`Purchase initiated: ${quantity} units`);
   }
 </script>
