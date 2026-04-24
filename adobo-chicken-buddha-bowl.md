@@ -7,10 +7,7 @@ excerpt: ""
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/adobo-chicken-buddha-bowl)# Adobo Chicken Buddha Bowl
+# Adobo Chicken Buddha Bowl
 
 Hey there foodies, today I’m super excited to share with you a delicious and nutritious recipe for an Adobo Chicken Buddha Bowl served in a coconut bowl. Not only is this dish incredibly tasty, but it’s also packed with wholesome ingredients that will leave you feeling satisfied and nourished. So, let’s dive in and explore the wonderful world of Buddha bowls and how to make this mouthwatering Adobo Chicken Buddha Bowl.
 
