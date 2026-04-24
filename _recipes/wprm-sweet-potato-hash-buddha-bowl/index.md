@@ -1,0 +1,40 @@
+---
+layout: recipe-card
+title: "Sweet Potato Hash Buddha Bowl"
+description: "A hearty and colorful brunch bowl featuring roasted sweet potato hash, sautéed spinach, and topped with perfectly fried eggs."
+course: "Brunch"
+cuisine: "American"
+image: "Sweet-Potato-Hash-Buddha-Bowl-1.jpg"
+servings: "2"
+prepTime: "10 mins"
+cookTime: "5 mins"
+totalTime: "15 mins"
+calories: "250"
+protein: "15"
+carbs: "30"
+fat: "8"
+fiber: "5"
+sugar: "10"
+sodium: "500"
+ingredients:
+  - "2 sweet potatoes (diced)"
+  - "1 bell pepper (diced)"
+  - "1 onion (diced)"
+  - "2 eggs (fried)"
+  - "1 cup spinach"
+  - "2 tbsp olive oil"
+  - "1 tsp paprika"
+  - "Salt and pepper to taste"
+instructions:
+  - "Preheat your oven to 400°F (200°C). Line a baking sheet with parchment paper."
+  - "Toss the diced sweet potatoes with olive oil, paprika, garlic powder, salt, and pepper. Spread them evenly on the baking sheet."
+  - "Roast the sweet potatoes in the oven for 20-25 minutes, flipping halfway through, until they are golden and tender."
+  - "While the sweet potatoes are roasting, prepare the quinoa according to package instructions if not already cooked."
+  - "In a skillet, sauté the kale or spinach over medium heat until wilted (about 2-3 minutes). Set aside."
+  - "If using eggs, cook them to your preference (fried, poached, or scrambled)."
+  - "Assemble the Buddha bowl: Start with a base of quinoa, then layer on the roasted sweet potatoes, sautéed greens, cherry tomatoes, red onion, and avocado slices."
+  - "Top with the cooked egg if desired and drizzle with tahini or your favorite dressing."
+  - "Serve warm and enjoy your healthy Sweet Potato Hash Buddha Bowl!"
+---
+
+A hearty and colorful brunch bowl featuring roasted sweet potato hash, sautéed spinach, and topped with perfectly fried eggs.
