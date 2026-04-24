@@ -3,14 +3,11 @@ layout: guide
 title: "Apple Cinnamon Crumble Smoothie Bowl"
 date: 2026-04-22
 permalink: /apple-cinnamon-crumble-smoothie-bowl/
-excerpt: ""
+excerpt: "A comforting smoothie bowl with the warm flavors of apple and cinnamon."
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/apple-cinnamon-crumble-smoothie-bowl)A comforting smoothie bowl with the warm flavors of apple and cinnamon.
+A comforting smoothie bowl with the warm flavors of apple and cinnamon.
 
 ## Apple Cinnamon Crumble Smoothie Bowl: A Cozy Delight
 
