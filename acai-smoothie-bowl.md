@@ -7,10 +7,6 @@ excerpt: ""
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/acai-smoothie-bowl)
 A refreshing and nutrient-packed brunch bowl featuring antioxidant-rich acai, fresh fruits, and crunchy toppings for a healthy start to the day.
 
 ## Acai Smoothie Bowl Recipe
