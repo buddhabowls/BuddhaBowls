@@ -7,10 +7,7 @@ excerpt: ""
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/anti-inflammatory-buddha-bowl)## Anti-Inflammatory Buddha Bowl
+## Anti-Inflammatory Buddha Bowl
 
 Anti-Inflammatory Buddha Bowl Recipe
 
