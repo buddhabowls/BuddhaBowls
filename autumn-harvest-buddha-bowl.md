@@ -7,10 +7,6 @@ excerpt: ""
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/autumn-harvest-buddha-bowl)
 **A Wholesome Delight for Your Taste Buds**
 
 As the crisp autumn air sets in and the leaves begin to paint the world in vibrant hues of red, orange, and gold, it’s the perfect time to embrace the season’s bounty in your meals. One dish that effortlessly captures the essence of fall is the Autumn Harvest Buddha Bowl. Packed with wholesome ingredients, warm flavors, and a touch of sweetness, this bowl is a celebration of all things cozy and nutritious.
