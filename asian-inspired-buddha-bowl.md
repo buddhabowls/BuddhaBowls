@@ -7,10 +7,7 @@ excerpt: ""
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/asian-inspired-buddha-bowl)**Raw Buddha Bowls: Asian-Inspired Buddha Bowl**
+**Raw Buddha Bowls: Asian-Inspired Buddha Bowl**
 
 Hey there, foodie friends! Today, I’m super excited to share with you a delicious and nutritious Asian-Inspired Buddha Bowl recipe that will not only tantalize your taste buds but also nourish your body and soul. And the best part? We’re serving it in a beautiful coconut bowl for that extra touch of tropical vibes!
 
