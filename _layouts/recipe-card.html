@@ -3,304 +3,317 @@ layout: default
 ---
 
 <div class="recipe-card-container">
-  <!-- Print Button (Top Right) -->
-  <div class="print-controls">
-    <button class="print-btn" onclick="window.print()" title="Print Recipe">
-      <i class="fas fa-print"></i> Print
-    </button>
-    <button class="save-btn" onclick="saveRecipe()" title="Save Recipe">
-      <i class="fas fa-download"></i> Save
-    </button>
+<!-- Print Controls -->
+<div class="print-controls">
+  <button class="print-btn" onclick="window.print()" title="Print Recipe">
+    <i class="fas fa-print"></i> Print
+  </button>
+  <button class="save-btn" onclick="saveRecipe()" title="Save Recipe">
+    <i class="fas fa-download"></i> Save
+  </button>
+</div>
+
+<!-- Recipe Header -->
+<div class="recipe-card-header">
+  <div class="recipe-card-image">
+    {% if page.image %}
+      <img src="{{ site.baseurl }}/images/recipes/{{ page.image }}" alt="{{ page.title }}" onerror="this.src='{{ site.baseurl }}/images/recipe-placeholder.jpg'">
+    {% else %}
+      <div class="image-placeholder">🍽️</div>
+    {% endif %}
   </div>
 
-  <!-- Recipe Header -->
-  <div class="recipe-card-header">
-    <div class="recipe-card-image">
-      {% if page.image %}
-        <img src="{{ site.baseurl }}/images/recipes/{{ page.image }}" alt="{{ page.title }}" onerror="this.src='{{ site.baseurl }}/images/recipe-placeholder.jpg'">
-      {% else %}
-        <div class="image-placeholder">🍽️</div>
-      {% endif %}
+  <div class="recipe-card-title-section">
+    <h1 class="recipe-card-title">{{ page.title }}</h1>
+    <p class="recipe-card-summary">{{ page.summary }}</p>
+
+    <!-- Quick Info Grid -->
+    <div class="quick-info-grid">
+      <div class="info-item">
+        <i class="fas fa-users"></i>
+        <span class="info-label">Servings</span>
+        <span class="info-value">{{ page.servings }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-clock"></i>
+        <span class="info-label">Prep</span>
+        <span class="info-value">{{ page.prepTime }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-fire"></i>
+        <span class="info-label">Cook</span>
+        <span class="info-value">{{ page.cookTime }}</span>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-hourglass"></i>
+        <span class="info-label">Total</span>
+        <span class="info-value">{{ page.totalTime }}</span>
+      </div>
     </div>
 
-    <div class="recipe-card-title-section">
-      <h1 class="recipe-card-title">{{ page.title }}</h1>
-      <p class="recipe-card-excerpt">{{ page.description }}</p>
-
-      <!-- Quick Info Grid -->
-      <div class="quick-info-grid">
-        <div class="info-item">
-          <i class="fas fa-users"></i>
-          <span class="info-label">Servings</span>
-          <span class="info-value">{{ page.servings }}</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-clock"></i>
-          <span class="info-label">Prep</span>
-          <span class="info-value">{{ page.prepTime }}</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-fire"></i>
-          <span class="info-label">Cook</span>
-          <span class="info-value">{{ page.cookTime }}</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-hourglass"></i>
-          <span class="info-label">Total</span>
-          <span class="info-value">{{ page.totalTime }}</span>
-        </div>
-      </div>
-
-      <!-- Tags -->
-      <div class="recipe-tags">
-        <span class="tag course-tag">{{ page.course }}</span>
-        <span class="tag cuisine-tag">{{ page.cuisine }}</span>
-      </div>
+    <!-- Tags -->
+    <div class="recipe-tags">
+      <span class="tag course-tag">{{ page.course }}</span>
+      <span class="tag cuisine-tag">{{ page.cuisine }}</span>
     </div>
   </div>
+</div>
 
-  <!-- Main Content -->
-  <div class="recipe-card-content">
-    <!-- Left Column -->
-    <div class="recipe-card-main">
-      <!-- Ingredients -->
+<!-- Main Content -->
+<div class="recipe-card-content">
+  <!-- Left Column -->
+  <div class="recipe-card-main">
+    <!-- Description Section -->
+    {% if page.description %}
       <section class="recipe-section">
-        <div class="section-header">
-          <h2><i class="fas fa-list"></i> Ingredients</h2>
-          <button class="clear-btn" onclick="clearAllIngredients()">Clear All</button>
+        <h2><i class="fas fa-book"></i> About This Recipe</h2>
+        <div class="recipe-description">
+          {{ page.description | markdownify }}
         </div>
-        <ul class="ingredients-list">
-          {% for ingredient in page.ingredients %}
-            <li class="ingredient-item">
-              <input type="checkbox" class="ingredient-checkbox">
-              <span class="ingredient-text">{{ ingredient }}</span>
-            </li>
-          {% endfor %}
-        </ul>
       </section>
+    {% endif %}
 
-      <!-- Instructions -->
+    <!-- Ingredients -->
+    <section class="recipe-section">
+      <div class="section-header">
+        <h2><i class="fas fa-list"></i> Ingredients</h2>
+        <button class="clear-btn" onclick="clearAllIngredients()">Clear All</button>
+      </div>
+      <ul class="ingredients-list">
+        {% for ingredient in page.ingredients %}
+          <li class="ingredient-item">
+            <input type="checkbox" class="ingredient-checkbox">
+            <span class="ingredient-text">{{ ingredient }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- Instructions -->
+    <section class="recipe-section">
+      <h2><i class="fas fa-tasks"></i> Instructions</h2>
+      <ol class="instructions-list">
+        {% for instruction in page.instructions %}
+          <li class="instruction-item">
+            <span class="instruction-number">{{ forloop.index }}</span>
+            <span class="instruction-text">{{ instruction }}</span>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+
+    <!-- Notes Section -->
+    {% if page.notes %}
       <section class="recipe-section">
-        <h2><i class="fas fa-tasks"></i> Instructions</h2>
-        <ol class="instructions-list">
-          {% for instruction in page.instructions %}
-            <li class="instruction-item">
-              <span class="instruction-number">{{ forloop.index }}</span>
-              <span class="instruction-text">{{ instruction }}</span>
-            </li>
-          {% endfor %}
-        </ol>
+        <h2><i class="fas fa-lightbulb"></i> Chef's Notes</h2>
+        <div class="recipe-notes">
+          {{ page.notes | markdownify }}
+        </div>
       </section>
+    {% endif %}
+  </div>
 
-      <!-- Content -->
-      {% if page.content %}
-        <section class="recipe-section">
-          <h2><i class="fas fa-info-circle"></i> About This Recipe</h2>
-          <div class="recipe-content">
-            {{ page.content }}
-          </div>
-        </section>
-      {% endif %}
+  <!-- Right Column (Sidebar) -->
+  <aside class="recipe-card-sidebar">
+    <!-- Nutrition Card -->
+    <div class="card nutrition-card">
+      <h3><i class="fas fa-apple-alt"></i> Nutrition (Per Serving)</h3>
+      <div class="nutrition-grid">
+        <div class="nutrition-item">
+          <span class="nutrition-value">{{ page.calories }}</span>
+          <span class="nutrition-label">Calories</span>
+        </div>
+        <div class="nutrition-item">
+          <span class="nutrition-value">{{ page.protein }}g</span>
+          <span class="nutrition-label">Protein</span>
+        </div>
+        <div class="nutrition-item">
+          <span class="nutrition-value">{{ page.carbs }}g</span>
+          <span class="nutrition-label">Carbs</span>
+        </div>
+        <div class="nutrition-item">
+          <span class="nutrition-value">{{ page.fat }}g</span>
+          <span class="nutrition-label">Fat</span>
+        </div>
+        <div class="nutrition-item">
+          <span class="nutrition-value">{{ page.fiber }}g</span>
+          <span class="nutrition-label">Fiber</span>
+        </div>
+        <div class="nutrition-item">
+          <span class="nutrition-value">{{ page.sugar }}g</span>
+          <span class="nutrition-label">Sugar</span>
+        </div>
+      </div>
     </div>
 
-    <!-- Right Column (Sidebar) -->
-    <aside class="recipe-card-sidebar">
-      <!-- Nutrition Card -->
-      <div class="card nutrition-card">
-        <h3><i class="fas fa-apple-alt"></i> Nutrition (Per Serving)</h3>
-        <div class="nutrition-grid">
-          <div class="nutrition-item">
-            <span class="nutrition-value">{{ page.calories }}</span>
-            <span class="nutrition-label">Calories</span>
-          </div>
-          <div class="nutrition-item">
-            <span class="nutrition-value">{{ page.protein }}g</span>
-            <span class="nutrition-label">Protein</span>
-          </div>
-          <div class="nutrition-item">
-            <span class="nutrition-value">{{ page.carbs }}g</span>
-            <span class="nutrition-label">Carbs</span>
-          </div>
-          <div class="nutrition-item">
-            <span class="nutrition-value">{{ page.fat }}g</span>
-            <span class="nutrition-label">Fat</span>
-          </div>
-          <div class="nutrition-item">
-            <span class="nutrition-value">{{ page.fiber }}g</span>
-            <span class="nutrition-label">Fiber</span>
-          </div>
-          <div class="nutrition-item">
-            <span class="nutrition-value">{{ page.sugar }}g</span>
-            <span class="nutrition-label">Sugar</span>
-          </div>
+    <!-- Recipe Info Card -->
+    <div class="card info-card">
+      <h3><i class="fas fa-info-circle"></i> Recipe Info</h3>
+      <div class="info-list">
+        <div class="info-row">
+          <span class="info-key">Course</span>
+          <span class="info-val">{{ page.course }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Cuisine</span>
+          <span class="info-val">{{ page.cuisine }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Servings</span>
+          <span class="info-val">{{ page.servings }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Prep Time</span>
+          <span class="info-val">{{ page.prepTime }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Cook Time</span>
+          <span class="info-val">{{ page.cookTime }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Total Time</span>
+          <span class="info-val">{{ page.totalTime }}</span>
         </div>
       </div>
+    </div>
 
-      <!-- Recipe Info Card -->
-      <div class="card info-card">
-        <h3><i class="fas fa-info-circle"></i> Recipe Info</h3>
-        <div class="info-list">
-          <div class="info-row">
-            <span class="info-key">Course</span>
-            <span class="info-val">{{ page.course }}</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">Cuisine</span>
-            <span class="info-val">{{ page.cuisine }}</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">Servings</span>
-            <span class="info-val">{{ page.servings }}</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">Prep Time</span>
-            <span class="info-val">{{ page.prepTime }}</span>
-          </div>
-          <div class="info-row">
-            <span class="info-key">Cook Time</span>
-            <span class="info-val">{{ page.cookTime }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Actions Card -->
-      <div class="card actions-card">
-        <button class="action-btn bookmark-btn" onclick="toggleBookmark(this)">
-          <i class="far fa-bookmark"></i> Save Recipe
-        </button>
-        <button class="action-btn share-btn" onclick="shareRecipe()">
-          <i class="fas fa-share-alt"></i> Share
-        </button>
-      </div>
-    </aside>
-  </div>
+    <!-- Actions Card -->
+    <div class="card actions-card">
+      <button class="action-btn bookmark-btn" onclick="toggleBookmark(this)">
+        <i class="far fa-bookmark"></i> Save Recipe
+      </button>
+      <button class="action-btn share-btn" onclick="shareRecipe()">
+        <i class="fas fa-share-alt"></i> Share
+      </button>
+    </div>
+  </aside>
+</div>
 </div>
 
 <!-- Print Styles -->
 <style>
-  @media print {
-    .print-controls,
-    .recipe-card-sidebar,
-    .clear-btn,
-    .action-btn,
-    header,
-    footer,
-    .email-signup-section {
-      display: none !important;
-    }
-
-    .recipe-card-container {
-      max-width: 100%;
-      padding: 0;
-    }
-
-    .recipe-card-header {
-      grid-template-columns: 1fr;
-      page-break-inside: avoid;
-    }
-
-    .recipe-card-content {
-      grid-template-columns: 1fr;
-    }
-
-    .ingredient-checkbox {
-      display: none;
-    }
-
-    .recipe-card-image {
-      max-height: 300px;
-    }
-
-    body {
-      background: white;
-    }
+@media print {
+  .print-controls,
+  .recipe-card-sidebar,
+  .clear-btn,
+  .action-btn,
+  header,
+  footer,
+  .email-signup-section {
+    display: none !important;
   }
+
+  .recipe-card-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .recipe-card-header {
+    grid-template-columns: 1fr;
+    page-break-inside: avoid;
+  }
+
+  .recipe-card-content {
+    grid-template-columns: 1fr;
+  }
+
+  .ingredient-checkbox {
+    display: none;
+  }
+
+  .recipe-card-image {
+    max-height: 300px;
+  }
+
+  body {
+    background: white;
+  }
+}
 </style>
 
 <!-- Recipe Scripts -->
 <script>
-  // Ingredient checkbox functionality
+// Ingredient checkbox functionality
+document.querySelectorAll('.ingredient-checkbox').forEach(checkbox => {
+  checkbox.addEventListener('change', function() {
+    const item = this.closest('.ingredient-item');
+    if (this.checked) {
+      item.classList.add('checked');
+    } else {
+      item.classList.remove('checked');
+    }
+  });
+});
+
+// Clear all ingredients
+function clearAllIngredients() {
   document.querySelectorAll('.ingredient-checkbox').forEach(checkbox => {
-    checkbox.addEventListener('change', function() {
-      const item = this.closest('.ingredient-item');
-      if (this.checked) {
-        item.classList.add('checked');
-      } else {
-        item.classList.remove('checked');
-      }
-    });
+    checkbox.checked = false;
+    checkbox.closest('.ingredient-item').classList.remove('checked');
   });
+}
 
-  // Clear all ingredients
-  function clearAllIngredients() {
-    document.querySelectorAll('.ingredient-checkbox').forEach(checkbox => {
-      checkbox.checked = false;
-      checkbox.closest('.ingredient-item').classList.remove('checked');
+// Save Recipe as JSON
+function saveRecipe() {
+  const recipe = {
+    title: document.querySelector('.recipe-card-title').textContent,
+    ingredients: Array.from(document.querySelectorAll('.ingredient-text')).map(el => el.textContent),
+    instructions: Array.from(document.querySelectorAll('.instruction-text')).map(el => el.textContent),
+    nutrition: {
+      calories: '{{ page.calories }}',
+      protein: '{{ page.protein }}',
+      carbs: '{{ page.carbs }}',
+      fat: '{{ page.fat }}'
+    }
+  };
+
+  const dataStr = JSON.stringify(recipe, null, 2);
+  const dataBlob = new Blob([dataStr], {type: 'application/json'});
+  const url = URL.createObjectURL(dataBlob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = '{{ page.title | slugify }}-recipe.json';
+  link.click();
+}
+
+// Bookmark functionality
+function toggleBookmark(btn) {
+  btn.classList.toggle('bookmarked');
+  const isBookmarked = btn.classList.contains('bookmarked');
+  localStorage.setItem('recipe-' + '{{ page.title | slugify }}', isBookmarked);
+  
+  if (isBookmarked) {
+    btn.innerHTML = '<i class="fas fa-bookmark"></i> Saved!';
+  } else {
+    btn.innerHTML = '<i class="far fa-bookmark"></i> Save Recipe';
+  }
+}
+
+// Check if recipe is bookmarked on load
+window.addEventListener('load', function() {
+  const isBookmarked = localStorage.getItem('recipe-' + '{{ page.title | slugify }}');
+  if (isBookmarked === 'true') {
+    const btn = document.querySelector('.bookmark-btn');
+    btn.classList.add('bookmarked');
+    btn.innerHTML = '<i class="fas fa-bookmark"></i> Saved!';
+  }
+});
+
+// Share functionality
+function shareRecipe() {
+  if (navigator.share) {
+    navigator.share({
+      title: '{{ page.title }}',
+      text: '{{ page.summary }}',
+      url: window.location.href
     });
-  }
-
-  // Save Recipe as JSON
-  function saveRecipe() {
-    const recipe = {
-      title: document.querySelector('.recipe-card-title').textContent,
-      ingredients: Array.from(document.querySelectorAll('.ingredient-text')).map(el => el.textContent),
-      instructions: Array.from(document.querySelectorAll('.instruction-text')).map(el => el.textContent),
-      nutrition: {
-        calories: '{{ page.calories }}',
-        protein: '{{ page.protein }}',
-        carbs: '{{ page.carbs }}',
-        fat: '{{ page.fat }}'
-      }
-    };
-
-    const dataStr = JSON.stringify(recipe, null, 2);
-    const dataBlob = new Blob([dataStr], {type: 'application/json'});
-    const url = URL.createObjectURL(dataBlob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = '{{ page.title | slugify }}-recipe.json';
-    link.click();
-  }
-
-  // Bookmark functionality
-  function toggleBookmark(btn) {
-    btn.classList.toggle('bookmarked');
-    const isBookmarked = btn.classList.contains('bookmarked');
-    localStorage.setItem('recipe-' + '{{ page.title | slugify }}', isBookmarked);
+  } else {
+    const url = window.location.href;
+    const text = `Check out this recipe: {{ page.title }} - ${url}`;
     
-    if (isBookmarked) {
-      btn.innerHTML = '<i class="fas fa-bookmark"></i> Saved!';
-    } else {
-      btn.innerHTML = '<i class="far fa-bookmark"></i> Save Recipe';
-    }
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Recipe link copied to clipboard!');
+    });
   }
-
-  // Check if recipe is bookmarked on load
-  window.addEventListener('load', function() {
-    const isBookmarked = localStorage.getItem('recipe-' + '{{ page.title | slugify }}');
-    if (isBookmarked === 'true') {
-      const btn = document.querySelector('.bookmark-btn');
-      btn.classList.add('bookmarked');
-      btn.innerHTML = '<i class="fas fa-bookmark"></i> Saved!';
-    }
-  });
-
-  // Share functionality
-  function shareRecipe() {
-    if (navigator.share) {
-      navigator.share({
-        title: '{{ page.title }}',
-        text: '{{ page.description }}',
-        url: window.location.href
-      });
-    } else {
-      const url = window.location.href;
-      const text = `Check out this recipe: {{ page.title }} - ${url}`;
-      
-      // Fallback: Copy to clipboard
-      navigator.clipboard.writeText(text).then(() => {
-        alert('Recipe link copied to clipboard!');
-      });
-    }
-  }
+}
 </script>
