@@ -62,3 +62,10 @@ collections:
     permalink: /quizzes/:slug/
 include:
   - _data
+# Ensure indexing is enabled
+noindex: false
+
+# Optional: Add these for better SEO
+title: "Buddha Bowls"
+description: "Coconut Bowls & Recipes"
+author: "Buddha Bowls"
