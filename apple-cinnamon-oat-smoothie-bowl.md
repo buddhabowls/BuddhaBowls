@@ -8,9 +8,6 @@ categories: []
 tags: []
 ---
 
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/apple-cinnamon-oat-smoothie-bowl)
 **Apple Cinnamon Oat Smoothie Bowl: A Cozy Buddha Bowl Breakfast**
 
 As the leaves turn and the mornings grow cooler, there’s nothing quite like the comforting flavors of apple and cinnamon to start your day with warmth and joy. The Apple Cinnamon Oat Smoothie Bowl is a delightful blend of autumnal flavors, offering a wholesome breakfast that feels like a hug in a bowl. Served in an eco-friendly coconut bowl, this smoothie bowl not only nourishes your body but also embraces a mindful, Buddha-inspired approach to eating, emphasizing balance, simplicity, and gratitude.
