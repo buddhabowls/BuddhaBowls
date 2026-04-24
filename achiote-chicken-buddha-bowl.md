@@ -7,10 +7,7 @@ excerpt: ""
 categories: []
 tags: []
 ---
-
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/achiote-chicken-buddha-bowl)Hey there, foodies!
+Hey there, foodies!
 
 Today, I’m super excited to share with you a delicious and healthy recipe for Achiote Chicken Buddha Bowl served in a coconut bowl. Not only is this dish a feast for your taste buds, but it’s also a treat for your eyes and soul. So, let’s dive right in and talk about this Mexican-inspired Buddha Bowl and how it can bring mindfulness to your mealtime.
 
