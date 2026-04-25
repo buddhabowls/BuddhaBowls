@@ -1,0 +1,37 @@
+---
+layout: recipe-card
+title: Coconut Oil and Mint Shampoo Bar
+summary: >
+  This coconut oil and mint shampoo bar is great for a cool, refreshing wash.
+description: >
+  This coconut oil and mint shampoo bar is great for a cool, refreshing wash.
+course: Main Course
+cuisine: American
+image: Coconut-Oil-Soap.png
+permalink: /recipes/coconut-oil-and-mint-shampoo-bar/
+servings: '2'
+prepTime: '10 mins'
+cookTime: '5 mins'
+totalTime: '15 mins'
+calories: '250'
+protein: '15'
+carbs: '30'
+fat: '8'
+fiber: '5'
+sugar: '10'
+sodium: '500'
+ingredients:
+  - coconut oil
+  - Distilled water
+  - Lye
+  - olive oil
+  - Peppermint essential oil
+instructions:
+  - Measure lye and water separately.
+  - Mix lye into water until dissolved.
+  - Melt coconut oil and olive oil.
+  - Combine oils and lye solution, add peppermint oil, blend until trace.
+  - Pour into molds and cure for 4-6 weeks.
+notes: >
+  <p>A refreshing shampoo bar that invigorates the scalp.</p>
+---
