@@ -8,7 +8,7 @@ description: >
 course: Main Course
 cuisine: American
 image: Coconut-Bowl-Soap-Dish_-1.jpg
-permalink: /recipes/coconut-oil-homemade-soap/
+permalink: /recipes/coconut-oil-soap/
 servings: '2'
 prepTime: '10 mins'
 cookTime: '5 mins'
