@@ -63,56 +63,34 @@ paypal_button_id: ZY8Y5QAZGZMHQ
         </p>
       </div>
 
-      <!-- Price & Availability -->
-      <div class="product-pricing">
-        <div class="price-section">
-          <span class="price">$16.99</span>
-          <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock (68 available)
-          </span>
-        </div>
-      </div>
-
-      <!-- Product Options -->
-      <div class="product-options">
-        <div class="option-group">
-          <label for="quantity">Quantity *</label>
-          <div class="quantity-selector">
-            <button onclick="decreaseQuantity()">−</button>
-            <input type="number" id="quantity" value="1" min="1" max="15">
-            <button onclick="increaseQuantity()">+</button>
-          </div>
-        </div>
-      </div>
-
       <!-- PayPal Add to Cart Button -->
       <div class="paypal-add-to-cart-wrapper">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-          <input type="hidden" name="cmd" value="_s-xclick" />
-          <input type="hidden" name="hosted_button_id" value="{{ page.paypal_button_id }}" />
-          <table>
-            <tr>
-              <td>
-                <input type="hidden" name="on0" value="Wood Finish"/>
-                Wood Finish
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <select name="os0">
-                  <option value="Light">
-                    Light
-                  </option>
-                  <option value="Dark">
-                    Dark
-                  </option>
-                </select>
-              </td>
-            </tr>
-          </table>
-          <input type="hidden" name="currency_code" value="USD" />
-          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
-        </form>
+  <input type="hidden" name="cmd" value="_s-xclick" />
+  <input type="hidden" name="hosted_button_id" value="ZY8Y5QAZGZMHQ" />
+  <table>
+    <tr>
+      <td>
+        <input type="hidden" name="on0" value="Wood Finish"/>
+        Wood Finish
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select name="os0">
+          <option value="Light">
+            Light
+          </option>
+          <option value="Dark">
+            Dark
+          </option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <input type="hidden" name="currency_code" value="USD" />
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
+</form>
       </div>
 
       <!-- Product Meta -->
