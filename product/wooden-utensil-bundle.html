@@ -14,6 +14,230 @@ featured: true
 image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --success: #4CAF50;
+  }
+
+  /* Hero Section */
+  .product-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
+
+  .product-badges {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Page Container */
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Product Container */
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Product Gallery */
+  .product-gallery { display: flex; flex-direction: column; gap: 1rem; }
+  .main-image { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; background: var(--light); }
+  .main-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .gallery-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .thumb { height: 80px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; object-fit: cover; }
+  .thumb:hover, .thumb.active { border-color: var(--primary); }
+
+  /* Product Info */
+  .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
+
+  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
+  .product-rating i { font-size: 0.9rem; }
+
+  .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
+  .product-description p { margin: 0; }
+
+  /* Pricing */
+  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
+  .price-section { display: flex; justify-content: space-between; align-items: center; }
+
+  .price-info { display: flex; align-items: center; gap: 0.8rem; }
+  .price-original { font-size: 1.2rem; color: var(--text-light); text-decoration: line-through; }
+  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+  .price-discount { background: #F44336; color: var(--white); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
+
+  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
+
+  /* Product Options */
+  .product-options { display: grid; gap: 1rem; }
+  .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .option-group label { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+
+  .wood-selector { display: grid; gap: 0.8rem; }
+  .wood-option { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border: 2px solid var(--light); border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+  .wood-option:hover { border-color: var(--primary); background: rgba(13, 148, 136, 0.05); }
+  .wood-option input[type="radio"] { margin-top: 0.2rem; cursor: pointer; accent-color: var(--primary); }
+  .wood-label { display: flex; flex-direction: column; gap: 0.2rem; }
+  .wood-label strong { color: var(--primary); font-size: 0.95rem; }
+  .wood-label small { color: var(--text-light); font-size: 0.8rem; }
+
+  .quantity-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .quantity-selector button { width: 36px; height: 36px; border: 2px solid var(--light); background: var(--white); border-radius: 6px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
+  .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
+  .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
+
+  /* PayPal Placeholder */
+  .paypal-placeholder { background: var(--light); padding: 1.2rem; border-radius: 8px; text-align: center; border: 2px dashed var(--primary); }
+  .paypal-placeholder p { color: var(--text-light); margin: 0; font-size: 0.9rem; }
+
+  /* Product Meta */
+  .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
+  .meta-item { display: flex; gap: 0.8rem; }
+  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
+  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
+  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
+
+  /* Bundle Contents */
+  .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .bundle-contents h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
+
+  .bundles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .bundle-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; border: 2px solid transparent; transition: all 0.3s ease; }
+  .bundle-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+  .bundle-card.featured { border-color: var(--primary); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.2); }
+
+  .bundle-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; position: relative; }
+  .bundle-header h3 { color: var(--primary); margin: 0; font-size: 1.3rem; }
+  .bundle-badge { background: var(--primary); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; position: absolute; top: -10px; right: 0; }
+
+  .bundle-items { display: grid; gap: 1rem; }
+  .bundle-item { display: flex; gap: 0.8rem; }
+  .bundle-item i { color: var(--primary); font-weight: bold; margin-top: 0.2rem; }
+  .bundle-item h4 { color: var(--primary); margin: 0 0 0.2rem 0; font-size: 0.95rem; }
+  .bundle-item p { color: var(--text-light); margin: 0; font-size: 0.85rem; }
+
+  /* Wood Comparison Grid */
+  .wood-comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+  .wood-comparison-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); border-radius: 12px; overflow: hidden; }
+  .wood-comparison-header { height: 120px; border-radius: 12px 12px 0 0; }
+  .wood-comparison-card h3 { color: var(--primary); padding: 1.5rem 1.5rem 0; margin: 0; font-size: 1.2rem; }
+  .wood-comparison-details { padding: 1rem 1.5rem 1.5rem; }
+  .wood-comparison-details p { color: var(--text-light); font-size: 0.9rem; margin: 0.6rem 0; line-height: 1.5; }
+  .wood-comparison-details strong { color: var(--primary); }
+
+  /* Why Choose Grid */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .why-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .why-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .why-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .why-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Sustainability Grid */
+  .sustainability-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .sustainability-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .sustainability-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .sustainability-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .sustainability-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Tabs */
+  .product-details-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .tabs-container { display: flex; flex-direction: column; }
+  .tab-buttons { display: flex; gap: 0.8rem; border-bottom: 2px solid var(--light); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab-btn { background: none; border: none; padding: 0.8rem 1.2rem; color: var(--text-light); font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.4rem; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 0.95rem; }
+  .tab-btn:hover { color: var(--primary); }
+  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
+  .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
+  .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .tab-content li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.95rem; }
+  .tab-content li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  /* Bundle Comparison */
+  .bundle-comparison { border: 1px solid var(--light); border-radius: 8px; overflow: hidden; }
+  .comparison-row { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--light); padding: 1rem; }
+  .comparison-row:last-child { border-bottom: none; }
+  .comparison-row:nth-child(even) { background: var(--light); }
+  .comparison-row.total { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); font-weight: 700; }
+  .comparison-label { color: var(--text); }
+  .comparison-essentials { text-align: left; color: var(--text-light); }
+
+  /* Features Grid */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .feature-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; text-align: center; }
+  .feature-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+  .feature-item h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
+  .feature-item p { color: var(--text-light); font-size: 0.8rem; margin: 0; }
+
+  /* Care Sections */
+  .care-section { margin-bottom: 1.5rem; }
+  .care-section h4 { color: var(--primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .product-container { grid-template-columns: 1fr; }
+    .product-meta { grid-template-columns: 1fr; }
+    .tab-buttons { flex-direction: column; }
+    .bundles-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .sustainability-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .product-hero h1 { font-size: 1.8rem; }
+    .product-badges { flex-direction: column; align-items: center; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .sustainability-grid { grid-template-columns: 1fr; }
+    .wood-comparison-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
 <!-- HERO SECTION -->
 <section class="product-hero">
   <div class="product-hero-content">
@@ -22,7 +246,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
     <div class="product-badges">
       <span class="badge eco"><i class="fas fa-leaf"></i> 100% Eco-Friendly</span>
       <span class="badge gift"><i class="fas fa-gift"></i> Perfect Gift</span>
-      <span class="badge sale"><i class="fas fa-tag"></i> Save 20%</span>
+      <span class="badge sale"><i class="fas fa-tag"></i> Save 44%</span>
     </div>
   </div>
 </section>
@@ -30,7 +254,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
 <!-- PRODUCT CONTENT -->
 <section class="page-container">
   <div class="product-container">
-    <!-- Product Gallery -->
+    <!-- Product Gallery (Left) -->
     <section class="product-gallery">
       <div class="main-image">
         <img src="https://i.ibb.co/pvg1XPCx/utensil-bundle.png" alt="Wooden Utensil Bundle" loading="lazy">
@@ -40,7 +264,9 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
         <img src="https://i.ibb.co/hx2sVg0C/Coconut-Utensils.png" alt="Coconut Palm Wood Utensils" class="thumb" loading="lazy">
         <img src="https://i.ibb.co/4nJV1ZHB/bamboo-straw.jpg" alt="Straw Brush" class="thumb" loading="lazy">
       </div>
-       <!-- Product Info -->
+    </section>
+
+    <!-- Product Info (Right) -->
     <section class="product-info">
       <div class="product-header">
         <h2>Wooden Utensil Bundle</h2>
@@ -55,31 +281,61 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
       </div>
 
       <div class="product-description">
-        <p>
-          Are you looking for a unique and eco-friendly addition to your kitchen? This beautifully crafted wooden utensils bundle is perfect for everyday use or special occasions. A must-have for anyone who appreciates natural materials and sustainable living. Bring a touch of nature into your kitchen with this exquisite set!
-        </p>
+        <p>Are you looking for a unique and eco-friendly addition to your kitchen? This beautifully crafted wooden utensils bundle is perfect for everyday use or special occasions. A must-have for anyone who appreciates natural materials and sustainable living. Bring a touch of nature into your kitchen with this exquisite set!</p>
       </div>
 
       <!-- Price & Availability -->
       <div class="product-pricing">
         <div class="price-section">
           <div class="price-info">
-            <span class="price-original">$24.99</span>
-            <span class="price">$19.99</span>
-            <span class="price-discount">20% OFF</span>
+            <span class="price-original">${{ page.price }}</span>
+            <span class="price">${{ page.sale_price }}</span>
+            <span class="price-discount">44% OFF</span>
           </div>
           <span class="availability in-stock">
             <i class="fas fa-check-circle"></i> In Stock
           </span>
         </div>
-          <!-- PayPal Placeholder -->
+      </div>
+
+      <!-- Product Options -->
+      <div class="product-options">
+        <div class="option-group">
+          <label>Wood Type *</label>
+          <div class="wood-selector">
+            <label class="wood-option">
+              <input type="radio" name="wood-type" value="coconut-palm" checked>
+              <div class="wood-label">
+                <strong>Light Coconut Palm</strong>
+                <small>Warm, golden tones</small>
+              </div>
+            </label>
+            <label class="wood-option">
+              <input type="radio" name="wood-type" value="ebony">
+              <div class="wood-label">
+                <strong>Dark Ebony</strong>
+                <small>Deep, rich black</small>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="option-group">
+          <label for="quantity">Quantity *</label>
+          <div class="quantity-selector">
+            <button onclick="decreaseQuantity()">−</button>
+            <input type="number" id="quantity" value="1" min="1" max="20">
+            <button onclick="increaseQuantity()">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PayPal Placeholder -->
       <div class="paypal-placeholder">
         <p><small>PayPal payment button will be added here</small></p>
       </div>
-    </section>
-      </div>
 
-       <!-- Product Meta -->
+      <!-- Product Meta -->
       <div class="product-meta">
         <div class="meta-item">
           <i class="fas fa-box"></i>
@@ -289,7 +545,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
 
       <div class="why-card">
         <div class="why-icon">
-          <i class="fas fa-pan-food"></i>
+          <i class="fas fa-utensils"></i>
         </div>
         <h3>Cookware Friendly</h3>
         <p>Won't scratch pots and pans like metal utensils</p>
@@ -314,9 +570,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
           <i class="fas fa-tree"></i>
         </div>
         <h3>Coconut Palm Wood</h3>
-        <p>
-          Coconut trees begin bearing fruit within 4 years and produce for around 60 years. When plantations cut down these trees, much of the palm wood is burned as waste. We rescue this sustainable material to create beautiful utensils, reducing waste and supporting circular economy practices.
-        </p>
+        <p>Coconut trees begin bearing fruit within 4 years and produce for around 60 years. When plantations cut down these trees, much of the palm wood is burned as waste. We rescue this sustainable material to create beautiful utensils, reducing waste and supporting circular economy practices.</p>
       </div>
 
       <div class="sustainability-card">
@@ -324,9 +578,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
           <i class="fas fa-recycle"></i>
         </div>
         <h3>Reclaimed Ebony Wood</h3>
-        <p>
-          Our dark ebony utensils are made from reclaimed off-cuts from ebony wooden furniture craftsmen. By using these materials that would otherwise be discarded, we reduce waste and give new life to beautiful wood that deserves to be appreciated.
-        </p>
+        <p>Our dark ebony utensils are made from reclaimed off-cuts from ebony wooden furniture craftsmen. By using these materials that would otherwise be discarded, we reduce waste and give new life to beautiful wood that deserves to be appreciated.</p>
       </div>
 
       <div class="sustainability-card">
@@ -334,9 +586,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
           <i class="fas fa-hammer"></i>
         </div>
         <h3>Handcrafted Quality</h3>
-        <p>
-          Each utensil is individually cut, sanded, and cleaned by skilled artisans. A virgin coconut oil polish is applied to enhance the natural beauty and protect the wood. Every piece is unique, just like you!
-        </p>
+        <p>Each utensil is individually cut, sanded, and cleaned by skilled artisans. A virgin coconut oil polish is applied to enhance the natural beauty and protect the wood. Every piece is unique, just like you!</p>
       </div>
     </div>
   </section>
@@ -362,9 +612,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
       <!-- Description Tab -->
       <div class="tab-content active" id="description">
         <h3>Discover the Beauty and Functionality of Wooden Utensils</h3>
-        <p>
-          Bring a touch of nature into your kitchen with this exquisite wooden utensils bundle. Whether you choose the light coconut palm wood or the dark ebony wood, you'll enjoy the perfect blend of functionality, sustainability, and beauty.
-        </p>
+        <p>Bring a touch of nature into your kitchen with this exquisite wooden utensils bundle. Whether you choose the light coconut palm wood or the dark ebony wood, you'll enjoy the perfect blend of functionality, sustainability, and beauty.</p>
         <h4>Perfect for Every Occasion:</h4>
         <ul>
           <li>Everyday dining with natural elegance</li>
@@ -498,7 +746,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
         </div>
 
         <div class="care-section">
-          <h4><i class="fas fa-storage"></i> Storage Tips</h4>
+          <h4><i class="fas fa-box"></i> Storage Tips</h4>
           <ul>
             <li>Store in the included canvas pouch for protection</li>
             <li>Keep in a cool, dry location</li>
@@ -510,257 +758,7 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
       </div>
     </div>
   </section>
-
-<style>
-  :root {
-    --primary: #0D9488;
-    --secondary: #14B8A6;
-    --accent: #FFD700;
-    --light: #F0FDFA;
-    --white: #FFFFFF;
-    --text: #333;
-    --text-light: #666;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --success: #4CAF50;
-  }
-
-  /* Hero Section */
-  .product-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: var(--white);
-    padding: 3rem 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-  .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
-
-  .product-badges {
-    display: flex;
-    gap: 0.8rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  /* Product Container */
-  .product-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    margin-bottom: 3rem;
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-  }
-
-  /* Product Gallery */
-  .product-gallery { display: flex; flex-direction: column; gap: 1rem; }
-  .main-image { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; background: var(--light); }
-  .main-image img { width: 100%; height: 100%; object-fit: cover; }
-
-  .gallery-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
-  .thumb { height: 80px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; object-fit: cover; }
-  .thumb:hover, .thumb.active { border-color: var(--primary); }
-
-  /* Product Info */
-  .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
-  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
-
-  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
-  .product-rating i { font-size: 0.9rem; }
-
-  .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
-  .product-description p { margin: 0; }
-
-  /* Pricing */
-  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
-  .price-section { display: flex; justify-content: space-between; align-items: center; }
-
-  .price-info { display: flex; align-items: center; gap: 0.8rem; }
-  .price-original { font-size: 1.2rem; color: var(--text-light); text-decoration: line-through; }
-  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
-  .price-discount { background: #F44336; color: var(--white); padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 700; }
-
-  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
-  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
-
-  /* Product Options */
-  .product-options { display: grid; gap: 1rem; }
-  .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .option-group label { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
-
-  .wood-selector { display: grid; gap: 0.8rem; }
-  .wood-option { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem; border: 2px solid var(--light); border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
-  .wood-option:hover { border-color: var(--primary); background: rgba(13, 148, 136, 0.05); }
-  .wood-option input[type="radio"] { margin-top: 0.2rem; cursor: pointer; accent-color: var(--primary); }
-  .wood-label { display: flex; flex-direction: column; gap: 0.2rem; }
-  .wood-label strong { color: var(--primary); font-size: 0.95rem; }
-  .wood-label small { color: var(--text-light); font-size: 0.8rem; }
-
-  .quantity-selector { display: flex; gap: 0.4rem; align-items: center; }
-  .quantity-selector button { width: 36px; height: 36px; border: 2px solid var(--light); background: var(--white); border-radius: 6px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
-  .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
-  .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
-
-  /* Product Actions */
-  .product-actions { display: grid; grid-template-columns: 1fr auto; gap: 0.8rem; }
-  .btn-purchase { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: var(--white); border: none; padding: 0.9rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-  .btn-purchase:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(13, 148, 136, 0.3); }
-
-  .btn-wishlist { width: 44px; height: 44px; border: 2px solid var(--light); background: var(--white); border-radius: 8px; cursor: pointer; font-size: 1.1rem; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; color: var(--primary); }
-  .btn-wishlist:hover { border-color: var(--primary); background: var(--light); }
-
-  /* PayPal Placeholder */
-  .paypal-placeholder { background: var(--light); padding: 1.2rem; border-radius: 8px; text-align: center; border: 2px dashed var(--primary); }
-  .paypal-placeholder p { color: var(--text-light); margin: 0; font-size: 0.9rem; }
-
-  /* Product Meta */
-  .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
-  .meta-item { display: flex; gap: 0.8rem; }
-  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
-  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
-  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
-
-  /* Bundle Contents */
-  .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
-  .bundle-contents h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
-
-  .bundles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .bundle-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; border: 2px solid transparent; transition: all 0.3s ease; }
-  .bundle-card:hover { border-color: var(--primary); transform: translateY(-5px); }
-  .bundle-card.featured { border-color: var(--primary); box-shadow: 0 8px 20px rgba(13, 148, 136, 0.2); }
-
-  .bundle-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; position: relative; }
-  .bundle-header h3 { color: var(--primary); margin: 0; font-size: 1.3rem; }
-  .bundle-price { color: var(--primary); font-weight: 700; font-size: 1.5rem; }
-  .bundle-badge { background: var(--primary); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; position: absolute; top: -10px; right: 0; }
-
-  .bundle-items { display: grid; gap: 1rem; margin-bottom: 1.5rem; }
-  .bundle-item { display: flex; gap: 0.8rem; }
-  .bundle-item i { color: var(--primary); font-weight: bold; margin-top: 0.2rem; }
-  .bundle-item h4 { color: var(--primary); margin: 0 0 0.2rem 0; font-size: 0.95rem; }
-  .bundle-item p { color: var(--text-light); margin: 0; font-size: 0.85rem; }
-
-  /* Wood Comparison Grid */
-  .wood-comparison-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-  .wood-comparison-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); border-radius: 12px; overflow: hidden; }
-  .wood-comparison-header { height: 120px; border-radius: 12px 12px 0 0; }
-  .wood-comparison-card h3 { color: var(--primary); padding: 1.5rem 1.5rem 0; margin: 0; font-size: 1.2rem; }
-  .wood-comparison-details { padding: 1rem 1.5rem 1.5rem; }
-  .wood-comparison-details p { color: var(--text-light); font-size: 0.9rem; margin: 0.6rem 0; line-height: 1.5; }
-  .wood-comparison-details strong { color: var(--primary); }
-
-  /* Why Choose Grid */
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-  .why-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
-  .why-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
-  .why-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
-  .why-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
-
-  /* Sustainability Grid */
-  .sustainability-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-  .sustainability-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
-  .sustainability-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
-  .sustainability-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
-  .sustainability-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
-
-  /* Tabs */
-  .product-details-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
-  .tabs-container { display: flex; flex-direction: column; }
-  .tab-buttons { display: flex; gap: 0.8rem; border-bottom: 2px solid var(--light); margin-bottom: 1.5rem; flex-wrap: wrap; }
-  .tab-btn { background: none; border: none; padding: 0.8rem 1.2rem; color: var(--text-light); font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.4rem; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 0.95rem; }
-  .tab-btn:hover { color: var(--primary); }
-  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
-  .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
-  .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
-  .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
-  .tab-content li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.95rem; }
-  .tab-content li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-
-  /* Bundle Comparison */
-  .bundle-comparison { border: 1px solid var(--light); border-radius: 8px; overflow: hidden; }
-  .comparison-row { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--light); padding: 1rem; }
-  .comparison-row:last-child { border-bottom: none; }
-  .comparison-row:nth-child(even) { background: var(--light); }
-  .comparison-row.total { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); font-weight: 700; }
-  .comparison-label { color: var(--text); }
-  .comparison-essentials { text-align: left; color: var(--text-light); }
-
-  /* Features Grid */
-  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
-  .feature-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; text-align: center; }
-  .feature-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
-  .feature-item h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
-  .feature-item p { color: var(--text-light); font-size: 0.8rem; margin: 0; }
-
-  /* Care Sections */
-  .care-section { margin-bottom: 1.5rem; }
-  .care-section h4 { color: var(--primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
-
-  /* Related Products */
-  .related-products { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
-  .related-products h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
-  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
-  .related-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; }
-  .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .related-image { width: 100%; height: 140px; overflow: hidden; background: var(--white); }
-  .related-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-  .related-card:hover .related-image img { transform: scale(1.05); }
-  .related-card h3 { color: var(--primary); padding: 0.8rem 0.8rem 0; margin: 0; font-size: 0.95rem; }
-  .related-card p { color: var(--text-light); padding: 0 0.8rem; font-size: 0.8rem; margin: 0.2rem 0; }
-  .related-price { color: var(--primary); font-weight: 700; font-size: 1rem; padding: 0.4rem 0.8rem; }
-  .btn-small { width: calc(100% - 1.6rem); margin: 0 0.8rem 0.8rem; padding: 0.6rem; background: var(--primary); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
-  .btn-small:hover { background: var(--secondary); }
-
-  /* Reviews */
-  .reviews-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); }
-  .reviews-section h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
-  .reviews-container { display: grid; gap: 1rem; }
-  .review-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
-  .review-header { display: flex; gap: 0.8rem; margin-bottom: 0.8rem; }
-  .review-rating { display: flex; gap: 0.2rem; color: var(--accent); font-size: 0.8rem; white-space: nowrap; }
-  .review-info strong { color: var(--primary); display: block; font-size: 0.9rem; }
-  .review-info p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
-  .review-item p { color: var(--text-light); line-height: 1.6; margin: 0; font-size: 0.9rem; }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .product-container { grid-template-columns: 1fr; }
-    .product-meta { grid-template-columns: 1fr; }
-    .tab-buttons { flex-direction: column; }
-    .bundles-grid { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .sustainability-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 768px) {
-    .product-hero h1 { font-size: 1.8rem; }
-    .product-badges { flex-direction: column; align-items: center; }
-    .related-grid { grid-template-columns: repeat(2, 1fr); }
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-grid { grid-template-columns: 1fr; }
-    .sustainability-grid { grid-template-columns: 1fr; }
-    .wood-comparison-grid { grid-template-columns: 1fr; }
-  }
-</style>
+</section>
 
 <script>
   function switchTab(tabName) {
@@ -786,11 +784,5 @@ image: "https://buddhabowls.org/wp-content/uploads/2024/11/utensil-bundle.png"
     const input = document.getElementById('quantity');
     const min = input.getAttribute('min');
     input.value = Math.max(parseInt(input.value) - 1, parseInt(min));
-  }
-
-  function handlePurchase() {
-    const quantity = document.getElementById('quantity').value;
-    const woodType = document.querySelector('input[name="wood-type"]:checked').value;
-    console.log(`Purchase initiated: ${quantity} Wooden Utensil Bundle(s) in ${woodType} wood`);
   }
 </script>
