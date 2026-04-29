@@ -69,9 +69,32 @@ image: "https://i.ibb.co/ZRw5psYk/coconut-shell-candle.jpg"
           </span>
       </div>
                 <!-- PayPal Button Placeholder -->
-           <div class="paypal-placeholder">
-        <p><small>PayPal payment button will be added here</small></p>
-      </div>
+         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+  <input type="hidden" name="cmd" value="_s-xclick" />
+  <input type="hidden" name="hosted_button_id" value="6A8D7GC7EB8AU" />
+  <table>
+    <tr>
+      <td>
+        <input type="hidden" name="on0" value="Scent"/>
+        Scent
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <select name="os0">
+          <option value="Coconut Woods">
+            Coconut Woods
+          </option>
+          <option value="Seabreeze">
+            Seabreeze
+          </option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <input type="hidden" name="currency_code" value="USD" />
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
+</form>
         </div>
       </div>   
       </div>    
