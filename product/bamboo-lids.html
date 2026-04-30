@@ -163,6 +163,73 @@ image: "https://i.ibb.co/7dd6smFj/lid.jpg"
     margin: 0;
   }
 
+  /* IMPROVED PRICE SECTION */
+  .product-pricing {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 2px solid var(--primary);
+  }
+
+  .price-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .price-display {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .price-info {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+  }
+
+  .price-original {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+    opacity: 0.7;
+  }
+
+  .price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+
+  .price-discount {
+    background: #F44336;
+    color: var(--white);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .availability {
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    background: rgba(76, 175, 80, 0.15);
+    color: var(--success);
+    width: fit-content;
+  }
+
+  .availability i {
+    font-size: 1rem;
+  }
+
   /* PayPal Form */
   .paypal-form-wrapper {
     background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
@@ -395,6 +462,11 @@ image: "https://i.ibb.co/7dd6smFj/lid.jpg"
     .spec-row {
       grid-template-columns: 1fr;
     }
+
+    .price-display {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   @media (max-width: 768px) {
@@ -409,6 +481,14 @@ image: "https://i.ibb.co/7dd6smFj/lid.jpg"
 
     .features-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+
+    .price {
+      font-size: 1.8rem;
+    }
+
+    .price-original {
+      font-size: 0.95rem;
     }
   }
 </style>
@@ -458,19 +538,23 @@ image: "https://i.ibb.co/7dd6smFj/lid.jpg"
       <div class="product-description">
         <p>Preserve your food and your intentions with our Bamboo Lids. These natural covers maintain the freshness of your meals while reminding you of the importance of reducing waste. Join the movement towards eco-friendly and aesthetically pleasing food storage with our bamboo lids today!</p>
       </div>
-   <!-- Price & Availability -->
+
+      <!-- IMPROVED PRICE & AVAILABILITY -->
       <div class="product-pricing">
         <div class="price-section">
-          <div class="price-info">
-            <span class="price-original">$2.99</span>
-            <span class="price">$1.99</span>
-            <span class="price-discount">20% OFF</span>
+          <div class="price-display">
+            <div class="price-info">
+              <span class="price-original">$2.99</span>
+              <span class="price">$1.99</span>
+            </div>
+            <span class="price-discount">33% OFF</span>
           </div>
-          <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock
+          <span class="availability">
+            <i class="fas fa-check-circle"></i> In Stock (15 available)
           </span>
         </div>
       </div>
+
       <!-- PayPal Form -->
       <div class="paypal-form-wrapper">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
