@@ -14,6 +14,217 @@ image: "https://i.ibb.co/J8VPChm/coconut-bowl.jpg"
 paypal_button_id: Y9RS24NKQ82Q4
 ---
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+  :root {
+    --primary: #0D9488;
+    --secondary: #14B8A6;
+    --accent: #FFD700;
+    --light: #F0FDFA;
+    --white: #FFFFFF;
+    --text: #333;
+    --text-light: #666;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --success: #4CAF50;
+  }
+
+  /* Hero Section */
+  .product-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+  .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
+
+  .product-badges {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* Page Container */
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Product Container */
+  .product-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+  }
+
+  /* Product Gallery */
+  .product-gallery { display: flex; flex-direction: column; gap: 1rem; }
+  .main-image { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; background: var(--light); }
+  .main-image img { width: 100%; height: 100%; object-fit: cover; }
+
+  .gallery-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
+  .thumb { height: 80px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; object-fit: cover; }
+  .thumb:hover, .thumb.active { border-color: var(--primary); }
+
+  /* Product Info */
+  .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
+  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
+
+  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
+  .product-rating i { font-size: 0.9rem; }
+
+  .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
+  .product-description p { margin: 0; }
+
+  /* Pricing */
+  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
+  .price-section { display: flex; justify-content: space-between; align-items: center; }
+
+  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
+  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
+
+  /* Product Options */
+  .product-options { display: grid; gap: 1rem; }
+  .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .option-group label { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+
+  .quantity-selector { display: flex; gap: 0.4rem; align-items: center; }
+  .quantity-selector button { width: 36px; height: 36px; border: 2px solid var(--light); background: var(--white); border-radius: 6px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
+  .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
+  .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
+
+  /* PayPal Add to Cart */
+  .paypal-add-to-cart-wrapper {
+    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
+    padding: 1.2rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .paypal-add-to-cart-wrapper form {
+    display: inline-block;
+  }
+
+  .paypal-add-to-cart-wrapper input[type="image"] {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .paypal-add-to-cart-wrapper input[type="image"]:hover {
+    transform: scale(1.05);
+  }
+
+  /* Bundle Contents */
+  .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .bundle-contents h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
+
+  /* Items Grid */
+  .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .item-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .item-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .item-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .item-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Story Container */
+  .story-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .story-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 2rem; border-radius: 12px; }
+  .story-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+  .story-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem; }
+  .story-card p { color: var(--text-light); margin: 0; font-size: 0.95rem; line-height: 1.7; }
+
+  /* Impact Grid */
+  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .impact-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .impact-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
+  .impact-card p { color: var(--text-light); margin: 0; font-size: 0.95rem; line-height: 1.6; }
+
+  /* Why Choose Grid */
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+  .why-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
+  .why-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
+  .why-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
+  .why-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
+
+  /* Tabs */
+  .product-details-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
+  .tabs-container { display: flex; flex-direction: column; }
+  .tab-buttons { display: flex; gap: 0.8rem; border-bottom: 2px solid var(--light); margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .tab-btn { background: none; border: none; padding: 0.8rem 1.2rem; color: var(--text-light); font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.4rem; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 0.95rem; }
+  .tab-btn:hover { color: var(--primary); }
+  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
+  .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
+  .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
+  .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
+  .tab-content li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.95rem; }
+  .tab-content li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+
+  /* Bundle Comparison */
+  .bundle-comparison { border: 1px solid var(--light); border-radius: 8px; overflow: hidden; }
+  .comparison-row { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--light); padding: 1rem; }
+  .comparison-row:last-child { border-bottom: none; }
+  .comparison-row:nth-child(even) { background: var(--light); }
+  .comparison-row.total { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); font-weight: 700; }
+  .comparison-label { color: var(--text); }
+  .comparison-essentials { text-align: left; color: var(--text-light); }
+
+  /* Features Grid */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .feature-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; text-align: center; }
+  .feature-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
+  .feature-item h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
+  .feature-item p { color: var(--text-light); font-size: 0.8rem; margin: 0; }
+
+  /* Care Sections */
+  .care-section { margin-bottom: 1.5rem; }
+  .care-section h4 { color: var(--primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .product-container { grid-template-columns: 1fr; }
+    .tab-buttons { flex-direction: column; }
+    .story-container { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .items-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .product-hero h1 { font-size: 1.8rem; }
+    .product-badges { flex-direction: column; align-items: center; }
+    .features-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid { grid-template-columns: 1fr; }
+    .items-grid { grid-template-columns: 1fr; }
+    .story-container { grid-template-columns: 1fr; }
+    .impact-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
 <!-- HERO SECTION -->
 <section class="product-hero">
   <div class="product-hero-content">
@@ -30,19 +241,19 @@ paypal_button_id: Y9RS24NKQ82Q4
 <!-- PRODUCT CONTENT -->
 <section class="page-container">
   <div class="product-container">
-    <!-- Product Gallery -->
+    <!-- Product Gallery (Left) -->
     <section class="product-gallery">
       <div class="main-image">
         <img src="https://i.ibb.co/J8VPChm/coconut-bowl.jpg" alt="Coconut Bowl Zero Waste Set" loading="lazy">
       </div>
       <div class="gallery-thumbs">
-        <img src="https://buddhabowls.org/wp-content/uploads/2025/12/shop-products.jpg" alt="Complete Set" class="thumb active" loading="lazy">
-        <img src="https://buddhabowls.org/wp-content/uploads/2025/12/shop-products.jpg" alt="Bowl Detail" class="thumb" loading="lazy">
-        <img src="https://buddhabowls.org/wp-content/uploads/2025/12/shop-products.jpg" alt="Utensils" class="thumb" loading="lazy">
+        <img src="https://i.ibb.co/JjWgVG2Q/product-pics.jpg" alt="Complete Set" class="thumb active" loading="lazy">
+        <img src="https://i.ibb.co/qFpfvfqK/ebony-utensils.jpg" alt="Bowl Detail" class="thumb" loading="lazy">
+        <img src="https://i.ibb.co/JFHMwGY7/bag.png" alt="Utensils" class="thumb" loading="lazy">
       </div>
     </section>
 
-    <!-- Product Info -->
+    <!-- Product Info (Right) -->
     <section class="product-info">
       <div class="product-header">
         <h2>Coconut Bowl Zero Waste Set</h2>
@@ -51,23 +262,21 @@ paypal_button_id: Y9RS24NKQ82Q4
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-          <span>(487 reviews)</span>
+          <i class="fas fa-star></i>
+          <span>(7487 reviews)</span>
         </div>
       </div>
 
       <div class="product-description">
-        <p>
-          Introducing the bowl that started it all! The original handcrafted coconut bowls—100% natural and made entirely from real rescued organic coconut shells. This complete zero-waste set includes everything you need to embrace sustainable living. Join millions choosing natural solutions to plastic pollution, one coconut at a time.
-        </p>
+        <p>Introducing the bowl that started it all! The original handcrafted coconut bowls—100% natural and made entirely from real rescued organic coconut shells. This complete zero-waste set includes everything you need to embrace sustainable living. Join millions choosing natural solutions to plastic pollution, one coconut at a time.</p>
       </div>
 
       <!-- Price & Availability -->
       <div class="product-pricing">
         <div class="price-section">
-          <span class="price">$20.00</span>
+          <span class="price">${{ page.price }}</span>
           <span class="availability in-stock">
-            <i class="fas fa-check-circle"></i> In Stock 
+            <i class="fas fa-check-circle"></i> In Stock
           </span>
         </div>
       </div>
@@ -93,7 +302,8 @@ paypal_button_id: Y9RS24NKQ82Q4
           <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Add to Cart" />
         </form>
       </div>
-
+    </section>
+  </div>
 
   <!-- What's Included Section -->
   <section class="bundle-contents">
@@ -158,9 +368,7 @@ paypal_button_id: Y9RS24NKQ82Q4
           <i class="fas fa-globe"></i>
         </div>
         <h3>The Problem</h3>
-        <p>
-          Billions of coconuts are harvested each year for the coconut oil, water, and flesh industries. Tragically, 99% of their shells are discarded and burned as waste. Burning coconut shells not only misuses natural resources, it also contributes significantly to CO2 and methane emissions. Meanwhile, billions of plastic containers end up in landfills every year.
-        </p>
+        <p>Billions of coconuts are harvested each year for the coconut oil, water, and flesh industries. Tragically, 99% of their shells are discarded and burned as waste. Burning coconut shells not only misuses natural resources, it also contributes significantly to CO2 and methane emissions. Meanwhile, billions of plastic containers end up in landfills every year.</p>
       </div>
 
       <div class="story-card">
@@ -168,9 +376,7 @@ paypal_button_id: Y9RS24NKQ82Q4
           <i class="fas fa-lightbulb"></i>
         </div>
         <h3>Our Solution</h3>
-        <p>
-          We began up-cycling these shells into beautiful, sustainable bowls made from real coconuts. Each bowl is handcrafted from rescued organic coconut shells, giving them new life and purpose. By purchasing our products, you're actively supporting global sustainability and reducing plastic pollution.
-        </p>
+        <p>We began up-cycling these shells into beautiful, sustainable bowls made from real coconuts. Each bowl is handcrafted from rescued organic coconut shells, giving them new life and purpose. By purchasing our products, you're actively supporting global sustainability and reducing plastic pollution.</p>
       </div>
 
       <div class="story-card">
@@ -178,9 +384,7 @@ paypal_button_id: Y9RS24NKQ82Q4
           <i class="fas fa-heart"></i>
         </div>
         <h3>Your Impact</h3>
-        <p>
-          Join millions that have begun choosing natural solutions to plastic pollution. Every coconut bowl purchased is a vote for a healthier planet. Together, we're making the world a better place one coconut at a time. Mother Nature thanks you, and so do we.
-        </p>
+        <p>Join millions that have begun choosing natural solutions to plastic pollution. Every coconut bowl purchased is a vote for a healthier planet. Together, we're making the world a better place one coconut at a time. Mother Nature thanks you, and so do we.</p>
       </div>
     </div>
   </section>
@@ -283,9 +487,7 @@ paypal_button_id: Y9RS24NKQ82Q4
       <!-- Description Tab -->
       <div class="tab-content active" id="description">
         <h3>The Original Coconut Bowl—The Bowl That Started It All</h3>
-        <p>
-          This is the bowl that inspired a global movement toward sustainable living. Original handcrafted coconut bowls, 100% natural and made entirely from real rescued organic coconut shells after they have been extracted for their meat and water in an effort to reduce waste.
-        </p>
+        <p>This is the bowl that inspired a global movement toward sustainable living. Original handcrafted coconut bowls, 100% natural and made entirely from real rescued organic coconut shells after they have been extracted for their meat and water in an effort to reduce waste.</p>
         <h4>Our Mission:</h4>
         <ul>
           <li>Rescue coconut shells from waste and burning</li>
@@ -430,243 +632,7 @@ paypal_button_id: Y9RS24NKQ82Q4
       </div>
     </div>
   </section>
-
-<style>
-  :root {
-    --primary: #0D9488;
-    --secondary: #14B8A6;
-    --accent: #FFD700;
-    --light: #F0FDFA;
-    --white: #FFFFFF;
-    --text: #333;
-    --text-light: #666;
-    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --success: #4CAF50;
-  }
-
-  /* Hero Section */
-  .product-hero {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    color: var(--white);
-    padding: 3rem 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .product-hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-  .product-hero p { font-size: 1.1rem; margin-bottom: 1.5rem; opacity: 0.95; }
-
-  .product-badges {
-    display: flex;
-    gap: 0.8rem;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .badge {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  /* Product Container */
-  .product-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    margin-bottom: 3rem;
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
-  }
-
-  /* Product Gallery */
-  .product-gallery { display: flex; flex-direction: column; gap: 1rem; }
-  .main-image { width: 100%; height: 350px; border-radius: 8px; overflow: hidden; background: var(--light); }
-  .main-image img { width: 100%; height: 100%; object-fit: cover; }
-
-  .gallery-thumbs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; }
-  .thumb { height: 80px; border-radius: 6px; cursor: pointer; border: 2px solid transparent; transition: all 0.3s ease; object-fit: cover; }
-  .thumb:hover, .thumb.active { border-color: var(--primary); }
-
-  /* Product Info */
-  .product-info { display: flex; flex-direction: column; gap: 1.2rem; }
-  .product-header h2 { color: var(--primary); font-size: 1.8rem; margin-bottom: 0.3rem; }
-
-  .product-rating { display: flex; align-items: center; gap: 0.4rem; color: var(--accent); font-size: 0.85rem; }
-  .product-rating i { font-size: 0.9rem; }
-
-  .product-description { color: var(--text-light); line-height: 1.7; border-bottom: 1px solid var(--light); padding-bottom: 1.2rem; }
-  .product-description p { margin: 0; }
-
-  /* Pricing */
-  .product-pricing { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
-  .price-section { display: flex; justify-content: space-between; align-items: center; }
-
-  .price { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
-  .availability { padding: 0.4rem 0.8rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; }
-  .availability.in-stock { background: rgba(76, 175, 80, 0.2); color: var(--success); }
-
-  /* Product Options */
-  .product-options { display: grid; gap: 1rem; }
-  .option-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .option-group label { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
-
-  .quantity-selector { display: flex; gap: 0.4rem; align-items: center; }
-  .quantity-selector button { width: 36px; height: 36px; border: 2px solid var(--light); background: var(--white); border-radius: 6px; cursor: pointer; font-weight: 700; transition: all 0.3s ease; }
-  .quantity-selector button:hover { border-color: var(--primary); color: var(--primary); }
-  .quantity-selector input { flex: 1; text-align: center; padding: 0.7rem; border: 2px solid var(--light); border-radius: 6px; font-size: 0.95rem; }
-
-  /* PayPal Add to Cart */
-  .paypal-add-to-cart-wrapper {
-    background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%);
-    padding: 1.2rem;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .paypal-add-to-cart-wrapper form {
-    display: inline-block;
-  }
-
-  .paypal-add-to-cart-wrapper input[type="image"] {
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-
-  .paypal-add-to-cart-wrapper input[type="image"]:hover {
-    transform: scale(1.05);
-  }
-
-  /* Product Meta */
-  .product-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding-top: 1.2rem; border-top: 1px solid var(--light); }
-  .meta-item { display: flex; gap: 0.8rem; }
-  .meta-item i { font-size: 1.3rem; color: var(--primary); flex-shrink: 0; }
-  .meta-item strong { color: var(--primary); display: block; font-size: 0.9rem; }
-  .meta-item p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
-
-  /* Bundle Contents */
-  .bundle-contents { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
-  .bundle-contents h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; }
-
-  /* Items Grid */
-  .items-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-  .item-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
-  .item-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
-  .item-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
-  .item-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
-
-  /* Story Container */
-  .story-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .story-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 2rem; border-radius: 12px; }
-  .story-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
-  .story-card h3 { color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem; }
-  .story-card p { color: var(--text-light); margin: 0; font-size: 0.95rem; line-height: 1.7; }
-
-  /* Impact Grid */
-  .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-  .impact-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
-  .impact-number { font-size: 2.5rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem; }
-  .impact-card p { color: var(--text-light); margin: 0; font-size: 0.95rem; line-height: 1.6; }
-
-  /* Why Choose Grid */
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-  .why-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.5rem; border-radius: 12px; text-align: center; }
-  .why-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.8rem; }
-  .why-card h3 { color: var(--primary); margin-bottom: 0.8rem; font-size: 1.1rem; }
-  .why-card p { color: var(--text-light); margin: 0; font-size: 0.9rem; line-height: 1.6; }
-
-  /* Tabs */
-  .product-details-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
-  .tabs-container { display: flex; flex-direction: column; }
-  .tab-buttons { display: flex; gap: 0.8rem; border-bottom: 2px solid var(--light); margin-bottom: 1.5rem; flex-wrap: wrap; }
-  .tab-btn { background: none; border: none; padding: 0.8rem 1.2rem; color: var(--text-light); font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 0.4rem; border-bottom: 3px solid transparent; margin-bottom: -2px; font-size: 0.95rem; }
-  .tab-btn:hover { color: var(--primary); }
-  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
-
-  .tab-content { display: none; }
-  .tab-content.active { display: block; }
-  .tab-content h3 { color: var(--primary); font-size: 1.3rem; margin-bottom: 0.8rem; }
-  .tab-content h4 { color: var(--primary); margin-top: 1.2rem; margin-bottom: 0.6rem; font-size: 1rem; }
-  .tab-content p { color: var(--text-light); line-height: 1.7; margin-bottom: 0.8rem; }
-  .tab-content ul { list-style: none; padding: 0; margin-bottom: 0.8rem; }
-  .tab-content li { padding: 0.4rem 0 0.4rem 1.5rem; position: relative; color: var(--text-light); font-size: 0.95rem; }
-  .tab-content li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
-
-  /* Bundle Comparison */
-  .bundle-comparison { border: 1px solid var(--light); border-radius: 8px; overflow: hidden; }
-  .comparison-row { display: grid; grid-template-columns: 2fr 1fr; border-bottom: 1px solid var(--light); padding: 1rem; }
-  .comparison-row:last-child { border-bottom: none; }
-  .comparison-row:nth-child(even) { background: var(--light); }
-  .comparison-row.total { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); font-weight: 700; }
-  .comparison-label { color: var(--text); }
-  .comparison-essentials { text-align: left; color: var(--text-light); }
-
-  /* Features Grid */
-  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
-  .feature-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1rem; border-radius: 8px; text-align: center; }
-  .feature-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.5rem; }
-  .feature-item h4 { color: var(--primary); margin-bottom: 0.4rem; font-size: 0.9rem; }
-  .feature-item p { color: var(--text-light); font-size: 0.8rem; margin: 0; }
-
-  /* Care Sections */
-  .care-section { margin-bottom: 1.5rem; }
-  .care-section h4 { color: var(--primary); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.8rem; }
-
-  /* Related Products */
-  .related-products { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 2rem; }
-  .related-products h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
-  .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; }
-  .related-card { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); border-radius: 8px; overflow: hidden; transition: all 0.3s ease; }
-  .related-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-  .related-image { width: 100%; height: 140px; overflow: hidden; background: var(--white); }
-  .related-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
-  .related-card:hover .related-image img { transform: scale(1.05); }
-  .related-card h3 { color: var(--primary); padding: 0.8rem 0.8rem 0; margin: 0; font-size: 0.95rem; }
-  .related-card p { color: var(--text-light); padding: 0 0.8rem; font-size: 0.8rem; margin: 0.2rem 0; }
-  .related-price { color: var(--primary); font-weight: 700; font-size: 1rem; padding: 0.4rem 0.8rem; }
-  .btn-small { width: calc(100% - 1.6rem); margin: 0 0.8rem 0.8rem; padding: 0.6rem; background: var(--primary); color: var(--white); border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.3s ease; }
-  .btn-small:hover { background: var(--secondary); }
-
-  /* Reviews */
-  .reviews-section { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow); }
-  .reviews-section h2 { color: var(--primary); font-size: 1.6rem; margin-bottom: 1.5rem; }
-  .reviews-container { display: grid; gap: 1rem; }
-  .review-item { background: linear-gradient(135deg, var(--light) 0%, #E8F5F3 100%); padding: 1.2rem; border-radius: 8px; }
-  .review-header { display: flex; gap: 0.8rem; margin-bottom: 0.8rem; }
-  .review-rating { display: flex; gap: 0.2rem; color: var(--accent); font-size: 0.8rem; white-space: nowrap; }
-  .review-info strong { color: var(--primary); display: block; font-size: 0.9rem; }
-  .review-info p { color: var(--text-light); font-size: 0.8rem; margin: 0.2rem 0 0; }
-  .review-item p { color: var(--text-light); line-height: 1.6; margin: 0; font-size: 0.9rem; }
-
-  /* Responsive */
-  @media (max-width: 1024px) {
-    .product-container { grid-template-columns: 1fr; }
-    .product-meta { grid-template-columns: 1fr; }
-    .tab-buttons { flex-direction: column; }
-    .story-container { grid-template-columns: 1fr; }
-    .why-grid { grid-template-columns: repeat(2, 1fr); }
-    .items-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  @media (max-width: 768px) {
-    .product-hero h1 { font-size: 1.8rem; }
-    .product-badges { flex-direction: column; align-items: center; }
-    .related-grid { grid-template-columns: repeat(2, 1fr); }
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-grid { grid-template-columns: 1fr; }
-    .items-grid { grid-template-columns: 1fr; }
-    .story-container { grid-template-columns: 1fr; }
-    .impact-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-</style>
+</section>
 
 <script>
   function switchTab(tabName) {
