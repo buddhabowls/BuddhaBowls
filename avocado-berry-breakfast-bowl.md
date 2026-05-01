@@ -8,9 +8,6 @@ categories: []
 tags: []
 ---
 
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/avocado-berry-breakfast-bowl)
 **Start Your Day Right with an Avocado Berry Breakfast Bowl**
 
 Looking for a breakfast that’s not only delicious but also packed with nutrients to kickstart your day? Meet the Avocado Berry Breakfast Bowl—a vibrant, wholesome dish that’s as beautiful as it is nourishing. Served in a charming coconut bowl, this breakfast delight is a perfect blend of creamy, fruity, and sweet flavors. Plus, it’s super easy to make!
@@ -71,38 +68,7 @@ So why not give this recipe a try tomorrow? Your taste buds—and your body—wi
 
  
  
- 
- 
- 
- 
- 
- 
  ## Avocado Berry Breakfast Bowl
-
- 
- 
- 
- 
- 
- 
- [Print Recipe](https://buddhabowls.org/wprm_print/avocado-berry-breakfast-bowl)
- [Pin Recipe](https://www.pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fbuddhabowls.org%2Favocado-berry-breakfast-bowl%2F&media=https%3A%2F%2Fbuddhabowls.org%2Fwp-content%2Fuploads%2F2025%2F12%2FAvocado-Berry-Breakfast-Bowl.jpg&description=Avocado+Berry+Breakfast+Bowl&is_video=false)
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
- Ingredients
-
- Method
  
  
  ### Ingredients 
@@ -112,8 +78,6 @@ So why not give this recipe a try tomorrow? Your taste buds—and your body—wi
 - 1/4 cup blueberries
 - 1/4 cup raspberries
 - 1 tbsp [Honey](https://amzn.to/44rhrke)
-
- 
  
  
  ### Method 
