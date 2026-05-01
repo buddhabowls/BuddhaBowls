@@ -7,8 +7,6 @@ excerpt: ""
 categories: []
 tags: []
 ---
-Hey there, foodies!
-
 Today, I’m super excited to share with you a delicious and healthy recipe for Achiote Chicken Buddha Bowl served in a coconut bowl. Not only is this dish a feast for your taste buds, but it’s also a treat for your eyes and soul. So, let’s dive right in and talk about this Mexican-inspired Buddha Bowl and how it can bring mindfulness to your mealtime.
 
 First off, let’s talk about what exactly a Buddha Bowl is. A Buddha Bowl is a vibrant and nourishing one-bowl meal that’s packed with a variety of healthy ingredients. It typically consists of a base (like rice or quinoa), a protein (such as chicken, tofu, or beans), an assortment of vegetables, and a flavorful dressing or sauce. The beauty of a Buddha Bowl lies in its versatility—you can customize it to your liking and get creative with the ingredients.
@@ -79,72 +77,4 @@ I hope this blog post has inspired you to get creative in the kitchen and embrac
 
 - Assemble the bowls: Start with a base of quinoa, then add chicken, black beans, avocado, tomatoes, and onion.
 
-- Garnish with cilantro and serve with lime wedges.
-
- 
-
- 
-
- 
- 
- 
- 
- 
- 
- 
- 
- ## Achiote Chicken Buddha Bowl
-
- 
- 
- 
- 
- 
- 
- [Print Recipe](https://buddhabowls.org/wprm_print/achiote-chicken-buddha-bowl)
- [Pin Recipe](https://www.pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fbuddhabowls.org%2Fachiote-chicken-buddha-bowl%2F&media=https%3A%2F%2Fbuddhabowls.org%2Fwp-content%2Fuploads%2FAchiote-Chicken-buddha-bowl-3.jpg&description=Achiote+Chicken+Buddha+Bowl&is_video=false)
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
- Ingredients
-
- Method
- 
- 
- ### Ingredients 
-
- - 2 boneless skinless chicken breasts
-- 2 tbsp achiote paste
-- 2 tbsp olive oil
-- 1 cup quinoa
-- 2 cups water
-- 1 can black beans drained and rinsed
-- 1 avocado sliced
-- 1 cup cherry tomatoes halved
-- 1/2 red onion thinly sliced
-- 1/4 cup cilantro chopped
-- Lime wedges for serving
-
- 
- 
- 
- ### Method 
-
-- In a bowl, mix achiote paste with olive oil. Rub the mixture over the chicken breasts.
-- Grill or pan-fry the chicken for about 6-8 minutes per side, or until cooked through. Set aside to rest.
-- In a saucepan, combine quinoa and water. Bring to a boil, then reduce heat and simmer for 15 minutes.
-- While quinoa is cooking, prepare the other ingredients: slice avocado, halve tomatoes, and slice onion.
-- Heat the black beans in a small saucepan.
-- Slice the cooked chicken.
-- Assemble the bowls: Start with a base of quinoa, then add chicken, black beans, avocado, tomatoes, and onion.
 - Garnish with cilantro and serve with lime wedges.
