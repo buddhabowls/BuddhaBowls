@@ -1,25 +1,33 @@
 ---
-layout: recipe-card
+layout: recipe
 title: Green Goddess Coconut Bowl
-summary: >
-  
-description: >
-  
-course: Main Course
-cuisine: American
-image: Green-Goddess-buddha-bowl-1.jpg
-permalink: /recipes/green-goddess-coconut-bowl/
-servings: '2'
-prepTime: '10 mins'
-cookTime: '5 mins'
-totalTime: '15 mins'
-calories: '250'
-protein: '15'
-carbs: '30'
-fat: '8'
-fiber: '5'
-sugar: '10'
-sodium: '500'
+description: A delicious  recipe
+mindful_moment: Take a moment to appreciate the fresh ingredients in this  .
+permalink: /green-goddess-coconut-bowl/
+
+recipe_name: Green Goddess Coconut Bowl
+health_benefits_intro: "Rich in potassium and B vitamins, Probiotics for gut health"
+summary: A delicious  recipe
+
+servings: 4
+prepTime: 15 mins
+cookTime: 30 mins
+totalTime: 45 mins
+
+course: 
+cuisine: 
+
+calories: 37.0
+protein: 2.8
+carbs: 6.6
+fat: 0.2
+fiber: 0.7
+sugar: 3.8
+sodium: 0.0
+
+dietary: vegetarian
+tips: Serve fresh and enjoy! Feel free to substitute ingredients based on your preferences.
+
 ingredients:
   - avocado
   - banana
@@ -27,9 +35,12 @@ ingredients:
   - pumpkin seeds
   - Sliced kiwi
   - spirulina
+
 instructions:
   - Blend coconut yogurt, avocado, banana, and spirulina until smooth.
   - Top with pumpkin seeds and kiwi slices.
-notes: >
-  <p>Adjust spirulina to taste; it can be strong for some.</p>
+
+health_benefits:
+  - "Rich in potassium and B vitamins"
+  - "Probiotics for gut health"
 ---
