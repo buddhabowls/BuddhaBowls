@@ -8,9 +8,6 @@ categories: []
 tags: []
 ---
 
-[ Jump to Recipe](#recipe)
-
-[ Print Recipe](https://buddhabowls.org/wprm_print/asian-grain-bowl)
 **Wholesome and Flavorful: The Asian Grain Bowl Experience**
 
 If you’re looking for a meal that’s as nourishing as it is delicious, look no further than the Asian Grain Bowl. This vibrant dish is a perfect blend of wholesome ingredients, bold flavors, and eye-catching colors. Served in a charming coconut bowl, it’s not just food—it’s an experience. Whether you’re prepping a quick lunch or planning a light dinner, this bowl has you covered with its balance of nutrition and taste.
@@ -102,31 +99,6 @@ So why not give this recipe a try? With its vibrant flavors, wholesome ingredien
  
  
  ## Asian Grain Bowl
-
- 
- 
- 
- 
- 
- 
- [Print Recipe](https://buddhabowls.org/wprm_print/asian-grain-bowl)
- [Pin Recipe](https://www.pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fbuddhabowls.org%2Fasian-grain-bowl%2F&media=https%3A%2F%2Fbuddhabowls.org%2Fwp-content%2Fuploads%2F2024%2F11%2FHarvest-Grain-Buddha-Bowl-1.jpg&description=Asian+Grain+Bowl&is_video=false)
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
- Ingredients
-
- Method
  
  
  ### Ingredients 
@@ -138,8 +110,6 @@ So why not give this recipe a try? With its vibrant flavors, wholesome ingredien
 - 1/4 avocado
 - 2 tbsp [Soy Sauce](https://amzn.to/48Vf7mR)
 - sesame seeds
-
- 
  
  
  ### Method 
