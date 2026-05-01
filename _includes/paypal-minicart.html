@@ -1,0 +1,126 @@
+<div id="paypal-minicart" class="minicart-overlay" style="display: none;">
+  <div class="minicart-content">
+    <button class="minicart-close" onclick="closeMiniCart()">✕</button>
+    <h2>Shopping Cart</h2>
+    <div id="cart-items"></div>
+    <div id="paypal-container"></div>
+    <button onclick="continueShopping()" class="btn-continue">Continue Shopping</button>
+  </div>
+</div>
+
+<style>
+  .minicart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 1000;
+  }
+
+  .minicart-content {
+    background: white;
+    width: 400px;
+    height: 100%;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .minicart-close {
+    float: right;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .btn-continue {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #0070ba;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  @media (max-width: 600px) {
+    .minicart-content {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  let cart = [];
+
+  function addToCart(productName, price, productId) {
+    cart.push({ name: productName, price: price, id: productId });
+    showMiniCart();
+    updateCartDisplay();
+  }
+
+  function showMiniCart() {
+    document.getElementById('paypal-minicart').style.display = 'flex';
+  }
+
+  function closeMiniCart() {
+    document.getElementById('paypal-minicart').style.display = 'none';
+  }
+
+  function continueShopping() {
+    closeMiniCart();
+  }
+
+  function updateCartDisplay() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    cartItemsDiv.innerHTML = '';
+    
+    cart.forEach((item, index) => {
+      cartItemsDiv.innerHTML += `
+        <div class="cart-item">
+          <span>${item.name} - $${item.price}</span>
+          <button onclick="removeFromCart(${index})">Remove</button>
+        </div>
+      `;
+    });
+  }
+
+  function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartDisplay();
+  }
+
+  // Initialize PayPal Buttons
+  paypal.Buttons({
+    createOrder: (data, actions) => {
+      const items = cart.map(item => ({
+        name: item.name,
+        unit_amount: { currency_code: 'USD', value: item.price.toString() },
+        quantity: '1'
+      }));
+
+      return actions.order.create({
+        purchase_units: [{
+          items: items,
+          amount: {
+            currency_code: 'USD',
+            value: cart.reduce((sum, item) => sum + parseFloat(item.price), 0).toString()
+          }
+        }]
+      });
+    },
+    onApprove: (data, actions) => {
+      return actions.order.capture().then(() => {
+        alert('Payment successful!');
+        cart = [];
+        closeMiniCart();
+      });
+    }
+  }).render('#paypal-container');
+</script>
