@@ -74,7 +74,8 @@ Happy cooking—and even happier eating!
 ## Autumn Harvest Buddha Bowl Recipe
 
 **Ingredients:
-**1 cup quinoa, 
+
+1 cup quinoa, 
 
 1/2 cup roasted sweet potatoes, 
 
@@ -87,7 +88,8 @@ Happy cooking—and even happier eating!
 Maple mustard dressing
 
 **Instructions:
-**Cook quinoa according to package instructions. 
+
+Cook quinoa according to package instructions. 
 
 Roast sweet potatoes and Brussels sprouts at 400°F for 25 minutes.
 
@@ -96,7 +98,8 @@ Combine quinoa, sweet potatoes, Brussels sprouts, cranberries, and pecans in a b
 Drizzle with maple mustard dressing.
 
 **Notes:
-**Add a sprinkle of goat cheese. 
+
+Add a sprinkle of goat cheese. 
 
 Use a mix of kale and spinach for the base.
 
