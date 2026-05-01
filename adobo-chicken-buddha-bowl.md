@@ -35,8 +35,6 @@ So there you have it – a delightful Adobo Chicken Buddha Bowl recipe served in
 
 **Happy cooking!**
 
-Mexican-Inspired Buddha Bowls
-
 Adobo Chicken Buddha Bowl Recipe
 
 Ingredients:
@@ -53,44 +51,16 @@ Ingredients:
 lime wedge
 
 Instructions:
+
 Cook rice as instructed.
 
 Top with adobo chicken, black beans, corn, pico de gallo, and a lime wedge.
-
- 
- 
- 
  
  
  
  
  
  ## Adobo Chicken Buddha Bowl
-
- 
- 
- 
- 
- 
- 
- [Print Recipe](https://buddhabowls.org/wprm_print/adobo-chicken-buddha-bowl)
- [Pin Recipe](https://www.pinterest.com/pin/create/bookmarklet/?url=https%3A%2F%2Fbuddhabowls.org%2Fadobo-chicken-buddha-bowl%2F&media=https%3A%2F%2Fbuddhabowls.org%2Fwp-content%2Fuploads%2Fadobo-chicken-buddha-Bowl-1.jpg&description=Adobo+Chicken+Buddha+Bowl&is_video=false)
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
- Ingredients
-
- Method
  
  
  ### Ingredients 
