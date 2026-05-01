@@ -3,7 +3,7 @@ layout: recipe
 title: Green Goddess Coconut Bowl
 description: A delicious  recipe
 mindful_moment: Take a moment to appreciate the fresh ingredients in this  .
-permalink: /green-goddess-coconut-bowl/
+permalink: /green-goddess-bowl/
 
 recipe_name: Green Goddess Coconut Bowl
 health_benefits_intro: "Rich in potassium and B vitamins, Probiotics for gut health"
